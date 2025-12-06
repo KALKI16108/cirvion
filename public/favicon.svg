@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="CIRVION favicon">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#00C8FF"/>
+      <stop offset="100%" stop-color="#00A0E6"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="12" fill="url(#g)" />
+  <g transform="translate(8,8)">
+    <!-- Stylized 'C' mark -->
+    <path d="M28 8c-7.732 0-14 6.268-14 14s6.268 14 14 14c3.314 0 6.314-1.207 8.687-3.219a2 2 0 0 0-2.657-2.962C32.06 34.447 30.112 35 28 35c-5.523 0-10-4.477-10-10s4.477-10 10-10c2 0 3.9.59 5.464 1.636a2 2 0 1 0 2.072-3.272C33.656 8.86 30.955 8 28 8z" fill="#0F172A"/>
+  </g>
+</svg>
