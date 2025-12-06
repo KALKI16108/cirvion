@@ -12,6 +12,22 @@
 }
 
 @layer base {
+  html {
+    font-size: 14px;
+  }
+
+  @screen sm {
+    html {
+      font-size: 15px;
+    }
+  }
+
+  @screen md {
+    html {
+      font-size: 16px;
+    }
+  }
+
   body {
     @apply bg-dark text-slate-50 font-sans antialiased overflow-x-hidden;
     background-image:
@@ -31,11 +47,11 @@
 
 @layer components {
   .container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6;
+    @apply max-w-7xl mx-auto px-3 sm:px-4 md:px-6;
   }
 
   .section {
-    @apply py-16 sm:py-24 md:py-32 relative;
+    @apply py-12 sm:py-16 md:py-24 lg:py-32 relative;
   }
 
   .text-gradient-primary {

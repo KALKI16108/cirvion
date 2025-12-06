@@ -7,36 +7,36 @@ const CaseStudyCard = ({ industry, problem, solution, outcomes, delay }) => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay, duration: 0.6 }}
-        className="glass-card rounded-3xl overflow-hidden group"
+        className="glass-card rounded-xl sm:rounded-2xl md:rounded-3xl overflow-hidden group"
     >
-        <div className="p-10">
-            <div className="flex items-center justify-between mb-8">
-                <div className="px-4 py-1 rounded-full bg-[#00C8FF]/10 border border-[#00C8FF]/20 text-[#00C8FF] text-xs font-bold tracking-wider uppercase">
+        <div className="p-5 sm:p-6 md:p-8 lg:p-10">
+            <div className="flex items-center justify-between mb-4 sm:mb-6 md:mb-8">
+                <div className="px-2 sm:px-3 md:px-4 py-1 rounded-full bg-[#00C8FF]/10 border border-[#00C8FF]/20 text-[#00C8FF] text-[10px] sm:text-xs font-bold tracking-wider uppercase">
                     {industry}
                 </div>
             </div>
 
-            <div className="space-y-8">
+            <div className="space-y-4 sm:space-y-6 md:space-y-8">
                 <div>
-                    <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
+                    <h4 className="text-white font-semibold mb-1 sm:mb-2 flex items-center gap-2 text-sm sm:text-base">
                         <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span> Problem
                     </h4>
-                    <p className="text-[#94A3B8] text-sm leading-relaxed">{problem}</p>
+                    <p className="text-[#94A3B8] text-xs sm:text-sm leading-relaxed">{problem}</p>
                 </div>
 
                 <div>
-                    <h4 className="text-white font-semibold mb-2 flex items-center gap-2">
+                    <h4 className="text-white font-semibold mb-1 sm:mb-2 flex items-center gap-2 text-sm sm:text-base">
                         <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span> Solution
                     </h4>
-                    <p className="text-[#94A3B8] text-sm leading-relaxed">{solution}</p>
+                    <p className="text-[#94A3B8] text-xs sm:text-sm leading-relaxed">{solution}</p>
                 </div>
 
-                <div className="pt-8 border-t border-white/5">
-                    <div className="grid grid-cols-3 gap-4">
+                <div className="pt-4 sm:pt-6 md:pt-8 border-t border-white/5">
+                    <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4">
                         {outcomes.map((outcome, idx) => (
                             <div key={idx} className="text-center">
-                                <div className="text-transparent bg-clip-text bg-gradient-to-r from-[#00C8FF] to-[#6366F1] font-bold text-2xl mb-1">{outcome.value}</div>
-                                <div className="text-[#64748B] text-[10px] uppercase tracking-wider font-semibold">{outcome.label}</div>
+                                <div className="text-transparent bg-clip-text bg-gradient-to-r from-[#00C8FF] to-[#6366F1] font-bold text-base sm:text-lg md:text-xl lg:text-2xl mb-0.5 sm:mb-1">{outcome.value}</div>
+                                <div className="text-[#64748B] text-[8px] sm:text-[10px] uppercase tracking-wider font-semibold">{outcome.label}</div>
                             </div>
                         ))}
                     </div>
@@ -49,13 +49,13 @@ const CaseStudyCard = ({ industry, problem, solution, outcomes, delay }) => (
 const CaseStudies = () => {
     return (
         <section id="case-studies" className="section bg-[#030712]/50">
-            <div className="container mx-auto px-6">
-                <div className="text-center mb-20">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6">Real Results. Real Efficiency.</h2>
-                    <p className="text-lg text-[#94A3B8]">See how we've helped other businesses scale.</p>
+            <div className="container mx-auto px-4 sm:px-6">
+                <div className="text-center mb-10 sm:mb-14 md:mb-20">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-5 md:mb-6">Real Results. Real Efficiency.</h2>
+                    <p className="text-sm sm:text-base md:text-lg text-[#94A3B8]">See how we've helped other businesses scale.</p>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-8">
+                <div className="grid md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
                     <CaseStudyCard
                         industry="Healthcare"
                         problem="Slow appointment follow-ups + manual reminders leading to no-shows."

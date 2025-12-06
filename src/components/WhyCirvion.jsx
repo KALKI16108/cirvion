@@ -3,16 +3,16 @@ import { CheckCircle2, Cpu } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const FeatureItem = ({ text }) => (
-    <div className="flex items-center gap-3 mb-4 group">
-        <CheckCircle2 className="text-[#00C8FF] w-5 h-5 flex-shrink-0 group-hover:scale-110 transition-transform" />
-        <span className="text-[#CBD5E1] font-medium group-hover:text-white transition-colors">{text}</span>
+    <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4 group">
+        <CheckCircle2 className="text-[#00C8FF] w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 group-hover:scale-110 transition-transform" />
+        <span className="text-sm sm:text-base text-[#CBD5E1] font-medium group-hover:text-white transition-colors">{text}</span>
     </div>
 );
 
 const StatItem = ({ value, label }) => (
-    <div className="text-center p-8 rounded-2xl bg-[#1E293B]/30 border border-white/5 backdrop-blur-sm hover:bg-[#1E293B]/50 transition-colors">
-        <div className="text-4xl md:text-5xl font-bold text-[#00C8FF] mb-2">{value}</div>
-        <div className="text-sm text-[#94A3B8] uppercase tracking-wider font-semibold">{label}</div>
+    <div className="text-center p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl bg-[#1E293B]/30 border border-white/5 backdrop-blur-sm hover:bg-[#1E293B]/50 transition-colors">
+        <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#00C8FF] mb-1 sm:mb-2">{value}</div>
+        <div className="text-[10px] sm:text-xs md:text-sm text-[#94A3B8] uppercase tracking-wider font-semibold">{label}</div>
     </div>
 );
 
@@ -22,22 +22,22 @@ const WhyCirvion = () => {
             {/* Background decoration */}
             <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#00C8FF]/5 to-transparent pointer-events-none"></div>
 
-            <div className="container mx-auto px-6 relative z-10">
-                <div className="grid md:grid-cols-2 gap-16 items-center mb-20">
+            <div className="container mx-auto px-4 sm:px-6 relative z-10">
+                <div className="grid md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center mb-12 sm:mb-16 md:mb-20">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-5 md:mb-6">
                             Why Businesses Choose <span className="text-gradient-primary">CIRVION</span>
                         </h2>
-                        <p className="text-lg text-[#94A3B8] mb-8 leading-relaxed">
-                            We don’t just automate tasks. We engineer systems that make your operations faster, smoother, and measurable.
+                        <p className="text-sm sm:text-base md:text-lg text-[#94A3B8] mb-6 sm:mb-7 md:mb-8 leading-relaxed">
+                            We don't just automate tasks. We engineer systems that make your operations faster, smoother, and measurable.
                         </p>
 
-                        <div className="grid sm:grid-cols-2 gap-x-8 gap-y-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 sm:gap-x-6 md:gap-x-8 gap-y-2 sm:gap-y-3 md:gap-y-4">
                             <FeatureItem text="Precision workflow analysis" />
                             <FeatureItem text="Custom AI system design" />
                             <FeatureItem text="Enterprise-grade integration" />
@@ -90,7 +90,7 @@ const WhyCirvion = () => {
                     </motion.div>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
                     <StatItem value="50–70%" label="Manual Workload Reduction" />
                     <StatItem value="3x" label="Faster Response Speed" />
                     <StatItem value="24/7" label="Automated Operations" />

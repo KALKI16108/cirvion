@@ -74,82 +74,85 @@ const ContactFooter = () => {
             {showTerms && <TermsOfService onClose={() => setShowTerms(false)} />}
             {showCookie && <CookiePolicy onClose={() => setShowCookie(false)} />}
 
-            <footer id="contact" className="bg-[#030712] border-t border-white/5 pt-32 pb-12 relative overflow-hidden">
+            <footer id="contact" className="bg-[#030712] border-t border-white/5 pt-16 sm:pt-20 md:pt-24 lg:pt-32 pb-6 sm:pb-8 md:pb-12 relative overflow-hidden">
                 {/* Footer Glow */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-[#00C8FF]/5 rounded-full blur-[120px] pointer-events-none"></div>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] sm:w-[800px] md:w-[1000px] h-[300px] sm:h-[400px] md:h-[500px] bg-[#00C8FF]/5 rounded-full blur-[120px] pointer-events-none"></div>
 
-                <div className="container mx-auto px-6 relative z-10">
-                    <div className="grid lg:grid-cols-2 gap-24 mb-24">
+                <div className="container mx-auto px-4 sm:px-6 relative z-10">
+                    <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 md:gap-16 lg:gap-24 mb-10 sm:mb-12 md:mb-16 lg:mb-24">
 
                         {/* Left Column: Contact Info */}
                         <div>
-                            <div className="mb-12">
-                                <a href="#" className="flex items-center mb-6">
-                                    <Logo className="h-10" />
+                            <div className="mb-8 sm:mb-10 md:mb-12">
+                                <a href="#" className="flex items-center mb-4 sm:mb-5 md:mb-6">
+                                    <img src="/logo.png" alt="CIRVION Logo" className="h-8 sm:h-10 w-auto" />
                                 </a>
-                                <p className="text-[#94A3B8] text-lg max-w-md leading-relaxed">
+                                <p className="text-[#94A3B8] text-sm sm:text-base md:text-lg max-w-md leading-relaxed">
                                     Empowering businesses with intelligent automation.
                                     Stop working in your business, start working on it.
                                 </p>
                             </div>
 
-                            <div className="space-y-8 mb-12">
-                                <div className="flex items-start gap-6 group cursor-default">
-                                    <div className="w-14 h-14 rounded-2xl bg-[#1E293B] border border-white/5 flex items-center justify-center group-hover:bg-[#00C8FF] group-hover:border-[#00C8FF] transition-all duration-300 shadow-lg">
-                                        <MapPin className="text-[#00C8FF] w-6 h-6 group-hover:text-white transition-colors" />
+                            <div className="space-y-4 sm:space-y-6 md:space-y-8 mb-8 sm:mb-10 md:mb-12">
+                                <div className="flex items-start gap-3 sm:gap-4 md:gap-6 group cursor-default">
+                                    <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl sm:rounded-2xl bg-[#1E293B] border border-white/5 flex items-center justify-center group-hover:bg-[#00C8FF] group-hover:border-[#00C8FF] transition-all duration-300 shadow-lg flex-shrink-0">
+                                        <MapPin className="text-[#00C8FF] w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 group-hover:text-white transition-colors" />
                                     </div>
                                     <div>
-                                        <h4 className="text-white font-bold text-lg mb-1">Headquarters</h4>
-                                        <p className="text-[#94A3B8]">Mumbai, India</p>
+                                        <h4 className="text-white font-bold text-sm sm:text-base md:text-lg mb-0.5 sm:mb-1">Headquarters</h4>
+                                        <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base">Mumbai, India</p>
                                     </div>
                                 </div>
 
-                                <div className="flex items-start gap-6 group cursor-default">
-                                    <div className="w-14 h-14 rounded-2xl bg-[#1E293B] border border-white/5 flex items-center justify-center group-hover:bg-[#00C8FF] group-hover:border-[#00C8FF] transition-all duration-300 shadow-lg">
-                                        <Mail className="text-[#00C8FF] w-6 h-6 group-hover:text-white transition-colors" />
+                                <div className="flex items-start gap-3 sm:gap-4 md:gap-6 group cursor-default">
+                                    <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl sm:rounded-2xl bg-[#1E293B] border border-white/5 flex items-center justify-center group-hover:bg-[#00C8FF] group-hover:border-[#00C8FF] transition-all duration-300 shadow-lg flex-shrink-0">
+                                        <Mail className="text-[#00C8FF] w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 group-hover:text-white transition-colors" />
                                     </div>
                                     <div>
-                                        <h4 className="text-white font-bold text-lg mb-1">Email Us</h4>
-                                        <p className="text-[#94A3B8]">siddhantpitale125@gmail.com</p>
+                                        <h4 className="text-white font-bold text-sm sm:text-base md:text-lg mb-0.5 sm:mb-1">Email Us</h4>
+                                        <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base break-all">siddhantpitale125@gmail.com</p>
                                     </div>
                                 </div>
 
-                                <div className="flex items-start gap-6 group cursor-default">
-                                    <div className="w-14 h-14 rounded-2xl bg-[#1E293B] border border-white/5 flex items-center justify-center group-hover:bg-[#00C8FF] group-hover:border-[#00C8FF] transition-all duration-300 shadow-lg">
-                                        <Phone className="text-[#00C8FF] w-6 h-6 group-hover:text-white transition-colors" />
+                                <div className="flex items-start gap-3 sm:gap-4 md:gap-6 group cursor-default">
+                                    <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-xl sm:rounded-2xl bg-[#1E293B] border border-white/5 flex items-center justify-center group-hover:bg-[#00C8FF] group-hover:border-[#00C8FF] transition-all duration-300 shadow-lg flex-shrink-0">
+                                        <Phone className="text-[#00C8FF] w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 group-hover:text-white transition-colors" />
                                     </div>
                                     <div>
-                                        <h4 className="text-white font-bold text-lg mb-1">WhatsApp</h4>
-                                        <p className="text-[#94A3B8]">+91 99307 44723</p>
+                                        <h4 className="text-white font-bold text-sm sm:text-base md:text-lg mb-0.5 sm:mb-1">WhatsApp</h4>
+                                        <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base">+91 99307 44723</p>
                                     </div>
                                 </div>
                             </div>
 
                             <div>
-                                <h4 className="text-white font-semibold mb-6">Connect With Us</h4>
-                                <div className="flex gap-4">
-                                    <a href="#" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-[#1E293B] border border-white/5 flex items-center justify-center text-[#94A3B8] hover:bg-[#00C8FF] hover:text-white hover:border-[#00C8FF] transition-all duration-300 hover:-translate-y-1 shadow-lg">
-                                        <Linkedin size={20} />
+                                <h4 className="text-white font-semibold mb-3 sm:mb-4 md:mb-6 text-sm sm:text-base">Connect With Us</h4>
+                                <div className="flex gap-3 sm:gap-4">
+                                    <a href="#" target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#1E293B] border border-white/5 flex items-center justify-center text-[#94A3B8] hover:bg-[#00C8FF] hover:text-white hover:border-[#00C8FF] transition-all duration-300 hover:-translate-y-1 shadow-lg">
+                                        <Linkedin size={16} className="sm:hidden" />
+                                        <Linkedin size={20} className="hidden sm:block" />
                                     </a>
-                                    <a href="#" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-[#1E293B] border border-white/5 flex items-center justify-center text-[#94A3B8] hover:bg-[#00C8FF] hover:text-white hover:border-[#00C8FF] transition-all duration-300 hover:-translate-y-1 shadow-lg">
-                                        <Twitter size={20} />
+                                    <a href="#" target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#1E293B] border border-white/5 flex items-center justify-center text-[#94A3B8] hover:bg-[#00C8FF] hover:text-white hover:border-[#00C8FF] transition-all duration-300 hover:-translate-y-1 shadow-lg">
+                                        <Twitter size={16} className="sm:hidden" />
+                                        <Twitter size={20} className="hidden sm:block" />
                                     </a>
-                                    <a href="https://www.instagram.com/circuit.vision.ai/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-[#1E293B] border border-white/5 flex items-center justify-center text-[#94A3B8] hover:bg-[#00C8FF] hover:text-white hover:border-[#00C8FF] transition-all duration-300 hover:-translate-y-1 shadow-lg">
-                                        <Instagram size={20} />
+                                    <a href="https://www.instagram.com/circuit.vision.ai/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#1E293B] border border-white/5 flex items-center justify-center text-[#94A3B8] hover:bg-[#00C8FF] hover:text-white hover:border-[#00C8FF] transition-all duration-300 hover:-translate-y-1 shadow-lg">
+                                        <Instagram size={16} className="sm:hidden" />
+                                        <Instagram size={20} className="hidden sm:block" />
                                     </a>
                                 </div>
                             </div>
                         </div>
 
                         {/* Right Column: Form */}
-                        <div className="bg-[#1E293B]/30 backdrop-blur-xl border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl">
-                            <h2 className="text-3xl font-bold text-white mb-2">Get in Touch</h2>
-                            <p className="text-[#94A3B8] mb-8">Fill out the form below and we'll get back to you within 24 hours.</p>
+                        <div className="bg-[#1E293B]/30 backdrop-blur-xl border border-white/10 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-2xl">
+                            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1 sm:mb-2">Get in Touch</h2>
+                            <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base mb-4 sm:mb-6 md:mb-8">Fill out the form below and we'll get back to you within 24 hours.</p>
 
-                            <form className="space-y-6" onSubmit={handleSubmit}>
-                                <div className="grid md:grid-cols-2 gap-6">
+                            <form className="space-y-3 sm:space-y-4 md:space-y-6" onSubmit={handleSubmit}>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
                                     <div className="group">
-                                        <label className="block text-xs font-semibold text-[#64748B] uppercase tracking-wider mb-2 ml-1">Name</label>
+                                        <label className="block text-[10px] sm:text-xs font-semibold text-[#64748B] uppercase tracking-wider mb-1 sm:mb-2 ml-1">Name</label>
                                         <input
                                             type="text"
                                             name="name"
@@ -157,22 +160,22 @@ const ContactFooter = () => {
                                             onChange={handleChange}
                                             required
                                             placeholder="John Doe"
-                                            className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all placeholder:text-slate-700"
+                                            className="w-full bg-[#0F172A] border border-white/10 rounded-lg sm:rounded-xl px-3 sm:px-4 md:px-5 py-2.5 sm:py-3 md:py-4 text-sm sm:text-base text-white focus:outline-none focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all placeholder:text-slate-700"
                                         />
                                     </div>
                                     <div className="group">
-                                        <label className="block text-xs font-semibold text-[#64748B] uppercase tracking-wider mb-2 ml-1">Business</label>
+                                        <label className="block text-[10px] sm:text-xs font-semibold text-[#64748B] uppercase tracking-wider mb-1 sm:mb-2 ml-1">Business</label>
                                         <input
                                             type="text"
                                             name="business"
                                             value={formData.business}
                                             onChange={handleChange}
                                             placeholder="Company Ltd."
-                                            className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all placeholder:text-slate-700"
+                                            className="w-full bg-[#0F172A] border border-white/10 rounded-lg sm:rounded-xl px-3 sm:px-4 md:px-5 py-2.5 sm:py-3 md:py-4 text-sm sm:text-base text-white focus:outline-none focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all placeholder:text-slate-700"
                                         />
                                     </div>
                                 </div>
-                                <div className="grid md:grid-cols-2 gap-6">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
                                     <div className="group">
                                         <label className="block text-xs font-semibold text-[#64748B] uppercase tracking-wider mb-2 ml-1">Phone</label>
                                         <input
