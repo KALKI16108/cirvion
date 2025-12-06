@@ -177,18 +177,18 @@ const ContactFooter = () => {
                                 </div>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
                                     <div className="group">
-                                        <label className="block text-xs font-semibold text-[#64748B] uppercase tracking-wider mb-2 ml-1">Phone</label>
+                                        <label className="block text-[10px] sm:text-xs font-semibold text-[#64748B] uppercase tracking-wider mb-1 sm:mb-2 ml-1">Phone</label>
                                         <input
                                             type="tel"
                                             name="phone"
                                             value={formData.phone}
                                             onChange={handleChange}
                                             placeholder="+1 (555) 000-0000"
-                                            className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all placeholder:text-slate-700"
+                                            className="w-full bg-[#0F172A] border border-white/10 rounded-lg sm:rounded-xl px-3 sm:px-4 md:px-5 py-2.5 sm:py-3 md:py-4 text-sm sm:text-base text-white focus:outline-none focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all placeholder:text-slate-700"
                                         />
                                     </div>
                                     <div className="group">
-                                        <label className="block text-xs font-semibold text-[#64748B] uppercase tracking-wider mb-2 ml-1">Email</label>
+                                        <label className="block text-[10px] sm:text-xs font-semibold text-[#64748B] uppercase tracking-wider mb-1 sm:mb-2 ml-1">Email</label>
                                         <input
                                             type="email"
                                             name="email"
@@ -196,38 +196,38 @@ const ContactFooter = () => {
                                             onChange={handleChange}
                                             required
                                             placeholder="john@example.com"
-                                            className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all placeholder:text-slate-700"
+                                            className="w-full bg-[#0F172A] border border-white/10 rounded-lg sm:rounded-xl px-3 sm:px-4 md:px-5 py-2.5 sm:py-3 md:py-4 text-sm sm:text-base text-white focus:outline-none focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all placeholder:text-slate-700"
                                         />
                                     </div>
                                 </div>
                                 <div className="group">
-                                    <label className="block text-xs font-semibold text-[#64748B] uppercase tracking-wider mb-2 ml-1">Message</label>
+                                    <label className="block text-[10px] sm:text-xs font-semibold text-[#64748B] uppercase tracking-wider mb-1 sm:mb-2 ml-1">Message</label>
                                     <textarea
                                         name="message"
                                         value={formData.message}
                                         onChange={handleChange}
                                         required
                                         placeholder="Tell us about your automation goals..."
-                                        rows="4"
-                                        className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all placeholder:text-slate-700 resize-none"
+                                        rows="3"
+                                        className="w-full bg-[#0F172A] border border-white/10 rounded-lg sm:rounded-xl px-3 sm:px-4 md:px-5 py-2.5 sm:py-3 md:py-4 text-sm sm:text-base text-white focus:outline-none focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all placeholder:text-slate-700 resize-none"
                                     ></textarea>
                                 </div>
 
                                 <button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    className="w-full bg-gradient-to-r from-[#00C8FF] to-[#3B82F6] text-white font-bold py-5 rounded-xl hover:shadow-[0_0_30px_rgba(0,200,255,0.4)] transition-all flex items-center justify-center gap-2 group transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="w-full bg-gradient-to-r from-[#00C8FF] to-[#3B82F6] text-white font-bold text-sm sm:text-base py-3 sm:py-4 md:py-5 rounded-lg sm:rounded-xl hover:shadow-[0_0_30px_rgba(0,200,255,0.4)] transition-all flex items-center justify-center gap-2 group transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
                                     {isSubmitting ? 'Sending...' : 'Send Message'}
-                                    <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                    <Send className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                                 </button>
                             </form>
                         </div>
                     </div>
 
-                    <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[#64748B] text-sm">
+                    <div className="border-t border-white/5 pt-4 sm:pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4 text-[#64748B] text-xs sm:text-sm">
                         <p>&copy; {new Date().getFullYear()} CIRVION. All rights reserved.</p>
-                        <div className="flex gap-8">
+                        <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8">
                             <button onClick={() => setShowPrivacy(true)} className="hover:text-[#00C8FF] transition-colors">Privacy Policy</button>
                             <button onClick={() => setShowTerms(true)} className="hover:text-[#00C8FF] transition-colors">Terms of Service</button>
                             <button onClick={() => setShowCookie(true)} className="hover:text-[#00C8FF] transition-colors">Cookie Policy</button>
