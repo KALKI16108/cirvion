@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Send } from 'lucide-react';
-import PrivacyPolicy from './PrivacyPolicy';
-import TermsOfService from './TermsOfService';
-import CookiePolicy from './CookiePolicy';
+
+// Lazy-load modal components to reduce initial bundle size (performance optimization)
+const PrivacyPolicy = lazy(() => import('./PrivacyPolicy'));
+const TermsOfService = lazy(() => import('./TermsOfService'));
+const CookiePolicy = lazy(() => import('./CookiePolicy'));
 
 const ContactFooter = () => {
     const [showPrivacy, setShowPrivacy] = useState(false);
@@ -69,9 +71,12 @@ const ContactFooter = () => {
 
     return (
         <>
-            {showPrivacy && <PrivacyPolicy onClose={() => setShowPrivacy(false)} />}
-            {showTerms && <TermsOfService onClose={() => setShowTerms(false)} />}
-            {showCookie && <CookiePolicy onClose={() => setShowCookie(false)} />}
+            {/* Lazy-load modal components with Suspense (performance optimization) */}
+            <Suspense fallback={null}>
+                {showPrivacy && <PrivacyPolicy onClose={() => setShowPrivacy(false)} />}
+                {showTerms && <TermsOfService onClose={() => setShowTerms(false)} />}
+                {showCookie && <CookiePolicy onClose={() => setShowCookie(false)} />}
+            </Suspense>
 
             <footer id="contact" className="bg-[#030712] border-t border-white/5 pt-16 sm:pt-20 md:pt-24 lg:pt-32 pb-6 sm:pb-8 md:pb-12 relative overflow-hidden">
                 {/* Footer Glow */}
