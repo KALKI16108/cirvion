@@ -88,9 +88,6 @@ const ContactFooter = () => {
                         {/* Left Column: Contact Info */}
                         <div>
                             <div className="mb-8 sm:mb-10 md:mb-12">
-                                <a href="#" className="flex items-center mb-4 sm:mb-5 md:mb-6">
-                                    <img src="/logo.png" alt="CIRVION Logo" className="h-8 sm:h-10 w-auto" />
-                                </a>
                                 <p className="text-[#94A3B8] text-sm sm:text-base md:text-lg max-w-md leading-relaxed">
                                     Empowering businesses with intelligent automation.
                                     Stop working in your business, start working on it.
