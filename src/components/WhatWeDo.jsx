@@ -40,6 +40,8 @@ const WhatWeDo = () => {
                     <p className="text-sm sm:text-base md:text-lg text-[#94A3B8] px-2">
                         We transform slow, manual operations into intelligent, automated workflows. Our systems integrate seamlessly into your business.
                     </p>
+                    {/* Screen-reader-only: what solution we provide — concise solution statement for SEO */}
+                    <p className="sr-only">What we do: design and deploy custom AI agents, integrations, and workflow automations that replace manual processes.</p>
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-8">

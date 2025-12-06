@@ -35,6 +35,8 @@ const Industries = () => {
                 <div className="text-center mb-10 sm:mb-14 md:mb-20">
                     <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-5 md:mb-6">Industries We Transform</h2>
                     <div className="w-16 sm:w-20 md:w-24 h-1 bg-gradient-to-r from-[#00C8FF] to-transparent mx-auto rounded-full"></div>
+                    {/* Screen-reader-only: clarifies where solutions apply (keeps visuals unchanged) */}
+                    <p className="sr-only">Applicable industries include healthcare, real estate, finance, retail, education, services and logistics for workflow automation.</p>
                 </div>
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">

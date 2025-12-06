@@ -1,4 +1,4 @@
-Aimport React from 'react';
+import React from 'react';
 import { MessageSquare, Settings, Code2, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -63,6 +63,8 @@ const Services = () => {
                     <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#94A3B8] max-w-2xl mx-auto leading-relaxed px-2">
                         From simple task automation to complex enterprise AI agents, we build systems that handle your business operations.
                     </p>
+                    {/* Screen-reader-only: short service summary for SEO */}
+                    <p className="sr-only">Services: AI agents, process automation, system engineering and integrations tailored to business workflows.</p>
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">

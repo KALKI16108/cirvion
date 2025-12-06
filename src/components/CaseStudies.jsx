@@ -53,6 +53,8 @@ const CaseStudies = () => {
                 <div className="text-center mb-10 sm:mb-14 md:mb-20">
                     <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-5 md:mb-6">Real Results. Real Efficiency.</h2>
                     <p className="text-sm sm:text-base md:text-lg text-[#94A3B8]">See how we've helped other businesses scale.</p>
+                    {/* Screen-reader-only: concise outcomes focus for SEO/a11y */}
+                    <p className="sr-only">Case studies show reduced manual work, faster responses, and improved conversions from custom automation.</p>
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">

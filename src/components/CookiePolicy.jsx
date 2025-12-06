@@ -21,7 +21,8 @@ const CookiePolicy = ({ onClose }) => {
                         </button>
 
                         <div className="glass-card p-8 md:p-12 rounded-3xl">
-                            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Cookie Policy</h1>
+                            {/* Use h2 here to keep single main page H1 while preserving visual size/classes */}
+                            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Cookie Policy</h2>
                             <p className="text-[#94A3B8] mb-12">Last updated: December 12, 2025</p>
 
                             <div className="space-y-8 text-[#CBD5E1]">

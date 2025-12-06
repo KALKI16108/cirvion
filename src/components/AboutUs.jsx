@@ -29,6 +29,8 @@ const AboutUs = () => {
                             Engineering the <br className="hidden sm:block" />
                             <span className="text-gradient-primary">Future of Work.</span>
                         </h2>
+                        {/* Screen-reader-only: why choose CIRVION — adds concise differentiation for SEO/accessibility */}
+                        <p className="sr-only">Why CIRVION: deep process engineering plus custom AI systems that replace manual work and scale reliably.</p>
 
                         <p className="text-sm sm:text-base md:text-lg text-[#94A3B8] leading-relaxed mb-4 sm:mb-6 md:mb-8">
                             CIRVION isn't just an automation agency. We are architects of efficiency.

@@ -43,6 +43,8 @@ const Hero = () => {
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-6 md:mb-8 tracking-tight leading-[1.1]">
                         <span className="block text-white">Smarter Workflows,</span>
                         <span className="text-gradient-primary">Faster Growth.</span>
+                        {/* Screen-reader clarification: keeps visual headline unchanged but adds explicit service intent for SEO and accessibility */}
+                        <span className="sr-only">CIRVION — AI & automation consultancy delivering business workflow automation and custom AI systems.</span>
                     </h1>
 
                     {/* Subheadline */}
@@ -50,6 +52,8 @@ const Hero = () => {
                         We engineer intelligent automation systems that eliminate repetitive tasks,
                         accelerate operations, and empower your business to scale effortlessly.
                     </p>
+                    {/* One-line SEO/problem statement (screen-reader-only to avoid visual change): clarifies the problem we solve */}
+                    <p className="sr-only">We solve slow, repetitive business workflows by implementing custom AI-driven automation.</p>
 
                     {/* CTAs */}
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 px-4">

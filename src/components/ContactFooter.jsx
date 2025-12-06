@@ -3,7 +3,6 @@ import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Send } from 'lucide-
 import PrivacyPolicy from './PrivacyPolicy';
 import TermsOfService from './TermsOfService';
 import CookiePolicy from './CookiePolicy';
-import Logo from './Logo';
 
 const ContactFooter = () => {
     const [showPrivacy, setShowPrivacy] = useState(false);
@@ -91,6 +90,8 @@ const ContactFooter = () => {
                                     Empowering businesses with intelligent automation.
                                     Stop working in your business, start working on it.
                                 </p>
+                                {/* Screen-reader-only: short contact intent line for SEO and a11y */}
+                                <p className="sr-only">Contact CIRVION for a free automation audit and practical roadmap to reduce manual work.</p>
                             </div>
 
                             <div className="space-y-4 sm:space-y-6 md:space-y-8 mb-8 sm:mb-10 md:mb-12">
