@@ -40,7 +40,7 @@ const ContactFooter = () => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    access_key: 764755b8-1e72-4cb2-a43d-b4630d2877df , // Replace with your actual key
+                    access_key: '764755b8-1e72-4cb2-a43d-b4630d2877df', // Replace with your actual key
                     name: formData.name,
                     business: formData.business,
                     phone: formData.phone,
