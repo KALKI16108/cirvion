@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-dark: #030712;
+  --bg-card: #0F172A;
+  --primary: #00C8FF;
+  --primary-glow: rgba(0, 200, 255, 0.4);
+  --glass-bg: rgba(15, 23, 42, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+@layer base {
+  body {
+    @apply bg-dark text-slate-50 font-sans antialiased overflow-x-hidden;
+    background-image:
+      radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 25%),
+      radial-gradient(circle at 85% 30%, rgba(0, 200, 255, 0.08) 0%, transparent 25%);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading text-white leading-tight tracking-tight;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6;
+  }
+
+  .section {
+    @apply py-16 sm:py-24 md:py-32 relative;
+  }
+
+  .text-gradient-primary {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-[#00C8FF] to-[#6366F1];
+  }
+
+  .glass-card {
+    @apply bg-[#0F172A]/60 backdrop-blur-xl border border-white/10 shadow-xl transition-all duration-500;
+  }
+
+  .glass-card:hover {
+    @apply border-[#00C8FF]/30 shadow-glow-md -translate-y-1;
+  }
+
+  .btn-primary {
+    @apply relative overflow-hidden bg-gradient-to-r from-[#00C8FF] to-[#3B82F6] text-white font-bold rounded-full transition-all duration-300 shadow-glow-sm;
+  }
+
+  .btn-primary:hover {
+    @apply shadow-glow-lg scale-105;
+  }
+
+  .btn-secondary {
+    @apply bg-white/5 text-white font-bold rounded-full border border-white/10 backdrop-blur-sm transition-all duration-300;
+  }
+
+  .btn-secondary:hover {
+    @apply bg-white/10 border-white/30;
+  }
+}
+
+/* Utilities */
+.bg-grid {
+  background-size: 50px 50px;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+}
