@@ -4,6 +4,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Security: Prevent clickjacking attacks -->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <!-- Security: Prevent MIME-type sniffing -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <!-- Security: Prevent XSS attacks in older browsers -->
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+  <!-- Security: Content Security Policy - inline script protection -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://api.web3forms.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.web3forms.com; object-src 'none'; base-uri 'self'; form-action 'self'" />
   <!-- Title refined to include service intent keywords for SEO -->
   <title>CIRVION — AI & Automation Consultancy | Business Workflow Automation</title>
   <!-- Description tuned for service intent and primary keywords -->
@@ -18,6 +26,12 @@
   <link rel="canonical" href="https://www.cirvion.ai/" />
   <!-- Short keywords list focused on service intent -->
   <meta name="keywords" content="AI automation consultancy, business workflow automation, custom AI systems, automation for businesses" />
+  <!-- Security: Referrer policy for privacy -->
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <!-- Security: Disable email/phone auto-detection on mobile -->
+  <meta name="format-detection" content="telephone=no,email=no" />
+  <!-- Security: Prevent DNS prefetch to reduce privacy exposure -->
+  <meta http-equiv="x-dns-prefetch-control" content="off" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link

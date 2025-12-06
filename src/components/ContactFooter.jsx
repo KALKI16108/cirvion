@@ -6,6 +6,28 @@ const PrivacyPolicy = lazy(() => import('./PrivacyPolicy'));
 const TermsOfService = lazy(() => import('./TermsOfService'));
 const CookiePolicy = lazy(() => import('./CookiePolicy'));
 
+// Security: Input validation and sanitization
+const sanitizeInput = (input) => {
+    if (typeof input !== 'string') return '';
+    // Remove potentially dangerous characters and trim whitespace
+    return input
+        .trim()
+        .replace(/[<>\"\'`]/g, '') // Remove HTML/script tags
+        .slice(0, 500); // Limit length to 500 chars
+};
+
+const validateEmail = (email) => {
+    // Basic email validation regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+};
+
+const validatePhone = (phone) => {
+    // Allow digits, spaces, hyphens, parentheses, and + symbol
+    const phoneRegex = /^[0-9\s\-+()]+$/;
+    return phone === '' || phoneRegex.test(phone);
+};
+
 const ContactFooter = () => {
     const [showPrivacy, setShowPrivacy] = useState(false);
     const [showTerms, setShowTerms] = useState(false);
@@ -21,9 +43,12 @@ const ContactFooter = () => {
     const [submitStatus, setSubmitStatus] = useState('');
 
     const handleChange = (e) => {
+        const { name, value } = e.target;
+        // Security: Sanitize input to prevent XSS attacks
+        const sanitizedValue = sanitizeInput(value);
         setFormData({
             ...formData,
-            [e.target.name]: e.target.value
+            [name]: sanitizedValue
         });
     };
 
@@ -31,6 +56,35 @@ const ContactFooter = () => {
         e.preventDefault();
         setIsSubmitting(true);
         setSubmitStatus('');
+
+        // Security: Validate form data before submission
+        if (!sanitizeInput(formData.name) || formData.name.length < 2) {
+            setSubmitStatus('error');
+            alert('Please enter a valid name.');
+            setIsSubmitting(false);
+            return;
+        }
+
+        if (!validateEmail(formData.email)) {
+            setSubmitStatus('error');
+            alert('Please enter a valid email address.');
+            setIsSubmitting(false);
+            return;
+        }
+
+        if (formData.phone && !validatePhone(formData.phone)) {
+            setSubmitStatus('error');
+            alert('Please enter a valid phone number.');
+            setIsSubmitting(false);
+            return;
+        }
+
+        if (!sanitizeInput(formData.message) || formData.message.length < 5) {
+            setSubmitStatus('error');
+            alert('Please enter a message with at least 5 characters.');
+            setIsSubmitting(false);
+            return;
+        }
 
         try {
             // Using Web3Forms - FREE service that sends form data to your email
