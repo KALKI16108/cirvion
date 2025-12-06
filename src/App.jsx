@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import WhatWeDo from './components/WhatWeDo';
@@ -11,6 +11,13 @@ import CTA from './components/CTA';
 import ContactFooter from './components/ContactFooter';
 
 function App() {
+  // Ensure default load is at root (mywebsite.in) not (#contact)
+  useEffect(() => {
+    if (window.location.hash === '#contact' && window.location.pathname === '/') {
+      window.history.replaceState(null, '', '/');
+    }
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#0F172A] text-white selection:bg-[#00C8FF] selection:text-[#0F172A]">
       <Navbar />
