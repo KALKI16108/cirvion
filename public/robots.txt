@@ -1,0 +1,25 @@
+# CIRVION Global SEO Configuration
+# Instructs all search engines (Google, Bing, DuckDuckGo) that site is ready for indexing
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /.git/
+Disallow: /node_modules/
+Crawl-delay: 1
+
+# Specific rules for search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 2
+
+# Sitemap location (create sitemap.xml)
+Sitemap: https://www.cirvion.ai/sitemap.xml
