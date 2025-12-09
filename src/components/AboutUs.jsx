@@ -29,11 +29,11 @@ const AboutUs = () => {
                             Engineering the <br className="hidden sm:block" />
                             <span className="text-gradient-primary">Future of Work.</span>
                         </h2>
-                        {/* Screen-reader-only: why choose CIRVION — adds concise differentiation for SEO/accessibility */}
-                        <p className="sr-only">Why CIRVION: deep process engineering plus custom AI systems that replace manual work and scale reliably.</p>
+                        {/* Screen-reader-only: why choose AIFLOWIX — adds concise differentiation for SEO/accessibility */}
+                        <p className="sr-only">Why AIFLOWIX: deep process engineering plus custom AI systems that replace manual work and scale reliably.</p>
 
                         <p className="text-sm sm:text-base md:text-lg text-[#94A3B8] leading-relaxed mb-4 sm:mb-6 md:mb-8">
-                            CIRVION isn't just an automation agency. We are architects of efficiency.
+                            AIFLOWIX isn't just an automation agency. We are architects of efficiency.
                             We dissect complex business processes and rebuild them with intelligent AI systems
                             that operate with zero friction and infinite scalability.
                         </p>
@@ -86,7 +86,7 @@ const AboutUs = () => {
                                 <div className="space-y-4 font-mono text-sm">
                                     <div className="flex gap-4">
                                         <span className="text-[#64748B]">01</span>
-                                        <span className="text-[#C678DD]">class</span> <span className="text-[#E5C07B]">CirvionAutomator</span>:
+                                        <span className="text-[#C678DD]">class</span> <span className="text-[#E5C07B]">AiflowixAutomator</span>:
                                     </div>
                                     <div className="flex gap-4">
                                         <span className="text-[#64748B]">02</span>

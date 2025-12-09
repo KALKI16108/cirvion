@@ -13,7 +13,7 @@ export const useTheme = () => {
 export const ThemeProvider = ({ children }) => {
     const [theme, setTheme] = useState(() => {
         // Check localStorage or default to dark
-        const savedTheme = localStorage.getItem('cirvion-theme');
+        const savedTheme = localStorage.getItem('aiflowix-theme');
         return savedTheme || 'dark';
     });
 
@@ -21,7 +21,7 @@ export const ThemeProvider = ({ children }) => {
         // Update document class and localStorage
         document.documentElement.classList.remove('light', 'dark');
         document.documentElement.classList.add(theme);
-        localStorage.setItem('cirvion-theme', theme);
+        localStorage.setItem('aiflowix-theme', theme);
     }, [theme]);
 
     const toggleTheme = () => {

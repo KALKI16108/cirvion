@@ -57,7 +57,7 @@ const Logo = ({ className = "h-10" }) => {
                 <circle cx="200" cy="210" r="6" fill="#00C8FF" />
             </g>
 
-            {/* CIRVION Text */}
+            {/* AIFLOWIX Text */}
             <text
                 x="280"
                 y="220"
@@ -67,7 +67,7 @@ const Logo = ({ className = "h-10" }) => {
                 fill="white"
                 letterSpacing="-2"
             >
-                CIRVION
+                AIFLOWIX
             </text>
 
             {/* Subtitle */}

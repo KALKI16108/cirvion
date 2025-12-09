@@ -29,14 +29,14 @@ const TermsOfService = ({ onClose }) => {
                                 <section>
                                     <h2 className="text-2xl font-bold text-white mb-4">1. Acceptance of Terms</h2>
                                     <p className="leading-relaxed">
-                                        By accessing or using the CIRVION website or services, you agree to these Terms of Service. If you do not agree, do not use our services.
+                                        By accessing or using the AIFLOWIX website or services, you agree to these Terms of Service. If you do not agree, do not use our services.
                                     </p>
                                 </section>
 
                                 <section>
                                     <h2 className="text-2xl font-bold text-white mb-4">2. Services</h2>
                                     <p className="leading-relaxed">
-                                        CIRVION provides AI & automation consulting services including workflow automation, AI system setup, and technical advisory. Services may change or evolve over time.
+                                        AIFLOWIX provides AI & automation consulting services including workflow automation, AI system setup, and technical advisory. Services may change or evolve over time.
                                     </p>
                                 </section>
 
@@ -53,7 +53,7 @@ const TermsOfService = ({ onClose }) => {
                                 <section>
                                     <h2 className="text-2xl font-bold text-white mb-4">4. Intellectual Property</h2>
                                     <p className="leading-relaxed">
-                                        All content, branding, logos, and materials are owned by CIRVION unless stated otherwise. Unauthorized use is prohibited.
+                                        All content, branding, logos, and materials are owned by AIFLOWIX unless stated otherwise. Unauthorized use is prohibited.
                                     </p>
                                 </section>
 
@@ -67,7 +67,7 @@ const TermsOfService = ({ onClose }) => {
 
                                 <section>
                                     <h2 className="text-2xl font-bold text-white mb-4">6. Limitation of Liability</h2>
-                                    <p className="leading-relaxed mb-4">CIRVION is not responsible for:</p>
+                                    <p className="leading-relaxed mb-4">AIFLOWIX is not responsible for:</p>
                                     <ul className="space-y-2 ml-6">
                                         <li className="flex gap-3"><span className="text-[#00C8FF] mt-1">•</span>Business losses</li>
                                         <li className="flex gap-3"><span className="text-[#00C8FF] mt-1">•</span>Data loss due to third-party services</li>

@@ -44,7 +44,7 @@ const Hero = () => {
                         <span className="block text-white">Smarter Workflows,</span>
                         <span className="text-gradient-primary">Faster Growth.</span>
                         {/* Screen-reader clarification: keeps visual headline unchanged but adds explicit service intent for SEO and accessibility */}
-                        <span className="sr-only">CIRVION — AI & automation consultancy delivering business workflow automation and custom AI systems.</span>
+                        <span className="sr-only">AIFLOWIX — AI & automation consultancy delivering business workflow automation and custom AI systems.</span>
                     </h1>
 
                     {/* Subheadline */}
@@ -98,7 +98,7 @@ const Hero = () => {
                                 <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 rounded-full bg-yellow-500/50"></div>
                                 <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 rounded-full bg-green-500/50"></div>
                             </div>
-                            <div className="text-[10px] sm:text-xs text-[#64748B] font-mono">CIRVION_DASHBOARD_V2.0</div>
+                            <div className="text-[10px] sm:text-xs text-[#64748B] font-mono">AIFLOWIX_DASHBOARD_V2.0</div>
                         </div>
 
                         {/* Mock UI Content */}

@@ -29,7 +29,7 @@ const PrivacyPolicy = ({ onClose }) => {
                                 <section>
                                     <h2 className="text-2xl font-bold text-white mb-4">1. Introduction</h2>
                                     <p className="leading-relaxed">
-                                        CIRVION ("we," "our," "us") respects your privacy and is committed to protecting it. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website or use our services.
+                                        AIFLOWIX ("we," "our," "us") respects your privacy and is committed to protecting it. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website or use our services.
                                     </p>
                                 </section>
 

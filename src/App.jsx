@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import WhatWeDo from './components/WhatWeDo';
-import WhyCirvion from './components/WhyCirvion';
+import WhyAiflowix from './components/WhyAiflowix';
 import Services from './components/Services';
 import Industries from './components/Industries';
 import CaseStudies from './components/CaseStudies';
@@ -23,14 +23,14 @@ function App() {
       '@graph': [
         {
           '@type': 'Organization',
-          '@id': 'https://www.cirvion.ai/#organization',
-          'name': 'CIRVION',
-          'url': 'https://www.cirvion.ai',
+          '@id': 'https://www.aiflowix.in/#organization',
+          'name': 'AIFLOWIX',
+          'url': 'https://www.aiflowix.in',
           'description': 'AI & Business Workflow Automation Consultancy',
           'sameAs': [
-            'https://www.linkedin.com/company/cirvion',
-            'https://www.twitter.com/cirvion',
-            'https://www.instagram.com/cirvion'
+            'https://www.linkedin.com/company/aiflowix',
+            'https://www.twitter.com/aiflowix',
+            'https://www.instagram.com/aiflowix'
           ],
           'address': {
             '@type': 'PostalAddress',
@@ -49,18 +49,18 @@ function App() {
           },
           'logo': {
             '@type': 'ImageObject',
-            'url': 'https://www.cirvion.ai/assets/logo.png',
+            'url': 'https://www.aiflowix.in/assets/logo.png',
             'width': 250,
             'height': 60
           }
         },
         {
           '@type': 'LocalBusiness',
-          '@id': 'https://www.cirvion.ai/#localbusiness',
-          'name': 'CIRVION AI Automation',
+          '@id': 'https://www.aiflowix.in/#localbusiness',
+          'name': 'AIFLOWIX AI Automation',
           'description': 'Leading AI & automation consultancy for business workflow optimization in Mumbai',
-          'image': 'https://www.cirvion.ai/assets/og-image.png',
-          'url': 'https://www.cirvion.ai',
+          'image': 'https://www.aiflowix.in/assets/og-image.png',
+          'url': 'https://www.aiflowix.in',
           'address': {
             '@type': 'PostalAddress',
             'streetAddress': '123 Tech Park, Bandra Kurla Complex',
@@ -79,33 +79,33 @@ function App() {
         },
         {
           '@type': 'BreadcrumbList',
-          '@id': 'https://www.cirvion.ai/#breadcrumb',
+          '@id': 'https://www.aiflowix.in/#breadcrumb',
           'itemListElement': [
-            { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.cirvion.ai' },
-            { '@type': 'ListItem', 'position': 2, 'name': 'Services', 'item': 'https://www.cirvion.ai#services' },
-            { '@type': 'ListItem', 'position': 3, 'name': 'Case Studies', 'item': 'https://www.cirvion.ai#case-studies' },
-            { '@type': 'ListItem', 'position': 4, 'name': 'About', 'item': 'https://www.cirvion.ai#about' }
+            { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.aiflowix.in' },
+            { '@type': 'ListItem', 'position': 2, 'name': 'Services', 'item': 'https://www.aiflowix.in#services' },
+            { '@type': 'ListItem', 'position': 3, 'name': 'Case Studies', 'item': 'https://www.aiflowix.in#case-studies' },
+            { '@type': 'ListItem', 'position': 4, 'name': 'About', 'item': 'https://www.aiflowix.in#about' }
           ]
         },
         {
           '@type': 'WebPage',
-          '@id': 'https://www.cirvion.ai/#webpage',
-          'name': 'End-to-End AI Integration & Hyper-Automation | CIRVION',
+          '@id': 'https://www.aiflowix.in/#webpage',
+          'name': 'End-to-End AI Integration & Hyper-Automation | AIFLOWIX',
           'description': 'Enterprise-grade AI automation platform: End-to-end AI integration, operational efficiency, and hyper-automation solutions. Mumbai-based AI consultancy for workflow ROI optimization and intelligent process automation.',
-          'url': 'https://www.cirvion.ai',
-          'isPartOf': { '@id': 'https://www.cirvion.ai/#website' },
+          'url': 'https://www.aiflowix.in',
+          'isPartOf': { '@id': 'https://www.aiflowix.in/#website' },
           'potentialAction': {
             '@type': 'SearchAction',
-            'target': { '@type': 'EntryPoint', 'urlTemplate': 'https://www.cirvion.ai?q={search_term_string}' },
+            'target': { '@type': 'EntryPoint', 'urlTemplate': 'https://www.aiflowix.in?q={search_term_string}' },
             'query-input': 'required name=search_term_string'
           }
         },
         {
           '@type': 'Service',
-          '@id': 'https://www.cirvion.ai/#service-lead-qualifier',
+          '@id': 'https://www.aiflowix.in/#service-lead-qualifier',
           'name': 'Lead Qualifier AI',
           'description': 'Intelligent lead qualification automation that scores, filters, and prioritizes prospects in real-time, reducing manual qualification workload and improving conversion rates.',
-          'provider': { '@id': 'https://www.cirvion.ai/#organization' },
+          'provider': { '@id': 'https://www.aiflowix.in/#organization' },
           'areaServed': [
             { '@type': 'Country', 'name': 'India' },
             { '@type': 'Country', 'name': 'United States' },
@@ -118,21 +118,21 @@ function App() {
             'priceRange': '₹50000 - ₹500000',
             'price': '0',
             'pricingModel': 'Custom Enterprise Pricing',
-            'url': 'https://www.cirvion.ai#contact'
+            'url': 'https://www.aiflowix.in#contact'
           },
-          'image': 'https://www.cirvion.ai/assets/lead-qualifier-demo.png',
+          'image': 'https://www.aiflowix.in/assets/lead-qualifier-demo.png',
           'potentialAction': {
             '@type': 'ReserveAction',
-            'target': { '@type': 'EntryPoint', 'urlTemplate': 'https://www.cirvion.ai#contact', 'actionPlatform': 'http://schema.org/DesktopWebPlatform' },
+            'target': { '@type': 'EntryPoint', 'urlTemplate': 'https://www.aiflowix.in#contact', 'actionPlatform': 'http://schema.org/DesktopWebPlatform' },
             'name': 'Schedule Lead Qualifier Demo'
           }
         },
         {
           '@type': 'Service',
-          '@id': 'https://www.cirvion.ai/#service-document-digitization',
+          '@id': 'https://www.aiflowix.in/#service-document-digitization',
           'name': 'Document Digitization AI',
           'description': 'Enterprise document digitization powered by AI: intelligent extraction, OCR processing, and instant digital transformation of paper and PDF documents into structured, searchable data.',
-          'provider': { '@id': 'https://www.cirvion.ai/#organization' },
+          'provider': { '@id': 'https://www.aiflowix.in/#organization' },
           'areaServed': [
             { '@type': 'Country', 'name': 'India' },
             { '@type': 'Country', 'name': 'United States' },
@@ -145,12 +145,12 @@ function App() {
             'priceRange': '₹75000 - ₹750000',
             'price': '0',
             'pricingModel': 'Custom Enterprise Pricing',
-            'url': 'https://www.cirvion.ai#contact'
+            'url': 'https://www.aiflowix.in#contact'
           },
-          'image': 'https://www.cirvion.ai/assets/document-digitization-demo.png',
+          'image': 'https://www.aiflowix.in/assets/document-digitization-demo.png',
           'potentialAction': {
             '@type': 'ReserveAction',
-            'target': { '@type': 'EntryPoint', 'urlTemplate': 'https://www.cirvion.ai#contact', 'actionPlatform': 'http://schema.org/DesktopWebPlatform' },
+            'target': { '@type': 'EntryPoint', 'urlTemplate': 'https://www.aiflowix.in#contact', 'actionPlatform': 'http://schema.org/DesktopWebPlatform' },
             'name': 'Schedule Document Digitization Demo'
           }
         }
@@ -169,7 +169,7 @@ function App() {
       <main>
         <Hero />
         <WhatWeDo />
-        <WhyCirvion />
+        <WhyAiflowix />
         <Services />
         <Industries />
         <CaseStudies />

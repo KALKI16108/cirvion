@@ -16,7 +16,7 @@ const StatItem = ({ value, label }) => (
     </div>
 );
 
-const WhyCirvion = () => {
+const WhyAiflowix = () => {
     return (
         <section className="section relative overflow-hidden">
             {/* Background decoration */}
@@ -31,13 +31,13 @@ const WhyCirvion = () => {
                         transition={{ duration: 0.8 }}
                     >
                         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-5 md:mb-6">
-                            Why Businesses Choose <span className="text-gradient-primary">CIRVION</span>
+                            Why Businesses Choose <span className="text-gradient-primary">AIFLOWIX</span>
                         </h2>
                         <p className="text-sm sm:text-base md:text-lg text-[#94A3B8] mb-6 sm:mb-7 md:mb-8 leading-relaxed">
                             We don't just automate tasks. We engineer systems that make your operations faster, smoother, and measurable.
                         </p>
                         {/* Screen-reader-only: concise 'why' statement for SEO/accessibility */}
-                        <p className="sr-only">Why CIRVION: precise workflow analysis, enterprise-grade integrations, and measurable automation outcomes.</p>
+                        <p className="sr-only">Why AIFLOWIX: precise workflow analysis, enterprise-grade integrations, and measurable automation outcomes.</p>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 sm:gap-x-6 md:gap-x-8 gap-y-2 sm:gap-y-3 md:gap-y-4">
                             <FeatureItem text="Precision workflow analysis" />
@@ -102,4 +102,4 @@ const WhyCirvion = () => {
     );
 };
 
-export default WhyCirvion;
+export default WhyAiflowix;

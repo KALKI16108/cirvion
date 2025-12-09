@@ -147,7 +147,7 @@ const ContactFooter = () => {
                                     Stop working in your business, start working on it.
                                 </p>
                                 {/* Screen-reader-only: short contact intent line for SEO and a11y */}
-                                <p className="sr-only">Contact CIRVION for a free automation audit and practical roadmap to reduce manual work.</p>
+                                <p className="sr-only">Contact AIFLOWIX for a free automation audit and practical roadmap to reduce manual work.</p>
                             </div>
 
                             <div className="space-y-4 sm:space-y-6 md:space-y-8 mb-8 sm:mb-10 md:mb-12">
@@ -283,7 +283,7 @@ const ContactFooter = () => {
                     </div>
 
                     <div className="border-t border-white/5 pt-4 sm:pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4 text-[#64748B] text-xs sm:text-sm">
-                        <p>&copy; {new Date().getFullYear()} CIRVION. All rights reserved.</p>
+                        <p>&copy; {new Date().getFullYear()} AIFLOWIX. All rights reserved.</p>
                         <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8">
                             <button onClick={() => setShowPrivacy(true)} className="hover:text-[#00C8FF] transition-colors">Privacy Policy</button>
                             <button onClick={() => setShowTerms(true)} className="hover:text-[#00C8FF] transition-colors">Terms of Service</button>
