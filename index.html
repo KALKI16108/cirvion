@@ -3,46 +3,94 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Security: Prevent clickjacking attacks -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <!-- Language: English, targeting India market (en-IN), with fallback to global English (en) -->
+  <meta http-equiv="content-language" content="en-IN" />
+  <!-- Allows full control over page appearance across browsers -->
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <!-- Security: Prevent MIME-type sniffing -->
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <!-- Security: Prevent XSS attacks in older browsers -->
   <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+  <!-- Color scheme preference for dark mode support -->
+  <meta name="color-scheme" content="dark" />
   <!-- Security: Content Security Policy - inline script protection -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://api.web3forms.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.web3forms.com; object-src 'none'; base-uri 'self'; form-action 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://api.web3forms.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.web3forms.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests" />
+  
+  <!-- Security: Enforce HTTPS on all requests (upgrade HTTP to HTTPS) -->
+  <meta http-equiv="upgrade-insecure-requests" content="1" />
+  
+  <!-- Security: Prevent cross-origin requests embedding this page -->
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  
+  <!-- Security: Cross-Origin Protection -->
+  <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin" />
+  <meta http-equiv="Cross-Origin-Embedder-Policy" content="require-corp" />
+  
   <!-- Title: Global Authority Format | Brand (targets enterprise AI automation) -->
   <title>End-to-End AI Integration & Hyper-Automation | AIFLOWIX</title>
   <!-- Description: Global impact + local presence + operational efficiency keywords -->
   <meta name="description" content="Enterprise-grade AI automation platform: End-to-end AI integration, operational efficiency, and hyper-automation solutions. Mumbai-based but globally serving AI consultancy for digital transformation, workflow ROI optimization, and intelligent process automation." />
+  <!-- Author and organization information -->
+  <meta name="author" content="AIFLOWIX" />
+  <meta name="organization" content="AIFLOWIX" />
+  <!-- Global + Local keywords: Global authority + local targeting -->
+  <meta name="keywords" content="end-to-end AI integration, hyper-automation, operational efficiency AI, workflow ROI, intelligent process automation, AI automation consultancy Mumbai, lead qualifier automation, document digitization AI, business workflow automation, custom AI systems, workflow automation services, AI consulting, business process automation" />
+  
   <!-- Open Graph: Global enterprise positioning -->
   <meta property="og:title" content="Hyper-Automation & Operational Efficiency AI | AIFLOWIX" />
   <meta property="og:description" content="Enterprise AI integration platform. Lead qualification automation, document digitization, process mining. Trusted by global teams. Mumbai headquarters + global delivery." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.aiflowix.in/" />
-  <meta property="og:image" content="/assets/og-image.png" />
+  <meta property="og:image" content="https://www.aiflowix.in/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:site_name" content="AIFLOWIX" />
+  <meta property="og:locale" content="en_IN" />
+  
   <!-- Twitter Card: Global professional visibility -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Hyper-Automation Platform | Lead Qualifier + Document Digitization" />
   <meta name="twitter:description" content="End-to-end AI integration for enterprise automation. Qualifying leads intelligently. Digitizing documents instantly. Powered by AIFLOWIX from Mumbai." />
-  <meta name="twitter:image" content="/assets/og-image.png" />
+  <meta name="twitter:image" content="https://www.aiflowix.in/assets/og-image.png" />
   <meta name="twitter:creator" content="@aiflowix" />
+  <meta name="twitter:site" content="@aiflowix" />
+  
+  <!-- LinkedIn Open Graph -->
+  <meta property="linkedin:title" content="AIFLOWIX - Enterprise AI Automation Consultancy" />
+  <meta property="linkedin:description" content="Custom AI systems and workflow automation for enterprise efficiency. Lead qualification, document digitization, process mining." />
+  
   <!-- Canonical to emphasize main domain (update if deploying under different URL) -->
   <link rel="canonical" href="https://www.aiflowix.in/" />
-  <!-- Global + Local keywords: Global authority + local targeting -->
-  <meta name="keywords" content="end-to-end AI integration, hyper-automation, operational efficiency AI, workflow ROI, intelligent process automation, AI automation consultancy Mumbai, lead qualifier automation, document digitization AI, business workflow automation, custom AI systems" />
+  
   <!-- Geo-targeting for local SEO -->
   <meta name="geo.position" content="19.0176;72.8479" />
   <meta name="ICBM" content="19.0176,72.8479" />
+  <meta name="geo.placename" content="Mumbai, Maharashtra, India" />
+  <meta name="geo.region" content="IN-MH" />
+  
   <!-- For global indexing + local discovery + snippet optimization -->
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1, notranslate" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1, notranslate, noimageindex" />
+  <!-- Alternative robots meta for different search engines -->
+  <meta name="Googlebot" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta name="Bingbot" content="index, follow" />
+  
+  <!-- Accessibility: Declare theme color for browser UI -->
+  <meta name="theme-color" content="#00C8FF" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0F172A" media="(prefers-color-scheme: dark)">
+  
   <!-- Security: Referrer policy for privacy -->
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <!-- Security: Disable email/phone auto-detection on mobile -->
   <meta name="format-detection" content="telephone=no,email=no" />
   <!-- Security: Prevent DNS prefetch to reduce privacy exposure -->
   <meta http-equiv="x-dns-prefetch-control" content="off" />
+  
+  <!-- Alternative language links for international SEO -->
+  <link rel="alternate" hreflang="en" href="https://www.aiflowix.in/" />
+  <link rel="alternate" hreflang="en-IN" href="https://www.aiflowix.in/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.aiflowix.in/" />
   <!-- Preconnect for performance optimization -->
   <link rel="dns-prefetch" href="https://api.web3forms.com" />
   <!-- Preload critical fonts -->

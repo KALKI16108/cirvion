@@ -1,7 +1,7 @@
 {
-  "name": "CIRVION",
-  "short_name": "CIRVION",
-  "description": "CIRVION — AI & Automation Consultancy",
+  "name": "AIFLOWIX - AI Automation & Workflow Consultancy",
+  "short_name": "AIFLOWIX",
+  "description": "AIFLOWIX — Enterprise-grade AI automation consultancy providing intelligent lead qualification, document digitization, and business workflow optimization. Mumbai-based, globally serving.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0F172A",

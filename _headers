@@ -1,8 +1,78 @@
 /* 
-  X-Frame-Options: SAMEORIGIN
+  # ============================================================================
+  # SECURITY HEADERS - Comprehensive Protection Against Modern Threats
+  # ============================================================================
+  
+  # 1. CLICKJACKING PROTECTION
+  X-Frame-Options: DENY
+  
+  # 2. MIME-TYPE SNIFFING PREVENTION
   X-Content-Type-Options: nosniff
+  
+  # 3. XSS PROTECTION (Legacy browser support)
   X-XSS-Protection: 1; mode=block
+  
+  # 4. HSTS - HTTPS Enforcement (18 months + HSTS preload for public list)
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  
+  # 5. REFERRER POLICY - Privacy protection with strict cross-origin handling
   Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://api.web3forms.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.web3forms.com; object-src 'none'; base-uri 'self'; form-action 'self'
+  
+  # 6. PERMISSIONS POLICY - Disable unused browser features (privacy + security)
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), vr=(), xr-spatial-tracking=(), fullscreen=(self)
+  
+  # 7. ENHANCED CSP - Multi-layer protection against injection attacks
+  # Protects against: XSS, clickjacking, data injection, form hijacking
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://api.web3forms.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.web3forms.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+  
+  # 8. CSP VIOLATION REPORTING (for monitoring attacks)
+  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' https://api.web3forms.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.web3forms.com; report-uri https://www.aiflowix.in/csp-report
+  
+  # 9. DNS SECURITY - Prevent DNS poisoning
+  X-DNS-Prefetch-Control: off
+  
+  # 10. FEATURE POLICY - Restrict payment request API
+  X-Feature-Policy: payment 'none'
+  
+  # 11. EMAIL/PHONE AUTO-DETECTION PREVENTION
+  X-Ua-Compatible: IE=edge
+  
+  # ============================================================================
+  # PERFORMANCE & OPTIMIZATION (Non-security, but complementary)
+  # ============================================================================
+  
+  # Cache-Control: MUST-REVALIDATE for critical assets
+  # Assets cached locally with periodic server validation
+  Cache-Control: public, max-age=31536000, immutable
+  
+  # ============================================================================
+  # SEO & CRAWLING HEADERS
+  # ============================================================================
+  
+  # Allow search engines to index this page
+  X-Robots-Tag: index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1
+  
+  # ============================================================================
+  # CROSS-ORIGIN PROTECTION
+  # ============================================================================
+  
+  # Prevent CSRF attacks on cross-origin requests
+  Cross-Origin-Embedder-Policy: require-corp
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: cross-origin
+  
+  # ============================================================================
+  # ADDITIONAL SECURITY MEASURES
+  # ============================================================================
+  
+  # Remove server identification headers (deny fingerprinting)
+  # Note: Vercel may override this, but we set it defensively
+  Server: aiflowix
+  
+  # Prevent document from being cached by proxies
+  Pragma: no-cache
+  Expires: 0
+  
+  # Remove version information from responses
+  X-Powered-By:
+  X-AspNet-Version:

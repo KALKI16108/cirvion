@@ -18,6 +18,8 @@ const Navbar = () => {
   return (
     <>
       <motion.nav
+        role="navigation"
+        aria-label="Main navigation"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'py-4' : 'py-6'
@@ -31,8 +33,9 @@ const Navbar = () => {
             }`}>
 
             {/* Logo */}
-            <a href="#" className="flex items-center">
+            <a href="/" className="flex items-center" title="AIFLOWIX - Go to homepage">
               <Logo className="h-8" />
+              <span className="sr-only">AIFLOWIX Home</span>
             </a>
 
             {/* Desktop Menu */}
@@ -42,9 +45,11 @@ const Navbar = () => {
                   key={item}
                   href={`#${item.toLowerCase().replace(' ', '-')}`}
                   className="text-sm font-medium text-[#CBD5E1] hover:text-white transition-colors relative group"
+                  title={`Navigate to ${item} section`}
+                  aria-label={`Go to ${item} section`}
                 >
                   {item}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00C8FF] transition-all group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00C8FF] transition-all group-hover:w-full" aria-hidden="true"></span>
                 </a>
               ))}
 

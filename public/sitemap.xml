@@ -2,52 +2,80 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-  <!-- Homepage: Global landing point -->
+  <!-- Homepage: Global landing point for AI automation consultancy -->
   <url>
-    <loc>https://www.cirvion.ai/</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://www.aiflowix.in/</loc>
+    <lastmod>2025-12-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.aiflowix.in/assets/og-image.png</image:loc>
+      <image:title>AIFLOWIX - AI & Automation Consultancy</image:title>
+    </image:image>
   </url>
   
-  <!-- Services: End-to-End AI Integration -->
+  <!-- Services: End-to-End AI Integration & Hyper-Automation -->
   <url>
-    <loc>https://www.cirvion.ai#services</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://www.aiflowix.in#services</loc>
+    <lastmod>2025-12-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- Lead Qualifier Service: Intelligent automation for lead qualification -->
+  <url>
+    <loc>https://www.aiflowix.in#lead-qualifier</loc>
+    <lastmod>2025-12-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- Industries: Operational Efficiency Focus -->
+  <!-- Document Digitization Service: AI-powered document processing -->
   <url>
-    <loc>https://www.cirvion.ai#industries</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://www.aiflowix.in#document-digitization</loc>
+    <lastmod>2025-12-09</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
   </url>
 
-  <!-- Case Studies: Social Proof -->
+  <!-- Industries: Industry-specific AI automation solutions -->
   <url>
-    <loc>https://www.cirvion.ai#case-studies</loc>
-    <lastmod>2025-12-08</lastmod>
-    <changefreq>bi-weekly</changefreq>
+    <loc>https://www.aiflowix.in#industries</loc>
+    <lastmod>2025-12-09</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
 
-  <!-- Why CIRVION: Authority Signal -->
+  <!-- Case Studies: Real-world AI automation results -->
   <url>
-    <loc>https://www.cirvion.ai#why-cirvion</loc>
-    <lastmod>2025-12-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://www.aiflowix.in#case-studies</loc>
+    <lastmod>2025-12-09</lastmod>
+    <changefreq>bi-weekly</changefreq>
+    <priority>0.9</priority>
   </url>
 
-  <!-- About: Local + Global Trust -->
+  <!-- Why AIFLOWIX: Authority signal and business differentiation -->
   <url>
-    <loc>https://www.cirvion.ai#about</loc>
-    <lastmod>2025-12-08</lastmod>
+    <loc>https://www.aiflowix.in#why-aiflowix</loc>
+    <lastmod>2025-12-09</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- About AIFLOWIX: Local Mumbai + Global Trust -->
+  <url>
+    <loc>https://www.aiflowix.in#about</loc>
+    <lastmod>2025-12-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Contact: Lead generation and inquiry form -->
+  <url>
+    <loc>https://www.aiflowix.in#contact</loc>
+    <lastmod>2025-12-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
   </url>
 
   <!-- Contact: Conversion Point -->

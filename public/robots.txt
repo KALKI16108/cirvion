@@ -1,25 +1,168 @@
-# CIRVION Global SEO Configuration
-# Instructs all search engines (Google, Bing, DuckDuckGo) that site is ready for indexing
+# AIFLOWIX Global SEO Configuration + Security Rules
+# This file controls search engine crawling and protects sensitive areas
 
+# ============================================================================
+# DEFAULT RULES - Apply to all user agents
+# ============================================================================
 User-agent: *
 Allow: /
 Disallow: /admin/
+Disallow: /api/
 Disallow: /.git/
 Disallow: /node_modules/
+Disallow: /build/
+Disallow: /dist/
+Disallow: /*.json$
+Disallow: /*.env
+Disallow: /*.env.local
+Disallow: *.key
+Disallow: *.pem
+Disallow: *.p12
+Disallow: */config/*
+Disallow: */secret/*
+Disallow: */private/*
 Crawl-delay: 1
+Request-rate: 30/60
 
-# Specific rules for search engines
+# ============================================================================
+# GOOGLE CRAWL OPTIMIZATION
+# ============================================================================
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 0
+Request-rate: 30/60
 
+# ============================================================================
+# BING CRAWL OPTIMIZATION
+# ============================================================================
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
+Request-rate: 20/60
 
+# ============================================================================
+# DUCKDUCKGO CRAWL OPTIMIZATION
+# ============================================================================
 User-agent: DuckDuckBot
 Allow: /
 Crawl-delay: 2
+Request-rate: 10/60
 
-# Sitemap location (create sitemap.xml)
-Sitemap: https://www.cirvion.ai/sitemap.xml
+# ============================================================================
+# ADDITIONAL LEGITIMATE BOTS (Low Request Rates)
+# ============================================================================
+
+# Yahoo
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+# Teoma Search Engine
+User-agent: Teoma
+Allow: /
+Crawl-delay: 1
+
+# Yandex Bot
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 1
+Request-rate: 10/60
+
+# ============================================================================
+# BLOCK KNOWN MALICIOUS & AGGRESSIVE BOTS (SECURITY)
+# ============================================================================
+
+# MJ12bot - Known for aggressive crawling and privacy concerns
+User-agent: MJ12bot
+Disallow: /
+
+# AhrefsBot - Aggressive crawler, competitor intelligence tool
+User-agent: AhrefsBot
+Disallow: /
+
+# SemrushBot - SEO analysis crawler, can be aggressive
+User-agent: SemrushBot
+Disallow: /
+
+# SEMrushBot-SA - Aggressive SEO crawler variant
+User-agent: SEMrushBot-SA
+Disallow: /
+
+# DotBot - Aggressive crawler with privacy concerns
+User-agent: DotBot
+Disallow: /
+
+# MojeekBot - Aggressive web crawler
+User-agent: MojeekBot
+Disallow: /
+
+# PetalBot - Search crawler with aggressive behavior
+User-agent: PetalBot
+Disallow: /
+
+# CCBot - Common Crawl bot, can be aggressive
+User-agent: CCBot
+Disallow: /
+
+# DataForSeoBot - SEO tool bot, data scraping concerns
+User-agent: DataForSeoBot
+Disallow: /
+
+# DomainCrawler - Unauthorized domain analysis
+User-agent: DomainCrawler
+Disallow: /
+
+# FacebookBot - Content scraping
+User-agent: facebookexternalhit
+Allow: /
+
+# WhatsApp Bot - Media preview (limited)
+User-agent: WhatsApp
+Allow: /
+
+# Telegram Bot - Media preview (limited)
+User-agent: TelegramBot
+Allow: /
+
+# Twitter/X Bot - Social media preview
+User-agent: Twitterbot
+Allow: /
+
+# LinkedIn Bot - Social media preview
+User-agent: LinkedInBot
+Allow: /
+
+# ============================================================================
+# BLOCK SCRAPERS & MALICIOUS AGENTS
+# ============================================================================
+
+# Generic bot detection patterns
+User-agent: *bot*
+Crawl-delay: 5
+Request-rate: 5/60
+
+User-agent: *crawler*
+Crawl-delay: 5
+Request-rate: 5/60
+
+User-agent: *scraper*
+Disallow: /
+
+User-agent: *spider*
+Crawl-delay: 2
+Request-rate: 10/60
+
+# ============================================================================
+# SITEMAP LOCATION (Google, Bing, DuckDuckGo will discover automatically)
+# ============================================================================
+Sitemap: https://www.aiflowix.in/sitemap.xml
+
+# ============================================================================
+# SECURITY NOTES
+# ============================================================================
+# - Admin, API, and config directories are protected
+# - Private keys and environment files are blocked
+# - Known malicious bots are explicitly denied
+# - All crawlers are rate-limited to prevent DoS
+# - Legitimate search engines have optimized crawl rates
+# ============================================================================

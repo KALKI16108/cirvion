@@ -84,7 +84,9 @@ function App() {
             { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.aiflowix.in' },
             { '@type': 'ListItem', 'position': 2, 'name': 'Services', 'item': 'https://www.aiflowix.in#services' },
             { '@type': 'ListItem', 'position': 3, 'name': 'Case Studies', 'item': 'https://www.aiflowix.in#case-studies' },
-            { '@type': 'ListItem', 'position': 4, 'name': 'About', 'item': 'https://www.aiflowix.in#about' }
+            { '@type': 'ListItem', 'position': 4, 'name': 'Why AIFLOWIX', 'item': 'https://www.aiflowix.in#why-aiflowix' },
+            { '@type': 'ListItem', 'position': 5, 'name': 'About', 'item': 'https://www.aiflowix.in#about' },
+            { '@type': 'ListItem', 'position': 6, 'name': 'Contact', 'item': 'https://www.aiflowix.in#contact' }
           ]
         },
         {
@@ -94,6 +96,7 @@ function App() {
           'description': 'Enterprise-grade AI automation platform: End-to-end AI integration, operational efficiency, and hyper-automation solutions. Mumbai-based AI consultancy for workflow ROI optimization and intelligent process automation.',
           'url': 'https://www.aiflowix.in',
           'isPartOf': { '@id': 'https://www.aiflowix.in/#website' },
+          'inLanguage': 'en-IN',
           'potentialAction': {
             '@type': 'SearchAction',
             'target': { '@type': 'EntryPoint', 'urlTemplate': 'https://www.aiflowix.in?q={search_term_string}' },
@@ -153,6 +156,44 @@ function App() {
             'target': { '@type': 'EntryPoint', 'urlTemplate': 'https://www.aiflowix.in#contact', 'actionPlatform': 'http://schema.org/DesktopWebPlatform' },
             'name': 'Schedule Document Digitization Demo'
           }
+        },
+        {
+          '@type': 'FAQPage',
+          '@id': 'https://www.aiflowix.in/#faq',
+          'mainEntity': [
+            {
+              '@type': 'Question',
+              'name': 'What is AI automation?',
+              'acceptedAnswer': {
+                '@type': 'Answer',
+                'text': 'AI automation uses artificial intelligence and machine learning to automate repetitive business processes, eliminate manual work, and improve operational efficiency. It combines intelligent algorithms with workflow optimization to deliver measurable business outcomes.'
+              }
+            },
+            {
+              '@type': 'Question',
+              'name': 'How does AIFLOWIX lead qualification work?',
+              'acceptedAnswer': {
+                '@type': 'Answer',
+                'text': 'AIFLOWIX Lead Qualifier AI uses advanced machine learning to automatically score, filter, and prioritize sales leads in real-time. It learns from your historical data to identify high-quality prospects, reducing manual qualification workload and improving conversion rates.'
+              }
+            },
+            {
+              '@type': 'Question',
+              'name': 'Can AIFLOWIX handle my document digitization needs?',
+              'acceptedAnswer': {
+                '@type': 'Answer',
+                'text': 'Yes, AIFLOWIX Document Digitization AI uses OCR and intelligent extraction to automatically convert paper documents and PDFs into structured, searchable digital data. It handles complex layouts and multi-language documents with high accuracy.'
+              }
+            },
+            {
+              '@type': 'Question',
+              'name': 'Is AIFLOWIX suitable for small businesses?',
+              'acceptedAnswer': {
+                '@type': 'Answer',
+                'text': 'AIFLOWIX serves businesses of all sizes, from startups to enterprises. We provide custom, scalable AI automation solutions tailored to your specific needs and budget, whether you\'re just starting with automation or already running complex systems.'
+              }
+            }
+          ]
         }
       ]
     };
