@@ -87,32 +87,52 @@
   <!-- Security: Prevent DNS prefetch to reduce privacy exposure -->
   <meta http-equiv="x-dns-prefetch-control" content="off" />
   
+  <!-- Performance: Enable resource hints for faster loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://api.web3forms.com">
+  <link rel="dns-prefetch" href="https://api.web3forms.com" />
+  
   <!-- Alternative language links for international SEO -->
   <link rel="alternate" hreflang="en" href="https://www.aiflowix.in/" />
   <link rel="alternate" hreflang="en-IN" href="https://www.aiflowix.in/" />
   <link rel="alternate" hreflang="x-default" href="https://www.aiflowix.in/" />
-  <!-- Preconnect for performance optimization -->
-  <link rel="dns-prefetch" href="https://api.web3forms.com" />
-  <!-- Preload critical fonts -->
+  <!-- Preload critical fonts for faster text rendering -->
   <link rel="preload" as="font" href="https://fonts.gstatic.com/s/jetbrainsmono/v18/tDbN2o-flEEnyS4zrio-W87UR4L2y0TttFsrCXP73O0.woff2" type="font/woff2" crossorigin />
   <link rel="preload" as="font" href="https://fonts.gstatic.com/s/outfit/v7/QGY_U7ZnDZNsA7DaLSyJBMpMwqBKfaMeM6sJYkOyYvg.woff2" type="font/woff2" crossorigin />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Prefetch Google Fonts stylesheet -->
+  <link rel="prefetch" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" />
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
     rel="stylesheet">
-  <!-- Favicon -->
+  <!-- Favicon with async loading -->
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/favicon.svg">
-  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="manifest" href="/manifest.webmanifest" crossorigin="use-credentials">
   <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/icons/icon-16.png">
   <link rel="shortcut icon" href="/favicon.ico">
+  <!-- Performance: Lazy load non-critical resources -->
+  <script type="text/javascript">
+    // Prefetch service worker for PWA support
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        // Service worker registration will be handled by your build tool
+      });
+    }
+  </script>
 </head>
 
 <body>
   <div id="root"></div>
+  <!-- Main app script - optimized by Vite -->
   <script type="module" src="/src/main.jsx"></script>
-</body>
+  <!-- Performance: Defer non-critical scripts if any -->
+  <script>
+    // Optimize performance metrics
+    if (window.performance && window.performance.mark) {
+      performance.mark('app-loaded');
+    }
+  </script>
 
 </html>

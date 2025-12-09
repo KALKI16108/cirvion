@@ -5,23 +5,54 @@ import compression from 'vite-plugin-compression'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    react(),
+    react({
+      // Optimize React fast refresh for faster HMR
+      fastRefresh: true,
+      jsxImportSource: 'react',
+    }),
     // Enable gzip and brotli compression for production builds (improves Performance score)
     compression({
-      verbose: true,
+      verbose: false,
       disable: false,
-      threshold: 1024, // Only compress files > 1KB
+      threshold: 512, // Compress files > 512 bytes for better compression
       algorithm: 'gzip',
       ext: '.gz',
     }),
     compression({
       verbose: false,
       disable: false,
-      threshold: 1024,
+      threshold: 512,
       algorithm: 'brotliCompress',
       ext: '.br',
     }),
   ],
+  // Optimization for faster builds and better performance
+  build: {
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true, // Remove console logs in production
+        drop_debugger: true,
+      },
+      output: {
+        comments: false,
+      },
+    },
+    rollupOptions: {
+      output: {
+        // Split chunks for better caching and parallel loading
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom'],
+          'vendor-motion': ['framer-motion'],
+          'vendor-lucide': ['lucide-react'],
+        },
+      },
+    },
+    // Reduce initial bundle size
+    sourcemap: false, // Disable sourcemaps in production
+    reportCompressedSize: true,
+    chunkSizeWarningLimit: 500,
+  },
   server: {
     // Security headers for development server
     middlewares: [],
