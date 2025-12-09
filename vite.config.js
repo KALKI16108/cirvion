@@ -34,7 +34,7 @@ export default defineConfig({
         drop_console: true, // Remove console logs in production
         drop_debugger: true,
       },
-      output: {
+      format: {
         comments: false,
       },
     },
