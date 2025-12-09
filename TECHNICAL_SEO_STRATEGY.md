@@ -84,7 +84,7 @@ This document outlines the complete technical SEO implementation for AIFLOWIX AI
   },
   "logo": {
     "@type": "ImageObject",
-    "url": "https://www.cirvion.ai/assets/logo.png",
+    "url": "https://www.aiflowix.in/assets/logo.png",
     "width": 250,
     "height": 60
   }
@@ -465,10 +465,10 @@ For Services section:
 ### Meta Tags Implementation
 ```html
 <!-- Title: 67 chars, brand + service + location -->
-<title>CIRVION — AI & Automation Consultancy | Business Workflow Automation in Mumbai</title>
+<title>AIFLOWIX — AI & Automation Consultancy | Business Workflow Automation in Mumbai</title>
 
 <!-- Description: 164 chars, action-oriented, benefit-focused -->
-<meta name="description" content="CIRVION builds custom AI systems and business workflow automation that remove manual work, accelerate operations, and scale revenue. AI automation consultancy in Mumbai serving India, US & UAE markets." />
+<meta name="description" content="AIFLOWIX builds custom AI systems and business workflow automation that remove manual work, accelerate operations, and scale revenue. AI automation consultancy in Mumbai serving India, US & UAE markets." />
 
 <!-- Geo-targeting for local search -->
 <meta name="geo.position" content="19.0176;72.8479" />

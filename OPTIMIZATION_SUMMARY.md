@@ -1,4 +1,4 @@
-# CIRVION Website — Performance Optimization Summary
+# AIFLOWIX Website — Performance Optimization Summary
 
 ## Overview
 Successfully implemented performance optimizations reducing bundle size **69%** (368KB → 111KB gzip) while maintaining 100% functional parity. All changes respect user constraints: no theme/UI/UX/logic modifications.

@@ -220,10 +220,10 @@ Both should display content (not 404)
 
 1. Go: https://business.google.com
 2. Sign in with Google Account
-3. Search: "CIRVION"
+3. Search: "AIFLOWIX"
 4. Click: "Manage this business"
 5. Update:
-   - Business Name: CIRVION
+   - Business Name: AIFLOWIX
    - Address: 123 Tech Park, Bandra Kurla Complex, Mumbai, MH 400051
    - Phone: +91-XXXXXXX
    - Website: https://yourdomain.vercel.app
@@ -242,13 +242,13 @@ Both should display content (not 404)
 
 ## 🔗 Custom Domain Setup (If Needed)
 
-**If you have a custom domain like `cirvion.ai`:**
+**If you have a custom domain like `aiflowix.in`:**
 
 ### In Vercel Dashboard
 
 1. Go: **Project Settings → Domains**
 2. Click: "Add Domain"
-3. Enter: `cirvion.ai` (or your domain)
+3. Enter: `aiflowix.in` (or your domain)
 4. Vercel shows DNS instructions
 
 ### Update DNS at Your Domain Registrar
@@ -368,7 +368,7 @@ curl -I https://www.aiflowix.in/robots.txt
 
 **Command for Deployment:**
 ```bash
-cd c:\Users\dasha\Downloads\CIRVION
+cd c:\Users\dasha\Downloads\AIFLOWIX
 git add .
 git commit -m "SEO deployment: Lab removed, global/local keywords, Service schemas, robots.txt, sitemap.xml"
 git push origin main

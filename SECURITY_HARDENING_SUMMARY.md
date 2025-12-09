@@ -2,7 +2,7 @@
 
 ## Summary of Changes
 
-Your CIRVION website is now hardened against common attacks **without changing UI/UX, logic, or functionality**.
+Your AIFLOWIX website is now hardened against common attacks **without changing UI/UX, logic, or functionality**.
 
 ### ✅ Security Measures Applied
 

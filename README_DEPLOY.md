@@ -1,4 +1,4 @@
-# 🚀 CIRVION — DEPLOY TO VERCEL NOW
+# 🚀 AIFLOWIX — DEPLOY TO VERCEL NOW
 
 ---
 
@@ -14,7 +14,7 @@ Files ready ✓
 ## 📋 COPY & PASTE THIS:
 
 ```
-cd c:\Users\dasha\Downloads\CIRVION
+cd c:\Users\dasha\Downloads\AIFLOWIX
 git add .
 git commit -m "SEO: Lab removed, global/local keywords, Service schemas, robots.txt, sitemap.xml"
 git push origin main

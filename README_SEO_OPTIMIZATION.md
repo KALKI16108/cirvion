@@ -1,4 +1,4 @@
-# CIRVION SEO Implementation — At-a-Glance Summary
+# AIFLOWIX SEO Implementation — At-a-Glance Summary
 
 ## 🎯 Mission
 **Optimize for maximum indexability, rich snippet eligibility, and high local search ranking in Mumbai market**
@@ -17,7 +17,7 @@ Result:  Bundle 382KB → 371KB (-11KB, maintained 69% gzip)
 ### 2. Structured Data (4 Essential Schemas)
 ```
 Organization Schema
-├── Name: CIRVION
+├── Name: AIFLOWIX
 ├── Address: Mumbai, MH 400051
 ├── Contact: Business Development
 └── Impact: Google Knowledge Panel eligibility
@@ -39,11 +39,11 @@ WebPage Schema
 ### 3. Meta Tag Optimization
 ```
 TITLE (67 chars)
-  "CIRVION — AI & Automation Consultancy | Business Workflow Automation in Mumbai"
+  "AIFLOWIX — AI & Automation Consultancy | Business Workflow Automation in Mumbai"
   Keywords: Brand + Primary Service + Location
 
 DESCRIPTION (164 chars)
-  "CIRVION builds custom AI systems and business workflow automation that remove 
+  "AIFLOWIX builds custom AI systems and business workflow automation that remove 
    manual work, accelerate operations, and scale revenue. AI automation consultancy 
    in Mumbai serving India, US & UAE markets."
   Focus: Action words + Benefits + Geography
@@ -206,7 +206,7 @@ Competitors:
 ├─ Infosys Automation → Corporate-only
 └─ Local startups → Low brand authority
 
-CIRVION:
+AIFLOWIX:
 ✓ Mumbai-first: Own local market
 ✓ SME-focused: Affordable, accessible
 ✓ Hinglish support: Serve Hindi + English markets
@@ -247,7 +247,7 @@ MESSAGING ANGLES
 ### Test 1: Rich Results Validation (2 min)
 ```
 Go to: https://search.google.com/test/rich-results
-Enter: https://www.cirvion.ai
+Enter: https://www.aiflowix.in
 Look for: ✅ Organization, LocalBusiness, Breadcrumb, WebPage
 Expected: No errors, valid markup
 ```
@@ -255,21 +255,21 @@ Expected: No errors, valid markup
 ### Test 2: Mobile Friendly (1 min)
 ```
 Go to: https://search.google.com/mobile-friendly
-Enter: https://www.cirvion.ai
+Enter: https://www.aiflowix.in
 Expected: "Page is mobile friendly" ✅
 ```
 
 ### Test 3: Performance (2 min)
 ```
 Go to: https://pagespeed.web.dev
-Enter: https://www.cirvion.ai
+Enter: https://www.aiflowix.in
 Check: LCP <2.5s ✓, FID <100ms ✓, CLS <0.1 ✓
 ```
 
 ### Test 4: Search Console (Ongoing)
 ```
 Go to: https://search.google.com/search-console
-Add: https://www.cirvion.ai
+Add: https://www.aiflowix.in
 Monitor: Impressions, clicks, average position
 Frequency: Daily week 1, then weekly
 ```
@@ -376,7 +376,7 @@ Go-Live → SEO_DEPLOYMENT_CHECKLIST.md (THIS FILE)
 
 ## ✨ Final Thoughts
 
-This optimization positions CIRVION for **dominant local search visibility** in Mumbai market while maintaining global reach potential. The foundation is solid, documentation is comprehensive, and the path to 6-month targets is clear.
+This optimization positions AIFLOWIX for **dominant local search visibility** in Mumbai market while maintaining global reach potential. The foundation is solid, documentation is comprehensive, and the path to 6-month targets is clear.
 
 **All components are production-ready. Ready to deploy with confidence.** ✅
 

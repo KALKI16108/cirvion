@@ -108,9 +108,9 @@ curl -I https://yourdomain.vercel.app/sitemap.xml
 ### Set Up Google My Business
 
 1. Go: https://business.google.com
-2. Search: "CIRVION"
+2. Search: "AIFLOWIX"
 3. Update:
-   - Business Name: CIRVION
+   - Business Name: AIFLOWIX
    - Address: 123 Tech Park, Bandra Kurla Complex, Mumbai, MH 400051
    - Phone: +91-XXXXXXX
    - Website: https://yourdomain.vercel.app

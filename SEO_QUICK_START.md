@@ -58,7 +58,7 @@
 
 ### Test 4: Search Console (Ongoing)
 1. Go to: https://search.google.com/search-console
-2. Add property: https://www.cirvion.ai
+2. Add property: https://www.aiflowix.in
 3. Monitor: Impressions, clicks, average position
 4. Frequency: Daily first week, then weekly
 
@@ -178,11 +178,11 @@
 ## 7. Local SEO Checklist
 
 ### GMB Setup ✅ THIS WEEK
-- [ ] Business name: CIRVION
+- [ ] Business name: AIFLOWIX
 - [ ] Category: AI consultant / Tech consultant
 - [ ] Address: 123 Tech Park, BKC, Mumbai MH 400051
 - [ ] Phone: +91-XXXXXXX (verified)
-- [ ] Website: https://www.cirvion.ai
+- [ ] Website: https://www.aiflowix.in
 - [ ] Business hours: Fill in
 - [ ] 10+ photos uploaded
 - [ ] Description: 750+ characters
@@ -345,12 +345,12 @@
 **For JustDial, Sulekha, IndiaMART:**
 
 ```
-Business Name: CIRVION
+Business Name: AIFLOWIX
 Category: IT Consultant / AI Consultant / Tech Services
 Address: 123 Tech Park, Bandra Kurla Complex, Mumbai, MH 400051
 Phone: +91-XXXXXXX
-Email: contact@cirvion.ai
-Website: https://www.cirvion.ai
+Email: contact@aiflowix.in
+Website: https://www.aiflowix.in
 Description: AI & Automation Consultancy. Custom AI systems, business workflow automation, intelligent process automation. Serving Mumbai, India, US, UAE markets.
 Service Area: Mumbai, India, US, UAE
 Languages: English, Hindi
