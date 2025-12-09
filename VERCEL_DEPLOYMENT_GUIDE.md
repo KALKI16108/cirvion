@@ -1,4 +1,4 @@
-# 🚀 Vercel Deployment Guide for CIRVION
+# 🚀 Vercel Deployment Guide for AIFLOWIX
 
 ## Quick Setup
 
@@ -13,7 +13,7 @@ git push origin main
 1. Go to [vercel.com](https://vercel.com)
 2. Click "New Project"
 3. Import your GitHub repository
-4. Select "CIRVION" repository
+4. Select "aiflowix" repository
 5. Click "Import"
 
 ### 3. **Configure Environment Variables**

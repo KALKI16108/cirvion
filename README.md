@@ -1,6 +1,6 @@
-# CIRVION - AI & Automation Consultancy
+# AIFLOWIX - AI & Automation Consultancy
 
-A premium, dark-themed, modern, enterprise-level website for CIRVION, built with React, Vite, Tailwind concepts (implemented in vanilla CSS/modules for performance and control as requested), and Framer Motion for animations.
+A premium, dark-themed, modern, enterprise-level website for AIFLOWIX, built with React, Vite, Tailwind concepts (implemented in vanilla CSS/modules for performance and control as requested), and Framer Motion for animations.
 
 ## Features
 

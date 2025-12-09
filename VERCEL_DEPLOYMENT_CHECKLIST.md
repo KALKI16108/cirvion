@@ -1,4 +1,4 @@
-# ✅ CIRVION Vercel Deployment Checklist
+# ✅ AIFLOWIX Vercel Deployment Checklist
 
 **Date:** December 8, 2025  
 **Status:** 🟢 READY FOR VERCEL DEPLOYMENT  
@@ -64,7 +64,7 @@ To github.com:KALKI16108/cirvion.git
 
 2. **Monitor deployment:**
    - Go to: https://vercel.com/dashboard
-   - Select CIRVION project
+   - Select AIFLOWIX project
    - Click Deployments tab
    - Wait for status to change from "Building" → "Ready" ✓
 
@@ -155,12 +155,12 @@ Both should display content (not 404)
 **You should see all these Rich Results:**
 
 - ✅ **Organization**
-  - Name: CIRVION
-  - Logo: https://www.cirvion.ai/assets/logo.png
+  - Name: AIFLOWIX
+  - Logo: https://www.aiflowix.in/assets/logo.png
   - Social links: LinkedIn, Twitter, Instagram
 
 - ✅ **LocalBusiness**
-  - Name: CIRVION AI Automation
+  - Name: AIFLOWIX AI Automation
   - Address: Mumbai, MH 400051, IN
   - Coordinates: 19.0176, 72.8479
 
@@ -263,7 +263,7 @@ Both should display content (not 404)
 
 ```bash
 # After DNS propagates (24-48 hrs)
-curl -I https://cirvion.ai/robots.txt
+curl -I https://www.aiflowix.in/robots.txt
 # Should be 200 OK
 ```
 

@@ -1,4 +1,4 @@
-# SEO Quick-Start Guide — CIRVION
+# SEO Quick-Start Guide — AIFLOWIX
 
 **Last Updated:** December 8, 2025  
 **Status:** ✅ Ready to Deploy
@@ -41,18 +41,18 @@
 
 ### Test 1: Google Rich Results (2 min)
 1. Go to: https://search.google.com/test/rich-results
-2. Enter: https://www.cirvion.ai
+2. Enter: https://www.aiflowix.in
 3. Look for: ✅ Organization, LocalBusiness, Breadcrumb, WebPage schemas
 4. Result: Should show "No errors" + "Valid markup"
 
 ### Test 2: Mobile Friendly (1 min)
 1. Go to: https://search.google.com/mobile-friendly
-2. Enter: https://www.cirvion.ai
+2. Enter: https://www.aiflowix.in
 3. Result: Should show "Page is mobile friendly" ✅
 
 ### Test 3: Page Speed Insights (2 min)
 1. Go to: https://pagespeed.web.dev
-2. Enter: https://www.cirvion.ai
+2. Enter: https://www.aiflowix.in
 3. Check: LCP, FID, CLS scores
 4. Target: LCP <2.5s, FID <100ms, CLS <0.1
 

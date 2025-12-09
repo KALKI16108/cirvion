@@ -1,8 +1,8 @@
-# CIRVION Technical SEO Strategy — Mumbai Market Optimization
+# AIFLOWIX Technical SEO Strategy — Mumbai Market Optimization
 
 ## Executive Summary
 
-This document outlines the complete technical SEO implementation for CIRVION AI Automation Consultancy, optimized for:
+This document outlines the complete technical SEO implementation for AIFLOWIX AI Automation Consultancy, optimized for:
 - **Geographic Focus:** Mumbai (primary), India (secondary), Global expansion (tertiary)
 - **Target Market:** SMEs, Mid-market enterprises, Startups in India, US, UAE
 - **Search Intent:** AI automation consultancy, business workflow automation, custom AI systems
@@ -12,18 +12,18 @@ This document outlines the complete technical SEO implementation for CIRVION AI 
 ## 1. On-Page SEO Optimization
 
 ### 1.1 Meta Tags & Title Structure
-- **Title Tag:** "CIRVION — AI & Automation Consultancy | Business Workflow Automation in Mumbai"
+- **Title Tag:** "AIFLOWIX — AI & Automation Consultancy | Business Workflow Automation in Mumbai"
   - Length: 67 characters (optimal 50-60)
   - Keywords: Brand + primary intent + geo-modifier
   - Includes: Service intent + location for local search
   
-- **Meta Description:** "CIRVION builds custom AI systems and business workflow automation that remove manual work, accelerate operations, and scale revenue. AI automation consultancy in Mumbai serving India, US & UAE markets."
+- **Meta Description:** "AIFLOWIX builds custom AI systems and business workflow automation that remove manual work, accelerate operations, and scale revenue. AI automation consultancy in Mumbai serving India, US & UAE markets."
   - Length: 164 characters (optimal 155-160)
   - Action-oriented language: "builds," "remove," "accelerate," "scale"
   - Geographic keywords: Mumbai, India, US, UAE
   - Benefits-driven: time, accuracy, ROI
 
-- **Canonical URL:** `https://www.cirvion.ai/`
+- **Canonical URL:** `https://www.aiflowix.in/`
   - Prevents duplicate content issues
   - Enforces preferred version for crawlers
 
@@ -31,7 +31,7 @@ This document outlines the complete technical SEO implementation for CIRVION AI 
 - **H1 (Hero):** "Smarter Workflows, Faster Growth." + sr-only expansion
 - **H2 Sections:** 
   - "What We Do" (Services overview)
-  - "Why CIRVION" (Differentiation)
+  - "Why AIFLOWIX" (Differentiation)
   - "Our Services" (Service categories)
   - "Industries We Serve" (Vertical focus)
   - "Case Studies" (Social proof)
@@ -58,14 +58,14 @@ This document outlines the complete technical SEO implementation for CIRVION AI 
 ```json
 {
   "@type": "Organization",
-  "@id": "https://www.cirvion.ai/#organization",
-  "name": "CIRVION",
-  "url": "https://www.cirvion.ai",
+  "@id": "https://www.aiflowix.in/#organization",
+  "name": "AIFLOWIX",
+  "url": "https://www.aiflowix.in",
   "description": "AI & Business Workflow Automation Consultancy",
   "sameAs": [
-    "https://www.linkedin.com/company/cirvion",
-    "https://www.twitter.com/cirvion",
-    "https://www.instagram.com/cirvion"
+    "https://www.linkedin.com/company/aiflowix",
+    "https://www.twitter.com/aiflowix",
+    "https://www.instagram.com/aiflowix"
   ],
   "address": {
     "@type": "PostalAddress",
@@ -94,14 +94,14 @@ This document outlines the complete technical SEO implementation for CIRVION AI 
 **Impact:** 
 - Enables rich company info display in Google Knowledge Panel
 - Improves local business discovery
-- Supports voice search queries ("Who is CIRVION?", "Where is CIRVION located?")
+- Supports voice search queries ("Who is AIFLOWIX?", "Where is AIFLOWIX located?")
 
 #### LocalBusiness Schema
 ```json
 {
   "@type": "LocalBusiness",
-  "@id": "https://www.cirvion.ai/#localbusiness",
-  "name": "CIRVION AI Automation",
+  "@id": "https://www.aiflowix.in/#localbusiness",
+  "name": "AIFLOWIX AI Automation",
   "description": "Leading AI & automation consultancy for business workflow optimization in Mumbai",
   "address": {
     "@type": "PostalAddress",
@@ -130,12 +130,12 @@ This document outlines the complete technical SEO implementation for CIRVION AI 
 ```json
 {
   "@type": "BreadcrumbList",
-  "@id": "https://www.cirvion.ai/#breadcrumb",
+  "@id": "https://www.aiflowix.in/#breadcrumb",
   "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.cirvion.ai"},
-    {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.cirvion.ai#services"},
-    {"@type": "ListItem", "position": 3, "name": "Case Studies", "item": "https://www.cirvion.ai#case-studies"},
-    {"@type": "ListItem", "position": 4, "name": "About", "item": "https://www.cirvion.ai#about"}
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.aiflowix.in"},
+    {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.aiflowix.in#services"},
+    {"@type": "ListItem", "position": 3, "name": "Case Studies", "item": "https://www.aiflowix.in#case-studies"},
+    {"@type": "ListItem", "position": 4, "name": "About", "item": "https://www.aiflowix.in#about"}
   ]
 }
 ```
@@ -149,13 +149,13 @@ This document outlines the complete technical SEO implementation for CIRVION AI 
 ```json
 {
   "@type": "WebPage",
-  "@id": "https://www.cirvion.ai/#webpage",
-  "name": "CIRVION — AI & Automation Consultancy | Business Workflow Automation",
-  "description": "CIRVION builds custom AI systems and business workflow automation...",
-  "url": "https://www.cirvion.ai",
+  "@id": "https://www.aiflowix.in/#webpage",
+  "name": "AIFLOWIX — AI & Automation Consultancy | Business Workflow Automation",
+  "description": "AIFLOWIX builds custom AI systems and business workflow automation...",
+  "url": "https://www.aiflowix.in",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": {"@type": "EntryPoint", "urlTemplate": "https://www.cirvion.ai?q={search_term_string}"},
+    "target": {"@type": "EntryPoint", "urlTemplate": "https://www.aiflowix.in?q={search_term_string}"},
     "query-input": "required name=search_term_string"
   }
 }
@@ -303,7 +303,7 @@ For Services section:
   "description": "Custom AI implementation roadmap for business workflow optimization",
   "provider": {
     "@type": "Organization",
-    "name": "CIRVION"
+    "name": "AIFLOWIX"
   },
   "areaServed": ["IN", "US", "UAE"],
   "hasOfferCatalog": {

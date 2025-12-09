@@ -1,4 +1,4 @@
-# 🚀 CIRVION Vercel Deployment — Quick Steps
+# 🚀 AIFLOWIX Vercel Deployment — Quick Steps
 
 **Lab Status:** ✅ Already Removed  
 **Platform:** Vercel  
@@ -10,7 +10,7 @@
 
 ### Step 1: Push to GitHub
 ```bash
-cd c:\Users\dasha\Downloads\CIRVION
+cd c:\Users\dasha\OneDrive\Documents\GitHub\cirvion
 git add .
 git commit -m "SEO: Lab removed, global/local keywords, Service schemas, robots.txt, sitemap.xml"
 git push origin main
@@ -23,7 +23,7 @@ git push origin main
 ### Step 2: Verify Deployment Live
 
 Go to: **https://vercel.com/dashboard**
-- Select CIRVION project
+- Select AIFLOWIX project
 - Check Deployments tab
 - Should see "Ready" status ✓
 

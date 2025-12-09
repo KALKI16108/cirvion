@@ -7,7 +7,7 @@
 Copy & paste this in terminal:
 
 ```bash
-cd c:\Users\dasha\Downloads\CIRVION
+cd c:\Users\dasha\OneDrive\Documents\GitHub\cirvion
 git add .
 git commit -m "SEO optimization: Lab removed, global/local keywords, Service schemas, robots.txt, sitemap.xml"
 git push origin main
