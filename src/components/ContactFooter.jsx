@@ -88,31 +88,13 @@ const ContactFooter = () => {
 
         try {
             // Using Web3Forms - FREE service that sends form data to your email
-            // Get your access key from: https://web3forms.com
-            const webFormKey = import.meta.env.VITE_WEB3FORMS_KEY;
+            // API key will be added after deployment
+            // For now, contact form will show a message to email directly
             
-            // If no API key configured, show message and return
-            if (!webFormKey || webFormKey.includes('undefined')) {
-                setError('Contact form is temporarily unavailable. Please email us at siddhantpitale125@gmail.com');
-                setIsSubmitting(false);
-                return;
-            }
-
-            const response = await fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    access_key: webFormKey,
-                    name: formData.name,
-                    business: formData.business,
-                    phone: formData.phone,
-                    email: formData.email,
-                    message: formData.message,
-                    subject: `New Contact Form Submission from ${formData.name}`,
-                }),
-            });
+            setSubmitStatus('error');
+            setError('Contact form is temporarily unavailable. Please email us at siddhantpitale125@gmail.com or use the WhatsApp button below.');
+            setIsSubmitting(false);
+            return;
 
             const result = await response.json();
 
