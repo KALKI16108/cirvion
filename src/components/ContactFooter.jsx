@@ -89,13 +89,21 @@ const ContactFooter = () => {
         try {
             // Using Web3Forms - FREE service that sends form data to your email
             // Get your access key from: https://web3forms.com
+            const webFormKey = import.meta.env.VITE_WEB3FORMS_KEY;
+            
+            if (!webFormKey) {
+                setError('Contact form is not properly configured. Please contact support.');
+                setIsSubmitting(false);
+                return;
+            }
+
             const response = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    access_key: '764755b8-1e72-4cb2-a43d-b4630d2877df', // Replace with your actual key
+                    access_key: webFormKey,
                     name: formData.name,
                     business: formData.business,
                     phone: formData.phone,
