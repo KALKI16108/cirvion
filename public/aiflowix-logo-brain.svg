@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 280" width="200" height="280" role="img" aria-label="AIFLOWIX Logo">
+  <defs>
+    <!-- Main brain gradient -->
+    <linearGradient id="brainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#00E5FF"/>
+      <stop offset="100%" stopColor="#00C8FF"/>
+    </linearGradient>
+    
+    <!-- Circle outline gradient -->
+    <linearGradient id="circleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#00D9FF"/>
+      <stop offset="100%" stopColor="#0099CC"/>
+    </linearGradient>
+    
+    <!-- Glow filter -->
+    <filter id="brainGlow">
+      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Outer circle border -->
+  <circle cx="100" cy="100" r="90" fill="none" stroke="url(#circleGradient)" strokeWidth="2.5" opacity="0.7"/>
+  
+  <!-- LEFT BRAIN HEMISPHERE -->
+  <g filter="url(#brainGlow)">
+    <!-- Left brain shape -->
+    <path
+      d="M 100 45 Q 75 45 65 58 Q 58 68 58 85 Q 58 110 70 125 Q 85 138 100 138 Q 100 125 100 100 Z"
+      fill="url(#brainGradient)"
+      opacity="0.95"
+    />
+    
+    <!-- Left brain surface details (ridges) -->
+    <path d="M 68 55 Q 65 65 68 80" stroke="#00D9FF" strokeWidth="1.8" fill="none" strokeLinecap="round" opacity="0.7"/>
+    <path d="M 75 50 Q 72 65 76 90" stroke="#00D9FF" strokeWidth="1.8" fill="none" strokeLinecap="round" opacity="0.7"/>
+    <path d="M 82 48 Q 80 65 85 105" stroke="#00D9FF" strokeWidth="1.8" fill="none" strokeLinecap="round" opacity="0.7"/>
+    <path d="M 65 95 Q 68 110 75 125" stroke="#00D9FF" strokeWidth="1.8" fill="none" strokeLinecap="round" opacity="0.7"/>
+  </g>
+  
+  <!-- RIGHT BRAIN HEMISPHERE -->
+  <g filter="url(#brainGlow)">
+    <!-- Right brain shape -->
+    <path
+      d="M 100 45 Q 125 45 135 58 Q 142 68 142 85 Q 142 110 130 125 Q 115 138 100 138 Q 100 125 100 100 Z"
+      fill="url(#brainGradient)"
+      opacity="1"
+    />
+    
+    <!-- Right brain surface details (ridges) -->
+    <path d="M 132 55 Q 135 65 132 80" stroke="#00E5FF" strokeWidth="1.8" fill="none" strokeLinecap="round" opacity="0.8"/>
+    <path d="M 125 50 Q 128 65 124 90" stroke="#00E5FF" strokeWidth="1.8" fill="none" strokeLinecap="round" opacity="0.8"/>
+    <path d="M 118 48 Q 120 65 115 105" stroke="#00E5FF" strokeWidth="1.8" fill="none" strokeLinecap="round" opacity="0.8"/>
+    <path d="M 135 95 Q 132 110 125 125" stroke="#00E5FF" strokeWidth="1.8" fill="none" strokeLinecap="round" opacity="0.8"/>
+  </g>
+  
+  <!-- CENTER DIVISION LINE -->
+  <line x1="100" y1="45" x2="100" y2="138" stroke="#00C8FF" strokeWidth="1.5" opacity="0.4"/>
+  
+  <!-- FLOW ARROWS (circular around brain) -->
+  
+  <!-- Top-right arrow -->
+  <g opacity="0.75">
+    <path d="M 135 55 Q 150 50 158 65" stroke="url(#circleGradient)" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+    <polygon points="158,65 162,62 160,72" fill="url(#circleGradient)"/>
+  </g>
+  
+  <!-- Right arrow -->
+  <g opacity="0.75">
+    <path d="M 145 90 Q 160 95 162 110" stroke="url(#circleGradient)" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+    <polygon points="162,110 166,108 162,120" fill="url(#circleGradient)"/>
+  </g>
+  
+  <!-- Bottom-right arrow -->
+  <g opacity="0.75">
+    <path d="M 135 130 Q 150 145 145 160" stroke="url(#circleGradient)" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+    <polygon points="145,160 142,152 152,157" fill="url(#circleGradient)"/>
+  </g>
+  
+  <!-- Bottom-left arrow -->
+  <g opacity="0.75">
+    <path d="M 65 130 Q 50 145 55 160" stroke="url(#circleGradient)" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+    <polygon points="55,160 48,157 58,152" fill="url(#circleGradient)"/>
+  </g>
+  
+  <!-- Left arrow -->
+  <g opacity="0.75">
+    <path d="M 55 90 Q 40 95 38 110" stroke="url(#circleGradient)" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+    <polygon points="38,110 34,108 38,120" fill="url(#circleGradient)"/>
+  </g>
+  
+  <!-- Top-left arrow -->
+  <g opacity="0.75">
+    <path d="M 65 55 Q 50 50 42 65" stroke="url(#circleGradient)" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+    <polygon points="42,65 38,62 40,72" fill="url(#circleGradient)"/>
+  </g>
+  
+  <!-- Subtle highlights for depth -->
+  <ellipse cx="80" cy="75" rx="6" ry="10" fill="white" opacity="0.12"/>
+  <ellipse cx="120" cy="75" rx="6" ry="10" fill="white" opacity="0.18"/>
+  
+  <!-- AIFLOWIX TEXT -->
+  <text
+    x="100"
+    y="220"
+    fontFamily="Arial, sans-serif"
+    fontSize="32"
+    fontWeight="bold"
+    textAnchor="middle"
+    fill="#00C8FF"
+    letterSpacing="2"
+  >
+    Aiflowix
+  </text>
+  
+  <!-- Small tagline or subtitle (optional) -->
+  <text
+    x="100"
+    y="255"
+    fontFamily="Arial, sans-serif"
+    fontSize="11"
+    textAnchor="middle"
+    fill="#00D9FF"
+    opacity="0.7"
+    letterSpacing="1"
+  >
+    AI AUTOMATION
+  </text>
+</svg>
