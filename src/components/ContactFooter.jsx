@@ -88,13 +88,31 @@ const ContactFooter = () => {
 
         try {
             // Using Web3Forms - FREE service that sends form data to your email
-            // API key will be added after deployment
-            // For now, contact form will show a message to email directly
-            
-            setSubmitStatus('error');
-            setError('Contact form is temporarily unavailable. Please email us at siddhantpitale125@gmail.com or use the WhatsApp button below.');
-            setIsSubmitting(false);
-            return;
+            const web3formsKey = import.meta.env.VITE_WEB3FORMS_KEY;
+
+            if (!web3formsKey) {
+                setSubmitStatus('error');
+                alert('Contact form is temporarily unavailable. Please email us at siddhantpitale125@gmail.com or use the WhatsApp button below.');
+                setIsSubmitting(false);
+                return;
+            }
+
+            // Prepare form data for Web3Forms
+            const formPayload = new FormData();
+            formPayload.append('access_key', web3formsKey);
+            formPayload.append('name', formData.name);
+            formPayload.append('business', formData.business);
+            formPayload.append('phone', formData.phone);
+            formPayload.append('email', formData.email);
+            formPayload.append('message', formData.message);
+            formPayload.append('from_name', 'AIFLOWIX Contact Form');
+            formPayload.append('subject', `New Contact Request from ${formData.name}`);
+
+            // Send to Web3Forms API
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formPayload,
+            });
 
             const result = await response.json();
 
@@ -107,6 +125,7 @@ const ContactFooter = () => {
                 alert('Oops! Something went wrong. Please try again or email us directly at siddhantpitale125@gmail.com');
             }
         } catch (error) {
+            console.error('Form submission error:', error);
             setSubmitStatus('error');
             alert('Oops! Something went wrong. Please try again or email us directly at siddhantpitale125@gmail.com');
         } finally {
