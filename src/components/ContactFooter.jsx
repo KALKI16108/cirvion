@@ -91,8 +91,9 @@ const ContactFooter = () => {
             // Get your access key from: https://web3forms.com
             const webFormKey = import.meta.env.VITE_WEB3FORMS_KEY;
             
-            if (!webFormKey) {
-                setError('Contact form is not properly configured. Please contact support.');
+            // If no API key configured, show message and return
+            if (!webFormKey || webFormKey.includes('undefined')) {
+                setError('Contact form is temporarily unavailable. Please email us at siddhantpitale125@gmail.com');
                 setIsSubmitting(false);
                 return;
             }
