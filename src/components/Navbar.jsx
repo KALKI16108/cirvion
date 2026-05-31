@@ -41,17 +41,22 @@ const Navbar = () => {
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-8">
-              {['Services', 'Industries', 'Case Studies', 'About'].map((item) => (
-                <a
-                  key={item}
-                  href={`/#${item.toLowerCase().replace(' ', '-')}`}
+              {[
+                { label: 'Services', href: '/#services' },
+                { label: 'Custom AI', href: '/custom-ai-software' },
+                { label: 'SMB AI', href: '/ai-for-small-business' },
+                { label: 'Blog', href: '/blog' }
+              ].map((item) => (
+                <Link
+                  key={item.label}
+                  to={item.href}
                   className="text-sm font-medium text-[#CBD5E1] hover:text-white transition-colors relative group"
-                  title={`Navigate to ${item} section`}
-                  aria-label={`Go to ${item} section`}
+                  title={`Navigate to ${item.label}`}
+                  aria-label={`Go to ${item.label}`}
                 >
-                  {item}
+                  {item.label}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00C8FF] transition-all group-hover:w-full" aria-hidden="true"></span>
-                </a>
+                </Link>
               ))}
 
               <a href="/#contact" className="bg-white/10 hover:bg-white/20 text-white px-5 py-2 rounded-full font-semibold text-sm transition-all border border-white/10">
@@ -80,15 +85,20 @@ const Navbar = () => {
             className="fixed inset-0 z-40 bg-[#0F172A] pt-24 px-6 md:hidden"
           >
             <div className="flex flex-col space-y-6 text-center">
-              {['Services', 'Industries', 'Case Studies', 'About'].map((item) => (
-                <a
-                  key={item}
-                  href={`/#${item.toLowerCase().replace(' ', '-')}`}
+              {[
+                { label: 'Services', href: '/#services' },
+                { label: 'Custom AI', href: '/custom-ai-software' },
+                { label: 'SMB AI', href: '/ai-for-small-business' },
+                { label: 'Blog', href: '/blog' }
+              ].map((item) => (
+                <Link
+                  key={item.label}
+                  to={item.href}
                   className="text-2xl font-medium text-white hover:text-[#00C8FF]"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
-                  {item}
-                </a>
+                  {item.label}
+                </Link>
               ))}
               <a href="/#contact" className="btn-primary w-full mt-8 block text-center py-3" onClick={() => setIsMobileMenuOpen(false)}>
                 Book Audit
