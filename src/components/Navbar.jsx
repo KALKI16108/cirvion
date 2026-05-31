@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import Logo from './Logo';
 
 const Navbar = () => {
@@ -33,17 +34,17 @@ const Navbar = () => {
             }`}>
 
             {/* Logo */}
-            <a href="/" className="flex items-center" title="AIFLOWIX - Go to homepage">
+            <Link to="/" className="flex items-center" title="AIFLOWIX - Go to homepage">
               <Logo className="h-8" />
               <span className="sr-only">AIFLOWIX Home</span>
-            </a>
+            </Link>
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-8">
               {['Services', 'Industries', 'Case Studies', 'About'].map((item) => (
                 <a
                   key={item}
-                  href={`#${item.toLowerCase().replace(' ', '-')}`}
+                  href={`/#${item.toLowerCase().replace(' ', '-')}`}
                   className="text-sm font-medium text-[#CBD5E1] hover:text-white transition-colors relative group"
                   title={`Navigate to ${item} section`}
                   aria-label={`Go to ${item} section`}
@@ -53,7 +54,7 @@ const Navbar = () => {
                 </a>
               ))}
 
-              <a href="#contact" className="bg-white/10 hover:bg-white/20 text-white px-5 py-2 rounded-full font-semibold text-sm transition-all border border-white/10">
+              <a href="/#contact" className="bg-white/10 hover:bg-white/20 text-white px-5 py-2 rounded-full font-semibold text-sm transition-all border border-white/10">
                 Book Audit
               </a>
             </div>
@@ -82,14 +83,14 @@ const Navbar = () => {
               {['Services', 'Industries', 'Case Studies', 'About'].map((item) => (
                 <a
                   key={item}
-                  href={`#${item.toLowerCase().replace(' ', '-')}`}
+                  href={`/#${item.toLowerCase().replace(' ', '-')}`}
                   className="text-2xl font-medium text-white hover:text-[#00C8FF]"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item}
                 </a>
               ))}
-              <a href="#contact" className="btn-primary w-full mt-8 block text-center py-3" onClick={() => setIsMobileMenuOpen(false)}>
+              <a href="/#contact" className="btn-primary w-full mt-8 block text-center py-3" onClick={() => setIsMobileMenuOpen(false)}>
                 Book Audit
               </a>
             </div>

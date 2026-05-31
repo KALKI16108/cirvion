@@ -1,14 +1,28 @@
 import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import WhatWeDo from './components/WhatWeDo';
-import WhyAiflowix from './components/WhyAiflowix';
-import Services from './components/Services';
-import Industries from './components/Industries';
-import CaseStudies from './components/CaseStudies';
-import AboutUs from './components/AboutUs';
-import CTA from './components/CTA';
 import ContactFooter from './components/ContactFooter';
+import Home from './pages/Home';
+import Blog from './pages/Blog';
+import CustomAiSoftware from './pages/CustomAiSoftware';
+import AiForSmallBusiness from './pages/AiForSmallBusiness';
+
+const ScrollToAnchor = () => {
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    if (hash) {
+      setTimeout(() => {
+        const element = document.getElementById(hash.replace('#', ''));
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
+  return null;
+};
 
 function App() {
   // Ensure default load is at root (mywebsite.in) not (#contact)
@@ -194,6 +208,16 @@ function App() {
               }
             }
           ]
+        },
+        {
+          '@type': 'SoftwareApplication',
+          '@id': 'https://aiflowix.in/#software',
+          'name': 'Custom AI Software Development',
+          'applicationCategory': 'BusinessApplication',
+          'operatingSystem': 'Web, Cloud',
+          'description': 'Bespoke AI applications for enterprise and SMB automation.',
+          'provider': { '@id': 'https://aiflowix.in/#organization' },
+          'url': 'https://aiflowix.in/custom-ai-software'
         }
       ]
     };
@@ -205,20 +229,19 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0F172A] text-white selection:bg-[#00C8FF] selection:text-[#0F172A]">
-      <Navbar />
-      <main>
-        <Hero />
-        <WhatWeDo />
-        <WhyAiflowix />
-        <Services />
-        <Industries />
-        <CaseStudies />
-        <AboutUs />
-        <CTA />
-      </main>
-      <ContactFooter />
-    </div>
+    <Router>
+      <ScrollToAnchor />
+      <div className="min-h-screen bg-[#0F172A] text-white selection:bg-[#00C8FF] selection:text-[#0F172A]">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/custom-ai-software" element={<CustomAiSoftware />} />
+          <Route path="/ai-for-small-business" element={<AiForSmallBusiness />} />
+        </Routes>
+        <ContactFooter />
+      </div>
+    </Router>
   );
 }
 

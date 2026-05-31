@@ -50,8 +50,8 @@ const Hero = () => {
 
                     {/* Subheadline */}
                     <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-[#94A3B8] max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed font-light px-4">
-                        As a leading <strong className="font-medium text-white/90">AI automation agency India</strong>, we provide <strong className="font-medium text-white/90">custom AI software development</strong>.
-                        We <strong className="font-medium text-white/90">automate business processes</strong> and deliver premier <strong className="font-medium text-white/90">workflow automation Mumbai</strong> to empower your business to scale effortlessly.
+                        As a leading <strong className="font-medium text-white/90">workflow automation agency India</strong> and a top <strong className="font-medium text-white/90">AI automation company Mumbai</strong>, we provide premier <strong className="font-medium text-white/90">hyper-automation consulting India</strong>.
+                        We build intelligent systems that scale, specializing in <strong className="font-medium text-white/90">enterprise workflow automation India</strong>.
                     </p>
                     {/* One-line SEO/problem statement (screen-reader-only to avoid visual change): clarifies the problem we solve */}
                     <p className="sr-only">We solve slow, repetitive business workflows by implementing custom AI-driven automation.</p>

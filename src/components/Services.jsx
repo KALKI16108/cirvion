@@ -83,7 +83,7 @@ const Services = () => {
                         title="Operations Automation"
                         icon={Settings}
                         items={[
-                            "Lead Processing",
+                            "lead qualification automation software",
                             "CRM & ERP Automation",
                             "Auto-Reporting",
                             "Task Scheduling"
@@ -95,7 +95,7 @@ const Services = () => {
                         icon={Code2}
                         items={[
                             "API Integrations",
-                            "Dashboarding",
+                            "document digitization AI service",
                             "Workflow Mapping",
                             "RPA Automation"
                         ]}

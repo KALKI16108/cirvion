@@ -71,7 +71,7 @@
   <meta name="geo.region" content="IN-MH" />
   
   <!-- For global indexing + local discovery + snippet optimization -->
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1, notranslate, noimageindex" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <!-- Alternative robots meta for different search engines -->
   <meta name="Googlebot" content="index, follow, max-image-preview:large, max-snippet:-1" />
   <meta name="Bingbot" content="index, follow" />
@@ -124,15 +124,13 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "AIFlowix",
-    "description": "AI automation agency and custom AI software development.",
-    "url": "https://aiflowix.in/",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Mumbai",
-      "addressCountry": "IN"
-    }
+    "@type": ["LocalBusiness", "ProfessionalService"],
+    "name": "AIFLOWIX",
+    "url": "https://aiflowix.in",
+    "description": "Mumbai AI agency — workflow automation, custom AI software development, and AI consulting for SMBs to enterprise clients globally.",
+    "address": { "@type": "PostalAddress", "addressLocality": "Mumbai", "addressRegion": "Maharashtra", "addressCountry": "IN" },
+    "geo": { "@type": "GeoCoordinates", "latitude": 19.0176, "longitude": 72.8479 },
+    "areaServed": ["India", "Global"]
   }
   </script>
 </head>
