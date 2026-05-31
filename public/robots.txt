@@ -155,7 +155,7 @@ Request-rate: 10/60
 # ============================================================================
 # SITEMAP LOCATION (Google, Bing, DuckDuckGo will discover automatically)
 # ============================================================================
-Sitemap: https://www.aiflowix.in/sitemap.xml
+Sitemap: https://aiflowix.in/sitemap.xml
 
 # ============================================================================
 # SECURITY NOTES

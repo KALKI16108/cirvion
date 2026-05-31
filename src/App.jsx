@@ -23,9 +23,9 @@ function App() {
       '@graph': [
         {
           '@type': 'Organization',
-          '@id': 'https://www.aiflowix.in/#organization',
+          '@id': 'https://aiflowix.in/#organization',
           'name': 'AIFLOWIX',
-          'url': 'https://www.aiflowix.in',
+          'url': 'https://aiflowix.in',
           'description': 'AI & Business Workflow Automation Consultancy',
           'sameAs': [
             'https://www.linkedin.com/company/aiflowix',
@@ -49,18 +49,18 @@ function App() {
           },
           'logo': {
             '@type': 'ImageObject',
-            'url': 'https://www.aiflowix.in/assets/logo.png',
+            'url': 'https://aiflowix.in/assets/logo.png',
             'width': 250,
             'height': 60
           }
         },
         {
           '@type': 'LocalBusiness',
-          '@id': 'https://www.aiflowix.in/#localbusiness',
+          '@id': 'https://aiflowix.in/#localbusiness',
           'name': 'AIFLOWIX AI Automation',
           'description': 'Leading AI & automation consultancy for business workflow optimization in Mumbai',
-          'image': 'https://www.aiflowix.in/assets/og-image.png',
-          'url': 'https://www.aiflowix.in',
+          'image': 'https://aiflowix.in/assets/og-image.png',
+          'url': 'https://aiflowix.in',
           'address': {
             '@type': 'PostalAddress',
             'streetAddress': '123 Tech Park, Bandra Kurla Complex',
@@ -79,36 +79,36 @@ function App() {
         },
         {
           '@type': 'BreadcrumbList',
-          '@id': 'https://www.aiflowix.in/#breadcrumb',
+          '@id': 'https://aiflowix.in/#breadcrumb',
           'itemListElement': [
-            { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.aiflowix.in' },
-            { '@type': 'ListItem', 'position': 2, 'name': 'Services', 'item': 'https://www.aiflowix.in#services' },
-            { '@type': 'ListItem', 'position': 3, 'name': 'Case Studies', 'item': 'https://www.aiflowix.in#case-studies' },
-            { '@type': 'ListItem', 'position': 4, 'name': 'Why AIFLOWIX', 'item': 'https://www.aiflowix.in#why-aiflowix' },
-            { '@type': 'ListItem', 'position': 5, 'name': 'About', 'item': 'https://www.aiflowix.in#about' },
-            { '@type': 'ListItem', 'position': 6, 'name': 'Contact', 'item': 'https://www.aiflowix.in#contact' }
+            { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://aiflowix.in' },
+            { '@type': 'ListItem', 'position': 2, 'name': 'Services', 'item': 'https://aiflowix.in#services' },
+            { '@type': 'ListItem', 'position': 3, 'name': 'Case Studies', 'item': 'https://aiflowix.in#case-studies' },
+            { '@type': 'ListItem', 'position': 4, 'name': 'Why AIFLOWIX', 'item': 'https://aiflowix.in#why-aiflowix' },
+            { '@type': 'ListItem', 'position': 5, 'name': 'About', 'item': 'https://aiflowix.in#about' },
+            { '@type': 'ListItem', 'position': 6, 'name': 'Contact', 'item': 'https://aiflowix.in#contact' }
           ]
         },
         {
           '@type': 'WebPage',
-          '@id': 'https://www.aiflowix.in/#webpage',
+          '@id': 'https://aiflowix.in/#webpage',
           'name': 'End-to-End AI Integration & Hyper-Automation | AIFLOWIX',
           'description': 'Enterprise-grade AI automation platform: End-to-end AI integration, operational efficiency, and hyper-automation solutions. Mumbai-based AI consultancy for workflow ROI optimization and intelligent process automation.',
-          'url': 'https://www.aiflowix.in',
-          'isPartOf': { '@id': 'https://www.aiflowix.in/#website' },
+          'url': 'https://aiflowix.in',
+          'isPartOf': { '@id': 'https://aiflowix.in/#website' },
           'inLanguage': 'en-IN',
           'potentialAction': {
             '@type': 'SearchAction',
-            'target': { '@type': 'EntryPoint', 'urlTemplate': 'https://www.aiflowix.in?q={search_term_string}' },
+            'target': { '@type': 'EntryPoint', 'urlTemplate': 'https://aiflowix.in?q={search_term_string}' },
             'query-input': 'required name=search_term_string'
           }
         },
         {
           '@type': 'Service',
-          '@id': 'https://www.aiflowix.in/#service-lead-qualifier',
+          '@id': 'https://aiflowix.in/#service-lead-qualifier',
           'name': 'Lead Qualifier AI',
           'description': 'Intelligent lead qualification automation that scores, filters, and prioritizes prospects in real-time, reducing manual qualification workload and improving conversion rates.',
-          'provider': { '@id': 'https://www.aiflowix.in/#organization' },
+          'provider': { '@id': 'https://aiflowix.in/#organization' },
           'areaServed': [
             { '@type': 'Country', 'name': 'India' },
             { '@type': 'Country', 'name': 'United States' },
@@ -121,21 +121,21 @@ function App() {
             'priceRange': '₹50000 - ₹500000',
             'price': '0',
             'pricingModel': 'Custom Enterprise Pricing',
-            'url': 'https://www.aiflowix.in#contact'
+            'url': 'https://aiflowix.in#contact'
           },
-          'image': 'https://www.aiflowix.in/assets/lead-qualifier-demo.png',
+          'image': 'https://aiflowix.in/assets/lead-qualifier-demo.png',
           'potentialAction': {
             '@type': 'ReserveAction',
-            'target': { '@type': 'EntryPoint', 'urlTemplate': 'https://www.aiflowix.in#contact', 'actionPlatform': 'http://schema.org/DesktopWebPlatform' },
+            'target': { '@type': 'EntryPoint', 'urlTemplate': 'https://aiflowix.in#contact', 'actionPlatform': 'http://schema.org/DesktopWebPlatform' },
             'name': 'Schedule Lead Qualifier Demo'
           }
         },
         {
           '@type': 'Service',
-          '@id': 'https://www.aiflowix.in/#service-document-digitization',
+          '@id': 'https://aiflowix.in/#service-document-digitization',
           'name': 'Document Digitization AI',
           'description': 'Enterprise document digitization powered by AI: intelligent extraction, OCR processing, and instant digital transformation of paper and PDF documents into structured, searchable data.',
-          'provider': { '@id': 'https://www.aiflowix.in/#organization' },
+          'provider': { '@id': 'https://aiflowix.in/#organization' },
           'areaServed': [
             { '@type': 'Country', 'name': 'India' },
             { '@type': 'Country', 'name': 'United States' },
@@ -148,18 +148,18 @@ function App() {
             'priceRange': '₹75000 - ₹750000',
             'price': '0',
             'pricingModel': 'Custom Enterprise Pricing',
-            'url': 'https://www.aiflowix.in#contact'
+            'url': 'https://aiflowix.in#contact'
           },
-          'image': 'https://www.aiflowix.in/assets/document-digitization-demo.png',
+          'image': 'https://aiflowix.in/assets/document-digitization-demo.png',
           'potentialAction': {
             '@type': 'ReserveAction',
-            'target': { '@type': 'EntryPoint', 'urlTemplate': 'https://www.aiflowix.in#contact', 'actionPlatform': 'http://schema.org/DesktopWebPlatform' },
+            'target': { '@type': 'EntryPoint', 'urlTemplate': 'https://aiflowix.in#contact', 'actionPlatform': 'http://schema.org/DesktopWebPlatform' },
             'name': 'Schedule Document Digitization Demo'
           }
         },
         {
           '@type': 'FAQPage',
-          '@id': 'https://www.aiflowix.in/#faq',
+          '@id': 'https://aiflowix.in/#faq',
           'mainEntity': [
             {
               '@type': 'Question',

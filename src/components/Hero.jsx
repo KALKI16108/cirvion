@@ -40,17 +40,18 @@ const Hero = () => {
                     </motion.div>
 
                     {/* Headline */}
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-6 md:mb-8 tracking-tight leading-[1.1]">
-                        <span className="block text-white">Smarter Workflows,</span>
-                        <span className="text-gradient-primary">Faster Growth.</span>
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 tracking-tight leading-[1.1]">
+                        <span className="block text-white">AI-Powered Workflow Automation</span>
+                        <span className="text-gradient-primary">&amp; Custom Software</span>
+                        <span className="block text-2xl sm:text-3xl md:text-4xl text-white/80 mt-4">for Indian Businesses</span>
                         {/* Screen-reader clarification: keeps visual headline unchanged but adds explicit service intent for SEO and accessibility */}
-                        <span className="sr-only">AIFLOWIX — AI & automation consultancy delivering business workflow automation and custom AI systems.</span>
+                        <span className="sr-only">AI-Powered Workflow Automation &amp; Custom Software for Indian Businesses</span>
                     </h1>
 
                     {/* Subheadline */}
                     <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-[#94A3B8] max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed font-light px-4">
-                        We engineer intelligent automation systems that eliminate repetitive tasks,
-                        accelerate operations, and empower your business to scale effortlessly.
+                        As a leading <strong className="font-medium text-white/90">AI automation agency India</strong>, we provide <strong className="font-medium text-white/90">custom AI software development</strong>.
+                        We <strong className="font-medium text-white/90">automate business processes</strong> and deliver premier <strong className="font-medium text-white/90">workflow automation Mumbai</strong> to empower your business to scale effortlessly.
                     </p>
                     {/* One-line SEO/problem statement (screen-reader-only to avoid visual change): clarifies the problem we solve */}
                     <p className="sr-only">We solve slow, repetitive business workflows by implementing custom AI-driven automation.</p>
