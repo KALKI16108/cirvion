@@ -48,10 +48,10 @@ function App() {
           ],
           'address': {
             '@type': 'PostalAddress',
-            'streetAddress': '123 Tech Park, Bandra Kurla Complex',
+            'streetAddress': 'Walbhatt Road, Goregaon East',
             'addressLocality': 'Mumbai',
             'addressRegion': 'MH',
-            'postalCode': '400051',
+            'postalCode': '400063',
             'addressCountry': 'IN'
           },
           'contactPoint': {
@@ -77,10 +77,10 @@ function App() {
           'url': 'https://aiflowix.in',
           'address': {
             '@type': 'PostalAddress',
-            'streetAddress': '123 Tech Park, Bandra Kurla Complex',
+            'streetAddress': 'Walbhatt Road, Goregaon East',
             'addressLocality': 'Mumbai',
             'addressRegion': 'MH',
-            'postalCode': '400051',
+            'postalCode': '400063',
             'addressCountry': 'IN'
           },
           'telephone': '+91-XXXXXXX',
