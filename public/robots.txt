@@ -3,6 +3,7 @@
 
 User-agent: *
 Allow: /
+Disallow: /*?q=*
 
 # SITEMAP LOCATION
 Sitemap: https://aiflowix.in/sitemap.xml
