@@ -1,88 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-  <!-- Homepage: Global landing point for AI automation consultancy -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://aiflowix.in/</loc>
+    <loc>https://www.aiflowix.in/</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://aiflowix.in/assets/og-image.png</image:loc>
-      <image:title>AIFLOWIX - AI &amp; Automation Consultancy</image:title>
-    </image:image>
   </url>
-  
-  <!-- Services: End-to-End AI Integration & Hyper-Automation -->
   <url>
-    <loc>https://aiflowix.in/#services</loc>
+    <loc>https://www.aiflowix.in/custom-ai-software</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.95</priority>
+    <priority>0.8</priority>
   </url>
-
-  <!-- Lead Qualifier Service: Intelligent automation for lead qualification -->
   <url>
-    <loc>https://aiflowix.in/#lead-qualifier</loc>
+    <loc>https://www.aiflowix.in/ai-for-small-business</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
-
-  <!-- Document Digitization Service: AI-powered document processing -->
   <url>
-    <loc>https://aiflowix.in/#document-digitization</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Industries: Industry-specific AI automation solutions -->
-  <url>
-    <loc>https://aiflowix.in/#industries</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <!-- Case Studies: Real-world AI automation results -->
-  <url>
-    <loc>https://aiflowix.in/#case-studies</loc>
+    <loc>https://www.aiflowix.in/blog</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Why AIFLOWIX: Authority signal and business differentiation -->
-  <url>
-    <loc>https://aiflowix.in/#why-aiflowix</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <!-- About AIFLOWIX: Local Mumbai + Global Trust -->
-  <url>
-    <loc>https://aiflowix.in/#about</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <!-- Contact: Lead generation and inquiry form -->
-  <url>
-    <loc>https://aiflowix.in/#contact</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.95</priority>
-  </url>
-
-  <!-- Contact: Conversion Point -->
-  <url>
-    <loc>https://aiflowix.in/#contact</loc>
-    <lastmod>2026-06-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
 </urlset>
