@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Blog = () => {
   return (
@@ -29,34 +30,34 @@ const Blog = () => {
         transition={{ delay: 0.2 }}
         className="grid grid-cols-1 md:grid-cols-3 gap-8"
       >
-        {/* Pillar 1 */}
-        <article onClick={() => alert('We are currently migrating our blog content. Full articles will be available soon!')} className="bg-[#1E293B]/50 border border-white/5 rounded-2xl p-6 hover:border-[#00C8FF]/50 transition-colors cursor-pointer group">
+        {/* Post 1 */}
+        <Link to="/blog/automate-lead-qualification" className="bg-[#1E293B]/50 border border-white/5 rounded-2xl p-6 hover:border-[#00C8FF]/50 transition-colors cursor-pointer group flex flex-col">
           <div className="text-xs font-bold tracking-wider text-[#00C8FF] uppercase mb-2">Workflow Automation</div>
-          <h2 className="text-xl font-bold text-white mb-3 group-hover:text-[#00C8FF] transition-colors">How to Automate Business Workflows</h2>
-          <p className="text-[#94A3B8] text-sm mb-4">
-            Discover the step-by-step process of identifying bottlenecks in your business and deploying AI to streamline operations.
+          <h2 className="text-xl font-bold text-white mb-3 group-hover:text-[#00C8FF] transition-colors">How to Automate Lead Qualification with AI</h2>
+          <p className="text-[#94A3B8] text-sm mb-4 flex-grow">
+            Stop wasting time on dead-end leads. Learn how AI can automatically score and filter your sales pipeline.
           </p>
-          <span className="text-[#00C8FF] text-sm font-medium transition-colors">Read Article &rarr;</span>
-        </article>
+          <span className="text-[#00C8FF] text-sm font-medium transition-colors mt-auto">Read Article &rarr;</span>
+        </Link>
 
-        {/* Pillar 2 */}
-        <article onClick={() => alert('We are currently migrating our blog content. Full articles will be available soon!')} className="bg-[#1E293B]/50 border border-white/5 rounded-2xl p-6 hover:border-[#6366F1]/50 transition-colors cursor-pointer group">
+        {/* Post 2 */}
+        <Link to="/blog/custom-ai-software-benefits" className="bg-[#1E293B]/50 border border-white/5 rounded-2xl p-6 hover:border-[#6366F1]/50 transition-colors cursor-pointer group flex flex-col">
           <div className="text-xs font-bold tracking-wider text-[#6366F1] uppercase mb-2">Custom AI Software</div>
-          <h2 className="text-xl font-bold text-white mb-3 group-hover:text-[#6366F1] transition-colors">Why Bespoke AI Applications Outperform Off-the-Shelf Tools</h2>
-          <p className="text-[#94A3B8] text-sm mb-4">
-            Learn why enterprise businesses are shifting towards custom AI software development for a true competitive edge.
+          <h2 className="text-xl font-bold text-white mb-3 group-hover:text-[#6366F1] transition-colors">Benefits of Custom AI Software for Small Businesses</h2>
+          <p className="text-[#94A3B8] text-sm mb-4 flex-grow">
+            Why investing in bespoke AI applications yields better ROI than subscribing to multiple generic SaaS tools.
           </p>
-          <span className="text-[#6366F1] text-sm font-medium transition-colors">Read Article &rarr;</span>
-        </article>
+          <span className="text-[#6366F1] text-sm font-medium transition-colors mt-auto">Read Article &rarr;</span>
+        </Link>
 
-        {/* Pillar 3 */}
-        <article onClick={() => alert('We are currently migrating our blog content. Full articles will be available soon!')} className="bg-[#1E293B]/50 border border-white/5 rounded-2xl p-6 hover:border-[#10B981]/50 transition-colors cursor-pointer group">
+        {/* Pillar 3 (Placeholder) */}
+        <article onClick={() => alert('We are currently migrating our blog content. Full articles will be available soon!')} className="bg-[#1E293B]/50 border border-white/5 rounded-2xl p-6 hover:border-[#10B981]/50 transition-colors cursor-pointer group flex flex-col">
           <div className="text-xs font-bold tracking-wider text-[#10B981] uppercase mb-2">Business Transformation</div>
           <h2 className="text-xl font-bold text-white mb-3 group-hover:text-[#10B981] transition-colors">Scaling Your Agency with Intelligent Process Automation</h2>
-          <p className="text-[#94A3B8] text-sm mb-4">
+          <p className="text-[#94A3B8] text-sm mb-4 flex-grow">
             A look into how AI is completely transforming operational ROI and empowering businesses to scale effortlessly.
           </p>
-          <span className="text-[#10B981] text-sm font-medium transition-colors">Read Article &rarr;</span>
+          <span className="text-[#10B981] text-sm font-medium transition-colors mt-auto">Read Article &rarr;</span>
         </article>
       </motion.div>
     </main>

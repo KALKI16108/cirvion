@@ -6,6 +6,8 @@ import Home from './pages/Home';
 import Blog from './pages/Blog';
 import CustomAiSoftware from './pages/CustomAiSoftware';
 import AiForSmallBusiness from './pages/AiForSmallBusiness';
+import BlogPostLeadQualification from './pages/BlogPostLeadQualification';
+import BlogPostCustomAi from './pages/BlogPostCustomAi';
 
 const ScrollToAnchor = () => {
   const { pathname, hash } = useLocation();
@@ -243,6 +245,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/automate-lead-qualification" element={<BlogPostLeadQualification />} />
+          <Route path="/blog/custom-ai-software-benefits" element={<BlogPostCustomAi />} />
           <Route path="/custom-ai-software" element={<CustomAiSoftware />} />
           <Route path="/ai-for-small-business" element={<AiForSmallBusiness />} />
         </Routes>
