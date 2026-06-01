@@ -165,7 +165,7 @@ const ContactFooter = () => {
                                         <MapPin className="text-[#00C8FF] w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 group-hover:text-white transition-colors" />
                                     </div>
                                     <div>
-                                        <h4 className="text-white font-bold text-sm sm:text-base md:text-lg mb-0.5 sm:mb-1">Headquarters</h4>
+                                        <h3 className="text-white font-bold text-sm sm:text-base md:text-lg mb-0.5 sm:mb-1">Headquarters</h3>
                                         <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base">Mumbai, India</p>
                                     </div>
                                 </div>
@@ -175,7 +175,7 @@ const ContactFooter = () => {
                                         <Mail className="text-[#00C8FF] w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 group-hover:text-white transition-colors" />
                                     </div>
                                     <div>
-                                        <h4 className="text-white font-bold text-sm sm:text-base md:text-lg mb-0.5 sm:mb-1">Email Us</h4>
+                                        <h3 className="text-white font-bold text-sm sm:text-base md:text-lg mb-0.5 sm:mb-1">Email Us</h3>
                                         <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base break-all">siddhantpitale125@gmail.com</p>
                                     </div>
                                 </div>
@@ -185,24 +185,24 @@ const ContactFooter = () => {
                                         <Phone className="text-[#00C8FF] w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 group-hover:text-white transition-colors" />
                                     </div>
                                     <div>
-                                        <h4 className="text-white font-bold text-sm sm:text-base md:text-lg mb-0.5 sm:mb-1">WhatsApp</h4>
+                                        <h3 className="text-white font-bold text-sm sm:text-base md:text-lg mb-0.5 sm:mb-1">WhatsApp</h3>
                                         <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base">+91 99307 44723</p>
                                     </div>
                                 </div>
                             </div>
 
                             <div>
-                                <h4 className="text-white font-semibold mb-3 sm:mb-4 md:mb-6 text-sm sm:text-base">Connect With Us</h4>
+                                <h3 className="text-white font-semibold mb-3 sm:mb-4 md:mb-6 text-sm sm:text-base">Connect With Us</h3>
                                 <div className="flex gap-3 sm:gap-4">
-                                    <a href="https://linkedin.com/company/aiflowix" target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#1E293B] border border-white/5 flex items-center justify-center text-[#94A3B8] hover:bg-[#00C8FF] hover:text-white hover:border-[#00C8FF] transition-all duration-300 hover:-translate-y-1 shadow-lg">
+                                    <a href="https://linkedin.com/company/aiflowix" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#1E293B] border border-white/5 flex items-center justify-center text-[#94A3B8] hover:bg-[#00C8FF] hover:text-white hover:border-[#00C8FF] transition-all duration-300 hover:-translate-y-1 shadow-lg">
                                         <Linkedin size={16} className="sm:hidden" />
                                         <Linkedin size={20} className="hidden sm:block" />
                                     </a>
-                                    <a href="https://twitter.com/aiflowix" target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#1E293B] border border-white/5 flex items-center justify-center text-[#94A3B8] hover:bg-[#00C8FF] hover:text-white hover:border-[#00C8FF] transition-all duration-300 hover:-translate-y-1 shadow-lg">
+                                    <a href="https://twitter.com/aiflowix" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#1E293B] border border-white/5 flex items-center justify-center text-[#94A3B8] hover:bg-[#00C8FF] hover:text-white hover:border-[#00C8FF] transition-all duration-300 hover:-translate-y-1 shadow-lg">
                                         <Twitter size={16} className="sm:hidden" />
                                         <Twitter size={20} className="hidden sm:block" />
                                     </a>
-                                    <a href="https://www.instagram.com/circuit.vision.ai/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#1E293B] border border-white/5 flex items-center justify-center text-[#94A3B8] hover:bg-[#00C8FF] hover:text-white hover:border-[#00C8FF] transition-all duration-300 hover:-translate-y-1 shadow-lg">
+                                    <a href="https://www.instagram.com/circuit.vision.ai/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#1E293B] border border-white/5 flex items-center justify-center text-[#94A3B8] hover:bg-[#00C8FF] hover:text-white hover:border-[#00C8FF] transition-all duration-300 hover:-translate-y-1 shadow-lg">
                                         <Instagram size={16} className="sm:hidden" />
                                         <Instagram size={20} className="hidden sm:block" />
                                     </a>
@@ -218,7 +218,7 @@ const ContactFooter = () => {
                             <form className="space-y-3 sm:space-y-4 md:space-y-6" onSubmit={handleSubmit}>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
                                     <div className="group">
-                                        <label className="block text-[10px] sm:text-xs font-semibold text-[#64748B] uppercase tracking-wider mb-1 sm:mb-2 ml-1">Name</label>
+                                        <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 sm:mb-2 ml-1">Name</label>
                                         <input
                                             type="text"
                                             name="name"
@@ -226,35 +226,35 @@ const ContactFooter = () => {
                                             onChange={handleChange}
                                             required
                                             placeholder="John Doe"
-                                            className="w-full bg-[#0F172A] border border-white/10 rounded-lg sm:rounded-xl px-3 sm:px-4 md:px-5 py-2.5 sm:py-3 md:py-4 text-sm sm:text-base text-white focus:outline-none focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all placeholder:text-slate-700"
+                                            className="w-full bg-[#0F172A] border border-white/10 rounded-lg sm:rounded-xl px-3 sm:px-4 md:px-5 py-2.5 sm:py-3 md:py-4 text-sm sm:text-base text-white focus:outline-none focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all placeholder:text-slate-500"
                                         />
                                     </div>
                                     <div className="group">
-                                        <label className="block text-[10px] sm:text-xs font-semibold text-[#64748B] uppercase tracking-wider mb-1 sm:mb-2 ml-1">Business</label>
+                                        <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 sm:mb-2 ml-1">Business</label>
                                         <input
                                             type="text"
                                             name="business"
                                             value={formData.business}
                                             onChange={handleChange}
                                             placeholder="Company Ltd."
-                                            className="w-full bg-[#0F172A] border border-white/10 rounded-lg sm:rounded-xl px-3 sm:px-4 md:px-5 py-2.5 sm:py-3 md:py-4 text-sm sm:text-base text-white focus:outline-none focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all placeholder:text-slate-700"
+                                            className="w-full bg-[#0F172A] border border-white/10 rounded-lg sm:rounded-xl px-3 sm:px-4 md:px-5 py-2.5 sm:py-3 md:py-4 text-sm sm:text-base text-white focus:outline-none focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all placeholder:text-slate-500"
                                         />
                                     </div>
                                 </div>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-6">
                                     <div className="group">
-                                        <label className="block text-[10px] sm:text-xs font-semibold text-[#64748B] uppercase tracking-wider mb-1 sm:mb-2 ml-1">Phone</label>
+                                        <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 sm:mb-2 ml-1">Phone</label>
                                         <input
                                             type="tel"
                                             name="phone"
                                             value={formData.phone}
                                             onChange={handleChange}
                                             placeholder="+1 (555) 000-0000"
-                                            className="w-full bg-[#0F172A] border border-white/10 rounded-lg sm:rounded-xl px-3 sm:px-4 md:px-5 py-2.5 sm:py-3 md:py-4 text-sm sm:text-base text-white focus:outline-none focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all placeholder:text-slate-700"
+                                            className="w-full bg-[#0F172A] border border-white/10 rounded-lg sm:rounded-xl px-3 sm:px-4 md:px-5 py-2.5 sm:py-3 md:py-4 text-sm sm:text-base text-white focus:outline-none focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all placeholder:text-slate-500"
                                         />
                                     </div>
                                     <div className="group">
-                                        <label className="block text-[10px] sm:text-xs font-semibold text-[#64748B] uppercase tracking-wider mb-1 sm:mb-2 ml-1">Email</label>
+                                        <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 sm:mb-2 ml-1">Email</label>
                                         <input
                                             type="email"
                                             name="email"
@@ -262,12 +262,12 @@ const ContactFooter = () => {
                                             onChange={handleChange}
                                             required
                                             placeholder="john@example.com"
-                                            className="w-full bg-[#0F172A] border border-white/10 rounded-lg sm:rounded-xl px-3 sm:px-4 md:px-5 py-2.5 sm:py-3 md:py-4 text-sm sm:text-base text-white focus:outline-none focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all placeholder:text-slate-700"
+                                            className="w-full bg-[#0F172A] border border-white/10 rounded-lg sm:rounded-xl px-3 sm:px-4 md:px-5 py-2.5 sm:py-3 md:py-4 text-sm sm:text-base text-white focus:outline-none focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all placeholder:text-slate-500"
                                         />
                                     </div>
                                 </div>
                                 <div className="group">
-                                    <label className="block text-[10px] sm:text-xs font-semibold text-[#64748B] uppercase tracking-wider mb-1 sm:mb-2 ml-1">Message</label>
+                                    <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 sm:mb-2 ml-1">Message</label>
                                     <textarea
                                         name="message"
                                         value={formData.message}
@@ -291,7 +291,7 @@ const ContactFooter = () => {
                         </div>
                     </div>
 
-                    <div className="border-t border-white/5 pt-4 sm:pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4 text-[#64748B] text-xs sm:text-sm">
+                    <div className="border-t border-white/5 pt-4 sm:pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4 text-[#94A3B8] text-xs sm:text-sm">
                         <p>&copy; {new Date().getFullYear()} AIFLOWIX. All rights reserved.</p>
                         <div className="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8">
                             <button onClick={() => setShowPrivacy(true)} className="hover:text-[#00C8FF] transition-colors">Privacy Policy</button>

@@ -18,16 +18,16 @@ const CaseStudyCard = ({ industry, problem, solution, outcomes, delay }) => (
 
             <div className="space-y-4 sm:space-y-6 md:space-y-8">
                 <div>
-                    <h4 className="text-white font-semibold mb-1 sm:mb-2 flex items-center gap-2 text-sm sm:text-base">
+                    <h3 className="text-white font-semibold mb-1 sm:mb-2 flex items-center gap-2 text-sm sm:text-base">
                         <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span> Problem
-                    </h4>
+                    </h3>
                     <p className="text-[#94A3B8] text-xs sm:text-sm leading-relaxed">{problem}</p>
                 </div>
 
                 <div>
-                    <h4 className="text-white font-semibold mb-1 sm:mb-2 flex items-center gap-2 text-sm sm:text-base">
+                    <h3 className="text-white font-semibold mb-1 sm:mb-2 flex items-center gap-2 text-sm sm:text-base">
                         <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span> Solution
-                    </h4>
+                    </h3>
                     <p className="text-[#94A3B8] text-xs sm:text-sm leading-relaxed">{solution}</p>
                 </div>
 
