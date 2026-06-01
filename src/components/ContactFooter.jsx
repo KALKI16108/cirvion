@@ -153,8 +153,7 @@ const ContactFooter = () => {
                         <div>
                             <div className="mb-8 sm:mb-10 md:mb-12">
                                 <p className="text-[#94A3B8] text-sm sm:text-base md:text-lg max-w-md leading-relaxed">
-                                    Empowering businesses with intelligent automation.
-                                    Stop working in your business, start working on it.
+                                    Empowering businesses with intelligent automation. If you're looking for an <strong>automation agency near me</strong>, AIFLOWIX serves clients locally and globally.
                                 </p>
                                 {/* Screen-reader-only: short contact intent line for SEO and a11y */}
                                 <p className="sr-only">Contact AIFLOWIX for a free automation audit and practical roadmap to reduce manual work.</p>

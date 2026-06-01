@@ -30,7 +30,7 @@ const AiForSmallBusiness = () => {
             transition={{ delay: 0.2 }}
             className="text-lg md:text-2xl text-[#94A3B8] max-w-3xl mx-auto mb-12"
         >
-            Transform your local operations with the best <strong>AI tools for small business India</strong>. We specialize in <strong>manual process automation small business</strong> owners use to cut costs, delivering accessible <strong>AI software for local business</strong>.
+            If you're looking for an <strong>automation agency near me</strong>, transform your local operations with the best <strong>AI tools for small business India</strong>. We specialize in <strong>manual process automation small business</strong> owners use to cut costs, delivering accessible <strong>AI software for local business</strong>.
         </motion.p>
       </section>
 
