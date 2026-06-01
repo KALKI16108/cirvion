@@ -7,7 +7,7 @@ const CaseStudyCard = ({ industry, problem, solution, outcomes, delay }) => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay, duration: 0.6 }}
-        className="glass-card rounded-xl sm:rounded-2xl md:rounded-3xl overflow-hidden group"
+        className="glass-card rounded-xl sm:rounded-2xl md:rounded-3xl overflow-hidden group min-w-[85vw] md:min-w-[320px] lg:min-w-[350px] shrink-0 snap-center"
     >
         <div className="p-5 sm:p-6 md:p-8 lg:p-10">
             <div className="flex items-center justify-between mb-4 sm:mb-6 md:mb-8">
@@ -57,7 +57,7 @@ const CaseStudies = () => {
                     <p className="sr-only">Case studies show reduced manual work, faster responses, and improved conversions from custom automation.</p>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+                <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 sm:gap-6 md:gap-8 pb-8 -mx-4 px-4 sm:-mx-6 sm:px-6 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                     <CaseStudyCard
                         industry="Healthcare"
                         problem="Slow appointment follow-ups + manual reminders leading to no-shows."

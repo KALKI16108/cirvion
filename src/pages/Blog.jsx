@@ -30,7 +30,7 @@ const Blog = () => {
         className="grid grid-cols-1 md:grid-cols-3 gap-8"
       >
         {/* Pillar 1 */}
-        <article className="bg-[#1E293B]/50 border border-white/5 rounded-2xl p-6 hover:border-[#00C8FF]/50 transition-colors cursor-pointer group">
+        <article onClick={() => alert('We are currently migrating our blog content. Full articles will be available soon!')} className="bg-[#1E293B]/50 border border-white/5 rounded-2xl p-6 hover:border-[#00C8FF]/50 transition-colors cursor-pointer group">
           <div className="text-xs font-bold tracking-wider text-[#00C8FF] uppercase mb-2">Workflow Automation</div>
           <h2 className="text-xl font-bold text-white mb-3 group-hover:text-[#00C8FF] transition-colors">How to Automate Business Workflows</h2>
           <p className="text-[#94A3B8] text-sm mb-4">
@@ -40,7 +40,7 @@ const Blog = () => {
         </article>
 
         {/* Pillar 2 */}
-        <article className="bg-[#1E293B]/50 border border-white/5 rounded-2xl p-6 hover:border-[#6366F1]/50 transition-colors cursor-pointer group">
+        <article onClick={() => alert('We are currently migrating our blog content. Full articles will be available soon!')} className="bg-[#1E293B]/50 border border-white/5 rounded-2xl p-6 hover:border-[#6366F1]/50 transition-colors cursor-pointer group">
           <div className="text-xs font-bold tracking-wider text-[#6366F1] uppercase mb-2">Custom AI Software</div>
           <h2 className="text-xl font-bold text-white mb-3 group-hover:text-[#6366F1] transition-colors">Why Bespoke AI Applications Outperform Off-the-Shelf Tools</h2>
           <p className="text-[#94A3B8] text-sm mb-4">
@@ -50,7 +50,7 @@ const Blog = () => {
         </article>
 
         {/* Pillar 3 */}
-        <article className="bg-[#1E293B]/50 border border-white/5 rounded-2xl p-6 hover:border-[#10B981]/50 transition-colors cursor-pointer group">
+        <article onClick={() => alert('We are currently migrating our blog content. Full articles will be available soon!')} className="bg-[#1E293B]/50 border border-white/5 rounded-2xl p-6 hover:border-[#10B981]/50 transition-colors cursor-pointer group">
           <div className="text-xs font-bold tracking-wider text-[#10B981] uppercase mb-2">Business Transformation</div>
           <h2 className="text-xl font-bold text-white mb-3 group-hover:text-[#10B981] transition-colors">Scaling Your Agency with Intelligent Process Automation</h2>
           <p className="text-[#94A3B8] text-sm mb-4">

@@ -58,10 +58,10 @@ const Services = () => {
                     </motion.div>
 
                     <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-5 md:mb-6 text-white">
-                        Comprehensive <span className="text-gradient-primary">Automation Solutions</span>
+                        AI & Automation That <span className="text-gradient-primary">Delivers Results</span>
                     </h2>
                     <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#94A3B8] max-w-2xl mx-auto leading-relaxed px-2">
-                        From simple task automation to complex enterprise AI agents, we build systems that handle your business operations.
+                        We transform slow, manual operations into intelligent, automated workflows. From simple task automation to complex enterprise AI agents, we build systems that scale your business.
                     </p>
                     {/* Screen-reader-only: short service summary for SEO */}
                     <p className="sr-only">Services: AI agents, process automation, system engineering and integrations tailored to business workflows.</p>

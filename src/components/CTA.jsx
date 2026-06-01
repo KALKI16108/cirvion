@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const CTA = () => {
     return (
-        <section className="section relative overflow-hidden py-16 sm:py-24 md:py-32 lg:py-40">
+        <section className="section relative overflow-hidden py-12 sm:py-16 md:py-20 lg:py-24">
             {/* Background Gradient & Particles */}
             <div className="absolute inset-0 bg-[#030712]">
                 <div className="absolute inset-0 bg-gradient-to-r from-[#00C8FF]/10 to-[#6366F1]/10 opacity-30 blur-3xl"></div>

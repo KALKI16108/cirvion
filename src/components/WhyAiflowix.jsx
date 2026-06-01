@@ -34,7 +34,7 @@ const WhyAiflowix = () => {
                             Why Businesses Choose <span className="text-gradient-primary">AIFLOWIX</span>
                         </h2>
                         <p className="text-sm sm:text-base md:text-lg text-[#94A3B8] mb-6 sm:mb-7 md:mb-8 leading-relaxed">
-                            We don't just automate tasks. We engineer systems that make your operations faster, smoother, and measurable.
+                            We don't just automate tasks—we are architects of efficiency. We dissect complex business processes and rebuild them with intelligent AI systems that operate with zero friction and infinite scalability.
                         </p>
                         {/* Screen-reader-only: concise 'why' statement for SEO/accessibility */}
                         <p className="sr-only">Why AIFLOWIX: precise workflow analysis, enterprise-grade integrations, and measurable automation outcomes.</p>
