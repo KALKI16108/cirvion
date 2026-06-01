@@ -35,7 +35,7 @@ const CTA = () => {
                         </h2>
 
                         <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#94A3B8] mb-6 sm:mb-8 md:mb-12 max-w-2xl mx-auto font-light leading-relaxed px-2">
-                            Book a free workflow audit today. We'll analyze your operations, identify bottlenecks,
+                            Book a free business automation audit today. We'll analyze your operations, identify bottlenecks,
                             and show you exactly how much time and money you can save.
                         </p>
 

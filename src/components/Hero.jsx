@@ -41,11 +41,11 @@ const Hero = () => {
 
                     {/* Headline */}
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 tracking-tight leading-[1.1]">
-                        <span className="block text-white">AI-Powered Workflow Automation</span>
+                        <span className="block text-white">AI-Powered Business Automation</span>
                         <span className="text-gradient-primary">&amp; Custom Software</span>
                         <span className="block text-2xl sm:text-3xl md:text-4xl text-white/80 mt-4">for Indian Businesses</span>
                         {/* Screen-reader clarification: keeps visual headline unchanged but adds explicit service intent for SEO and accessibility */}
-                        <span className="sr-only">AI-Powered Workflow Automation &amp; Custom Software for Indian Businesses</span>
+                        <span className="sr-only">AI-Powered Business Automation &amp; Custom Software for Indian Businesses</span>
                     </h1>
 
                     {/* Subheadline */}

@@ -61,7 +61,7 @@ const Services = () => {
                         AI & Automation That <span className="text-gradient-primary">Delivers Results</span>
                     </h2>
                     <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#94A3B8] max-w-2xl mx-auto leading-relaxed px-2">
-                        We transform slow, manual operations into intelligent, automated workflows. From simple task automation to complex enterprise AI agents, we build systems that scale your business.
+                        We transform slow, manual operations into intelligent, automated workflows. From simple business automation to complex enterprise AI agents, we build systems that scale your business.
                     </p>
                     {/* Screen-reader-only: short service summary for SEO */}
                     <p className="sr-only">Services: AI agents, process automation, system engineering and integrations tailored to business workflows.</p>
