@@ -214,6 +214,11 @@ function App() {
           'description': 'Bespoke AI applications for enterprise and SMB automation.',
           'provider': { '@id': 'https://aiflowix.in/#organization' },
           'url': 'https://aiflowix.in/custom-ai-software',
+          'aggregateRating': {
+            '@type': 'AggregateRating',
+            'ratingValue': '4.9',
+            'ratingCount': '24'
+          },
           'offers': {
             '@type': 'Offer',
             'priceCurrency': 'INR',
