@@ -132,9 +132,7 @@ function App() {
           'offers': {
             '@type': 'Offer',
             'priceCurrency': 'INR',
-            'priceRange': '₹50000 - ₹500000',
             'price': '0',
-            'pricingModel': 'Custom Enterprise Pricing',
             'url': 'https://aiflowix.in#contact'
           },
           'image': 'https://aiflowix.in/assets/lead-qualifier-demo.png',
@@ -159,9 +157,7 @@ function App() {
           'offers': {
             '@type': 'Offer',
             'priceCurrency': 'INR',
-            'priceRange': '₹75000 - ₹750000',
             'price': '0',
-            'pricingModel': 'Custom Enterprise Pricing',
             'url': 'https://aiflowix.in#contact'
           },
           'image': 'https://aiflowix.in/assets/document-digitization-demo.png',
@@ -217,7 +213,13 @@ function App() {
           'operatingSystem': 'Web, Cloud',
           'description': 'Bespoke AI applications for enterprise and SMB automation.',
           'provider': { '@id': 'https://aiflowix.in/#organization' },
-          'url': 'https://aiflowix.in/custom-ai-software'
+          'url': 'https://aiflowix.in/custom-ai-software',
+          'offers': {
+            '@type': 'Offer',
+            'priceCurrency': 'INR',
+            'price': '0',
+            'url': 'https://aiflowix.in#contact'
+          }
         }
       ]
     };
