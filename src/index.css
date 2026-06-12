@@ -100,3 +100,35 @@
     linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
 }
+
+/* React Quill Dark Mode Overrides */
+.quill-dark-theme .ql-toolbar {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  background-color: #1E293B;
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+.quill-dark-theme .ql-container {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  border-bottom-left-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+  font-family: inherit !important;
+}
+.quill-dark-theme .ql-editor {
+  min-height: 500px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+.quill-dark-theme .ql-stroke {
+  stroke: #CBD5E1 !important;
+}
+.quill-dark-theme .ql-fill {
+  fill: #CBD5E1 !important;
+}
+.quill-dark-theme .ql-picker-label {
+  color: #CBD5E1 !important;
+}
+.quill-dark-theme .ql-picker-options {
+  background-color: #0F172A !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}

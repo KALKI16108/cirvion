@@ -3,7 +3,8 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { getBlogs, createBlog, updateBlog } from '../../lib/api';
 import { ArrowLeft, Save } from 'lucide-react';
 import toast from 'react-hot-toast';
-import MDEditor from '@uiw/react-md-editor';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 const BlogEditor = () => {
     const { id } = useParams();
@@ -175,15 +176,24 @@ const BlogEditor = () => {
                         />
                     </div>
 
-                    <div data-color-mode="dark" className="w-full">
+                    <div className="w-full quill-dark-theme">
                         <label className="block text-sm font-medium text-[#94A3B8] mb-2">Content</label>
-                        <div className="border border-white/10 rounded-xl overflow-hidden">
-                            <MDEditor
+                        <div className="border border-white/10 rounded-xl overflow-hidden bg-[#0F172A]">
+                            <ReactQuill 
+                                theme="snow"
                                 value={formData.content}
                                 onChange={(val) => setFormData(prev => ({ ...prev, content: val || '' }))}
-                                height={500}
-                                preview="live"
-                                className="!bg-[#0F172A]"
+                                className="text-white"
+                                style={{ minHeight: '500px' }}
+                                modules={{
+                                    toolbar: [
+                                        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+                                        ['bold', 'italic', 'underline', 'strike'],
+                                        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                                        ['link', 'image', 'video'],
+                                        ['clean']
+                                    ]
+                                }}
                             />
                         </div>
                     </div>

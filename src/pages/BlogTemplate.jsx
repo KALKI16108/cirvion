@@ -131,11 +131,8 @@ const BlogTemplate = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
                     className="prose prose-invert prose-lg max-w-none prose-headings:text-white prose-a:text-[#00C8FF] hover:prose-a:text-white prose-p:text-[#CBD5E1] prose-strong:text-white prose-img:rounded-2xl prose-img:mx-auto"
-                >
-                    <ReactMarkdown rehypePlugins={[rehypeRaw]}>
-                        {article.content || ''}
-                    </ReactMarkdown>
-                </motion.div>
+                    dangerouslySetInnerHTML={{ __html: article.content || '' }}
+                />
 
                 {article.faq && article.faq.length > 0 && (
                     <div className="mt-16 pt-16 border-t border-white/10">
