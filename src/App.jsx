@@ -8,6 +8,10 @@ import CustomAiSoftware from './pages/CustomAiSoftware';
 import AiForSmallBusiness from './pages/AiForSmallBusiness';
 import BlogPostLeadQualification from './pages/BlogPostLeadQualification';
 import BlogPostCustomAi from './pages/BlogPostCustomAi';
+import CaseStudies from './components/CaseStudies';
+import Testimonials from './components/Testimonials';
+import CTA from './components/CTA';
+import FloatingWhatsApp from './components/FloatingWhatsApp';
 
 const ScrollToAnchor = () => {
   const { pathname, hash } = useLocation();
@@ -250,7 +254,14 @@ function App() {
           <Route path="/custom-ai-software" element={<CustomAiSoftware />} />
           <Route path="/ai-for-small-business" element={<AiForSmallBusiness />} />
         </Routes>
+        
+        {/* Global Conversion Funnel */}
+        <CaseStudies />
+        <Testimonials />
+        <CTA />
+        
         <ContactFooter />
+        <FloatingWhatsApp />
       </div>
     </Router>
   );

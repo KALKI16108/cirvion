@@ -44,9 +44,20 @@ const CTA = () => {
                                 href="#contact"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="btn-primary text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-5 shadow-2xl shadow-blue-500/20 flex items-center gap-2 sm:gap-3 w-full sm:w-auto justify-center"
+                                className="bg-[#00C8FF] text-[#0F172A] font-bold text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-5 rounded-full shadow-2xl shadow-[#00C8FF]/20 flex items-center gap-2 sm:gap-3 w-full sm:w-auto justify-center hover:bg-white transition-colors"
                             >
-                                Get Started Now
+                                Free AI Audit
+                                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
+                            </motion.a>
+                            <motion.a
+                                href="https://calendly.com/" // Placeholder, user mentioned calendly in prompt
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="bg-transparent text-white border border-white/20 font-bold text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-5 rounded-full flex items-center gap-2 sm:gap-3 w-full sm:w-auto justify-center hover:bg-white/10 transition-colors"
+                            >
+                                Book Consultation
                                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                             </motion.a>
                         </div>

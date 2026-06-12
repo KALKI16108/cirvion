@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import CTA from '../components/CTA';
 
 const CustomAiSoftware = () => {
   return (
@@ -33,8 +32,6 @@ const CustomAiSoftware = () => {
             As a leading <strong>AI software development company Mumbai</strong>, we specialize in <strong>custom AI software development India</strong>. We build the <strong>bespoke AI application development</strong> solutions and <strong>AI-powered business software Mumbai</strong> enterprises rely on to scale.
         </motion.p>
       </section>
-
-      <CTA />
     </main>
   );
 };

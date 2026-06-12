@@ -3,8 +3,6 @@ import Hero from '../components/Hero';
 import WhyAiflowix from '../components/WhyAiflowix';
 import Services from '../components/Services';
 import Industries from '../components/Industries';
-import CaseStudies from '../components/CaseStudies';
-import CTA from '../components/CTA';
 
 const Home = () => {
   return (
@@ -13,8 +11,6 @@ const Home = () => {
       <WhyAiflowix />
       <Services />
       <Industries />
-      <CaseStudies />
-      <CTA />
     </main>
   );
 };
