@@ -32,6 +32,7 @@ const AdminLayout = lazy(() => import('./components/admin/AdminLayout'));
 const Dashboard = lazy(() => import('./pages/admin/Dashboard'));
 const Pipeline = lazy(() => import('./pages/admin/Pipeline'));
 const ContentManager = lazy(() => import('./pages/admin/ContentManager'));
+const BlogEditor = lazy(() => import('./pages/admin/BlogEditor'));
 
 const ScrollToAnchor = () => {
   const { pathname, hash } = useLocation();
@@ -136,6 +137,8 @@ function App() {
               <Route index element={<Dashboard />} />
               <Route path="pipeline" element={<Pipeline />} />
               <Route path="content" element={<ContentManager />} />
+              <Route path="content/blog/new" element={<BlogEditor />} />
+              <Route path="content/blog/:id" element={<BlogEditor />} />
             </Route>
 
             {/* Public Routes */}

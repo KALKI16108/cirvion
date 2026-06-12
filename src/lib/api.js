@@ -114,3 +114,59 @@ export async function getSession() {
     if (error) throw error;
     return data.session;
 }
+
+// --- BLOG CMS FUNCTIONS ---
+
+export async function getBlogs() {
+    const { data, error } = await supabase
+        .from('blog_posts')
+        .select('*')
+        .order('created_at', { ascending: false });
+        
+    if (error) throw error;
+    return data;
+}
+
+export async function getBlogBySlug(slug) {
+    const { data, error } = await supabase
+        .from('blog_posts')
+        .select('*')
+        .eq('slug', slug)
+        .single();
+        
+    if (error) throw error;
+    return data;
+}
+
+export async function createBlog(blogData) {
+    const { data, error } = await supabase
+        .from('blog_posts')
+        .insert([blogData])
+        .select()
+        .single();
+        
+    if (error) throw error;
+    return data;
+}
+
+export async function updateBlog(id, blogData) {
+    const { data, error } = await supabase
+        .from('blog_posts')
+        .update(blogData)
+        .eq('id', id)
+        .select()
+        .single();
+        
+    if (error) throw error;
+    return data;
+}
+
+export async function deleteBlog(id) {
+    const { error } = await supabase
+        .from('blog_posts')
+        .delete()
+        .eq('id', id);
+        
+    if (error) throw error;
+    return true;
+}

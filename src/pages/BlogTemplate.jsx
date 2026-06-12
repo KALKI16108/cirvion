@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Calendar, Tag, ArrowLeft } from 'lucide-react';
@@ -6,16 +6,45 @@ import SEOHead from '../components/SEOHead';
 import InternalLinks from '../components/InternalLinks';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
-import blogsData from '../data/blogs.json';
+import { getBlogBySlug } from '../lib/api';
 
 const BlogTemplate = () => {
     const { slug } = useParams();
-    
-    const article = useMemo(() => {
-        return blogsData.find(b => b.slug === slug);
+    const [article, setArticle] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
+
+    useEffect(() => {
+        const fetchArticle = async () => {
+            try {
+                const data = await getBlogBySlug(slug);
+                if (data) {
+                    // Map snake_case from DB to camelCase used in template if needed
+                    data.metaDescription = data.meta_description || data.metaDescription;
+                    data.relatedLinks = data.related_links || data.relatedLinks;
+                    setArticle(data);
+                } else {
+                    setError(true);
+                }
+            } catch (err) {
+                console.error("Failed to fetch blog article:", err);
+                setError(true);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchArticle();
     }, [slug]);
 
-    if (!article) {
+    if (loading) {
+        return (
+            <main className="pt-32 pb-16 min-h-screen flex items-center justify-center">
+                <div className="w-10 h-10 border-4 border-[#00C8FF] border-t-transparent rounded-full animate-spin"></div>
+            </main>
+        );
+    }
+
+    if (error || !article) {
         return <Navigate to="/blog" replace />;
     }
 
