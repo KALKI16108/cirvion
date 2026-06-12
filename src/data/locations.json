@@ -1,0 +1,114 @@
+[
+  {
+    "slug": "mumbai",
+    "city": "Mumbai",
+    "metaDescription": "Top AI Automation Agency in Mumbai. We build custom AI software, workflow automation, and chatbots for Mumbai businesses.",
+    "h1": "AI Automation Agency in Mumbai",
+    "description": "Mumbai's fastest-growing businesses trust AIFlowix for their workflow automation. As a local AI agency, we understand the fast-paced nature of Mumbai enterprises and build custom AI systems that scale.",
+    "serviceArea": "We serve clients across Nariman Point, BKC, Andheri, Malad, and the wider Mumbai Metropolitan Region.",
+    "faq": [
+      {
+        "question": "Do you offer in-person consultations in Mumbai?",
+        "answer": "Yes, our team is based in Mumbai and we frequently visit clients in BKC and Andheri for automation audits."
+      }
+    ]
+  },
+  {
+    "slug": "pune",
+    "city": "Pune",
+    "metaDescription": "Leading AI Automation Agency in Pune. Specializing in manufacturing, IT, and real estate workflow automation.",
+    "h1": "AI Automation Agency in Pune",
+    "description": "From Hinjewadi tech parks to Chakan manufacturing hubs, AIFlowix provides enterprise-grade AI automation services tailored for Pune's dynamic business ecosystem.",
+    "serviceArea": "We serve clients across Hinjewadi, Magarpatta, Baner, Kharadi, and the broader Pune region.",
+    "faq": [
+      {
+        "question": "Can you automate manufacturing workflows for Pune businesses?",
+        "answer": "Absolutely. We specialize in supply chain and inventory automation for manufacturing hubs in the Pune region."
+      }
+    ]
+  },
+  {
+    "slug": "delhi",
+    "city": "Delhi",
+    "metaDescription": "Premier AI Automation Services in Delhi NCR. We help Delhi businesses cut costs through intelligent process automation.",
+    "h1": "AI Automation Agency in Delhi NCR",
+    "description": "AIFlowix delivers cutting-edge AI and business automation services to startups and enterprises across the National Capital Region. Streamline your operations today.",
+    "serviceArea": "We serve Delhi, Gurugram (Gurgaon), and Noida.",
+    "faq": [
+      {
+        "question": "Do you work with startups in Gurugram?",
+        "answer": "Yes, we help fast-growing startups in Gurugram scale their sales and support teams using AI without adding headcount."
+      }
+    ]
+  },
+  {
+    "slug": "bangalore",
+    "city": "Bangalore",
+    "metaDescription": "Bangalore's expert AI Automation Agency. We build custom LLM applications, autonomous agents, and SaaS automations.",
+    "h1": "AI Automation Agency in Bangalore",
+    "description": "In India's Silicon Valley, AIFlowix stands out by delivering robust, production-ready AI automations. We help Bangalore tech companies and traditional businesses alike leverage the power of AI.",
+    "serviceArea": "We serve Koramangala, Indiranagar, Whitefield, Electronic City, and all of Bengaluru.",
+    "faq": [
+      {
+        "question": "Are your automations secure for tech companies?",
+        "answer": "Yes, we implement enterprise-grade security and SOC2-compliant integrations for our Bangalore tech clients."
+      }
+    ]
+  },
+  {
+    "slug": "hyderabad",
+    "city": "Hyderabad",
+    "metaDescription": "Top AI consulting and automation agency in Hyderabad. Optimize your business with custom AI solutions.",
+    "h1": "AI Automation Agency in Hyderabad",
+    "description": "Transform your Hyderabad-based business with AIFlowix. We specialize in deploying AI chatbots, CRM automations, and custom workflows that drive massive ROI.",
+    "serviceArea": "We serve HITEC City, Gachibowli, Jubilee Hills, and surrounding areas.",
+    "faq": [
+      {
+        "question": "Can you integrate AI with our existing software?",
+        "answer": "Yes, we specialize in building custom API integrations to connect AI to your existing legacy software."
+      }
+    ]
+  },
+  {
+    "slug": "chennai",
+    "city": "Chennai",
+    "metaDescription": "Expert AI and workflow automation services in Chennai. Save time and reduce costs with our custom AI solutions.",
+    "h1": "AI Automation Agency in Chennai",
+    "description": "AIFlowix empowers Chennai businesses with intelligent process automation. We replace manual bottlenecks with seamless, automated systems.",
+    "serviceArea": "We serve OMR, Guindy, Anna Nagar, and the wider Chennai area.",
+    "faq": [
+      {
+        "question": "How long does it take to deploy an AI solution?",
+        "answer": "Depending on complexity, most of our automations for Chennai clients are deployed within 2 to 6 weeks."
+      }
+    ]
+  },
+  {
+    "slug": "ahmedabad",
+    "city": "Ahmedabad",
+    "metaDescription": "AI Automation experts in Ahmedabad. We help trading, manufacturing, and service businesses scale with AI.",
+    "h1": "AI Automation Agency in Ahmedabad",
+    "description": "AIFlowix brings world-class AI technology to Ahmedabad's thriving business sector. We help local enterprises automate lead generation, customer support, and operations.",
+    "serviceArea": "We serve SG Highway, Prahlad Nagar, Ashram Road, and across Ahmedabad.",
+    "faq": [
+      {
+        "question": "Is AI automation expensive?",
+        "answer": "We build solutions focused on rapid ROI. Many of our systems pay for themselves within the first 3 months of deployment."
+      }
+    ]
+  },
+  {
+    "slug": "kolkata",
+    "city": "Kolkata",
+    "metaDescription": "Leading AI automation services in Kolkata. Digitize and automate your business processes today.",
+    "h1": "AI Automation Agency in Kolkata",
+    "description": "From legacy business digitization to modern AI workflows, AIFlowix provides the technical expertise Kolkata businesses need to thrive in the modern economy.",
+    "serviceArea": "We serve Salt Lake, Rajarhat (New Town), Park Street, and the Kolkata metropolitan area.",
+    "faq": [
+      {
+        "question": "Can you help digitize paper-based workflows?",
+        "answer": "Yes, our document digitization AI is perfect for converting legacy paper processes into automated digital workflows."
+      }
+    ]
+  }
+]

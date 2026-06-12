@@ -1,0 +1,130 @@
+[
+  {
+    "slug": "real-estate",
+    "industry": "Real Estate",
+    "metaDescription": "AI automation for real estate agencies and developers. Automate lead qualification, property inquiries, and CRM data entry.",
+    "h1": "AI Automation for Real Estate",
+    "description": "Stop losing property leads to slow response times. AIFlowix builds custom AI workflows that instantly respond to inquiries, qualify buyers vs. renters, and automatically log details directly into your CRM.",
+    "challenges": ["Slow lead response times", "Wasting time on unqualified leads", "Messy CRM data"],
+    "solutions": ["WhatsApp AI for instant property details", "Automated lead scoring and routing", "Seamless CRM integrations"],
+    "benefits": ["Higher Conversion Rates", "Zero Lead Leakage", "Automated Follow-ups"],
+    "faq": [
+      {
+        "question": "Can the AI show available properties?",
+        "answer": "Yes, we can connect the AI to your property database to recommend matching listings to leads instantly."
+      }
+    ]
+  },
+  {
+    "slug": "recruitment",
+    "industry": "Recruitment & HR",
+    "metaDescription": "AI automation for recruitment agencies. Automate candidate screening, interview scheduling, and resume parsing.",
+    "h1": "AI Automation for Recruitment",
+    "description": "AIFlowix transforms how staffing agencies operate. Our AI automations screen hundreds of resumes instantly, conduct preliminary WhatsApp interviews, and automatically schedule qualified candidates.",
+    "challenges": ["Too many unqualified applications", "Manual resume review", "Scheduling conflicts"],
+    "solutions": ["AI Resume Parsing", "Automated WhatsApp Screening", "AI Calendar Booking"],
+    "benefits": ["Faster Time-to-Hire", "Eliminate Manual Screening", "Better Candidate Experience"],
+    "faq": [
+      {
+        "question": "Does AI screening introduce bias?",
+        "answer": "We build strict, skill-based parsing criteria to ensure candidates are evaluated purely on qualifications and experience, reducing human bias."
+      }
+    ]
+  },
+  {
+    "slug": "healthcare",
+    "industry": "Healthcare & Clinics",
+    "metaDescription": "AI automation for healthcare providers. Automate patient scheduling, reminders, and basic triage.",
+    "h1": "AI Automation for Healthcare",
+    "description": "Reduce no-shows and administrative burden. We build HIPAA-compliant (where required) AI workflows that handle appointment booking, send automated reminders, and answer basic clinic FAQs.",
+    "challenges": ["High patient no-show rates", "Overwhelmed front desk staff", "Messy appointment scheduling"],
+    "solutions": ["WhatsApp Appointment Booking", "Automated SMS Reminders", "AI Receptionist for FAQs"],
+    "benefits": ["Reduced No-Shows", "Free Up Staff Time", "24/7 Patient Support"],
+    "faq": [
+      {
+        "question": "Are your healthcare automations secure?",
+        "answer": "Yes, we prioritize data security and build automations that comply with relevant healthcare data protection regulations."
+      }
+    ]
+  },
+  {
+    "slug": "manufacturing",
+    "industry": "Manufacturing",
+    "metaDescription": "AI automation for manufacturing. Streamline supply chain updates, vendor communications, and inventory alerts.",
+    "h1": "AI Automation for Manufacturing",
+    "description": "Modernize your factory floor and back office. AIFlowix deploys AI systems that automate vendor PO generation, track inventory alerts, and streamline complex operational reporting.",
+    "challenges": ["Manual supply chain tracking", "Slow vendor communication", "Siloed operational data"],
+    "solutions": ["Automated PO Generation", "Inventory Alert Workflows", "Vendor Portal AI Chatbots"],
+    "benefits": ["Reduced Supply Bottlenecks", "Lower Overhead", "Real-time Visibility"],
+    "faq": [
+      {
+        "question": "Can you integrate with legacy ERPs?",
+        "answer": "Yes, we specialize in bridging modern AI tools with legacy on-premise or cloud ERP systems via custom APIs or RPA."
+      }
+    ]
+  },
+  {
+    "slug": "logistics",
+    "industry": "Logistics & Supply Chain",
+    "metaDescription": "AI automation for logistics companies. Automate dispatch tracking, driver communication, and customer updates.",
+    "h1": "AI Automation for Logistics",
+    "description": "Keep your fleet moving and your customers informed. We build automations that handle real-time tracking updates, driver dispatch alerts, and automated freight quote generation.",
+    "challenges": ["Manual customer status updates", "Chaotic driver dispatch", "Slow freight quoting"],
+    "solutions": ["Automated Tracking SMS/WhatsApp", "Driver Dispatch Workflows", "AI Quote Generation"],
+    "benefits": ["Fewer Customer Support Calls", "Faster Dispatch", "Higher Quote Win Rates"],
+    "faq": [
+      {
+        "question": "Can the AI handle customer 'Where is my order' queries?",
+        "answer": "Absolutely. We build AI agents that query your tracking database and give customers instant updates 24/7."
+      }
+    ]
+  },
+  {
+    "slug": "ecommerce",
+    "industry": "E-Commerce",
+    "metaDescription": "AI automation for e-commerce brands. Automate customer support, order tracking, and cart recovery.",
+    "h1": "AI Automation for E-Commerce",
+    "description": "Scale your e-commerce brand without scaling your support team. AIFlowix builds AI agents that resolve WISMO (Where Is My Order) tickets instantly, handle returns, and execute automated cart recovery campaigns.",
+    "challenges": ["High volume of WISMO tickets", "Abandoned carts", "Manual return processing"],
+    "solutions": ["AI Support Agents (Shopify/WooCommerce)", "WhatsApp Cart Recovery", "Automated Return Workflows"],
+    "benefits": ["Increase Revenue", "Reduce Support Costs", "Better Customer Experience"],
+    "faq": [
+      {
+        "question": "Do you integrate with Shopify?",
+        "answer": "Yes, we build deep integrations with Shopify to allow AI agents to check order status, modify addresses, and process refunds."
+      }
+    ]
+  },
+  {
+    "slug": "education",
+    "industry": "Education & EdTech",
+    "metaDescription": "AI automation for educational institutions. Automate student enrollment, lead nurturing, and campus FAQs.",
+    "h1": "AI Automation for Education",
+    "description": "Boost your student enrollment numbers. We automate the entire student lifecycle, from initial inquiry qualification to campus tour scheduling and automated fee reminders.",
+    "challenges": ["Slow response to student inquiries", "Manual enrollment tracking", "High drop-off rates"],
+    "solutions": ["AI Enrollment Assistants", "Automated Lead Nurturing Sequences", "Campus Tour Booking Bots"],
+    "benefits": ["Higher Enrollment Rates", "Reduced Admin Work", "Instant Student Support"],
+    "faq": [
+      {
+        "question": "Can the AI help students choose a course?",
+        "answer": "Yes, we can program the AI with your curriculum details to act as a virtual academic advisor for prospective students."
+      }
+    ]
+  },
+  {
+    "slug": "legal",
+    "industry": "Legal Services",
+    "metaDescription": "AI automation for law firms. Automate client intake, document drafting, and case updates.",
+    "h1": "AI Automation for Law Firms",
+    "description": "Let your lawyers focus on practicing law, not admin work. AIFlowix builds secure automations for automated client intake, conflict-of-interest checks, and preliminary document drafting.",
+    "challenges": ["Time-consuming client intake", "Manual document drafting", "High administrative overhead"],
+    "solutions": ["Automated Client Intake Forms", "AI Contract Drafting Assistance", "Case Status Update Bots"],
+    "benefits": ["More Billable Hours", "Faster Intake", "Secure Data Handling"],
+    "faq": [
+      {
+        "question": "Is client confidentiality maintained?",
+        "answer": "We strictly use enterprise-tier AI APIs (like OpenAI Enterprise) which guarantee zero data retention for model training, ensuring complete confidentiality."
+      }
+    ]
+  }
+]

@@ -43,8 +43,9 @@ const Navbar = () => {
             <div className="hidden md:flex items-center space-x-8">
               {[
                 { label: 'Services', href: '/#services' },
-                { label: 'Custom AI', href: '/custom-ai-software' },
-                { label: 'SMB AI', href: '/ai-for-small-business' },
+                { label: 'Industries', href: '/industries/real-estate' },
+                { label: 'ROI Calculator', href: '/roi-calculator' },
+                { label: 'Readiness Quiz', href: '/ai-readiness' },
                 { label: 'Blog', href: '/blog' }
               ].map((item) => (
                 <Link
@@ -59,9 +60,9 @@ const Navbar = () => {
                 </Link>
               ))}
 
-              <a href="/#contact" className="bg-white/10 hover:bg-white/20 text-white px-5 py-2 rounded-full font-semibold text-sm transition-all border border-white/10">
+              <Link to="/free-ai-audit" className="bg-white/10 hover:bg-white/20 text-white px-5 py-2 rounded-full font-semibold text-sm transition-all border border-white/10">
                 Book Audit
-              </a>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -89,8 +90,9 @@ const Navbar = () => {
             <div className="flex flex-col space-y-6 text-center">
               {[
                 { label: 'Services', href: '/#services' },
-                { label: 'Custom AI', href: '/custom-ai-software' },
-                { label: 'SMB AI', href: '/ai-for-small-business' },
+                { label: 'Industries', href: '/industries/real-estate' },
+                { label: 'ROI Calculator', href: '/roi-calculator' },
+                { label: 'Readiness Quiz', href: '/ai-readiness' },
                 { label: 'Blog', href: '/blog' }
               ].map((item) => (
                 <Link
@@ -102,9 +104,9 @@ const Navbar = () => {
                   {item.label}
                 </Link>
               ))}
-              <a href="/#contact" className="btn-primary w-full mt-8 block text-center py-3" onClick={() => setIsMobileMenuOpen(false)}>
+              <Link to="/free-ai-audit" className="btn-primary w-full mt-8 block text-center py-3" onClick={() => setIsMobileMenuOpen(false)}>
                 Book Audit
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}

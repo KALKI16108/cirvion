@@ -1,0 +1,14 @@
+Title: AIFlowix
+Description: AI Automation Agency based in India. We specialize in custom AI software, WhatsApp automation, CRM automation, and business process automation.
+Endpoints:
+- /services/whatsapp-automation
+- /services/ai-lead-generation
+- /services/crm-automation
+- /services/ai-chatbot-development
+Locations:
+- Mumbai
+- Delhi
+- Bangalore
+- Pune
+Contact: +91-0000000000
+Website: https://aiflowix.in

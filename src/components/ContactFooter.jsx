@@ -193,7 +193,7 @@ const ContactFooter = () => {
 
                             <div>
                                 <h3 className="text-white font-semibold mb-3 sm:mb-4 md:mb-6 text-sm sm:text-base">Connect With Us</h3>
-                                <div className="flex gap-3 sm:gap-4">
+                                <div className="flex gap-3 sm:gap-4 mb-8">
                                     <a href="https://linkedin.com/company/aiflowix" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#1E293B] border border-white/5 flex items-center justify-center text-[#94A3B8] hover:bg-[#00C8FF] hover:text-white hover:border-[#00C8FF] transition-all duration-300 hover:-translate-y-1 shadow-lg">
                                         <Linkedin size={16} className="sm:hidden" />
                                         <Linkedin size={20} className="hidden sm:block" />
@@ -206,6 +206,20 @@ const ContactFooter = () => {
                                         <Instagram size={16} className="sm:hidden" />
                                         <Instagram size={20} className="hidden sm:block" />
                                     </a>
+                                </div>
+                                
+                                {/* SEO Internal Linking */}
+                                <h3 className="text-white font-semibold mb-3 text-sm sm:text-base">Explore Solutions</h3>
+                                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-sm text-[#94A3B8]">
+                                    <a href="/services/whatsapp-automation" className="hover:text-[#00C8FF]">WhatsApp Automation</a>
+                                    <a href="/services/ai-lead-generation" className="hover:text-[#00C8FF]">AI Lead Generation</a>
+                                    <a href="/services/crm-automation" className="hover:text-[#00C8FF]">CRM Automation</a>
+                                    <a href="/industries/real-estate" className="hover:text-[#00C8FF]">Real Estate AI</a>
+                                    <a href="/industries/healthcare" className="hover:text-[#00C8FF]">Healthcare AI</a>
+                                    <a href="/industries/ecommerce" className="hover:text-[#00C8FF]">E-Commerce AI</a>
+                                    <a href="/locations/mumbai" className="hover:text-[#00C8FF]">AI Agency Mumbai</a>
+                                    <a href="/locations/bangalore" className="hover:text-[#00C8FF]">AI Agency Bangalore</a>
+                                    <a href="/roi-calculator" className="hover:text-[#00C8FF]">ROI Calculator</a>
                                 </div>
                             </div>
                         </div>

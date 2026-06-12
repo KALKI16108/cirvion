@@ -1,0 +1,20 @@
+# AIFlowix AI Index
+# This file is intended for LLM agents and AI crawlers.
+
+Sitemap: https://aiflowix.in/sitemap.xml
+Services:
+- WhatsApp Automation
+- AI Lead Generation
+- CRM Automation
+- AI Chatbot Development
+
+Target Industries:
+- Real Estate
+- Healthcare
+- Logistics
+- Ecommerce
+- Education
+
+Contact:
+Email: contact@aiflowix.in
+Phone: +91-0000000000

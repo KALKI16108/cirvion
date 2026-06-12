@@ -1,0 +1,156 @@
+[
+  {
+    "slug": "whatsapp-automation",
+    "title": "WhatsApp Automation Services",
+    "metaDescription": "Automate your customer support and sales with custom WhatsApp AI automation. We build intelligent WhatsApp chatbots for businesses.",
+    "h1": "WhatsApp Automation for Business",
+    "description": "Transform your WhatsApp Business account into an automated sales and support machine. Our AI WhatsApp automation handles inquiries 24/7, qualifies leads, and books appointments seamlessly.",
+    "benefits": ["24/7 Customer Support", "Instant Lead Qualification", "Automated Appointment Booking", "Reduced Operational Costs"],
+    "process": ["Audit Current Workflows", "Design AI Conversation Flows", "API Integration & Testing", "Launch & Optimize"],
+    "faq": [
+      {
+        "question": "Can WhatsApp automation integrate with my CRM?",
+        "answer": "Yes, we integrate WhatsApp automation directly with Salesforce, HubSpot, Zoho, and other major CRMs to ensure data syncs automatically."
+      },
+      {
+        "question": "Is WhatsApp API expensive?",
+        "answer": "WhatsApp charges per conversation, but the ROI from automated lead qualification usually pays for the API costs tenfold."
+      }
+    ]
+  },
+  {
+    "slug": "ai-lead-generation",
+    "title": "AI Lead Generation Services",
+    "metaDescription": "Scale your sales pipeline with AI lead generation automation. Our intelligent systems find, scrape, and outreach to ideal prospects.",
+    "h1": "AI-Powered Lead Generation",
+    "description": "Stop wasting time on manual prospecting. Our custom AI lead generation workflows automatically scrape data, personalize outreach, and qualify inbound leads so your sales team only talks to warm prospects.",
+    "benefits": ["Hyper-Personalized Outreach", "Automated Data Scraping", "Higher Response Rates", "Predictable Pipeline"],
+    "process": ["Define Ideal Customer Profile", "Setup Scraping & Enrichment", "Deploy AI Personalization", "Automate Outreach Sequences"],
+    "faq": [
+      {
+        "question": "Does AI lead generation violate anti-spam laws?",
+        "answer": "We build compliance-first systems that adhere to CAN-SPAM and GDPR, focusing on highly targeted, relevant B2B outreach."
+      }
+    ]
+  },
+  {
+    "slug": "crm-automation",
+    "title": "CRM Automation Services",
+    "metaDescription": "Eliminate manual data entry with our CRM automation services. We integrate AI to automatically update records and trigger sales workflows.",
+    "h1": "Intelligent CRM Automation",
+    "description": "Your CRM should work for you, not the other way around. We build AI automations that log calls, update deal stages, and trigger follow-ups automatically across HubSpot, Salesforce, and Zoho.",
+    "benefits": ["Zero Manual Data Entry", "Accurate Sales Forecasting", "Automated Follow-ups", "Real-time Syncing"],
+    "process": ["Map Data Fields", "Build Webhooks", "Implement AI Parsing", "Test Sync Workflows"],
+    "faq": [
+      {
+        "question": "Which CRMs do you support?",
+        "answer": "We build custom automations for HubSpot, Salesforce, Zoho, Pipedrive, GoHighLevel, and custom-built CRMs via API."
+      }
+    ]
+  },
+  {
+    "slug": "ai-chatbot-development",
+    "title": "AI Chatbot Development Agency",
+    "metaDescription": "Custom AI chatbot development using OpenAI and Claude. Build intelligent agents for customer support, sales, and internal ops.",
+    "h1": "Custom AI Chatbot Development",
+    "description": "We build state-of-the-art AI chatbots powered by Large Language Models (LLMs). Unlike old rule-based bots, our AI agents understand context, fetch live data, and resolve complex customer issues autonomously.",
+    "benefits": ["Human-like Conversations", "Live Data Integration", "Multi-language Support", "Reduced Ticket Volume"],
+    "process": ["Knowledge Base Ingestion", "Prompt Engineering", "RAG Pipeline Setup", "Deployment & Monitoring"],
+    "faq": [
+      {
+        "question": "Can the chatbot answer questions based on our PDFs?",
+        "answer": "Yes, we use Retrieval-Augmented Generation (RAG) to connect the AI securely to your company documents and PDFs."
+      }
+    ]
+  },
+  {
+    "slug": "business-process-automation",
+    "title": "Business Process Automation Consulting",
+    "metaDescription": "Streamline your operations with Business Process Automation (BPA). We identify bottlenecks and deploy AI to save you hundreds of hours.",
+    "h1": "Business Process Automation (BPA)",
+    "description": "We audit your company's workflows to find inefficiencies and replace repetitive manual tasks with robust AI and automation systems. Scale your output without scaling your headcount.",
+    "benefits": ["Lower Overhead Costs", "Eliminate Human Error", "Faster Turnaround Times", "Scalable Operations"],
+    "process": ["Workflow Audit", "ROI Analysis", "Automation Architecture", "Phased Rollout"],
+    "faq": [
+      {
+        "question": "How do you decide what to automate?",
+        "answer": "We look for tasks that are repetitive, rule-based, and take up a significant portion of your team's weekly hours."
+      }
+    ]
+  },
+  {
+    "slug": "customer-support-automation",
+    "title": "Customer Support Automation",
+    "metaDescription": "Automate up to 80% of your tier-1 customer support tickets with AI agents integrated into Zendesk, Intercom, and email.",
+    "h1": "Customer Support Automation",
+    "description": "Deploy AI agents that resolve customer queries instantly across email, live chat, and social media. Let your human agents focus on complex, high-value escalations.",
+    "benefits": ["Instant Response Times", "24/7 Coverage", "Lower Support Costs", "Higher CSAT Scores"],
+    "process": ["Ticket Analysis", "Knowledge Base Integration", "Agent Handoff Rules", "Continuous Learning"],
+    "faq": [
+      {
+        "question": "What happens if the AI doesn't know the answer?",
+        "answer": "We program strict fallback protocols so the AI seamlessly hands off the conversation to a human agent with full context."
+      }
+    ]
+  },
+  {
+    "slug": "workflow-automation",
+    "title": "Workflow Automation Services",
+    "metaDescription": "Connect your apps with custom workflow automation using Zapier, Make, and custom APIs.",
+    "h1": "Custom Workflow Automation",
+    "description": "We stitch together your fragmented tech stack. Whether it's connecting Slack to Google Sheets or building complex multi-step API integrations, we make your tools talk to each other.",
+    "benefits": ["Seamless Data Flow", "No Missing Information", "Cross-platform Sync", "Custom Triggers"],
+    "process": ["API Assessment", "Logic Mapping", "Integration Building", "Error Handling Setup"],
+    "faq": [
+      {
+        "question": "Do you use Make.com or Zapier?",
+        "answer": "We use Make.com and Zapier for rapid deployment, but we also build custom code integrations for complex enterprise needs."
+      }
+    ]
+  },
+  {
+    "slug": "custom-ai-agents",
+    "title": "Custom AI Agents Development",
+    "metaDescription": "Hire an AI automation agency to build custom, autonomous AI agents that perform multi-step tasks for your business.",
+    "h1": "Autonomous AI Agents",
+    "description": "We build multi-modal AI agents that don't just answer questions—they take action. From booking flights to analyzing financial reports, our agents are built to execute complex workflows autonomously.",
+    "benefits": ["Autonomous Task Execution", "Complex Reasoning", "Tool Usage Capabilities", "Agentic Workflows"],
+    "process": ["Agent Persona Design", "Tool/Function Calling Setup", "Safety Guardrails", "Testing in Sandbox"],
+    "faq": [
+      {
+        "question": "What is the difference between a chatbot and an AI agent?",
+        "answer": "A chatbot converses. An AI agent is given tools (like API access, web browsing) and acts autonomously to achieve a goal."
+      }
+    ]
+  },
+  {
+    "slug": "appointment-booking-automation",
+    "title": "AI Appointment Booking Automation",
+    "metaDescription": "Automate scheduling, reminders, and calendar management with AI appointment booking systems.",
+    "h1": "AI Appointment Booking",
+    "description": "Never lose a lead to scheduling friction. Our AI booking systems integrate with your calendar, handle back-and-forth negotiations, and send automated reminders to reduce no-shows.",
+    "benefits": ["Zero Scheduling Friction", "Reduced No-shows", "Calendar Syncing", "Multi-timezone Support"],
+    "process": ["Calendar Integration", "Booking Logic Setup", "Reminder Sequence", "Launch"],
+    "faq": [
+      {
+        "question": "Can this work via SMS?",
+        "answer": "Yes, we can build SMS bots that negotiate times and book directly into your calendar."
+      }
+    ]
+  },
+  {
+    "slug": "email-automation",
+    "title": "Email Triage & Automation",
+    "metaDescription": "Use AI to automatically read, categorize, and draft responses to your company's inbox.",
+    "h1": "Email Automation & Triage",
+    "description": "Is your support or sales inbox overflowing? We build AI pipelines that read incoming emails, extract key data, categorize urgency, and draft replies automatically.",
+    "benefits": ["Inbox Zero Attained", "Prioritized Urgency", "Automated Drafts", "Data Extraction"],
+    "process": ["Inbox Integration", "Classification Modeling", "Drafting Prompts", "Review Workflow Setup"],
+    "faq": [
+      {
+        "question": "Will the AI send emails without my permission?",
+        "answer": "No. By default, the AI drafts responses and saves them for your review. Auto-send is only enabled when you are 100% confident."
+      }
+    ]
+  }
+]

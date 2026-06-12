@@ -1,6 +1,26 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import compression from 'vite-plugin-compression'
+import Sitemap from 'vite-plugin-sitemap'
+
+import servicesData from './src/data/services.json'
+import locationsData from './src/data/locations.json'
+import industriesData from './src/data/industries.json'
+import blogsData from './src/data/blogs.json'
+
+const dynamicRoutes = [
+  '/',
+  '/blog',
+  '/custom-ai-software',
+  '/ai-for-small-business',
+  '/free-ai-audit',
+  '/roi-calculator',
+  '/ai-readiness',
+  ...servicesData.map(s => `/services/${s.slug}`),
+  ...locationsData.map(l => `/locations/${l.slug}`),
+  ...industriesData.map(i => `/industries/${i.slug}`),
+  ...blogsData.map(b => `/blog/${b.slug}`)
+];
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -9,6 +29,11 @@ export default defineConfig({
       // Optimize React fast refresh for faster HMR
       fastRefresh: true,
       jsxImportSource: 'react',
+    }),
+    Sitemap({ 
+      hostname: 'https://aiflowix.in',
+      dynamicRoutes,
+      exclude: ['/404']
     }),
     // Enable gzip and brotli compression for production builds (improves Performance score)
     compression({
