@@ -3,6 +3,10 @@ import { useParams, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Briefcase, ArrowRight, XCircle, CheckCircle2 } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
+import StatsDashboard from '../components/StatsDashboard';
+import UseCasesGrid from '../components/UseCasesGrid';
+import CaseStudy from '../components/CaseStudy';
+import InternalLinks from '../components/InternalLinks';
 import industriesData from '../data/industries.json';
 
 const IndustryTemplate = () => {
@@ -19,14 +23,14 @@ const IndustryTemplate = () => {
     const faqSchema = {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        "mainEntity": industry.faq.map(f => ({
+        "mainEntity": industry.faq?.map(f => ({
             "@type": "Question",
             "name": f.question,
             "acceptedAnswer": {
                 "@type": "Answer",
                 "text": f.answer
             }
-        }))
+        })) || []
     };
 
     const industrySchema = {
@@ -85,67 +89,84 @@ const IndustryTemplate = () => {
                 </div>
             </section>
 
-            <section className="px-6 max-w-7xl mx-auto mb-24 grid md:grid-cols-2 gap-12">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="glass-card p-8 rounded-3xl border border-red-500/20 bg-red-500/5"
-                >
-                    <h2 className="text-2xl font-bold mb-6 text-white flex items-center gap-3">
-                        <XCircle className="w-6 h-6 text-red-400" />
-                        The Challenges
-                    </h2>
-                    <ul className="space-y-4">
-                        {industry.challenges.map((challenge, idx) => (
-                            <li key={idx} className="flex items-start gap-3 text-[#94A3B8]">
-                                <span className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2 shrink-0"></span>
-                                {challenge}
-                            </li>
-                        ))}
-                    </ul>
-                </motion.div>
+            <section className="px-6 max-w-7xl mx-auto">
+                <StatsDashboard statistics={industry.statistics} />
 
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.1 }}
-                    className="glass-card p-8 rounded-3xl border border-green-500/20 bg-green-500/5"
-                >
-                    <h2 className="text-2xl font-bold mb-6 text-white flex items-center gap-3">
-                        <CheckCircle2 className="w-6 h-6 text-green-400" />
-                        Our AI Solutions
-                    </h2>
-                    <ul className="space-y-4">
-                        {industry.solutions.map((solution, idx) => (
-                            <li key={idx} className="flex items-start gap-3 text-[#E2E8F0] font-medium">
-                                <span className="w-1.5 h-1.5 rounded-full bg-green-400 mt-2 shrink-0"></span>
-                                {solution}
-                            </li>
-                        ))}
-                    </ul>
-                </motion.div>
-            </section>
+                <div className="grid md:grid-cols-2 gap-12 my-24">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="glass-card p-8 rounded-3xl border border-red-500/20 bg-red-500/5"
+                    >
+                        <h2 className="text-2xl font-bold mb-6 text-white flex items-center gap-3">
+                            <XCircle className="w-6 h-6 text-red-400" />
+                            The Challenges
+                        </h2>
+                        <ul className="space-y-4">
+                            {industry.challenges?.map((challenge, idx) => (
+                                <li key={idx} className="flex items-start gap-3 text-[#94A3B8]">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2 shrink-0"></span>
+                                    {challenge}
+                                </li>
+                            ))}
+                        </ul>
+                    </motion.div>
 
-            <section className="px-6 max-w-7xl mx-auto mb-24">
-                <div className="text-center mb-12">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="glass-card p-8 rounded-3xl border border-green-500/20 bg-green-500/5"
+                    >
+                        <h2 className="text-2xl font-bold mb-6 text-white flex items-center gap-3">
+                            <CheckCircle2 className="w-6 h-6 text-green-400" />
+                            Our AI Solutions
+                        </h2>
+                        <ul className="space-y-4">
+                            {industry.solutions?.map((solution, idx) => (
+                                <li key={idx} className="flex items-start gap-3 text-[#E2E8F0] font-medium">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-green-400 mt-2 shrink-0"></span>
+                                    {solution}
+                                </li>
+                            ))}
+                        </ul>
+                    </motion.div>
+                </div>
+
+                <UseCasesGrid useCases={industry.useCases} />
+                <CaseStudy caseStudy={industry.caseStudy} />
+
+                <div className="text-center mb-12 mt-24">
                     <h2 className="text-3xl font-bold">Why AIFlowix?</h2>
                 </div>
-                <div className="grid md:grid-cols-3 gap-6">
-                    {industry.benefits.map((benefit, index) => (
+                <div className="grid md:grid-cols-3 gap-6 mb-16">
+                    {industry.benefits?.map((benefit, index) => (
                         <div key={index} className="glass-card p-6 rounded-xl border border-white/5 text-center">
                             <div className="text-[#00C8FF] font-bold text-xl mb-2">0{index + 1}</div>
                             <h3 className="text-white font-medium">{benefit}</h3>
                         </div>
                     ))}
                 </div>
+
+                {/* EEAT Signals */}
+                {industry.eeat && (
+                    <div className="my-16 bg-[#1E293B]/50 border border-white/5 rounded-2xl p-8 text-center max-w-4xl mx-auto">
+                        <h3 className="text-[#00C8FF] font-bold uppercase tracking-widest text-sm mb-4">Industry Expertise</h3>
+                        <div className="text-[#E2E8F0] leading-relaxed space-y-4">
+                            {industry.eeat.map((signal, idx) => (
+                                <p key={idx}>{signal}</p>
+                            ))}
+                        </div>
+                    </div>
+                )}
             </section>
 
-            <section className="px-6 max-w-3xl mx-auto mb-20">
+            <section className="px-6 max-w-3xl mx-auto my-20">
                 <h2 className="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
                 <div className="space-y-6">
-                    {industry.faq.map((item, index) => (
+                    {industry.faq?.map((item, index) => (
                         <motion.div 
                             key={index}
                             initial={{ opacity: 0, y: 20 }}
@@ -159,6 +180,10 @@ const IndustryTemplate = () => {
                         </motion.div>
                     ))}
                 </div>
+            </section>
+
+            <section className="px-6 max-w-7xl mx-auto">
+                <InternalLinks links={industry.relatedLinks} />
             </section>
         </main>
     );

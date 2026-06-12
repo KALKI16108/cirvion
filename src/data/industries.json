@@ -2,129 +2,387 @@
   {
     "slug": "real-estate",
     "industry": "Real Estate",
-    "metaDescription": "AI automation for real estate agencies and developers. Automate lead qualification, property inquiries, and CRM data entry.",
-    "h1": "AI Automation for Real Estate",
-    "description": "Stop losing property leads to slow response times. AIFlowix builds custom AI workflows that instantly respond to inquiries, qualify buyers vs. renters, and automatically log details directly into your CRM.",
-    "challenges": ["Slow lead response times", "Wasting time on unqualified leads", "Messy CRM data"],
-    "solutions": ["WhatsApp AI for instant property details", "Automated lead scoring and routing", "Seamless CRM integrations"],
-    "benefits": ["Higher Conversion Rates", "Zero Lead Leakage", "Automated Follow-ups"],
+    "h1": "AI Automation for Real Estate Agencies",
+    "description": "Stop losing properties and clients to slow response times. We build AI infrastructure that qualifies buyers, schedules viewings automatically, and drafts personalized follow-ups, allowing your agents to focus purely on closing deals.",
+    "metaDescription": "AI automation services for real estate. Automate lead qualification, property viewings, and CRM data entry to close more deals faster.",
+    "challenges": [
+      "Inbound leads from Zillow/Realtor.com go cold if not answered within 5 minutes.",
+      "Agents spend 40% of their day manually updating CRM records and scheduling viewings.",
+      "Following up with open-house attendees is manual, inconsistent, and slow."
+    ],
+    "solutions": [
+      "Deploy a 24/7 WhatsApp AI Agent that instantly answers property questions and qualifies budget.",
+      "Automate calendar syncs so leads can book property viewings without human intervention.",
+      "Implement a post-open-house AI sequence that texts attendees and gauges their interest level."
+    ],
+    "benefits": [
+      "Instant Lead Response",
+      "Zero CRM Data Entry",
+      "Automated Viewings"
+    ],
+    "statistics": [
+      { "metric": "5 Min", "impact": "Response Time Maintained", "time": "24/7/365", "revenue": "Captured 30% More Leads" },
+      { "metric": "15 Hrs", "impact": "Saved Per Agent/Week", "time": "Automated Scheduling", "revenue": "More Time Selling" },
+      { "metric": "2x", "impact": "Open House Conversions", "time": "Instant Follow-ups", "revenue": "Higher Close Rate" },
+      { "metric": "100%", "impact": "CRM Compliance", "time": "Invisible Tracking", "revenue": "Better Forecasting" }
+    ],
+    "useCases": [
+      {
+        "problem": "Leads inquiring about properties at 11 PM and going to a competitor who responds first the next morning.",
+        "solution": "WhatsApp AI responds instantly, checks MLS data for property availability, asks for pre-approval status, and books a call for 9 AM.",
+        "result": "Captured 100% of off-hours lead flow.",
+        "stack": "WhatsApp API + Follow Up Boss + OpenAI"
+      },
+      {
+        "problem": "Agents forgetting to log phone calls and notes into the CRM.",
+        "solution": "AI call recorder transcribes agent phone calls, summarizes the buyer's preferences, and updates the CRM record automatically.",
+        "result": "Perfect CRM data hygiene without agent effort.",
+        "stack": "Gong/Fireflies + Zapier + Salesforce"
+      }
+    ],
+    "caseStudy": {
+      "before": "A luxury brokerage in Miami was generating 500 leads a month but only converting 2% because agents were too busy showing houses to reply to new inquiries quickly.",
+      "implementation": "We deployed an omnichannel AI agent connected to their MLS feed and Follow Up Boss CRM. The agent engaged leads via SMS within 30 seconds, answering specific questions about HOA fees, square footage, and school districts based on live MLS data.",
+      "after": "Lead conversion increased to 5.5%. The brokerage closed an additional ₹996M in volume in Q3 solely attributed to the AI handling initial qualification."
+    },
+    "eeat": [
+      "Deep integrations with industry-standard tools: Follow Up Boss, kvCORE, Lofty, and direct MLS API feeds.",
+      "We understand Fair Housing laws; our LLMs are hardcoded with guardrails to never violate regulatory compliance.",
+      "Our automation architects have built workflows for Top 100 RE/MAX and Keller Williams teams."
+    ],
     "faq": [
       {
-        "question": "Can the AI show available properties?",
-        "answer": "Yes, we can connect the AI to your property database to recommend matching listings to leads instantly."
-      }
-    ]
-  },
-  {
-    "slug": "recruitment",
-    "industry": "Recruitment & HR",
-    "metaDescription": "AI automation for recruitment agencies. Automate candidate screening, interview scheduling, and resume parsing.",
-    "h1": "AI Automation for Recruitment",
-    "description": "AIFlowix transforms how staffing agencies operate. Our AI automations screen hundreds of resumes instantly, conduct preliminary WhatsApp interviews, and automatically schedule qualified candidates.",
-    "challenges": ["Too many unqualified applications", "Manual resume review", "Scheduling conflicts"],
-    "solutions": ["AI Resume Parsing", "Automated WhatsApp Screening", "AI Calendar Booking"],
-    "benefits": ["Faster Time-to-Hire", "Eliminate Manual Screening", "Better Candidate Experience"],
-    "faq": [
+        "question": "Can the AI pull live property data?",
+        "answer": "Yes. We integrate directly with your local MLS or CRM via API. If a lead asks 'Is 123 Main St still available?', the AI checks the database in real-time before answering."
+      },
       {
-        "question": "Does AI screening introduce bias?",
-        "answer": "We build strict, skill-based parsing criteria to ensure candidates are evaluated purely on qualifications and experience, reducing human bias."
+        "question": "Will my agents lose their personal touch?",
+        "answer": "No. The AI handles the robotic work—scheduling, basic Q&A, and data entry. This gives your agents MORE time to provide the high-touch, personal relationship building that actually sells houses."
       }
-    ]
+    ],
+    "relatedLinks": {
+      "services": [
+        { "title": "WhatsApp Automation", "slug": "whatsapp-automation" },
+        { "title": "CRM Automation", "slug": "crm-automation" }
+      ],
+      "industries": [
+        { "title": "Finance & Mortgages", "slug": "finance" }
+      ],
+      "blogs": [
+        { "title": "AI Lead Generation", "slug": "ai-lead-generation" }
+      ],
+      "magnets": [
+        { "title": "Readiness Assessment", "path": "/readiness" }
+      ]
+    }
   },
   {
     "slug": "healthcare",
     "industry": "Healthcare & Clinics",
-    "metaDescription": "AI automation for healthcare providers. Automate patient scheduling, reminders, and basic triage.",
-    "h1": "AI Automation for Healthcare",
-    "description": "Reduce no-shows and administrative burden. We build HIPAA-compliant (where required) AI workflows that handle appointment booking, send automated reminders, and answer basic clinic FAQs.",
-    "challenges": ["High patient no-show rates", "Overwhelmed front desk staff", "Messy appointment scheduling"],
-    "solutions": ["WhatsApp Appointment Booking", "Automated SMS Reminders", "AI Receptionist for FAQs"],
-    "benefits": ["Reduced No-Shows", "Free Up Staff Time", "24/7 Patient Support"],
+    "h1": "HIPAA-Compliant AI Automation for Healthcare",
+    "description": "Reduce administrative overhead so your providers can focus on patient care. We deploy secure, HIPAA-compliant AI systems to automate patient scheduling, intake forms, and EMR data entry.",
+    "metaDescription": "Healthcare AI automation services. Automate patient booking, EMR data entry, and patient follow-ups with secure, HIPAA-compliant AI.",
+    "challenges": [
+      "Front desk staff spend 60% of their day on the phone managing appointments and cancellations.",
+      "Manual data entry from patient intake forms into the EMR leads to costly transcription errors.",
+      "High patient no-show rates drain clinical revenue."
+    ],
+    "solutions": [
+      "Deploy an AI voice and text agent to handle 24/7 appointment scheduling and rescheduling.",
+      "Implement Intelligent Document Processing (OCR) to automatically digitize intake forms into the EMR.",
+      "Create automated SMS sequences to confirm appointments and provide pre-visit instructions."
+    ],
+    "benefits": [
+      "Eliminate Phone Tag",
+      "Ensure HIPAA Compliance",
+      "Reduce Patient No-Shows"
+    ],
+    "statistics": [
+      { "metric": "75%", "impact": "Reduction in Call Volume", "time": "AI Voice Triage", "revenue": "Lower Admin Costs" },
+      { "metric": "90%", "impact": "Fewer No-Shows", "time": "Automated Reminders", "revenue": "Optimized Utilization" },
+      { "metric": "0", "impact": "Data Entry Errors", "time": "OCR Extraction", "revenue": "Billing Accuracy" },
+      { "metric": "100%", "impact": "HIPAA Compliant", "time": "Secure Infrastructure", "revenue": "Risk Mitigation" }
+    ],
+    "useCases": [
+      {
+        "problem": "Dental clinic losing ₹4,15,000/week due to last-minute patient cancellations.",
+        "solution": "When a cancellation text is received, the AI automatically texts patients on the waitlist offering the open slot.",
+        "result": "Recaptured 85% of cancelled appointments within 10 minutes.",
+        "stack": "Twilio SMS + Custom API + Open Dental"
+      },
+      {
+        "problem": "Nurses spending 2 hours a day manually typing faxed referral documents into Epic.",
+        "solution": "AI vision model reads the fax, extracts patient demographics and medical history, and stages it in the EMR for 1-click approval.",
+        "result": "Saved 10 hours per week per nurse.",
+        "stack": "Google Document AI (HIPAA) + Epic API"
+      }
+    ],
+    "caseStudy": {
+      "before": "A network of physical therapy clinics was overwhelmed by 400+ daily phone calls. Wait times averaged 12 minutes, leading to abandoned calls and lost new patients.",
+      "implementation": "We deployed a HIPAA-compliant AI Voice Agent using Twilio and a secure, private LLM. The agent answered instantly, triaged the reason for the call, and booked new evaluations directly into their EMR via API.",
+      "after": "Hold times dropped to zero. The clinic captured 40 additional new patient evaluations per month that were previously abandoning the call, adding roughly ₹49,80,000 in monthly top-line revenue."
+    },
+    "eeat": [
+      "We utilize strictly HIPAA-compliant infrastructure (e.g., Google Cloud Healthcare API, AWS HealthLake, Enterprise OpenAI with zero-retention).",
+      "We sign Business Associate Agreements (BAAs) for all healthcare deployments.",
+      "Deep integration experience with Epic, Cerner, Athenahealth, and Open Dental."
+    ],
     "faq": [
       {
-        "question": "Are your healthcare automations secure?",
-        "answer": "Yes, we prioritize data security and build automations that comply with relevant healthcare data protection regulations."
+        "question": "Is the AI allowed to give medical advice?",
+        "answer": "Absolutely not. We hardcode strict guardrails. If a patient asks a medical question, the AI is programmed to immediately route the inquiry to a triage nurse."
+      },
+      {
+        "question": "Is patient data used to train the AI?",
+        "answer": "No. We use Enterprise API endpoints that strictly prohibit the use of your data for model training. All Protected Health Information (PHI) is processed ephemerally."
       }
-    ]
+    ],
+    "relatedLinks": {
+      "services": [
+        { "title": "Appointment Booking Automation", "slug": "appointment-booking-automation" },
+        { "title": "Business Process Automation", "slug": "business-process-automation" }
+      ],
+      "industries": [
+        { "title": "Finance", "slug": "finance" }
+      ],
+      "blogs": [
+        { "title": "Healthcare Appointment Automation", "slug": "healthcare-appointment-automation" }
+      ],
+      "magnets": [
+        { "title": "Free AI Audit", "path": "/free-ai-audit" }
+      ]
+    }
   },
   {
-    "slug": "manufacturing",
-    "industry": "Manufacturing",
-    "metaDescription": "AI automation for manufacturing. Streamline supply chain updates, vendor communications, and inventory alerts.",
-    "h1": "AI Automation for Manufacturing",
-    "description": "Modernize your factory floor and back office. AIFlowix deploys AI systems that automate vendor PO generation, track inventory alerts, and streamline complex operational reporting.",
-    "challenges": ["Manual supply chain tracking", "Slow vendor communication", "Siloed operational data"],
-    "solutions": ["Automated PO Generation", "Inventory Alert Workflows", "Vendor Portal AI Chatbots"],
-    "benefits": ["Reduced Supply Bottlenecks", "Lower Overhead", "Real-time Visibility"],
+    "slug": "e-commerce",
+    "title": "E-Commerce",
+    "industry": "E-Commerce & DTC",
+    "h1": "AI Automation for E-Commerce Brands",
+    "description": "Scale your e-commerce operations without scaling your headcount. We automate customer support, inventory management, and personalized marketing so you can focus on brand growth.",
+    "metaDescription": "E-commerce AI automation. Automate customer support, inventory syncing, and personalized marketing for your Shopify or WooCommerce store.",
+    "challenges": [
+      "Customer support is overwhelmed with repetitive 'Where is my order?' (WISMO) tickets.",
+      "Manual inventory syncing between Shopify, Amazon, and 3PLs causes stockouts.",
+      "Abandoned cart recovery emails are generic and convert poorly."
+    ],
+    "solutions": [
+      "Deploy an AI Support Agent that integrates with Shopify/ShipStation to answer WISMO queries instantly.",
+      "Build custom Make.com workflows to sync inventory across all sales channels in real-time.",
+      "Use AI to generate hyper-personalized SMS and email campaigns based on browsing behavior."
+    ],
+    "benefits": [
+      "Deflect 80% Support Tickets",
+      "Prevent Costly Stockouts",
+      "Increase Cart Recovery"
+    ],
+    "statistics": [
+      { "metric": "85%", "impact": "WISMO Ticket Deflection", "time": "Instant Answers", "revenue": "Lower CX Costs" },
+      { "metric": "30%", "impact": "Increase in Cart Recovery", "time": "AI Personalization", "revenue": "Recovered Sales" },
+      { "metric": "100%", "impact": "Inventory Accuracy", "time": "Real-time Sync", "revenue": "Fewer Refunds" },
+      { "metric": "24/7", "impact": "Global Support", "time": "Multi-lingual", "revenue": "Higher Conversion" }
+    ],
+    "useCases": [
+      {
+        "problem": "During Q4, support team cannot handle the 3x spike in return requests.",
+        "solution": "AI agent authenticates the user, checks the return window policy, generates a return label via the Loop API, and issues store credit automatically.",
+        "result": "Zero manual touches required for 90% of standard returns.",
+        "stack": "Gorgias + Custom AI + Loop Returns + Shopify"
+      },
+      {
+        "problem": "Marketing team spending hours manually creating product descriptions for 1000s of SKUs.",
+        "solution": "Automated pipeline pulls product specs from the manufacturer database, uses an LLM to write SEO-optimized descriptions in the brand's voice, and pushes to Shopify.",
+        "result": "Catalog updated in 2 hours instead of 3 weeks.",
+        "stack": "Make.com + OpenAI + Shopify API"
+      }
+    ],
+    "caseStudy": {
+      "before": "A DTC apparel brand was paying a CX agency ₹12,45,000/month. 70% of their tickets were simple sizing questions or shipping status checks.",
+      "implementation": "We deployed an AI agent directly into their Shopify chat widget. We ingested their sizing charts and connected the agent to their ShipBob API. The agent visually guided users to the right size and provided live tracking links.",
+      "after": "The brand reduced their CX agency retainer to ₹3,32,000/month. Customer satisfaction (CSAT) actually increased because shoppers got answers at 2 AM instantly."
+    },
+    "eeat": [
+      "Extensive experience with the modern DTC stack: Shopify Plus, Klaviyo, Gorgias, ShipBob, and Recharge.",
+      "We build robust webhook architectures that handle massive Q4/Black Friday traffic spikes without dropping payloads.",
+      "Focus on brand voice. We fine-tune prompts so the AI speaks exactly like your brand, not a corporate robot."
+    ],
     "faq": [
       {
-        "question": "Can you integrate with legacy ERPs?",
-        "answer": "Yes, we specialize in bridging modern AI tools with legacy on-premise or cloud ERP systems via custom APIs or RPA."
+        "question": "Will the AI give out incorrect discount codes?",
+        "answer": "No. The AI's access to discounts is strictly controlled via API. It can only issue single-use, dynamically generated codes from Shopify if the user meets specific rule-based criteria."
+      },
+      {
+        "question": "Can it handle multi-lingual support for international expansion?",
+        "answer": "Yes. Our AI agents can seamlessly detect the user's language and converse fluently in over 50 languages, pulling from your English knowledge base and translating contextually."
       }
-    ]
+    ],
+    "relatedLinks": {
+      "services": [
+        { "title": "Customer Support Automation", "slug": "customer-support-automation" },
+        { "title": "Workflow Automation", "slug": "workflow-automation" }
+      ],
+      "industries": [
+        { "title": "Logistics", "slug": "logistics" }
+      ],
+      "blogs": [
+        { "title": "Automating Tier-1 Support", "slug": "automating-tier-1-support-llms" }
+      ],
+      "magnets": [
+        { "title": "ROI Calculator", "path": "/roi-calculator" }
+      ]
+    }
   },
   {
-    "slug": "logistics",
-    "industry": "Logistics & Supply Chain",
-    "metaDescription": "AI automation for logistics companies. Automate dispatch tracking, driver communication, and customer updates.",
-    "h1": "AI Automation for Logistics",
-    "description": "Keep your fleet moving and your customers informed. We build automations that handle real-time tracking updates, driver dispatch alerts, and automated freight quote generation.",
-    "challenges": ["Manual customer status updates", "Chaotic driver dispatch", "Slow freight quoting"],
-    "solutions": ["Automated Tracking SMS/WhatsApp", "Driver Dispatch Workflows", "AI Quote Generation"],
-    "benefits": ["Fewer Customer Support Calls", "Faster Dispatch", "Higher Quote Win Rates"],
+    "slug": "finance",
+    "industry": "Finance & Accounting",
+    "h1": "AI Workflow Automation for Finance Firms",
+    "description": "Financial operations are bogged down by manual document review and data entry. We engineer secure AI pipelines to automate invoice processing, client onboarding, and financial reporting.",
+    "metaDescription": "AI automation for accounting and finance. Automate invoice processing (OCR), client onboarding, and secure data entry.",
+    "challenges": [
+      "Accountants spend hours manually typing invoice data into QuickBooks or Xero.",
+      "Client onboarding (KYC/AML) involves endless manual document verification.",
+      "Consolidating data from multiple bank feeds for reporting is slow and error-prone."
+    ],
+    "solutions": [
+      "Deploy Intelligent Document Processing (IDP) to extract line-item data from invoices automatically.",
+      "Automate the KYC process with AI vision models that verify IDs against client records.",
+      "Build custom API scripts to pull data from Plaid/banks and generate automated financial summaries."
+    ],
+    "benefits": [
+      "Zero Data Entry Errors",
+      "Accelerated Month-End Close",
+      "Secure & Compliant Processing"
+    ],
+    "statistics": [
+      { "metric": "99.9%", "impact": "Data Accuracy", "time": "AI Verification", "revenue": "Eliminated Fines" },
+      { "metric": "80%", "impact": "Faster Invoice Processing", "time": "Instant OCR", "revenue": "Lower Operational Cost" },
+      { "metric": "3 Days", "impact": "Faster Month-End Close", "time": "Automated Reconciliation", "revenue": "Better Cash Flow" },
+      { "metric": "100%", "impact": "Audit Trail Visibility", "time": "Logged Actions", "revenue": "Compliance Security" }
+    ],
+    "useCases": [
+      {
+        "problem": "CPA firm drowning in disorganized client receipts during tax season.",
+        "solution": "Clients upload photos to a portal; AI extracts the vendor, amount, date, and tax category, then stages the transaction in QuickBooks.",
+        "result": "Saved 500+ billable hours during the tax season peak.",
+        "stack": "Custom Portal + Google Document AI + QuickBooks API"
+      },
+      {
+        "problem": "Wealth management firm taking 2 weeks to onboard a new high-net-worth client.",
+        "solution": "Automated workflow triggers via DocuSign, provisions the client portal, runs automated background API checks, and alerts the advisor.",
+        "result": "Onboarding reduced from 14 days to 48 hours.",
+        "stack": "DocuSign + Custom API + Salesforce Financial Services Cloud"
+      }
+    ],
+    "caseStudy": {
+      "before": "A regional bank's loan processing department was manually reviewing 200-page PDF loan applications to extract 15 specific data points. Turnaround time was 4 days.",
+      "implementation": "We deployed a custom RAG (Retrieval-Augmented Generation) pipeline using Enterprise Claude 3.5. The system ingests the 200-page PDF, instantly extracts the 15 data points, and outputs them into a structured JSON file pushed directly to their underwriting software.",
+      "after": "Data extraction time went from 45 minutes per application to 30 seconds. The bank accelerated loan approvals, capturing market share from slower competitors."
+    },
+    "eeat": [
+      "We utilize SOC2 Type II compliant infrastructure and Enterprise LLM agreements with zero data-retention policies.",
+      "Extensive experience working with Plaid, Stripe, QuickBooks, Xero, and NetSuite APIs.",
+      "We implement strict 'Human-in-the-Loop' protocols for any money-moving or final-approval workflows."
+    ],
     "faq": [
       {
-        "question": "Can the AI handle customer 'Where is my order' queries?",
-        "answer": "Absolutely. We build AI agents that query your tracking database and give customers instant updates 24/7."
+        "question": "Is cloud AI safe for sensitive financial data?",
+        "answer": "Yes, provided it is architected correctly. We never use public LLMs (like standard ChatGPT). We use enterprise-grade endpoints (AWS, Azure, Google Cloud) that are legally bound by SOC2 and do not use your data for model training."
+      },
+      {
+        "question": "Can AI catch fraudulent invoices?",
+        "answer": "Yes. We can program the AI to cross-reference invoice details against historical vendor data, flagging anomalies in bank routing numbers or unusual amounts for human review."
       }
-    ]
+    ],
+    "relatedLinks": {
+      "services": [
+        { "title": "Business Process Automation", "slug": "business-process-automation" },
+        { "title": "Custom AI Agents", "slug": "custom-ai-agents" }
+      ],
+      "industries": [
+        { "title": "Real Estate", "slug": "real-estate" }
+      ],
+      "blogs": [
+        { "title": "What is Business Process Automation?", "slug": "what-is-business-process-automation" }
+      ],
+      "magnets": [
+        { "title": "Readiness Assessment", "path": "/readiness" }
+      ]
+    }
   },
   {
-    "slug": "ecommerce",
-    "industry": "E-Commerce",
-    "metaDescription": "AI automation for e-commerce brands. Automate customer support, order tracking, and cart recovery.",
-    "h1": "AI Automation for E-Commerce",
-    "description": "Scale your e-commerce brand without scaling your support team. AIFlowix builds AI agents that resolve WISMO (Where Is My Order) tickets instantly, handle returns, and execute automated cart recovery campaigns.",
-    "challenges": ["High volume of WISMO tickets", "Abandoned carts", "Manual return processing"],
-    "solutions": ["AI Support Agents (Shopify/WooCommerce)", "WhatsApp Cart Recovery", "Automated Return Workflows"],
-    "benefits": ["Increase Revenue", "Reduce Support Costs", "Better Customer Experience"],
+    "slug": "agencies",
+    "industry": "Marketing & Creative Agencies",
+    "h1": "AI Infrastructure for Marketing Agencies",
+    "description": "Increase your agency's profit margins by automating client reporting, content generation, and lead outreach. Scale your MRR without increasing your headcount.",
+    "metaDescription": "AI automation for marketing agencies. Automate client reporting, content workflows, and outbound lead generation to increase profit margins.",
+    "challenges": [
+      "Account managers spend 10+ hours a month manually building performance reports for clients.",
+      "Content teams face bottlenecks generating initial drafts for blogs, ad copy, and social media.",
+      "The agency's own outbound lead generation is inconsistent due to client work taking priority."
+    ],
+    "solutions": [
+      "Build automated data pipelines to pull metrics from Meta/Google Ads and auto-generate client presentation decks.",
+      "Deploy custom AI agents trained on the client's brand voice to rapidly generate first-draft content.",
+      "Implement a fully automated outbound B2B lead generation engine to keep the agency pipeline full."
+    ],
+    "benefits": [
+      "Higher Profit Margins",
+      "Consistent Agency Pipeline",
+      "Zero Manual Reporting"
+    ],
+    "statistics": [
+      { "metric": "95%", "impact": "Reduction in Reporting Time", "time": "Automated Decks", "revenue": "Higher Margin" },
+      { "metric": "3x", "impact": "Content Output Volume", "time": "AI First Drafts", "revenue": "Scalable Retainers" },
+      { "metric": "100%", "impact": "Consistent Outbound", "time": "Always On", "revenue": "Predictable MRR" },
+      { "metric": "0", "impact": "Data Entry Errors", "time": "API Syncs", "revenue": "Client Trust" }
+    ],
+    "useCases": [
+      {
+        "problem": "Performance marketing agency spending 40 hours the first week of every month building reports.",
+        "solution": "Make.com workflow pulls data from Google Ads/Meta APIs, uses OpenAI to write a 'Performance Summary' paragraph, and pushes it into a Google Slide template.",
+        "result": "Reports are generated automatically on the 1st of the month; Account Managers just review and send.",
+        "stack": "Make.com + Google APIs + OpenAI"
+      },
+      {
+        "problem": "SEO agency struggling to scale content production without hiring expensive writers.",
+        "solution": "Multi-agent workflow researches SERP competitors, generates an outline, and drafts a 2,000-word article formatted in markdown.",
+        "result": "Human editors focus on polishing and EEAT injection rather than writing from scratch, doubling output.",
+        "stack": "LangGraph + Claude 3.5 Sonnet + Perplexity API"
+      }
+    ],
+    "caseStudy": {
+      "before": "A boutique PR agency wanted to scale but the founders were entirely bogged down in operations. Every new client required manual Slack channel creation, Google Drive folder setup, and onboarding emails.",
+      "implementation": "We built a 1-click onboarding automation. When a Stripe invoice is paid, the system automatically creates the Slack Connect channel, sets up the Drive architecture with templates, adds the client to ClickUp, and sends the welcome sequence.",
+      "after": "Onboarding time dropped from 2 hours to 5 seconds. The founders reclaimed 15 hours a week, allowing them to focus entirely on closing new accounts."
+    },
+    "eeat": [
+      "We understand agency operations intimately. We've built workflows for SEO, Performance, PR, and Web Development agencies.",
+      "Deep expertise with agency stacks: GoHighLevel, ClickUp, Monday.com, Slack, and Stripe.",
+      "We focus on 'White-Label' ready infrastructure that agencies can resell to their own clients."
+    ],
     "faq": [
       {
-        "question": "Do you integrate with Shopify?",
-        "answer": "Yes, we build deep integrations with Shopify to allow AI agents to check order status, modify addresses, and process refunds."
-      }
-    ]
-  },
-  {
-    "slug": "education",
-    "industry": "Education & EdTech",
-    "metaDescription": "AI automation for educational institutions. Automate student enrollment, lead nurturing, and campus FAQs.",
-    "h1": "AI Automation for Education",
-    "description": "Boost your student enrollment numbers. We automate the entire student lifecycle, from initial inquiry qualification to campus tour scheduling and automated fee reminders.",
-    "challenges": ["Slow response to student inquiries", "Manual enrollment tracking", "High drop-off rates"],
-    "solutions": ["AI Enrollment Assistants", "Automated Lead Nurturing Sequences", "Campus Tour Booking Bots"],
-    "benefits": ["Higher Enrollment Rates", "Reduced Admin Work", "Instant Student Support"],
-    "faq": [
+        "question": "Will AI content hurt our clients' SEO?",
+        "answer": "Raw AI content can. That's why we build workflows where AI generates the *first draft* or the research brief. The human editor always adds the final polish, personal anecdotes, and EEAT signals required to rank."
+      },
       {
-        "question": "Can the AI help students choose a course?",
-        "answer": "Yes, we can program the AI with your curriculum details to act as a virtual academic advisor for prospective students."
+        "question": "Can we white-label your automation services?",
+        "answer": "Yes. Many agencies partner with us. We build the complex backend automation, and you sell the 'AI Transformation' directly to your clients at a markup."
       }
-    ]
-  },
-  {
-    "slug": "legal",
-    "industry": "Legal Services",
-    "metaDescription": "AI automation for law firms. Automate client intake, document drafting, and case updates.",
-    "h1": "AI Automation for Law Firms",
-    "description": "Let your lawyers focus on practicing law, not admin work. AIFlowix builds secure automations for automated client intake, conflict-of-interest checks, and preliminary document drafting.",
-    "challenges": ["Time-consuming client intake", "Manual document drafting", "High administrative overhead"],
-    "solutions": ["Automated Client Intake Forms", "AI Contract Drafting Assistance", "Case Status Update Bots"],
-    "benefits": ["More Billable Hours", "Faster Intake", "Secure Data Handling"],
-    "faq": [
-      {
-        "question": "Is client confidentiality maintained?",
-        "answer": "We strictly use enterprise-tier AI APIs (like OpenAI Enterprise) which guarantee zero data retention for model training, ensuring complete confidentiality."
-      }
-    ]
+    ],
+    "relatedLinks": {
+      "services": [
+        { "title": "AI Lead Generation", "slug": "ai-lead-generation" },
+        { "title": "Workflow Automation", "slug": "workflow-automation" }
+      ],
+      "industries": [
+        { "title": "E-Commerce", "slug": "e-commerce" }
+      ],
+      "blogs": [
+        { "title": "Automate B2B Outbound", "slug": "automate-b2b-outbound" }
+      ],
+      "magnets": [
+        { "title": "ROI Calculator", "path": "/roi-calculator" }
+      ]
+    }
   }
 ]

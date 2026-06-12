@@ -2,11 +2,47 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Calculator, DollarSign, Clock } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
+import { submitRoiCalculation } from '../lib/api';
+import toast from 'react-hot-toast';
 
 const RoiCalculator = () => {
     const [hours, setHours] = useState(20);
     const [hourlyRate, setHourlyRate] = useState(25);
     const [employees, setEmployees] = useState(5);
+    
+    // Lead capture state
+    const [showForm, setShowForm] = useState(false);
+    const [submitted, setSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [formData, setFormData] = useState({ name: '', email: '' });
+
+    const handleFormChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        try {
+            await submitRoiCalculation({
+                name: formData.name,
+                email: formData.email,
+                employees,
+                hoursPerWeek: hours,
+                hourlyCost: hourlyRate,
+                monthlyCost: hours * hourlyRate * employees * 4,
+                estimatedSavings: hours * hourlyRate * employees * 52,
+                estimatedRoi: ((hours * hourlyRate * employees * 52) / 10000) * 100 // Example basic ROI calc
+            });
+            toast.success("Report saved! We'll review it and reach out.");
+            setSubmitted(true);
+        } catch (error) {
+            console.error('Error submitting ROI:', error);
+            toast.error('Something went wrong. Please try again.');
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
 
     const weeklySavings = hours * hourlyRate * employees;
     const annualSavings = weeklySavings * 52;
@@ -127,9 +163,44 @@ const RoiCalculator = () => {
             </div>
             
             <div className="text-center">
-                 <a href="/free-ai-audit" className="inline-flex items-center justify-center gap-2 bg-gradient-primary text-[#0F172A] font-bold py-4 px-8 rounded-xl hover:opacity-90 transition-opacity">
-                    Claim Your Free AI Audit <DollarSign className="w-5 h-5" />
-                 </a>
+                {!showForm ? (
+                    <button 
+                        onClick={() => setShowForm(true)}
+                        className="inline-flex items-center justify-center gap-2 bg-gradient-primary text-[#0F172A] font-bold py-4 px-8 rounded-xl hover:opacity-90 transition-opacity"
+                    >
+                        Save Your ROI Report <DollarSign className="w-5 h-5" />
+                    </button>
+                ) : submitted ? (
+                    <div className="glass-card p-6 rounded-2xl border border-[#10B981]/20 bg-[#10B981]/5 max-w-md mx-auto">
+                        <h3 className="text-[#10B981] font-bold text-lg mb-2">Report Saved!</h3>
+                        <p className="text-[#94A3B8]">We've saved your ROI calculation. Our team will review it and reach out shortly.</p>
+                    </div>
+                ) : (
+                    <form onSubmit={handleSubmit} className="glass-card p-6 rounded-2xl border border-white/5 max-w-md mx-auto space-y-4">
+                        <h3 className="text-white font-bold text-lg mb-4">Where should we send your full ROI breakdown?</h3>
+                        <input 
+                            required 
+                            type="text" 
+                            name="name" 
+                            value={formData.name} 
+                            onChange={handleFormChange} 
+                            placeholder="Your Name" 
+                            className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00C8FF]"
+                        />
+                        <input 
+                            required 
+                            type="email" 
+                            name="email" 
+                            value={formData.email} 
+                            onChange={handleFormChange} 
+                            placeholder="Work Email" 
+                            className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00C8FF]"
+                        />
+                        <button disabled={isSubmitting} type="submit" className="w-full bg-gradient-primary hover:opacity-90 text-[#0F172A] font-bold py-3 rounded-xl transition-opacity disabled:opacity-50">
+                            {isSubmitting ? 'Saving...' : 'Send My Report'}
+                        </button>
+                    </form>
+                )}
             </div>
         </main>
     );

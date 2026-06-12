@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ClipboardCheck, ArrowRight, CheckCircle2 } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
+import { submitReadinessAssessment } from '../lib/api';
+import toast from 'react-hot-toast';
 
 const questions = [
     {
@@ -30,6 +32,15 @@ const ReadinessAssessment = () => {
     const [currentStep, setCurrentStep] = useState(0);
     const [answers, setAnswers] = useState({});
     const [showResults, setShowResults] = useState(false);
+    
+    // Lead capture state
+    const [submitted, setSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [formData, setFormData] = useState({ name: '', email: '' });
+
+    const handleFormChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
 
     const handleOptionSelect = (option) => {
         setAnswers({ ...answers, [currentStep]: option });
@@ -37,6 +48,34 @@ const ReadinessAssessment = () => {
             setCurrentStep(currentStep + 1);
         } else {
             setShowResults(true);
+        }
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        try {
+            // Calculate a basic score: 0 to 100 based on answers
+            const score = Object.values(answers).reduce((acc, curr) => {
+                if (curr.includes('Less than 5') || curr.includes('fully integrated') || curr.includes('5 minutes') || curr.includes('well organized')) return acc + 25;
+                if (curr.includes('5-15 hours') || curr.includes('Zapier') || curr.includes('1 hour') || curr.includes('messy')) return acc + 15;
+                if (curr.includes('15-40 hours') || curr.includes('Excel') || curr.includes('24 hours')) return acc + 5;
+                return acc;
+            }, 0);
+
+            await submitReadinessAssessment({
+                name: formData.name,
+                email: formData.email,
+                score,
+                recommendation: 'Based on your answers, your business has significant operational bottlenecks that AI can fix immediately.'
+            });
+            toast.success("Assessment submitted! We'll review and get back to you.");
+            setSubmitted(true);
+        } catch (error) {
+            console.error('Error submitting assessment:', error);
+            toast.error('Something went wrong. Please try again.');
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
@@ -81,9 +120,38 @@ const ReadinessAssessment = () => {
                         <p className="text-[#94A3B8] text-lg mb-8">
                             Based on your answers, your business has significant operational bottlenecks that AI can fix immediately. You are losing money to manual inefficiencies.
                         </p>
-                        <a href="/free-ai-audit" className="inline-flex items-center justify-center gap-2 bg-gradient-primary text-[#0F172A] font-bold py-4 px-8 rounded-xl hover:opacity-90 transition-opacity">
-                            Book Free Strategy Call <ArrowRight className="w-5 h-5" />
-                        </a>
+                        
+                        {!submitted ? (
+                            <form onSubmit={handleSubmit} className="bg-[#0F172A] p-6 rounded-2xl border border-white/5 max-w-md mx-auto space-y-4 text-left">
+                                <h3 className="text-white font-bold text-lg mb-2 text-center">Get Your Full Readiness Report</h3>
+                                <input 
+                                    required 
+                                    type="text" 
+                                    name="name" 
+                                    value={formData.name} 
+                                    onChange={handleFormChange} 
+                                    placeholder="Your Name" 
+                                    className="w-full bg-[#1E293B] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#6366F1]"
+                                />
+                                <input 
+                                    required 
+                                    type="email" 
+                                    name="email" 
+                                    value={formData.email} 
+                                    onChange={handleFormChange} 
+                                    placeholder="Work Email" 
+                                    className="w-full bg-[#1E293B] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#6366F1]"
+                                />
+                                <button disabled={isSubmitting} type="submit" className="w-full bg-gradient-primary hover:opacity-90 text-[#0F172A] font-bold py-3 rounded-xl transition-opacity disabled:opacity-50">
+                                    {isSubmitting ? 'Sending...' : 'Send My Report'}
+                                </button>
+                            </form>
+                        ) : (
+                            <div className="bg-[#10B981]/10 border border-[#10B981]/20 p-6 rounded-2xl max-w-md mx-auto">
+                                <h3 className="text-[#10B981] font-bold text-lg mb-2">Report Sent!</h3>
+                                <p className="text-[#94A3B8]">Check your email for the full breakdown. Our team will be in touch shortly to schedule a free strategy call.</p>
+                            </div>
+                        )}
                     </div>
                 ) : (
                     <div>

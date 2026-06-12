@@ -3,6 +3,7 @@ import { useParams, Navigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Calendar, Tag, ArrowLeft } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
+import InternalLinks from '../components/InternalLinks';
 import blogsData from '../data/blogs.json';
 
 const BlogTemplate = () => {
@@ -82,11 +83,23 @@ const BlogTemplate = () => {
                     </motion.h1>
                 </div>
 
+                {/* EEAT Signals Author Box */}
+                {article.eeat && (
+                    <div className="mb-12 bg-[#1E293B]/30 border-l-4 border-[#00C8FF] p-6 rounded-r-xl">
+                        <h3 className="text-sm font-bold text-[#00C8FF] uppercase tracking-wider mb-2">Authoritative Insight</h3>
+                        <div className="space-y-2 text-[#E2E8F0] text-sm">
+                            {article.eeat.map((signal, idx) => (
+                                <p key={idx}>{signal}</p>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
                 <motion.div 
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="prose prose-invert prose-lg max-w-none prose-headings:text-white prose-a:text-[#00C8FF] hover:prose-a:text-white prose-p:text-[#CBD5E1] prose-strong:text-white"
+                    className="prose prose-invert prose-lg max-w-none prose-headings:text-white prose-a:text-[#00C8FF] hover:prose-a:text-white prose-p:text-[#CBD5E1] prose-strong:text-white whitespace-pre-wrap"
                     dangerouslySetInnerHTML={{ __html: article.content }}
                 />
 
@@ -103,6 +116,10 @@ const BlogTemplate = () => {
                         </div>
                     </div>
                 )}
+
+                <div className="mt-16">
+                    <InternalLinks links={article.relatedLinks} />
+                </div>
             </article>
         </main>
     );

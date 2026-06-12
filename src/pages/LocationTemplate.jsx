@@ -3,6 +3,10 @@ import { useParams, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { MapPin, CheckCircle2 } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
+import StatsDashboard from '../components/StatsDashboard';
+import UseCasesGrid from '../components/UseCasesGrid';
+import CaseStudy from '../components/CaseStudy';
+import InternalLinks from '../components/InternalLinks';
 import locationsData from '../data/locations.json';
 
 const LocationTemplate = () => {
@@ -19,14 +23,14 @@ const LocationTemplate = () => {
     const faqSchema = {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        "mainEntity": location.faq.map(f => ({
+        "mainEntity": location.faq?.map(f => ({
             "@type": "Question",
             "name": f.question,
             "acceptedAnswer": {
                 "@type": "Answer",
                 "text": f.answer
             }
-        }))
+        })) || []
     };
 
     const locationSchema = {
@@ -86,32 +90,51 @@ const LocationTemplate = () => {
                 </div>
             </section>
 
-            <section className="px-6 max-w-4xl mx-auto mb-24">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="glass-card p-8 md:p-12 rounded-[2rem] border border-white/5 relative overflow-hidden"
-                >
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-[#00C8FF]/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2"></div>
-                    <h2 className="text-3xl font-bold mb-6 text-white">Local Expertise</h2>
-                    <p className="text-lg text-[#E2E8F0] mb-8">{location.serviceArea}</p>
-                    
-                    <div className="grid sm:grid-cols-2 gap-4">
-                        {['Custom AI Solutions', 'Workflow Automation', 'Lead Generation AI', 'CRM Integration'].map((service, idx) => (
-                            <div key={idx} className="flex items-center gap-3">
-                                <CheckCircle2 className="w-5 h-5 text-[#10B981]" />
-                                <span className="text-[#94A3B8]">{service}</span>
-                            </div>
-                        ))}
+            <section className="px-6 max-w-7xl mx-auto">
+                <StatsDashboard statistics={location.statistics} />
+
+                <div className="max-w-4xl mx-auto my-24">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="glass-card p-8 md:p-12 rounded-[2rem] border border-white/5 relative overflow-hidden"
+                    >
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-[#00C8FF]/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2"></div>
+                        <h2 className="text-3xl font-bold mb-6 text-white">Local Expertise in {location.city}</h2>
+                        <p className="text-lg text-[#E2E8F0] mb-8">{location.serviceArea}</p>
+                        
+                        <div className="grid sm:grid-cols-2 gap-4">
+                            {['Custom AI Solutions', 'Workflow Automation', 'Lead Generation AI', 'CRM Integration'].map((service, idx) => (
+                                <div key={idx} className="flex items-center gap-3">
+                                    <CheckCircle2 className="w-5 h-5 text-[#10B981]" />
+                                    <span className="text-[#94A3B8]">{service}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </motion.div>
+                </div>
+
+                <UseCasesGrid useCases={location.useCases} />
+                <CaseStudy caseStudy={location.caseStudy} />
+
+                {/* EEAT Signals */}
+                {location.eeat && (
+                    <div className="my-16 bg-[#1E293B]/50 border border-white/5 rounded-2xl p-8 text-center max-w-4xl mx-auto">
+                        <h3 className="text-[#00C8FF] font-bold uppercase tracking-widest text-sm mb-4">Local Impact</h3>
+                        <div className="text-[#E2E8F0] leading-relaxed space-y-4">
+                            {location.eeat.map((signal, idx) => (
+                                <p key={idx}>{signal}</p>
+                            ))}
+                        </div>
                     </div>
-                </motion.div>
+                )}
             </section>
 
-            <section className="px-6 max-w-3xl mx-auto mb-20">
+            <section className="px-6 max-w-3xl mx-auto my-20">
                 <h2 className="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
                 <div className="space-y-6">
-                    {location.faq.map((item, index) => (
+                    {location.faq?.map((item, index) => (
                         <motion.div 
                             key={index}
                             initial={{ opacity: 0, y: 20 }}
@@ -125,6 +148,10 @@ const LocationTemplate = () => {
                         </motion.div>
                     ))}
                 </div>
+            </section>
+
+            <section className="px-6 max-w-7xl mx-auto">
+                <InternalLinks links={location.relatedLinks} />
             </section>
         </main>
     );

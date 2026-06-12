@@ -1,6 +1,7 @@
 import React, { useEffect, Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Outlet } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
+import { Toaster } from 'react-hot-toast';
 import Navbar from './components/Navbar';
 import ContactFooter from './components/ContactFooter';
 import CaseStudies from './components/CaseStudies';
@@ -25,6 +26,13 @@ const FreeAiAudit = lazy(() => import('./pages/FreeAiAudit'));
 const RoiCalculator = lazy(() => import('./pages/RoiCalculator'));
 const ReadinessAssessment = lazy(() => import('./pages/ReadinessAssessment'));
 
+// Admin Pages
+const AdminLogin = lazy(() => import('./pages/admin/AdminLogin'));
+const AdminLayout = lazy(() => import('./components/admin/AdminLayout'));
+const Dashboard = lazy(() => import('./pages/admin/Dashboard'));
+const Pipeline = lazy(() => import('./pages/admin/Pipeline'));
+const ContentManager = lazy(() => import('./pages/admin/ContentManager'));
+
 const ScrollToAnchor = () => {
   const { pathname, hash } = useLocation();
   useEffect(() => {
@@ -41,6 +49,20 @@ const ScrollToAnchor = () => {
   }, [pathname, hash]);
   return null;
 };
+
+const PublicLayout = () => (
+  <>
+    <Navbar />
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-[#0F172A]"><div className="w-10 h-10 border-4 border-[#00C8FF] border-t-transparent rounded-full animate-spin"></div></div>}>
+      <Outlet />
+    </Suspense>
+    <CaseStudies />
+    <Testimonials />
+    <CTA />
+    <ContactFooter />
+    <FloatingWhatsApp />
+  </>
+);
 
 function App() {
   // Ensure default load is at root (mywebsite.in) not (#contact)
@@ -84,6 +106,13 @@ function App() {
 
   return (
     <HelmetProvider>
+      <Toaster position="bottom-right" toastOptions={{
+        style: {
+          background: '#1E293B',
+          color: '#fff',
+          border: '1px solid rgba(255,255,255,0.1)',
+        },
+      }} />
       <SEOHead 
         title="AIFlowix | AI Automation Agency"
         description="Enterprise-grade AI automation platform: End-to-end AI integration, operational efficiency, and hyper-automation solutions."
@@ -92,10 +121,25 @@ function App() {
       <Router>
         <ScrollToAnchor />
         <div className="min-h-screen bg-[#0F172A] text-white selection:bg-[#00C8FF] selection:text-[#0F172A]">
-          <Navbar />
-          
-          <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-[#0F172A]"><div className="w-10 h-10 border-4 border-[#00C8FF] border-t-transparent rounded-full animate-spin"></div></div>}>
-            <Routes>
+          <Routes>
+            {/* Admin Routes */}
+            <Route path="/admin/login" element={
+              <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-[#030712]"><div className="w-10 h-10 border-4 border-[#6366F1] border-t-transparent rounded-full animate-spin"></div></div>}>
+                <AdminLogin />
+              </Suspense>
+            } />
+            <Route path="/admin" element={
+              <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-[#030712]"><div className="w-10 h-10 border-4 border-[#6366F1] border-t-transparent rounded-full animate-spin"></div></div>}>
+                <AdminLayout />
+              </Suspense>
+            }>
+              <Route index element={<Dashboard />} />
+              <Route path="pipeline" element={<Pipeline />} />
+              <Route path="content" element={<ContentManager />} />
+            </Route>
+
+            {/* Public Routes */}
+            <Route element={<PublicLayout />}>
               <Route path="/" element={<Home />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/custom-ai-software" element={<CustomAiSoftware />} />
@@ -111,16 +155,8 @@ function App() {
               <Route path="/free-ai-audit" element={<FreeAiAudit />} />
               <Route path="/roi-calculator" element={<RoiCalculator />} />
               <Route path="/ai-readiness" element={<ReadinessAssessment />} />
-            </Routes>
-          </Suspense>
-          
-          {/* Global Conversion Funnel */}
-          <CaseStudies />
-          <Testimonials />
-          <CTA />
-          
-          <ContactFooter />
-          <FloatingWhatsApp />
+            </Route>
+          </Routes>
         </div>
       </Router>
     </HelmetProvider>

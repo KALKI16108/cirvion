@@ -1,5 +1,7 @@
 import React, { useState, lazy, Suspense } from 'react';
 import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Send } from 'lucide-react';
+import toast from 'react-hot-toast';
+import { submitContactForm } from '../lib/api';
 
 // Lazy-load modal components to reduce initial bundle size (performance optimization)
 const PrivacyPolicy = lazy(() => import('./PrivacyPolicy'));
@@ -60,14 +62,14 @@ const ContactFooter = () => {
         // Security: Validate form data before submission
         if (!sanitizeInput(formData.name) || formData.name.length < 2) {
             setSubmitStatus('error');
-            alert('Please enter a valid name.');
+            toast.error('Please enter a valid name.');
             setIsSubmitting(false);
             return;
         }
 
         if (!validateEmail(formData.email)) {
             setSubmitStatus('error');
-            alert('Please enter a valid email address.');
+            toast.error('Please enter a valid email address.');
             setIsSubmitting(false);
             return;
         }
@@ -87,43 +89,18 @@ const ContactFooter = () => {
         }
 
         try {
-            // Using Web3Forms - FREE service that sends form data to your email
-            const web3formsKey = import.meta.env.VITE_WEB3FORMS_KEY;
-
-            if (!web3formsKey) {
-                setSubmitStatus('error');
-                alert('Contact form is temporarily unavailable. Please email us at siddhantpitale125@gmail.com or use the WhatsApp button below.');
-                setIsSubmitting(false);
-                return;
-            }
-
-            // Prepare form data for Web3Forms
-            const formPayload = new FormData();
-            formPayload.append('access_key', web3formsKey);
-            formPayload.append('name', formData.name);
-            formPayload.append('business', formData.business);
-            formPayload.append('phone', formData.phone);
-            formPayload.append('email', formData.email);
-            formPayload.append('message', formData.message);
-            formPayload.append('from_name', 'AIFLOWIX Contact Form');
-            formPayload.append('subject', `New Contact Request from ${formData.name}`);
-
-            // Send to Web3Forms API
-            const response = await fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                body: formPayload,
+            await submitContactForm({
+                name: formData.name,
+                company: formData.business,
+                phone: formData.phone,
+                email: formData.email,
+                message: formData.message,
+                subject: `New Contact Request from ${formData.name}`
             });
 
-            const result = await response.json();
-
-            if (result.success) {
-                setSubmitStatus('success');
-                setFormData({ name: '', business: '', phone: '', email: '', message: '' });
-                alert('Thank you! Your message has been sent successfully. We will get back to you within 24 hours.');
-            } else {
-                setSubmitStatus('error');
-                alert('Oops! Something went wrong. Please try again or email us directly at siddhantpitale125@gmail.com');
-            }
+            setSubmitStatus('success');
+            setFormData({ name: '', business: '', phone: '', email: '', message: '' });
+            alert('Thank you! Your message has been sent successfully. We will get back to you within 24 hours.');
         } catch (error) {
             console.error('Form submission error:', error);
             setSubmitStatus('error');

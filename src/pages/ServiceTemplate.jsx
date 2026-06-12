@@ -3,6 +3,10 @@ import { useParams, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
+import StatsDashboard from '../components/StatsDashboard';
+import UseCasesGrid from '../components/UseCasesGrid';
+import CaseStudy from '../components/CaseStudy';
+import InternalLinks from '../components/InternalLinks';
 import servicesData from '../data/services.json';
 
 const ServiceTemplate = () => {
@@ -19,14 +23,14 @@ const ServiceTemplate = () => {
     const faqSchema = {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        "mainEntity": service.faq.map(f => ({
+        "mainEntity": service.faq?.map(f => ({
             "@type": "Question",
             "name": f.question,
             "acceptedAnswer": {
                 "@type": "Answer",
                 "text": f.answer
             }
-        }))
+        })) || []
     };
 
     const serviceSchema = {
@@ -84,48 +88,67 @@ const ServiceTemplate = () => {
                 </div>
             </section>
 
-            <section className="px-6 max-w-7xl mx-auto mb-24 grid md:grid-cols-2 gap-16">
-                <motion.div
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                >
-                    <h2 className="text-3xl font-bold mb-8">Key Benefits</h2>
-                    <div className="space-y-4">
-                        {service.benefits.map((benefit, index) => (
-                            <div key={index} className="flex items-start gap-4 glass-card p-4 rounded-xl border border-white/5">
-                                <CheckCircle2 className="w-6 h-6 text-[#00C8FF] shrink-0 mt-0.5" />
-                                <span className="text-[#E2E8F0] font-medium text-lg">{benefit}</span>
-                            </div>
-                        ))}
-                    </div>
-                </motion.div>
+            <section className="px-6 max-w-7xl mx-auto">
+                <StatsDashboard statistics={service.statistics} />
+                
+                <div className="grid md:grid-cols-2 gap-16 my-24">
+                    <motion.div
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <h2 className="text-3xl font-bold mb-8">Key Benefits</h2>
+                        <div className="space-y-4">
+                            {service.benefits?.map((benefit, index) => (
+                                <div key={index} className="flex items-start gap-4 glass-card p-4 rounded-xl border border-white/5">
+                                    <CheckCircle2 className="w-6 h-6 text-[#00C8FF] shrink-0 mt-0.5" />
+                                    <span className="text-[#E2E8F0] font-medium text-lg">{benefit}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </motion.div>
 
-                <motion.div
-                    initial={{ opacity: 0, x: 30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                >
-                    <h2 className="text-3xl font-bold mb-8">Our Process</h2>
-                    <div className="space-y-6 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
-                        {service.process.map((step, index) => (
-                            <div key={index} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                                <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white/10 bg-[#1E293B] group-[.is-active]:bg-[#00C8FF] text-white group-[.is-active]:text-[#0F172A] shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 font-bold">
-                                    {index + 1}
+                    <motion.div
+                        initial={{ opacity: 0, x: 30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <h2 className="text-3xl font-bold mb-8">Our Process</h2>
+                        <div className="space-y-6 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
+                            {service.process?.map((step, index) => (
+                                <div key={index} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                                    <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white/10 bg-[#1E293B] group-[.is-active]:bg-[#00C8FF] text-white group-[.is-active]:text-[#0F172A] shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 font-bold">
+                                        {index + 1}
+                                    </div>
+                                    <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-card p-4 rounded-xl border border-white/5">
+                                        <div className="font-bold text-[#E2E8F0]">{step}</div>
+                                    </div>
                                 </div>
-                                <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] glass-card p-4 rounded-xl border border-white/5">
-                                    <div className="font-bold text-[#E2E8F0]">{step}</div>
-                                </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
+                    </motion.div>
+                </div>
+
+                <UseCasesGrid useCases={service.useCases} />
+                <CaseStudy caseStudy={service.caseStudy} />
+                
+                {/* EEAT Signals */}
+                {service.eeat && (
+                    <div className="my-16 bg-[#1E293B]/50 border border-white/5 rounded-2xl p-8 text-center max-w-4xl mx-auto">
+                        <h3 className="text-[#00C8FF] font-bold uppercase tracking-widest text-sm mb-4">Why Trust AIFLOWIX</h3>
+                        <div className="text-[#E2E8F0] leading-relaxed space-y-4">
+                            {service.eeat.map((signal, idx) => (
+                                <p key={idx}>{signal}</p>
+                            ))}
+                        </div>
                     </div>
-                </motion.div>
+                )}
             </section>
 
-            <section className="px-6 max-w-3xl mx-auto mb-20">
+            <section className="px-6 max-w-3xl mx-auto my-20">
                 <h2 className="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
                 <div className="space-y-6">
-                    {service.faq.map((item, index) => (
+                    {service.faq?.map((item, index) => (
                         <motion.div 
                             key={index}
                             initial={{ opacity: 0, y: 20 }}
@@ -139,6 +162,10 @@ const ServiceTemplate = () => {
                         </motion.div>
                     ))}
                 </div>
+            </section>
+
+            <section className="px-6 max-w-7xl mx-auto">
+                <InternalLinks links={service.relatedLinks} />
             </section>
         </main>
     );
