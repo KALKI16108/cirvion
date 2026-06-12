@@ -5,6 +5,7 @@ import { Calendar, Tag, ArrowLeft } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
 import InternalLinks from '../components/InternalLinks';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import { getBlogBySlug } from '../lib/api';
 
@@ -132,7 +133,10 @@ const BlogTemplate = () => {
                     transition={{ delay: 0.2 }}
                     className="prose prose-invert prose-lg max-w-none prose-headings:text-white prose-a:text-[#00C8FF] hover:prose-a:text-white prose-p:text-[#CBD5E1] prose-strong:text-white prose-img:rounded-2xl prose-img:mx-auto"
                 >
-                    <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+                    <ReactMarkdown 
+                        remarkPlugins={[remarkGfm]} 
+                        rehypePlugins={[rehypeRaw]}
+                    >
                         {article.content || ''}
                     </ReactMarkdown>
                 </motion.div>
