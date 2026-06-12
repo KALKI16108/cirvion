@@ -100,7 +100,32 @@ const BlogTemplate = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
                     className="prose prose-invert prose-lg max-w-none prose-headings:text-white prose-a:text-[#00C8FF] hover:prose-a:text-white prose-p:text-[#CBD5E1] prose-strong:text-white whitespace-pre-wrap"
-                    dangerouslySetInnerHTML={{ __html: article.content }}
+                    dangerouslySetInnerHTML={{ 
+                        __html: (() => {
+                            if (!article.content) return '';
+                            // If it already contains HTML tags, render as is
+                            if (article.content.match(/<[a-z][\s\S]*>/i)) {
+                                return article.content;
+                            }
+                            
+                            // Auto-format plain text into HTML
+                            return article.content
+                                .split(/\n\s*\n/)
+                                .map(block => {
+                                    const text = block.trim();
+                                    if (!text) return '';
+                                    
+                                    // Treat short blocks without ending punctuation as headings
+                                    if (text.length < 80 && !text.match(/[.!?]\s*$/) && !text.includes('\n')) {
+                                        return `<h2>${text}</h2>`;
+                                    }
+                                    
+                                    // Otherwise treat as a paragraph with breaks
+                                    return `<p>${text.replace(/\n/g, '<br />')}</p>`;
+                                })
+                                .join('');
+                        })()
+                    }}
                 />
 
                 {article.faq && article.faq.length > 0 && (
