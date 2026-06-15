@@ -50,9 +50,11 @@ const CTA = () => {
                                 <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
                             </motion.a>
                             <motion.a
-                                href="https://calendly.com/" // Placeholder, user mentioned calendly in prompt
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                href="#contact"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                                }}
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 className="bg-transparent text-white border border-white/20 font-bold text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-5 rounded-full flex items-center gap-2 sm:gap-3 w-full sm:w-auto justify-center hover:bg-white/10 transition-colors"
