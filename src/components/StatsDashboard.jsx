@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Zap, TrendingUp } from 'lucide-react';
+import { Timer, TrendingUp } from 'lucide-react';
 
 const StatsDashboard = ({ statistics }) => {
     if (!statistics || statistics.length === 0) return null;
@@ -21,7 +21,7 @@ const StatsDashboard = ({ statistics }) => {
                         <div className="text-4xl font-bold text-gradient-primary mb-2">{stat.metric}</div>
                         <div className="text-sm font-bold text-white mb-2">{stat.impact}</div>
                         <div className="text-xs text-[#94A3B8] border-t border-white/10 pt-3 w-full mt-3 flex flex-col items-center gap-1.5">
-                            <span className="flex items-center justify-center gap-1.5"><Zap className="w-3.5 h-3.5 text-[#00C8FF]" /> {stat.time}</span>
+                            <span className="flex items-center justify-center gap-1.5"><Timer className="w-3.5 h-3.5 text-[#00C8FF]" /> {stat.time}</span>
                             <span className="flex items-center justify-center gap-1.5"><TrendingUp className="w-3.5 h-3.5 text-[#10B981]" /> {stat.revenue}</span>
                         </div>
                     </motion.div>
