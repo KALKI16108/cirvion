@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Calculator, DollarSign, Clock } from 'lucide-react';
+import { Calculator, IndianRupee, Clock } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
 import { submitRoiCalculation } from '../lib/api';
 import toast from 'react-hot-toast';
 
 const RoiCalculator = () => {
     const [hours, setHours] = useState(20);
-    const [hourlyRate, setHourlyRate] = useState(25);
+    const [hourlyRate, setHourlyRate] = useState(2000);
     const [employees, setEmployees] = useState(5);
     
     // Lead capture state
@@ -107,13 +107,13 @@ const RoiCalculator = () => {
                     <div>
                         <label className="flex justify-between text-[#E2E8F0] mb-4">
                             <span>Average hourly pay rate</span>
-                            <span className="font-bold text-[#00C8FF]">${hourlyRate}</span>
+                            <span className="font-bold text-[#00C8FF]">₹{hourlyRate}</span>
                         </label>
                         <input 
                             type="range" 
-                            min="15" 
-                            max="100" 
-                            step="5"
+                            min="500" 
+                            max="10000" 
+                            step="500"
                             value={hourlyRate} 
                             onChange={(e) => setHourlyRate(Number(e.target.value))}
                             className="w-full accent-[#00C8FF]"
@@ -144,14 +144,14 @@ const RoiCalculator = () => {
                     <div className="mb-8">
                         <h3 className="text-[#94A3B8] text-lg mb-2">Estimated Annual Savings</h3>
                         <div className="text-5xl md:text-6xl font-bold text-white flex items-center justify-center gap-2">
-                            <DollarSign className="w-10 h-10 text-[#00C8FF]" />
-                            {annualSavings.toLocaleString()}
+                            <IndianRupee className="w-10 h-10 text-[#00C8FF]" />
+                            {annualSavings.toLocaleString('en-IN')}
                         </div>
                     </div>
                     
                     <div className="flex gap-8 text-[#94A3B8]">
                         <div className="text-center">
-                            <div className="font-bold text-white text-2xl mb-1">${weeklySavings.toLocaleString()}</div>
+                            <div className="font-bold text-white text-2xl mb-1">₹{weeklySavings.toLocaleString('en-IN')}</div>
                             <div className="text-sm">Weekly Savings</div>
                         </div>
                         <div className="text-center">
@@ -168,7 +168,7 @@ const RoiCalculator = () => {
                         onClick={() => setShowForm(true)}
                         className="inline-flex items-center justify-center gap-2 bg-gradient-primary text-[#0F172A] font-bold py-4 px-8 rounded-xl hover:opacity-90 transition-opacity"
                     >
-                        Save Your ROI Report <DollarSign className="w-5 h-5" />
+                        Save Your ROI Report <IndianRupee className="w-5 h-5" />
                     </button>
                 ) : submitted ? (
                     <div className="glass-card p-6 rounded-2xl border border-[#10B981]/20 bg-[#10B981]/5 max-w-md mx-auto">

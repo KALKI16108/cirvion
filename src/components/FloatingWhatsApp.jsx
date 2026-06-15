@@ -2,8 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const FloatingWhatsApp = () => {
-    // The user did not provide a specific number yet, using placeholder.
-    const phoneNumber = "+910000000000"; 
+    const phoneNumber = "+919930744723"; 
     const message = encodeURIComponent("Hi AIFlowix, I'd like to learn more about your AI automation services.");
     const whatsappUrl = `https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}?text=${message}`;
 
