@@ -91,7 +91,7 @@ function App() {
         ],
         'logo': {
           '@type': 'ImageObject',
-          'url': 'https://aiflowix.in/assets/logo.png'
+          'url': 'https://aiflowix.in/logo.webp'
         }
       },
       {

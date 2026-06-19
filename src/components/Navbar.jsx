@@ -35,7 +35,7 @@ const Navbar = () => {
 
             {/* Logo */}
             <Link to="/" className="flex items-center" title="AIFLOWIX - Go to homepage">
-              <Logo className="h-10" />
+              <Logo className="h-16 md:h-20" />
               <span className="sr-only">AIFLOWIX Home</span>
             </Link>
 

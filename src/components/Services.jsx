@@ -8,7 +8,7 @@ const ServiceGroup = ({ title, icon: Icon, items, delay }) => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay, duration: 0.6 }}
-        className="glass-card p-5 sm:p-6 md:p-8 lg:p-10 rounded-xl sm:rounded-2xl md:rounded-[2rem] h-full group hover:bg-[#1E293B]/80 relative overflow-hidden"
+        className="w-[85vw] flex-none snap-center md:w-auto glass-card p-5 sm:p-6 md:p-8 lg:p-10 rounded-xl sm:rounded-2xl md:rounded-[2rem] h-full group hover:bg-[#1E293B]/80 relative overflow-hidden"
     >
         {/* Hover Glow */}
         <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#00C8FF]/20 rounded-full blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -67,7 +67,7 @@ const Services = () => {
                     <p className="sr-only">Services: AI agents, process automation, system engineering and integrations tailored to business workflows.</p>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+                <div className="flex overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 pb-8 -mx-4 px-4 md:pb-0 md:mx-0 md:px-0 scrollbar-hide">
                     <ServiceGroup
                         title="AI Agents"
                         icon={MessageSquare}

@@ -8,7 +8,7 @@ const TestimonialCard = ({ quote, author, role, company, delay }) => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay, duration: 0.6 }}
-        className="glass-card rounded-2xl p-8 relative flex flex-col h-full"
+        className="w-[85vw] flex-none snap-center md:w-auto glass-card rounded-2xl p-8 relative flex flex-col h-full"
     >
         <div className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-br from-[#00C8FF] to-[#6366F1] rounded-full flex items-center justify-center opacity-20">
             <Quote className="w-5 h-5 text-white" />
@@ -53,7 +53,7 @@ const Testimonials = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="flex overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-3 gap-8 pb-8 -mx-4 px-4 md:pb-0 md:mx-0 md:px-0 scrollbar-hide">
                     <TestimonialCard 
                         quote="AIFlowix completely transformed how we handle inbound inquiries. Their lead qualification AI reduced our sales cycle by 40% and freed up our SDRs to focus entirely on closing."
                         author="Rahul S."
