@@ -170,3 +170,74 @@ export async function deleteBlog(id) {
     if (error) throw error;
     return true;
 }
+
+// --- AI LEAD QUALIFICATION ---
+export async function qualifyLead(leadData) {
+    const prompt = `You are an expert AI Lead Qualifier for an AI Automation Agency. 
+Please evaluate the following business lead and determine if they are a strong candidate for AI automation services (like lead generation chatbots, CRM automation, etc). 
+A perfect lead (10/10) is a business that has no website or no Google Business Profile, or has clear operational bottlenecks.
+A poor lead (1/10) is someone who already has highly advanced tech or is not a business.
+
+Lead Data:
+Name: ${leadData.name || 'Unknown'}
+Email: ${leadData.email || 'Unknown'}
+Website: ${leadData.website || 'None'}
+Google Business Profile: ${leadData.has_google_profile ? 'Yes' : 'No'}
+Source: ${leadData.source || 'Unknown'}
+
+Respond strictly in JSON format exactly like this:
+{
+  "score": 8,
+  "reasoning": "Brief explanation here"
+}`;
+
+    try {
+        const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+            method: "POST",
+            headers: {
+                "Authorization": `Bearer ${import.meta.env.VITE_OPENROUTER_API_KEY}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                model: "liquid/lfm-2.5-1.2b-instruct:free",
+                messages: [
+                    { role: "system", content: "You are a lead qualification AI. You must output ONLY valid JSON without any markdown formatting." },
+                    { role: "user", content: prompt }
+                ]
+            })
+        });
+
+        const data = await response.json();
+        const content = data.choices?.[0]?.message?.content;
+        
+        if (content) {
+            try {
+                // Safely strip any markdown code blocks
+                const cleanContent = content.replace(/```json\s*/gi, '').replace(/\s*```/g, '').trim();
+                const parsed = JSON.parse(cleanContent);
+                return {
+                    ai_score: parseInt(parsed.score) || 5,
+                    ai_reasoning: parsed.reasoning || "Qualified successfully."
+                };
+            } catch (e) {
+                console.error("Failed to parse JSON from AI response:", content);
+                console.error("Raw content was:", content);
+            }
+        }
+    } catch (error) {
+        console.error("Error calling OpenRouter API:", error);
+    }
+    
+    // Default fallback
+    return { ai_score: null, ai_reasoning: "AI qualification failed." };
+}
+
+export async function bulkInsertLeads(leads) {
+    const { data, error } = await supabase
+        .from('leads')
+        .insert(leads)
+        .select();
+        
+    if (error) throw error;
+    return data;
+}
