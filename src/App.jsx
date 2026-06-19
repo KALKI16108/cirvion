@@ -9,6 +9,7 @@ import Testimonials from './components/Testimonials';
 import CTA from './components/CTA';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
 import SEOHead from './components/SEOHead';
+import CookieBanner from './components/CookieBanner';
 
 // Lazy Load Pages for Performance (Code Splitting)
 const Home = lazy(() => import('./pages/Home'));
@@ -160,6 +161,7 @@ function App() {
               <Route path="/ai-readiness" element={<ReadinessAssessment />} />
             </Route>
           </Routes>
+          <CookieBanner />
         </div>
       </Router>
     </HelmetProvider>
