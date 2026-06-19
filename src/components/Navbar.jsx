@@ -26,7 +26,7 @@ const Navbar = () => {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'py-4' : 'py-6'
           }`}
       >
-        <div className={`container mx-auto px-6 transition-all duration-300 ${isScrolled ? 'max-w-6xl' : ''
+        <div className={`container mx-auto px-6 transition-all duration-300 ${isScrolled ? 'max-w-5xl' : ''
           }`}>
           <div className={`rounded-full px-6 py-3 flex justify-between items-center transition-all duration-300 ${isScrolled
             ? 'bg-[#0F172A]/80 backdrop-blur-md border border-white/10 shadow-lg'
@@ -40,7 +40,7 @@ const Navbar = () => {
             </Link>
 
             {/* Desktop Menu */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden lg:flex items-center space-x-4 xl:space-x-8">
               {[
                 { label: 'Services', href: '/#services' },
                 { label: 'Industries', href: '/industries/real-estate' },
@@ -67,7 +67,7 @@ const Navbar = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden text-white p-2"
+              className="lg:hidden text-white p-2"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMobileMenuOpen}
@@ -85,7 +85,7 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-[#0F172A] pt-24 px-6 md:hidden"
+            className="fixed inset-0 z-40 bg-[#0F172A] pt-24 px-6 lg:hidden"
           >
             <div className="flex flex-col space-y-6 text-center">
               {[

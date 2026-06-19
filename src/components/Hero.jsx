@@ -7,7 +7,7 @@ const Hero = () => {
     const [isVideoOpen, setIsVideoOpen] = useState(false);
 
     return (
-        <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-[#030712]">
+        <section className="relative min-h-screen flex items-center justify-center pt-32 sm:pt-40 overflow-hidden bg-[#030712]">
             <VideoModal
                 isOpen={isVideoOpen}
                 onClose={() => setIsVideoOpen(false)}
