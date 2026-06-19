@@ -88,7 +88,7 @@ const PrivacyPolicy = ({ onClose }) => {
                                         <li className="flex gap-3"><span className="text-[#00C8FF] mt-1">•</span>Withdraw consent where applicable</li>
                                     </ul>
                                     <p className="leading-relaxed mt-4">
-                                        To exercise these rights, contact us at <a href="mailto:siddhantpitale125@gmail.com" className="text-[#00C8FF] hover:underline">siddhantpitale125@gmail.com</a>
+                                        To exercise these rights, contact us at <a href="mailto:contact@aiflowix.in" className="text-[#00C8FF] hover:underline">contact@aiflowix.in</a>
                                     </p>
                                 </section>
 
@@ -103,7 +103,7 @@ const PrivacyPolicy = ({ onClose }) => {
                                     <h2 className="text-2xl font-bold text-white mb-4">8. Contact</h2>
                                     <p className="leading-relaxed">
                                         For questions about this Privacy Policy, contact:<br />
-                                        📧 <a href="mailto:siddhantpitale125@gmail.com" className="text-[#00C8FF] hover:underline">siddhantpitale125@gmail.com</a>
+                                        📧 <a href="mailto:contact@aiflowix.in" className="text-[#00C8FF] hover:underline">contact@aiflowix.in</a>
                                     </p>
                                 </section>
                             </div>

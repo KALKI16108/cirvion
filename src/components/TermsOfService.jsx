@@ -103,7 +103,7 @@ const TermsOfService = ({ onClose }) => {
                                     <h2 className="text-2xl font-bold text-white mb-4">10. Contact</h2>
                                     <p className="leading-relaxed">
                                         For questions regarding these Terms, contact:<br />
-                                        📧 <a href="mailto:siddhantpitale125@gmail.com" className="text-[#00C8FF] hover:underline">siddhantpitale125@gmail.com</a>
+                                        📧 <a href="mailto:contact@aiflowix.in" className="text-[#00C8FF] hover:underline">contact@aiflowix.in</a>
                                     </p>
                                 </section>
                             </div>

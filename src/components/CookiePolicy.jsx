@@ -101,7 +101,7 @@ const CookiePolicy = ({ onClose }) => {
                                     <h2 className="text-2xl font-bold text-white mb-4">7. Contact Us</h2>
                                     <p className="leading-relaxed">
                                         If you have any questions about our use of cookies, please contact us at:<br />
-                                        📧 <a href="mailto:siddhantpitale125@gmail.com" className="text-[#00C8FF] hover:underline">siddhantpitale125@gmail.com</a>
+                                        📧 <a href="mailto:contact@aiflowix.in" className="text-[#00C8FF] hover:underline">contact@aiflowix.in</a>
                                     </p>
                                 </section>
                             </div>
