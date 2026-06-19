@@ -33,7 +33,8 @@ export default defineConfig({
     Sitemap({ 
       hostname: 'https://aiflowix.in',
       dynamicRoutes,
-      exclude: ['/404']
+      exclude: ['/404'],
+      generateRobotsTxt: false
     }),
     // Enable gzip and brotli compression for production builds (improves Performance score)
     compression({
