@@ -55,23 +55,34 @@ const Blog = () => {
               <div className="w-10 h-10 border-4 border-[#00C8FF] border-t-transparent rounded-full animate-spin"></div>
           </div>
       ) : (
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-          >
-            {blogsData.map((post, index) => (
-              <Link key={index} to={`/blog/${post.slug}`} className="bg-[#1E293B]/50 border border-white/5 rounded-2xl p-6 hover:border-[#00C8FF]/50 transition-colors cursor-pointer group flex flex-col">
-                <div className="text-xs font-bold tracking-wider text-[#00C8FF] uppercase mb-2">{post.category}</div>
-                <h2 className="text-xl font-bold text-white mb-3 group-hover:text-[#00C8FF] transition-colors">{post.title}</h2>
-                <p className="text-[#94A3B8] text-sm mb-4 flex-grow">
-                  {post.meta_description || post.metaDescription}
-                </p>
-                <span className="text-[#00C8FF] text-sm font-medium transition-colors mt-auto">Read Article &rarr;</span>
-              </Link>
-            ))}
-          </motion.div>
+          <div className="space-y-16">
+              {['AI Automation', 'Web Development', 'Custom Software', 'Chatbot', 'Strategy'].map(category => {
+                  const categoryBlogs = blogsData.filter(b => (b.category || 'Strategy').toLowerCase() === category.toLowerCase());
+                  if (categoryBlogs.length === 0) return null;
+                  
+                  return (
+                      <div key={category}>
+                          <h2 className="text-2xl font-bold text-white mb-6 border-b border-white/10 pb-4">{category}</h2>
+                          <motion.div 
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+                          >
+                            {categoryBlogs.map((post, index) => (
+                              <Link key={index} to={`/blog/${post.slug}`} className="bg-[#1E293B]/50 border border-white/5 rounded-2xl p-6 hover:border-[#00C8FF]/50 transition-colors cursor-pointer group flex flex-col">
+                                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#00C8FF] transition-colors">{post.title}</h3>
+                                <p className="text-[#94A3B8] text-sm mb-4 flex-grow">
+                                  {post.meta_description || post.metaDescription}
+                                </p>
+                                <span className="text-[#00C8FF] text-sm font-medium transition-colors mt-auto">Read Guide &rarr;</span>
+                              </Link>
+                            ))}
+                          </motion.div>
+                      </div>
+                  );
+              })}
+          </div>
       )}
     </main>
   );

@@ -13,6 +13,44 @@ const SEOHead = ({
     const siteUrl = "https://aiflowix.in";
     const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl;
 
+    const organizationSchema = {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "AIFlowix",
+        "url": "https://aiflowix.in",
+        "logo": "https://aiflowix.in/logo.png",
+        "sameAs": [
+            "https://www.linkedin.com/company/aiflowix",
+            "https://twitter.com/aiflowix"
+        ]
+    };
+
+    const localBusinessSchema = {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "AIFlowix AI Automation Agency",
+        "image": "https://aiflowix.in/logo.png",
+        "url": "https://aiflowix.in",
+        "telephone": "+918104576304", // Adding the actual phone number based on ContactFooter
+        "priceRange": "$$",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Navi Mumbai",
+            "addressRegion": "Maharashtra",
+            "addressCountry": "IN"
+        }
+    };
+
+    // Combine schemas
+    const allSchemas = [organizationSchema, localBusinessSchema];
+    if (schema) {
+        if (Array.isArray(schema)) {
+            allSchemas.push(...schema);
+        } else {
+            allSchemas.push(schema);
+        }
+    }
+
     return (
         <Helmet>
             <title>{title}</title>
@@ -36,11 +74,9 @@ const SEOHead = ({
             <meta name="twitter:image" content={ogImage} />
 
             {/* Schema.org JSON-LD */}
-            {schema && (
-                <script type="application/ld+json">
-                    {JSON.stringify(schema)}
-                </script>
-            )}
+            <script type="application/ld+json">
+                {JSON.stringify(allSchemas)}
+            </script>
         </Helmet>
     );
 };

@@ -102,17 +102,29 @@ const BlogTemplate = () => {
 
                 <div className="mb-12">
                     <div className="flex items-center gap-4 text-sm text-[#94A3B8] mb-6">
-                        <span className="flex items-center gap-1.5"><Calendar className="w-4 h-4" /> Jun 1, 2026</span>
-                        <span className="flex items-center gap-1.5 text-[#6366F1]"><Tag className="w-4 h-4" /> {article.category}</span>
+                        <span className="flex items-center gap-1.5 bg-white/5 px-3 py-1 rounded-full border border-white/10">
+                            <Calendar className="w-4 h-4 text-[#00C8FF]" />
+                            {new Date(article.created_at || new Date()).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                        </span>
+                        <span className="flex items-center gap-1.5 bg-white/5 px-3 py-1 rounded-full border border-white/10 text-[#00C8FF] font-medium">
+                            <Tag className="w-4 h-4" />
+                            {article.category}
+                        </span>
                     </div>
                     
-                    <motion.h1 
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight tracking-tight text-white"
-                    >
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 tracking-tight leading-tight">
                         {article.title}
-                    </motion.h1>
+                    </h1>
+
+                    {/* GEO: Direct Answer / Definition Block for AI Extraction */}
+                    {article.metaDescription && (
+                        <div className="bg-[#1E293B]/50 border border-white/5 rounded-2xl p-6 md:p-8 mb-12">
+                            <h2 className="text-xl font-bold mb-3 text-white">Quick Summary</h2>
+                            <p className="text-lg text-[#E2E8F0] leading-relaxed font-medium">
+                                {article.metaDescription}
+                            </p>
+                        </div>
+                    )}
                 </div>
 
                 {/* EEAT Signals Author Box */}

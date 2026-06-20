@@ -88,6 +88,25 @@ const ServiceTemplate = () => {
                 </div>
             </section>
 
+            {/* GEO: Direct Answer / Definition Block for AI Extraction */}
+            {service.definition && (
+                <section className="px-6 max-w-4xl mx-auto mb-20">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3 }}
+                        className="bg-[#1E293B]/50 border border-white/5 rounded-2xl p-6 md:p-8"
+                    >
+                        <h2 className="text-2xl font-bold mb-4">What is {service.title}?</h2>
+                        <div className="prose prose-invert max-w-none text-[#E2E8F0] leading-relaxed">
+                            {service.definition.split('\n').map((paragraph, idx) => (
+                                <p key={idx} className="mb-4">{paragraph}</p>
+                            ))}
+                        </div>
+                    </motion.div>
+                </section>
+            )}
+
             <section className="px-6 max-w-7xl mx-auto">
                 <StatsDashboard statistics={service.statistics} />
                 
