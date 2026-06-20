@@ -566,7 +566,7 @@
     }
   },
   {
-    "slug": "business-process-automation",
+    "slug": "ai-automation-services",
     "title": "Business Process Automation (BPA) Consulting",
     "metaDescription": "Transform your operations with AI-driven Business Process Automation. We audit your workflows and deploy scalable systems to eliminate manual tasks.",
     "h1": "Strategic Business Process Automation",
@@ -679,7 +679,7 @@
     }
   },
   {
-    "slug": "workflow-automation",
+    "slug": "workflow-automation-services",
     "title": "API Integration & Workflow Automation",
     "metaDescription": "Connect your fragmented tech stack. We build robust workflow automations using Zapier, Make.com, and custom API development.",
     "h1": "Custom API & Workflow Automation",
@@ -1118,7 +1118,7 @@
     }
   },
   {
-    "slug": "web-development",
+    "slug": "web-development-services",
     "title": "Web Design & Development Agency",
     "metaDescription": "High-converting responsive web design and modern web app development using Next.js and React. We build fast, secure, and beautiful websites.",
     "h1": "High-Performance Web Development",
@@ -1316,5 +1316,46 @@
         }
       ]
     }
+  },
+  {
+    "slug": "ai-receptionist",
+    "title": "AI Receptionist Development",
+    "metaDescription": "Deploy an AI voice receptionist that books appointments, qualifies leads, and handles 100% of inbound calls across multiple locations 24/7.",
+    "h1": "AI Receptionist & Voice Automation",
+    "description": "Missed calls equal missed revenue. Our AI Voice Receptionists are designed specifically for Dental Clinics, Law Firms, and Real Estate agencies. They sound human, handle complex scheduling, and integrate natively into your existing CRM or EMR systems.",
+    "definition": "An AI Receptionist is an intelligent voice agent powered by LLMs (Large Language Models) designed to handle inbound and outbound phone calls autonomously. It can understand natural language, answer FAQs, book calendar appointments, and route urgent calls to human staff in real time without any wait times.",
+    "benefits": [
+      "Zero Missed Calls",
+      "Direct Calendar Integration",
+      "Multilingual Support",
+      "Scales to Infinite Concurrent Calls"
+    ],
+    "process": [
+      "Call Flow Architecture",
+      "Voice Cloning & Persona Setup",
+      "EHR/CRM Integration",
+      "Live Testing & Handoff Rules"
+    ],
+    "statistics": [
+      {
+        "metric": "100%",
+        "impact": "Call Answer Rate",
+        "time": "Instant",
+        "revenue": "No Lost Leads"
+      },
+      {
+        "metric": "24/7",
+        "impact": "Availability",
+        "time": "Nights & Weekends",
+        "revenue": "Captured After-Hours"
+      }
+    ],
+    "useCases": [
+      {
+        "problem": "A busy dental clinic missing 20% of inbound calls during morning rush hours.",
+        "solution": "Deployed a HIPAA-compliant AI Voice Receptionist to handle rescheduling and FAQs.",
+        "result": "Captured 40 new patient appointments per month that would have otherwise gone to competitors."
+      }
+    ]
   }
 ]

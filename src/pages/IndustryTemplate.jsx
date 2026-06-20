@@ -9,8 +9,9 @@ import CaseStudy from '../components/CaseStudy';
 import InternalLinks from '../components/InternalLinks';
 import industriesData from '../data/industries.json';
 
-const IndustryTemplate = () => {
-    const { slug } = useParams();
+const IndustryTemplate = ({ forcedSlug }) => {
+    const params = useParams();
+    const slug = forcedSlug || params.slug;
     
     const industry = useMemo(() => {
         return industriesData.find(i => i.slug === slug);

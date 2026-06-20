@@ -21,10 +21,30 @@
       "Automated Viewings"
     ],
     "statistics": [
-      { "metric": "5 Min", "impact": "Response Time Maintained", "time": "24/7/365", "revenue": "Captured 30% More Leads" },
-      { "metric": "15 Hrs", "impact": "Saved Per Agent/Week", "time": "Automated Scheduling", "revenue": "More Time Selling" },
-      { "metric": "2x", "impact": "Open House Conversions", "time": "Instant Follow-ups", "revenue": "Higher Close Rate" },
-      { "metric": "100%", "impact": "CRM Compliance", "time": "Invisible Tracking", "revenue": "Better Forecasting" }
+      {
+        "metric": "5 Min",
+        "impact": "Response Time Maintained",
+        "time": "24/7/365",
+        "revenue": "Captured 30% More Leads"
+      },
+      {
+        "metric": "15 Hrs",
+        "impact": "Saved Per Agent/Week",
+        "time": "Automated Scheduling",
+        "revenue": "More Time Selling"
+      },
+      {
+        "metric": "2x",
+        "impact": "Open House Conversions",
+        "time": "Instant Follow-ups",
+        "revenue": "Higher Close Rate"
+      },
+      {
+        "metric": "100%",
+        "impact": "CRM Compliance",
+        "time": "Invisible Tracking",
+        "revenue": "Better Forecasting"
+      }
     ],
     "useCases": [
       {
@@ -62,17 +82,32 @@
     ],
     "relatedLinks": {
       "services": [
-        { "title": "WhatsApp Automation", "slug": "whatsapp-automation" },
-        { "title": "CRM Automation", "slug": "crm-automation" }
+        {
+          "title": "WhatsApp Automation",
+          "slug": "whatsapp-automation"
+        },
+        {
+          "title": "CRM Automation",
+          "slug": "crm-automation"
+        }
       ],
       "industries": [
-        { "title": "Finance & Mortgages", "slug": "finance" }
+        {
+          "title": "Finance & Mortgages",
+          "slug": "finance"
+        }
       ],
       "blogs": [
-        { "title": "AI Lead Generation", "slug": "ai-lead-generation" }
+        {
+          "title": "AI Lead Generation",
+          "slug": "ai-lead-generation"
+        }
       ],
       "magnets": [
-        { "title": "Readiness Assessment", "path": "/readiness" }
+        {
+          "title": "Readiness Assessment",
+          "path": "/readiness"
+        }
       ]
     }
   },
@@ -98,10 +133,30 @@
       "Reduce Patient No-Shows"
     ],
     "statistics": [
-      { "metric": "75%", "impact": "Reduction in Call Volume", "time": "AI Voice Triage", "revenue": "Lower Admin Costs" },
-      { "metric": "90%", "impact": "Fewer No-Shows", "time": "Automated Reminders", "revenue": "Optimized Utilization" },
-      { "metric": "0", "impact": "Data Entry Errors", "time": "OCR Extraction", "revenue": "Billing Accuracy" },
-      { "metric": "100%", "impact": "HIPAA Compliant", "time": "Secure Infrastructure", "revenue": "Risk Mitigation" }
+      {
+        "metric": "75%",
+        "impact": "Reduction in Call Volume",
+        "time": "AI Voice Triage",
+        "revenue": "Lower Admin Costs"
+      },
+      {
+        "metric": "90%",
+        "impact": "Fewer No-Shows",
+        "time": "Automated Reminders",
+        "revenue": "Optimized Utilization"
+      },
+      {
+        "metric": "0",
+        "impact": "Data Entry Errors",
+        "time": "OCR Extraction",
+        "revenue": "Billing Accuracy"
+      },
+      {
+        "metric": "100%",
+        "impact": "HIPAA Compliant",
+        "time": "Secure Infrastructure",
+        "revenue": "Risk Mitigation"
+      }
     ],
     "useCases": [
       {
@@ -139,17 +194,32 @@
     ],
     "relatedLinks": {
       "services": [
-        { "title": "Appointment Booking Automation", "slug": "appointment-booking-automation" },
-        { "title": "Business Process Automation", "slug": "business-process-automation" }
+        {
+          "title": "Appointment Booking Automation",
+          "slug": "appointment-booking-automation"
+        },
+        {
+          "title": "Business Process Automation",
+          "slug": "business-process-automation"
+        }
       ],
       "industries": [
-        { "title": "Finance", "slug": "finance" }
+        {
+          "title": "Finance",
+          "slug": "finance"
+        }
       ],
       "blogs": [
-        { "title": "Healthcare Appointment Automation", "slug": "healthcare-appointment-automation" }
+        {
+          "title": "Healthcare Appointment Automation",
+          "slug": "healthcare-appointment-automation"
+        }
       ],
       "magnets": [
-        { "title": "Free AI Audit", "path": "/free-ai-audit" }
+        {
+          "title": "Free AI Audit",
+          "path": "/free-ai-audit"
+        }
       ]
     }
   },
@@ -176,10 +246,30 @@
       "Increase Cart Recovery"
     ],
     "statistics": [
-      { "metric": "85%", "impact": "WISMO Ticket Deflection", "time": "Instant Answers", "revenue": "Lower CX Costs" },
-      { "metric": "30%", "impact": "Increase in Cart Recovery", "time": "AI Personalization", "revenue": "Recovered Sales" },
-      { "metric": "100%", "impact": "Inventory Accuracy", "time": "Real-time Sync", "revenue": "Fewer Refunds" },
-      { "metric": "24/7", "impact": "Global Support", "time": "Multi-lingual", "revenue": "Higher Conversion" }
+      {
+        "metric": "85%",
+        "impact": "WISMO Ticket Deflection",
+        "time": "Instant Answers",
+        "revenue": "Lower CX Costs"
+      },
+      {
+        "metric": "30%",
+        "impact": "Increase in Cart Recovery",
+        "time": "AI Personalization",
+        "revenue": "Recovered Sales"
+      },
+      {
+        "metric": "100%",
+        "impact": "Inventory Accuracy",
+        "time": "Real-time Sync",
+        "revenue": "Fewer Refunds"
+      },
+      {
+        "metric": "24/7",
+        "impact": "Global Support",
+        "time": "Multi-lingual",
+        "revenue": "Higher Conversion"
+      }
     ],
     "useCases": [
       {
@@ -217,17 +307,32 @@
     ],
     "relatedLinks": {
       "services": [
-        { "title": "Customer Support Automation", "slug": "customer-support-automation" },
-        { "title": "Workflow Automation", "slug": "workflow-automation" }
+        {
+          "title": "Customer Support Automation",
+          "slug": "customer-support-automation"
+        },
+        {
+          "title": "Workflow Automation",
+          "slug": "workflow-automation"
+        }
       ],
       "industries": [
-        { "title": "Logistics", "slug": "logistics" }
+        {
+          "title": "Logistics",
+          "slug": "logistics"
+        }
       ],
       "blogs": [
-        { "title": "Automating Tier-1 Support", "slug": "automating-tier-1-support-llms" }
+        {
+          "title": "Automating Tier-1 Support",
+          "slug": "automating-tier-1-support-llms"
+        }
       ],
       "magnets": [
-        { "title": "ROI Calculator", "path": "/roi-calculator" }
+        {
+          "title": "ROI Calculator",
+          "path": "/roi-calculator"
+        }
       ]
     }
   },
@@ -253,10 +358,30 @@
       "Secure & Compliant Processing"
     ],
     "statistics": [
-      { "metric": "99.9%", "impact": "Data Accuracy", "time": "AI Verification", "revenue": "Eliminated Fines" },
-      { "metric": "80%", "impact": "Faster Invoice Processing", "time": "Instant OCR", "revenue": "Lower Operational Cost" },
-      { "metric": "3 Days", "impact": "Faster Month-End Close", "time": "Automated Reconciliation", "revenue": "Better Cash Flow" },
-      { "metric": "100%", "impact": "Audit Trail Visibility", "time": "Logged Actions", "revenue": "Compliance Security" }
+      {
+        "metric": "99.9%",
+        "impact": "Data Accuracy",
+        "time": "AI Verification",
+        "revenue": "Eliminated Fines"
+      },
+      {
+        "metric": "80%",
+        "impact": "Faster Invoice Processing",
+        "time": "Instant OCR",
+        "revenue": "Lower Operational Cost"
+      },
+      {
+        "metric": "3 Days",
+        "impact": "Faster Month-End Close",
+        "time": "Automated Reconciliation",
+        "revenue": "Better Cash Flow"
+      },
+      {
+        "metric": "100%",
+        "impact": "Audit Trail Visibility",
+        "time": "Logged Actions",
+        "revenue": "Compliance Security"
+      }
     ],
     "useCases": [
       {
@@ -294,17 +419,32 @@
     ],
     "relatedLinks": {
       "services": [
-        { "title": "Business Process Automation", "slug": "business-process-automation" },
-        { "title": "Custom AI Agents", "slug": "custom-ai-agents" }
+        {
+          "title": "Business Process Automation",
+          "slug": "business-process-automation"
+        },
+        {
+          "title": "Custom AI Agents",
+          "slug": "custom-ai-agents"
+        }
       ],
       "industries": [
-        { "title": "Real Estate", "slug": "real-estate" }
+        {
+          "title": "Real Estate",
+          "slug": "real-estate"
+        }
       ],
       "blogs": [
-        { "title": "What is Business Process Automation?", "slug": "what-is-business-process-automation" }
+        {
+          "title": "What is Business Process Automation?",
+          "slug": "what-is-business-process-automation"
+        }
       ],
       "magnets": [
-        { "title": "Readiness Assessment", "path": "/readiness" }
+        {
+          "title": "Readiness Assessment",
+          "path": "/readiness"
+        }
       ]
     }
   },
@@ -330,10 +470,30 @@
       "Zero Manual Reporting"
     ],
     "statistics": [
-      { "metric": "95%", "impact": "Reduction in Reporting Time", "time": "Automated Decks", "revenue": "Higher Margin" },
-      { "metric": "3x", "impact": "Content Output Volume", "time": "AI First Drafts", "revenue": "Scalable Retainers" },
-      { "metric": "100%", "impact": "Consistent Outbound", "time": "Always On", "revenue": "Predictable MRR" },
-      { "metric": "0", "impact": "Data Entry Errors", "time": "API Syncs", "revenue": "Client Trust" }
+      {
+        "metric": "95%",
+        "impact": "Reduction in Reporting Time",
+        "time": "Automated Decks",
+        "revenue": "Higher Margin"
+      },
+      {
+        "metric": "3x",
+        "impact": "Content Output Volume",
+        "time": "AI First Drafts",
+        "revenue": "Scalable Retainers"
+      },
+      {
+        "metric": "100%",
+        "impact": "Consistent Outbound",
+        "time": "Always On",
+        "revenue": "Predictable MRR"
+      },
+      {
+        "metric": "0",
+        "impact": "Data Entry Errors",
+        "time": "API Syncs",
+        "revenue": "Client Trust"
+      }
     ],
     "useCases": [
       {
@@ -371,18 +531,294 @@
     ],
     "relatedLinks": {
       "services": [
-        { "title": "AI Lead Generation", "slug": "ai-lead-generation" },
-        { "title": "Workflow Automation", "slug": "workflow-automation" }
+        {
+          "title": "AI Lead Generation",
+          "slug": "ai-lead-generation"
+        },
+        {
+          "title": "Workflow Automation",
+          "slug": "workflow-automation"
+        }
       ],
       "industries": [
-        { "title": "E-Commerce", "slug": "e-commerce" }
+        {
+          "title": "E-Commerce",
+          "slug": "e-commerce"
+        }
       ],
       "blogs": [
-        { "title": "Automate B2B Outbound", "slug": "automate-b2b-outbound" }
+        {
+          "title": "Automate B2B Outbound",
+          "slug": "automate-b2b-outbound"
+        }
       ],
       "magnets": [
-        { "title": "ROI Calculator", "path": "/roi-calculator" }
+        {
+          "title": "ROI Calculator",
+          "path": "/roi-calculator"
+        }
       ]
+    }
+  },
+  {
+    "slug": "dental-clinics",
+    "industry": "Dental Clinics",
+    "h1": "Dental Clinic Automation",
+    "description": "We deploy AI Receptionists to handle your calls 24/7, automate patient intake forms, and follow up with missed leads instantly.",
+    "metaDescription": "Dental Clinic Automation services. Automate patient booking, AI receptionists, and appointment follow-ups.",
+    "challenges": [
+      "Receptionists miss 30% of calls during peak hours.",
+      "Manual follow-ups for no-shows waste hours.",
+      "Patient intake is manual and repetitive."
+    ],
+    "solutions": [
+      "Deploy a 24/7 AI Voice Receptionist.",
+      "Automate calendar syncs for patient booking.",
+      "Implement AI sequences for no-shows and rescheduling."
+    ],
+    "benefits": [
+      "Zero Missed Calls",
+      "Lower No-show Rates",
+      "Faster Patient Intake"
+    ],
+    "statistics": [
+      {
+        "metric": "100%",
+        "impact": "Calls Answered",
+        "time": "Instantly",
+        "revenue": "More Patients"
+      },
+      {
+        "metric": "20 Hrs",
+        "impact": "Admin Time Saved",
+        "time": "Weekly",
+        "revenue": "Lower Costs"
+      }
+    ],
+    "useCases": [
+      {
+        "problem": "Losing high-value implant patients because calls go to voicemail.",
+        "solution": "AI Receptionist answers, qualifies, and books implant consultations 24/7.",
+        "result": "Increased high-value bookings by 25%.",
+        "stack": "Voice AI + EMR API"
+      }
+    ],
+    "caseStudy": {
+      "before": "A busy clinic was losing 15 calls a day to voicemail.",
+      "implementation": "Deployed our AI Receptionist to answer overflow and after-hours calls.",
+      "after": "Zero missed calls. Recaptured $10k+ in lost monthly revenue."
+    },
+    "eeat": [
+      "HIPAA compliant infrastructure.",
+      "Experience with Open Dental and Dentrix.",
+      "Custom voice cloning."
+    ],
+    "faq": [
+      {
+        "question": "Does it integrate with my EMR?",
+        "answer": "Yes, we integrate directly with major dental EMRs."
+      }
+    ],
+    "relatedLinks": {
+      "services": [],
+      "industries": [],
+      "blogs": [],
+      "magnets": []
+    }
+  },
+  {
+    "slug": "interior-designers",
+    "industry": "Interior Designers",
+    "h1": "Automation for Interior Designers",
+    "description": "Streamline client intake, automate quotation generation, and manage your projects with custom client portals.",
+    "metaDescription": "AI automation for interior designers. Automate inquiry management, proposal generation, and client onboarding.",
+    "challenges": [
+      "Generating proposals and quotes takes hours per client.",
+      "Following up with lukewarm leads is tedious.",
+      "Client communication is scattered across email and WhatsApp."
+    ],
+    "solutions": [
+      "Custom Client Portal for approvals and communication.",
+      "Automated Quote Generator using AI.",
+      "WhatsApp bots for instant inquiry responses."
+    ],
+    "benefits": [
+      "Faster Quotations",
+      "Centralized Comms",
+      "Higher Conversion"
+    ],
+    "statistics": [
+      {
+        "metric": "80%",
+        "impact": "Faster Quotes",
+        "time": "Instant",
+        "revenue": "Win More Bids"
+      },
+      {
+        "metric": "10 Hrs",
+        "impact": "Saved on Admin",
+        "time": "Weekly",
+        "revenue": "Focus on Design"
+      }
+    ],
+    "useCases": [
+      {
+        "problem": "Taking 3 days to send an initial proposal.",
+        "solution": "AI-driven form collects requirements and auto-generates a baseline quote.",
+        "result": "Proposals sent in 5 minutes, doubling conversion rates.",
+        "stack": "Make.com + OpenAI + Custom Portal"
+      }
+    ],
+    "caseStudy": {
+      "before": "A boutique firm was drowning in WhatsApp messages.",
+      "implementation": "Built a central client dashboard and automated onboarding.",
+      "after": "Streamlined communication and scaled from 5 to 15 concurrent projects."
+    },
+    "eeat": [
+      "Specialized in design firm workflows.",
+      "Custom portal development expertise."
+    ],
+    "faq": [
+      {
+        "question": "Can clients approve designs via the portal?",
+        "answer": "Yes, full approval flows are built-in."
+      }
+    ],
+    "relatedLinks": {
+      "services": [],
+      "industries": [],
+      "blogs": [],
+      "magnets": []
+    }
+  },
+  {
+    "slug": "recruitment-agencies",
+    "industry": "Recruitment Agencies",
+    "h1": "AI Automation for Recruitment Agencies",
+    "description": "Automate resume screening, interview scheduling, and candidate follow-ups to place talent faster than your competitors.",
+    "metaDescription": "AI automation for recruitment agencies. Custom CRM, AI resume screening, and automated candidate follow-ups.",
+    "challenges": [
+      "Screening 500+ resumes per role takes days.",
+      "Scheduling interviews leads to endless email ping-pong.",
+      "Candidates go cold due to slow follow-ups."
+    ],
+    "solutions": [
+      "AI-powered ATS for instant candidate scoring.",
+      "Automated interview scheduling bots.",
+      "WhatsApp drip campaigns to keep candidates engaged."
+    ],
+    "benefits": [
+      "Place Talent Faster",
+      "Zero Manual Screening",
+      "Higher Fill Rates"
+    ],
+    "statistics": [
+      {
+        "metric": "10x",
+        "impact": "Faster Screening",
+        "time": "Instant",
+        "revenue": "Beat Competitors"
+      },
+      {
+        "metric": "100%",
+        "impact": "Automated Scheduling",
+        "time": "No Email Tag",
+        "revenue": "Higher Show Rates"
+      }
+    ],
+    "useCases": [
+      {
+        "problem": "Recruiters spending 60% of their day reviewing unqualified resumes.",
+        "solution": "AI Agent scans resumes against job descriptions and ranks them.",
+        "result": "Recruiters only speak to the top 10% of candidates.",
+        "stack": "OpenAI + Custom ATS + Zapier"
+      }
+    ],
+    "caseStudy": {
+      "before": "Agency struggled to fill technical roles fast enough.",
+      "implementation": "Deployed an AI screening agent and WhatsApp scheduling bot.",
+      "after": "Time-to-fill decreased by 40%."
+    },
+    "eeat": [
+      "Expertise in custom ATS development.",
+      "Deep understanding of recruitment funnels."
+    ],
+    "faq": [
+      {
+        "question": "Does the AI replace my recruiters?",
+        "answer": "No, it empowers them by removing the administrative burden of screening."
+      }
+    ],
+    "relatedLinks": {
+      "services": [],
+      "industries": [],
+      "blogs": [],
+      "magnets": []
+    }
+  },
+  {
+    "slug": "law-firms",
+    "industry": "Law Firms",
+    "h1": "AI Automation for Law Firms",
+    "description": "Secure, compliant AI systems to automate client intake, document handling, and appointment booking.",
+    "metaDescription": "AI automation for law firms. Automate client intake, document drafting, and secure client portals.",
+    "challenges": [
+      "Client intake forms are manual and slow.",
+      "Drafting standard legal documents takes up billable hours.",
+      "Missing calls from potential high-value clients."
+    ],
+    "solutions": [
+      "AI Legal Assistants for standard document drafting.",
+      "Secure Client Intake Portals.",
+      "24/7 AI Receptionist for new inquiries."
+    ],
+    "benefits": [
+      "Capture Every Lead",
+      "Faster Document Prep",
+      "Secure Portals"
+    ],
+    "statistics": [
+      {
+        "metric": "50%",
+        "impact": "Less Drafting Time",
+        "time": "AI Templates",
+        "revenue": "Higher Margins"
+      },
+      {
+        "metric": "100%",
+        "impact": "Inquiries Answered",
+        "time": "24/7",
+        "revenue": "More Cases"
+      }
+    ],
+    "useCases": [
+      {
+        "problem": "Losing personal injury leads who call after hours.",
+        "solution": "AI Receptionist handles the call, qualifies the case type, and books a consultation.",
+        "result": "Captured $500k in new case pipeline in 2 months.",
+        "stack": "Voice AI + Clio Integration"
+      }
+    ],
+    "caseStudy": {
+      "before": "Paralegals spending hours drafting repetitive contracts.",
+      "implementation": "Built an internal AI document generation tool.",
+      "after": "Contract drafting time cut by 70%."
+    },
+    "eeat": [
+      "Strict adherence to data privacy.",
+      "Experience with Clio and major legal practice management software."
+    ],
+    "faq": [
+      {
+        "question": "Is client data secure?",
+        "answer": "Yes, we use private, secure LLMs with zero data retention policies."
+      }
+    ],
+    "relatedLinks": {
+      "services": [],
+      "industries": [],
+      "blogs": [],
+      "magnets": []
     }
   }
 ]

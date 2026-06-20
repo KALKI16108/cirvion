@@ -9,8 +9,9 @@ import CaseStudy from '../components/CaseStudy';
 import InternalLinks from '../components/InternalLinks';
 import servicesData from '../data/services.json';
 
-const ServiceTemplate = () => {
-    const { slug } = useParams();
+const ServiceTemplate = ({ forcedSlug }) => {
+    const params = useParams();
+    const slug = forcedSlug || params.slug;
     
     const service = useMemo(() => {
         return servicesData.find(s => s.slug === slug);
