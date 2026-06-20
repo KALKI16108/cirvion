@@ -61,15 +61,15 @@ const Hero = () => {
                            direction="bottom"
                            className="flex justify-center text-gradient-primary"
                         />
-                        <span className="block text-2xl sm:text-3xl md:text-4xl text-white/80 mt-4">for Global Enterprises</span>
+                        <span className="block text-2xl sm:text-3xl md:text-4xl text-white/80 mt-4">for Every Business</span>
                         {/* Screen-reader clarification: keeps visual headline unchanged but adds explicit service intent for SEO and accessibility */}
-                        <span className="sr-only">AI-Powered Business Automation &amp; Custom Software for Global Enterprises</span>
+                        <span className="sr-only">AI-Powered Business Automation &amp; Custom Software for Every Business</span>
                     </h1>
 
                     {/* Subheadline */}
                     <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-[#94A3B8] max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed font-light px-4">
                         As a leading <strong className="font-medium text-white/90">global workflow automation agency</strong> and a top <strong className="font-medium text-white/90">custom AI software company</strong>, we provide premier <strong className="font-medium text-white/90">hyper-automation consulting</strong> worldwide.
-                        We build intelligent systems that scale, specializing in <strong className="font-medium text-white/90">enterprise AI integration</strong>.
+                        We build intelligent systems that scale, specializing in <strong className="font-medium text-white/90">AI integration for businesses of all sizes</strong>.
                     </p>
                     {/* One-line SEO/problem statement (screen-reader-only to avoid visual change): clarifies the problem we solve */}
                     <p className="sr-only">We solve slow, repetitive business workflows by implementing custom AI-driven automation.</p>
