@@ -12,8 +12,8 @@ const Blog = () => {
       const fetchBlogs = async () => {
           try {
               const data = await getBlogs();
-              // Only show published blogs to public
-              setBlogsData(data.filter(b => b.published));
+              // Show all blogs unless explicitly marked published: false
+              setBlogsData(data.filter(b => b.published !== false));
           } catch (error) {
               console.error("Failed to fetch blogs:", error);
           } finally {
@@ -56,7 +56,7 @@ const Blog = () => {
           </div>
       ) : (
           <div className="space-y-16">
-              {['AI Automation', 'Web Development', 'Custom Software', 'Chatbot', 'Strategy'].map(category => {
+              {Array.from(new Set(blogsData.map(b => b.category || 'Strategy'))).map(category => {
                   const categoryBlogs = blogsData.filter(b => (b.category || 'Strategy').toLowerCase() === category.toLowerCase());
                   if (categoryBlogs.length === 0) return null;
                   
