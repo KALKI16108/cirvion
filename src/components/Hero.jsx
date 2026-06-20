@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Play, ChevronRight, Zap, Cpu, Activity } from 'lucide-react';
 import VideoModal from './VideoModal';
+import BlurText from './animations/BlurText';
+import ShinyText from './animations/ShinyText';
+import Aurora from './animations/Aurora';
 
 const Hero = () => {
     const [isVideoOpen, setIsVideoOpen] = useState(false);
@@ -16,6 +19,9 @@ const Hero = () => {
 
             {/* Dynamic Background */}
             <div className="absolute inset-0 z-0 bg-grid opacity-20"></div>
+            <div className="absolute inset-0 z-0 opacity-40 mix-blend-screen pointer-events-none">
+                 <Aurora colorStops={['#00C8FF', '#6366F1', '#00C8FF']} amplitude={1.2} />
+            </div>
 
             {/* Ambient Glows */}
             <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#00C8FF]/10 rounded-full blur-[120px] animate-pulse"></div>
@@ -36,13 +42,25 @@ const Hero = () => {
                         className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-white/5 border border-white/10 backdrop-blur-md hover:border-[#00C8FF]/50 transition-colors cursor-default"
                     >
                         <Zap className="w-4 h-4 text-[#00C8FF] fill-current" />
-                        <span className="text-sm font-medium text-[#CBD5E1] tracking-wide">Next-Gen AI Automation</span>
+                        <ShinyText text="Next-Gen AI Automation" disabled={false} speed={3} className="text-sm font-medium tracking-wide" color="#CBD5E1" shineColor="#00C8FF" />
                     </motion.div>
 
                     {/* Headline */}
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 tracking-tight leading-[1.1]">
-                        <span className="block text-white">AI-Powered Business Automation</span>
-                        <span className="text-gradient-primary">&amp; Custom Software</span>
+                        <BlurText 
+                           text="AI-Powered Business Automation"
+                           delay={150}
+                           animateBy="words"
+                           direction="top"
+                           className="block text-white"
+                        />
+                        <BlurText 
+                           text="& Custom Software"
+                           delay={150}
+                           animateBy="words"
+                           direction="bottom"
+                           className="text-gradient-primary inline-block"
+                        />
                         <span className="block text-2xl sm:text-3xl md:text-4xl text-white/80 mt-4">for Indian Businesses</span>
                         {/* Screen-reader clarification: keeps visual headline unchanged but adds explicit service intent for SEO and accessibility */}
                         <span className="sr-only">AI-Powered Business Automation &amp; Custom Software for Indian Businesses</span>
