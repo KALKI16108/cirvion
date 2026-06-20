@@ -31,7 +31,7 @@ const SEOHead = ({
         "name": "AIFlowix AI Automation Agency",
         "image": "https://aiflowix.in/logo.png",
         "url": "https://aiflowix.in",
-        "telephone": "+918104576304", // Adding the actual phone number based on ContactFooter
+        "telephone": "+91-9930744723", // Adding the actual phone number based on ContactFooter
         "priceRange": "$$",
         "address": {
             "@type": "PostalAddress",
@@ -41,8 +41,20 @@ const SEOHead = ({
         }
     };
 
+    const websiteSchema = {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "AIFlowix",
+        "url": "https://aiflowix.in",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://aiflowix.in/services?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    };
+
     // Combine schemas
-    const allSchemas = [organizationSchema, localBusinessSchema];
+    const allSchemas = [organizationSchema, localBusinessSchema, websiteSchema];
     if (schema) {
         if (Array.isArray(schema)) {
             allSchemas.push(...schema);

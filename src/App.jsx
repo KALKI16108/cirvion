@@ -100,7 +100,7 @@ function App() {
         'name': 'AIFLOWIX AI Automation',
         'description': 'Leading AI & automation consultancy for business workflow optimization in Mumbai',
         'url': 'https://aiflowix.in',
-        'telephone': '+91-0000000000',
+        'telephone': '+91-9930744723',
         'priceRange': '$$'
       }
     ]
@@ -149,12 +149,16 @@ function App() {
               <Route path="/custom-ai-software" element={<CustomAiSoftware />} />
               <Route path="/ai-for-small-business" element={<AiForSmallBusiness />} />
               
-              {/* Dedicated Root-Level SEO Service Pages */}
+              {/* Dedicated Root-Level SEO Service Pages (Phase 1) */}
               <Route path="/ai-automation-services" element={<ServiceTemplate forcedSlug="ai-automation-services" />} />
               <Route path="/workflow-automation-services" element={<ServiceTemplate forcedSlug="workflow-automation-services" />} />
+              <Route path="/ai-agent-development" element={<ServiceTemplate forcedSlug="ai-agent-development" />} />
+              <Route path="/voice-ai-agents" element={<ServiceTemplate forcedSlug="voice-ai-agents" />} />
+              <Route path="/ai-receptionist" element={<ServiceTemplate forcedSlug="ai-receptionist" />} />
+              <Route path="/whatsapp-automation" element={<ServiceTemplate forcedSlug="whatsapp-automation" />} />
               <Route path="/custom-software-development" element={<ServiceTemplate forcedSlug="custom-software-development" />} />
               <Route path="/web-development-services" element={<ServiceTemplate forcedSlug="web-development-services" />} />
-              <Route path="/ai-receptionist" element={<ServiceTemplate forcedSlug="ai-receptionist" />} />
+              <Route path="/crm-development" element={<ServiceTemplate forcedSlug="crm-development" />} />
 
               {/* Dedicated Root-Level SEO Industry Pages */}
               <Route path="/automation-for-dental-clinics" element={<IndustryTemplate forcedSlug="dental-clinics" />} />
