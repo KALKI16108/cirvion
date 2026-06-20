@@ -34,13 +34,12 @@
   <!-- Color scheme preference for dark mode support -->
   <meta name="color-scheme" content="dark" />
   <!-- Security: Content Security Policy - inline script protection -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://api.web3forms.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.web3forms.com https://ryteuscselxynexlekhc.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://api.web3forms.com https://*.googletagmanager.com https://googletagmanager.com https://*.google-analytics.com https://google-analytics.com https://vercel.live; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: https://*.google-analytics.com https://google-analytics.com https://*.googletagmanager.com https://googletagmanager.com https://www.google.com https://*.doubleclick.net https://stats.g.doubleclick.net; connect-src 'self' https://api.web3forms.com https://ryteuscselxynexlekhc.supabase.co https://*.google-analytics.com https://google-analytics.com https://*.analytics.google.com https://analytics.google.com https://*.googletagmanager.com https://googletagmanager.com https://www.google.com https://*.doubleclick.net https://stats.g.doubleclick.net https://vercel.live wss://*.pusher.com wss://pusher.com https://*.pusher.com https://pusher.com wss://ws-us3.pusher.com https://sockjs-us3.pusher.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
   
   <!-- Security: Enforce HTTPS on all requests (upgrade HTTP to HTTPS) -->
   <meta http-equiv="upgrade-insecure-requests" content="1" />
   
-  <!-- Security: Prevent cross-origin requests embedding this page -->
-  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <!-- Security: Prevent cross-origin requests embedding this page (enforced by vercel.json) -->
   
   <!-- Security: Cross-Origin Protection -->
   <meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin" />
@@ -116,9 +115,7 @@
   <link rel="alternate" hreflang="en" href="https://www.aiflowix.in/" />
   <link rel="alternate" hreflang="en-IN" href="https://www.aiflowix.in/" />
   <link rel="alternate" hreflang="x-default" href="https://www.aiflowix.in/" />
-  <!-- Preload critical fonts for faster text rendering -->
-  <link rel="preload" as="font" href="https://fonts.gstatic.com/s/jetbrainsmono/v18/tDbN2o-flEEnyS4zrio-W87UR4L2y0TttFsrCXP73O0.woff2" type="font/woff2" crossorigin />
-  <link rel="preload" as="font" href="https://fonts.gstatic.com/s/outfit/v7/QGY_U7ZnDZNsA7DaLSyJBMpMwqBKfaMeM6sJYkOyYvg.woff2" type="font/woff2" crossorigin />
+  <!-- Preload critical fonts for faster text rendering (handled by Google Fonts CSS) -->
   <!-- Prefetch Google Fonts stylesheet -->
   <link rel="prefetch" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" />
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" />
