@@ -57,7 +57,6 @@
   # ============================================================================
   
   # Prevent CSRF attacks on cross-origin requests
-  Cross-Origin-Embedder-Policy: require-corp
   Cross-Origin-Opener-Policy: same-origin
   Cross-Origin-Resource-Policy: cross-origin
   
