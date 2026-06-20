@@ -604,9 +604,9 @@
       }
     ],
     "caseStudy": {
-      "before": "A busy clinic was losing 15 calls a day to voicemail.",
-      "implementation": "Deployed our AI Receptionist to answer overflow and after-hours calls.",
-      "after": "Zero missed calls. Recaptured $10k+ in lost monthly revenue."
+      "before": "A multi-location dental practice was losing 20% of their new patient inquiries because front desk staff were too busy assisting in-office patients to answer the phone.",
+      "implementation": "We deployed a conversational Voice AI Receptionist integrated directly with Open Dental. The AI answers every call instantly, checks real-time calendar availability, answers questions about insurance accepted, and books the appointment into the system without human intervention.",
+      "after": "Missed calls dropped to zero. The practice recaptured $15,000+ per month in previously lost revenue, and staff stress levels plummeted."
     },
     "eeat": [
       "HIPAA compliant infrastructure.",
@@ -615,8 +615,12 @@
     ],
     "faq": [
       {
-        "question": "Does it integrate with my EMR?",
-        "answer": "Yes, we integrate directly with major dental EMRs."
+        "question": "Can the AI verify patient insurance?",
+        "answer": "Yes, our AI agents can be connected to insurance verification APIs or prompt patients to upload their insurance card securely via a follow-up SMS link."
+      },
+      {
+        "question": "Does this integrate with our current dental software?",
+        "answer": "We integrate with all major dental EMRs and scheduling tools, including Open Dental, Dentrix, and Eaglesoft, using secure API connections."
       }
     ],
     "relatedLinks": {
@@ -735,9 +739,9 @@
       }
     ],
     "caseStudy": {
-      "before": "Agency struggled to fill technical roles fast enough.",
-      "implementation": "Deployed an AI screening agent and WhatsApp scheduling bot.",
-      "after": "Time-to-fill decreased by 40%."
+      "before": "A mid-sized staffing agency had recruiters spending 4 hours a day manually reading resumes, extracting data, and entering candidate profiles into Bullhorn.",
+      "implementation": "We built an AI-powered resume parsing and enrichment pipeline. Now, when a candidate applies, the AI automatically reads the PDF, extracts key skills, generates a formatted candidate summary, and creates the structured record in the CRM.",
+      "after": "Recruiters got 20 hours a week back to focus on interviewing and relationship building. Candidate placement time dropped by 3 days due to faster processing."
     },
     "eeat": [
       "Expertise in custom ATS development.",
@@ -745,8 +749,12 @@
     ],
     "faq": [
       {
-        "question": "Does the AI replace my recruiters?",
-        "answer": "No, it empowers them by removing the administrative burden of screening."
+        "question": "Can the AI screen candidates based on specific criteria?",
+        "answer": "Yes. We can program the AI to look for mandatory certifications, years of experience, or specific tech stacks, and automatically tag candidates as 'Highly Qualified' or send polite rejection emails."
+      },
+      {
+        "question": "Is the AI biased?",
+        "answer": "We design our AI screening tools to strictly evaluate based on skills and experience parameters, actively stripping out demographic identifiers to ensure fair, unbiased shortlisting."
       }
     ],
     "relatedLinks": {
@@ -800,9 +808,9 @@
       }
     ],
     "caseStudy": {
-      "before": "Paralegals spending hours drafting repetitive contracts.",
-      "implementation": "Built an internal AI document generation tool.",
-      "after": "Contract drafting time cut by 70%."
+      "before": "A boutique corporate law firm struggled with the sheer volume of discovery documents. Paralegals spent weeks manually reviewing thousands of PDFs to find relevant clauses for litigation.",
+      "implementation": "We deployed a private, secure Retrieval-Augmented Generation (RAG) system. The firm uploaded their discovery documents into an encrypted vault. Lawyers can now 'chat' with the documents, asking 'Find all instances where the defendant mentioned project delays' and receive exact citations and page numbers instantly.",
+      "after": "Document review time was reduced by 85%. The firm was able to take on twice as many cases without hiring additional paralegal staff."
     },
     "eeat": [
       "Strict adherence to data privacy.",
@@ -810,8 +818,12 @@
     ],
     "faq": [
       {
-        "question": "Is client data secure?",
-        "answer": "Yes, we use private, secure LLMs with zero data retention policies."
+        "question": "Is client data kept confidential and secure?",
+        "answer": "Absolutely. We deploy private LLM instances (like Enterprise Azure OpenAI or locally hosted models) that do not use your confidential legal documents to train public AI models. Your data remains completely isolated."
+      },
+      {
+        "question": "Can the AI draft legal documents?",
+        "answer": "Yes, we can build custom drafting assistants that use your firm's historical contracts as templates. You provide the key variables, and the AI generates the first draft in seconds for your final review."
       }
     ],
     "relatedLinks": {

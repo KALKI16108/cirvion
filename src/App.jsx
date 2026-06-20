@@ -160,11 +160,11 @@ function App() {
               <Route path="/web-development-services" element={<ServiceTemplate forcedSlug="web-development-services" />} />
               <Route path="/crm-development" element={<ServiceTemplate forcedSlug="crm-development" />} />
 
-              {/* Dedicated Root-Level SEO Industry Pages */}
-              <Route path="/automation-for-dental-clinics" element={<IndustryTemplate forcedSlug="dental-clinics" />} />
-              <Route path="/automation-for-real-estate" element={<IndustryTemplate forcedSlug="real-estate" />} />
-              <Route path="/automation-for-interior-designers" element={<IndustryTemplate forcedSlug="interior-designers" />} />
-              <Route path="/automation-for-recruitment-agencies" element={<IndustryTemplate forcedSlug="recruitment-agencies" />} />
+              {/* Dedicated Root-Level SEO Industry Pages (Phase 2) */}
+              <Route path="/real-estate-automation" element={<IndustryTemplate forcedSlug="real-estate" />} />
+              <Route path="/dental-clinic-automation" element={<IndustryTemplate forcedSlug="dental-clinics" />} />
+              <Route path="/recruitment-agency-automation" element={<IndustryTemplate forcedSlug="recruitment-agencies" />} />
+              <Route path="/law-firm-automation" element={<IndustryTemplate forcedSlug="law-firms" />} />
               
               {/* Programmatic SEO Routes */}
               <Route path="/blog/:slug" element={<BlogTemplate />} />
