@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "lighthouse": "npx --yes lighthouse http://localhost:5173 --output html --output-path ./lighthouse-report.html --chrome-flags='--headless --no-sandbox --disable-dev-shm-usage'",
-    "generate:favicons": "node scripts/generate-favicons.js"
+    "generate:favicons": "node scripts/generate-favicons.js",
+    "postbuild": "node generate-sitemap.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.1",
