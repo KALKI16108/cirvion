@@ -294,25 +294,37 @@ const AIPlayground = () => {
     setConsoleOutput('');
     setResult(null);
 
-    // Simulate typing animation in console
-    const messages = [
-      `$ Processing: "${input}"...`,
-      `> Initializing ${activePlayground}-v2.0...`,
-      `> Scanning input patterns...`,
-      `> Cross-referencing database...`,
-      `✓ Complete!`,
-    ];
+    // Initial console animation
+    setConsoleOutput(`$ Processing: "${input}"...\n> Initializing ${activePlayground}-v2.0...\n> Connecting to secure AI cluster...\n`);
 
-    for (const msg of messages) {
-      await new Promise((resolve) => setTimeout(resolve, 400));
-      setConsoleOutput((prev) => prev + msg + '\n');
+    try {
+      const response = await fetch('/api/openrouter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          input: input,
+          playgroundType: activePlayground
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('API request failed');
+      }
+
+      const data = await response.json();
+      
+      setConsoleOutput((prev) => prev + `> Receiving intelligence stream...\n✓ Analysis complete.\n`);
+      setResult(data);
+
+    } catch (error) {
+      console.error(error);
+      setConsoleOutput((prev) => prev + `[ERROR] Connection failed or API limit reached.\n`);
+      setResult({ error: 'Failed to process request.' });
+    } finally {
+      setIsLoading(false);
     }
-
-    // Simulate loading progress
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    setIsLoading(false);
-    setResult(current.mockResult);
   };
 
   return (
