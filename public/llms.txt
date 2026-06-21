@@ -53,10 +53,19 @@ Endpoints & Navigation:
 - /workflow-automation-services (Business Process Optimization)
 - /custom-software-development (Bespoke Software & Web Apps)
 - /web-development-services (High-Performance Websites)
-- /ai-receptionist (Voice AI & Calling Agents)
-- /automation-for-real-estate (Real Estate AI Solutions)
-- /automation-for-dental-clinics (Healthcare Automation)
-- /automation-for-recruitment-agencies (Recruitment AI)
+- /ai-agent-development (Custom AI Agents)
+- /voice-ai-agents (Voice AI Calling Agents)
+- /ai-receptionist (AI Receptionists for Businesses)
+- /whatsapp-automation (WhatsApp AI Bots)
+- /crm-development (Custom CRM & Sales Automation)
+- /real-estate-automation (Real Estate AI Solutions)
+- /dental-clinic-automation (Dental Clinic Automation)
+- /recruitment-agency-automation (Recruitment AI)
+- /law-firm-automation (Legal Tech Automation)
+- /healthcare-automation (Healthcare Automation)
+- /finance-automation (Financial Services Automation)
+- /logistics-automation (Logistics AI)
+- /manufacturing-automation (Manufacturing Automation)
 
 Contact:
 Phone: +91-9930744723

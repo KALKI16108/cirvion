@@ -38,9 +38,18 @@ const generateLlmsFull = () => {
     services.forEach(s => {
         content += `### ${s.title}\n`;
         content += `**Description:** ${s.description}\n`;
-        content += `**Pain Points Solved:** ${s.painPoints ? s.painPoints.join(', ') : ''}\n`;
-        if (s.features) {
-            content += `**Features:**\n${s.features.map(f => `- ${f}`).join('\n')}\n`;
+        
+        if (s.benefits) {
+            content += `**Benefits:**\n${s.benefits.map(b => `- ${b}`).join('\n')}\n`;
+        }
+        if (s.useCases) {
+            content += `**Use Cases:**\n${s.useCases.map(u => `- **${u.title}:** ${u.description}`).join('\n')}\n`;
+        }
+        if (s.caseStudy) {
+            content += `**Case Study:**\n- **Before:** ${s.caseStudy.before}\n- **Implementation:** ${s.caseStudy.implementation}\n- **After:** ${s.caseStudy.after}\n`;
+        }
+        if (s.faq) {
+            content += `**Frequently Asked Questions:**\n${s.faq.map(f => `- **Q:** ${f.question}\n  **A:** ${f.answer}`).join('\n')}\n`;
         }
         content += '\n';
     });
@@ -48,19 +57,26 @@ const generateLlmsFull = () => {
     // 3. Add Industries
     content += '---\n## Industries Served\n\n';
     industries.forEach(i => {
-        content += `### Automation for ${i.title}\n`;
+        content += `### ${i.h1 || i.industry}\n`;
         content += `**Description:** ${i.description}\n`;
-        content += `**Key Solutions:**\n`;
+        
+        if (i.challenges) {
+            content += `**Key Challenges Solved:**\n${i.challenges.map(c => `- ${c}`).join('\n')}\n`;
+        }
         if (i.solutions) {
-            i.solutions.forEach(sol => {
-                content += `- **${sol.title}:** ${sol.description}\n`;
-            });
+            content += `**Automation Solutions:**\n${i.solutions.map(sol => `- ${sol}`).join('\n')}\n`;
+        }
+        if (i.caseStudy) {
+            content += `**Industry Case Study:**\n- **Before:** ${i.caseStudy.before}\n- **Implementation:** ${i.caseStudy.implementation}\n- **After:** ${i.caseStudy.after}\n`;
+        }
+        if (i.faq) {
+            content += `**Industry FAQs:**\n${i.faq.map(f => `- **Q:** ${f.question}\n  **A:** ${f.answer}`).join('\n')}\n`;
         }
         content += '\n';
     });
 
     // 4. Add Blogs / Case Studies
-    content += '---\n## Case Studies & Insights\n\n';
+    content += '---\n## Deep Dive Case Studies & Insights\n\n';
     blogs.forEach(b => {
         if (b.published !== false) {
             content += `### ${b.title}\n`;

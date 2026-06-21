@@ -167,7 +167,7 @@ const ServiceTemplate = ({ forcedSlug }) => {
 
             <section className="px-6 max-w-3xl mx-auto my-20">
                 <h2 className="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
-                <div className="space-y-6">
+                <dl className="space-y-6">
                     {service.faq?.map((item, index) => (
                         <motion.div 
                             key={index}
@@ -177,11 +177,11 @@ const ServiceTemplate = ({ forcedSlug }) => {
                             transition={{ delay: index * 0.1 }}
                             className="glass-card p-6 rounded-2xl border border-white/5"
                         >
-                            <h3 className="text-xl font-bold text-white mb-3">{item.question}</h3>
-                            <p className="text-[#94A3B8] leading-relaxed">{item.answer}</p>
+                            <dt className="text-xl font-bold text-white mb-3">{item.question}</dt>
+                            <dd className="text-[#94A3B8] leading-relaxed m-0">{item.answer}</dd>
                         </motion.div>
                     ))}
-                </div>
+                </dl>
             </section>
 
             <section className="px-6 max-w-7xl mx-auto">
