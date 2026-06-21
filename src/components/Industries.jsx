@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stethoscope, Building2, Landmark, ShoppingBag, GraduationCap, Briefcase, Truck } from 'lucide-react';
+import { Stethoscope, Building2, Landmark, ShoppingBag, GraduationCap, Briefcase, Truck, Scale, Users, Factory, Megaphone, PenTool } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const IndustryCard = ({ icon: Icon, name, index }) => (
@@ -27,6 +27,11 @@ const Industries = () => {
         { name: "Education", icon: GraduationCap },
         { name: "Service Businesses", icon: Briefcase },
         { name: "Logistics", icon: Truck },
+        { name: "Law Firms", icon: Scale },
+        { name: "Recruitment", icon: Users },
+        { name: "Manufacturing", icon: Factory },
+        { name: "Marketing Agencies", icon: Megaphone },
+        { name: "Interior Design", icon: PenTool },
     ];
 
     return (
