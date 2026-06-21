@@ -4,7 +4,7 @@
   # ============================================================================
   
   # 1. CLICKJACKING PROTECTION
-  X-Frame-Options: DENY
+  # Removed X-Frame-Options in favor of CSP frame-ancestors
   
   # 2. MIME-TYPE SNIFFING PREVENTION
   X-Content-Type-Options: nosniff
@@ -23,7 +23,7 @@
   
   # 7. ENHANCED CSP - Multi-layer protection against injection attacks
   # Protects against: XSS, clickjacking, data injection, form hijacking
-  Content-Security-Policy: default-src 'self'; frame-src 'self' https://vercel.live; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://api.web3forms.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.web3forms.com https://ryteuscselxynexlekhc.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; frame-src 'self' https://vercel.live; frame-ancestors 'self' https://vercel.live; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://api.web3forms.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.web3forms.com https://ryteuscselxynexlekhc.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests
   
   # 8. CSP VIOLATION REPORTING (for monitoring attacks)
   Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' https://api.web3forms.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.web3forms.com https://ryteuscselxynexlekhc.supabase.co; report-uri https://www.aiflowix.in/csp-report
