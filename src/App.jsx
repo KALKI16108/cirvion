@@ -21,6 +21,7 @@ const ServiceTemplate = lazy(() => import('./pages/ServiceTemplate'));
 const LocationTemplate = lazy(() => import('./pages/LocationTemplate'));
 const IndustryTemplate = lazy(() => import('./pages/IndustryTemplate'));
 const BlogTemplate = lazy(() => import('./pages/BlogTemplate'));
+const Lab = lazy(() => import('./components/Lab'));
 
 // Lead Magnets
 const FreeAiAudit = lazy(() => import('./pages/FreeAiAudit'));
@@ -145,6 +146,7 @@ function App() {
             {/* Public Routes */}
             <Route element={<PublicLayout />}>
               <Route path="/" element={<Home />} />
+              <Route path="/lab" element={<Lab />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/custom-ai-software" element={<CustomAiSoftware />} />
               <Route path="/ai-for-small-business" element={<AiForSmallBusiness />} />
