@@ -20,6 +20,7 @@ const AiForSmallBusiness = lazy(() => import('./pages/AiForSmallBusiness'));
 const ServiceTemplate = lazy(() => import('./pages/ServiceTemplate'));
 const LocationTemplate = lazy(() => import('./pages/LocationTemplate'));
 const IndustryTemplate = lazy(() => import('./pages/IndustryTemplate'));
+const IndustriesIndex = lazy(() => import('./pages/IndustriesIndex'));
 const BlogTemplate = lazy(() => import('./pages/BlogTemplate'));
 const Lab = lazy(() => import('./components/Lab'));
 
@@ -179,6 +180,7 @@ function App() {
               <Route path="/blog/:slug" element={<BlogTemplate />} />
               <Route path="/services/:slug" element={<ServiceTemplate />} />
               <Route path="/locations/:slug" element={<LocationTemplate />} />
+              <Route path="/industries" element={<IndustriesIndex />} />
               <Route path="/industries/:slug" element={<IndustryTemplate />} />
 
               {/* Lead Magnets */}

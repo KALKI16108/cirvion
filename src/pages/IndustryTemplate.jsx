@@ -94,7 +94,8 @@ const IndustryTemplate = ({ forcedSlug }) => {
                 <StatsDashboard statistics={industry.statistics} />
 
                 <div className="grid md:grid-cols-2 gap-12 my-24">
-                    <motion.div
+                    <motion.section
+                        id="industry-challenges"
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -102,19 +103,20 @@ const IndustryTemplate = ({ forcedSlug }) => {
                     >
                         <h2 className="text-2xl font-bold mb-6 text-white flex items-center gap-3">
                             <XCircle className="w-6 h-6 text-red-400" />
-                            The Challenges
+                            Core Challenges in {industry.industry}
                         </h2>
                         <ul className="space-y-4">
                             {industry.challenges?.map((challenge, idx) => (
                                 <li key={idx} className="flex items-start gap-3 text-[#94A3B8]">
                                     <span className="w-1.5 h-1.5 rounded-full bg-red-400 mt-2 shrink-0"></span>
-                                    {challenge}
+                                    <span>{challenge}</span>
                                 </li>
                             ))}
                         </ul>
-                    </motion.div>
+                    </motion.section>
 
-                    <motion.div
+                    <motion.section
+                        id="ai-automation-solutions"
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -123,17 +125,17 @@ const IndustryTemplate = ({ forcedSlug }) => {
                     >
                         <h2 className="text-2xl font-bold mb-6 text-white flex items-center gap-3">
                             <CheckCircle2 className="w-6 h-6 text-green-400" />
-                            Our AI Solutions
+                            Our AI Automation Solutions
                         </h2>
                         <ul className="space-y-4">
                             {industry.solutions?.map((solution, idx) => (
                                 <li key={idx} className="flex items-start gap-3 text-[#E2E8F0] font-medium">
                                     <span className="w-1.5 h-1.5 rounded-full bg-green-400 mt-2 shrink-0"></span>
-                                    {solution}
+                                    <span>{solution}</span>
                                 </li>
                             ))}
                         </ul>
-                    </motion.div>
+                    </motion.section>
                 </div>
 
                 <UseCasesGrid useCases={industry.useCases} />
