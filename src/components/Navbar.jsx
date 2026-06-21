@@ -41,7 +41,7 @@ const Navbar = () => {
             <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
               {[
                 { label: 'Services', href: '/#services' },
-                { label: 'Industries', href: '/industries/real-estate' },
+                { label: 'Industries', href: '/#industries' },
                 { label: 'ROI Calculator', href: '/roi-calculator' },
                 { label: 'Readiness Quiz', href: '/ai-readiness' },
                 { label: 'Blog', href: '/blog' }
@@ -88,7 +88,7 @@ const Navbar = () => {
             <div className="flex flex-col space-y-6 text-center">
               {[
                 { label: 'Services', href: '/#services' },
-                { label: 'Industries', href: '/industries/real-estate' },
+                { label: 'Industries', href: '/#industries' },
                 { label: 'ROI Calculator', href: '/roi-calculator' },
                 { label: 'Readiness Quiz', href: '/ai-readiness' },
                 { label: 'Blog', href: '/blog' }
