@@ -194,8 +194,6 @@ const ContactFooter = () => {
                                     <a href="/industries/real-estate" className="hover:text-[#00C8FF]">Real Estate AI</a>
                                     <a href="/industries/healthcare" className="hover:text-[#00C8FF]">Healthcare AI</a>
                                     <a href="/industries/ecommerce" className="hover:text-[#00C8FF]">E-Commerce AI</a>
-                                    <a href="/locations/mumbai" className="hover:text-[#00C8FF]">AI Agency Mumbai</a>
-                                    <a href="/locations/bangalore" className="hover:text-[#00C8FF]">AI Agency Bangalore</a>
                                     <a href="/roi-calculator" className="hover:text-[#00C8FF]">ROI Calculator</a>
                                 </div>
                             </div>

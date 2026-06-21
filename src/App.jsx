@@ -98,7 +98,7 @@ function App() {
         '@type': 'LocalBusiness',
         '@id': 'https://aiflowix.in/#localbusiness',
         'name': 'AIFLOWIX AI Automation',
-        'description': 'Leading AI & automation consultancy for business workflow optimization in Mumbai',
+        'description': 'Leading AI & automation consultancy for business workflow optimization worldwide.',
         'url': 'https://aiflowix.in',
         'telephone': '+91-9930744723',
         'priceRange': '$$'

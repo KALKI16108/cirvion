@@ -29,7 +29,7 @@ const CustomAiSoftware = () => {
             transition={{ delay: 0.2 }}
             className="text-lg md:text-2xl text-[#94A3B8] max-w-3xl mx-auto mb-12"
         >
-            As a leading <strong>AI software development company Mumbai</strong>, we specialize in <strong>custom AI software development India</strong>. We build the <strong>bespoke AI application development</strong> solutions and <strong>AI-powered business software Mumbai</strong> enterprises rely on to scale.
+            As a leading <strong>AI software development company</strong>, we specialize in <strong>custom AI software development</strong>. We build the <strong>bespoke AI application development</strong> solutions and <strong>AI-powered business software</strong> that modern enterprises rely on to scale.
         </motion.p>
       </section>
     </main>

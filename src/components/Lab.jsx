@@ -21,7 +21,7 @@ const Lab = () => {
               <span className="text-white">Automation Lab</span>
             </h1>
             <p className="text-[#94A3B8] text-base sm:text-lg md:text-xl max-w-3xl leading-relaxed font-light">
-              Watch real-time automation in action. Mumbai-first solutions that save time, maximize accuracy, and multiply ROI.
+              Watch real-time automation in action. Next-generation solutions that save time, maximize accuracy, and multiply ROI.
             </p>
             <p className="sr-only">
               Explore live automation demos and an interactive playground featuring Lead Qualifier, Invoice Reader, and Hinglish Parser tools. See real-time processing, efficiency metrics, and business outcomes powered by AI.
@@ -121,7 +121,7 @@ const AutomationShowcase = () => {
     {
       id: 1,
       title: 'Omni-Scraper',
-      description: 'Scraping local Mumbai property listings into a WhatsApp-ready database in seconds.',
+      description: 'Scraping real estate property listings into a WhatsApp-ready database in seconds.',
       metrics: { timeSaved: '95%', accuracy: '99.8%', roi: '10x' },
       icon: '📍',
     },
