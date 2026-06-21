@@ -13,13 +13,12 @@ export async function submitContactForm(data) {
 }
 
 export async function submitAuditRequest(data) {
-    const { error, data: responseData } = await supabase.functions.invoke('submit-audit-request', {
-        body: data
-    });
+    const { error, data: responseData } = await supabase
+        .from('audit_requests')
+        .insert([data]);
 
     if (error) throw error;
-    if (responseData?.error) throw new Error(responseData.error);
-    return true;
+    return responseData;
 }
 
 export async function submitRoiCalculation(data) {
