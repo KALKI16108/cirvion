@@ -187,10 +187,10 @@ const FreeAiAudit = () => {
                                             <label className="text-sm font-medium text-[#E2E8F0]">Monthly Revenue <span className="text-red-400">*</span></label>
                                             <select required name="monthlyRevenue" value={formData.monthlyRevenue} onChange={handleChange} className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00C8FF] transition-colors">
                                                 <option value="" disabled>Select...</option>
-                                                <option value="<₹8L">&lt;₹8L</option>
-                                                <option value="₹8L-₹40L">₹8L - ₹40L</option>
-                                                <option value="₹40L-₹1.5Cr">₹40L - ₹1.5Cr</option>
-                                                <option value="₹1.5Cr+">₹1.5Cr+</option>
+                                                <option value="<$10k">&lt;$10k</option>
+                                                <option value="$10k-$50k">$10k - $50k</option>
+                                                <option value="$50k-$200k">$50k - $200k</option>
+                                                <option value="$200k+">$200k+</option>
                                             </select>
                                         </div>
                                     </div>

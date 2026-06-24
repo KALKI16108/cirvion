@@ -275,10 +275,10 @@ const ContactFooter = () => {
                                                 <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Monthly Revenue <span className="text-red-400">*</span></label>
                                                 <select required name="monthlyRevenue" value={formData.monthlyRevenue} onChange={handleChange} className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all appearance-none">
                                                     <option value="" disabled>Select...</option>
-                                                    <option value="<₹8L">&lt;₹8L</option>
-                                                    <option value="₹8L-₹40L">₹8L - ₹40L</option>
-                                                    <option value="₹40L-₹1.5Cr">₹40L - ₹1.5Cr</option>
-                                                    <option value="₹1.5Cr+">₹1.5Cr+</option>
+                                                    <option value="<$10k">&lt;$10k</option>
+                                                    <option value="$10k-$50k">$10k - $50k</option>
+                                                    <option value="$50k-$200k">$50k - $200k</option>
+                                                    <option value="$200k+">$200k+</option>
                                                 </select>
                                             </div>
                                         </div>

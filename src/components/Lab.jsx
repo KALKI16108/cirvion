@@ -268,7 +268,7 @@ const AIPlayground = () => {
       mockResult: {
         vendor: 'MH-Electric',
         gst: '27AABCM5678K1Z0',
-        total: '₹14,500',
+        total: '$145.00',
         items: 3,
       },
     },
