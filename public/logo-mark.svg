@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <defs>
+    <linearGradient id="afMarkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F0FF"/>
+      <stop offset="50%" stop-color="#00C8FF"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- AIFlowix Geometric Brand Symbol: AI + Flow + Connectivity + Automation -->
+  <path d="M 14 52 L 30.5 11.5 C 31.2 9.8 32.8 9.8 33.5 11.5 L 50 52" 
+        stroke="url(#afMarkGrad)" 
+        stroke-width="7.5" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+
+  <path d="M 21.5 35 L 36.5 35 M 32.5 29.5 L 38.5 35 L 32.5 40.5" 
+        stroke="url(#afMarkGrad)" 
+        stroke-width="6.5" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+</svg>

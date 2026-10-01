@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 216 48" width="216" height="48" fill="none">
+  <defs>
+    <!-- Brand Primary Gradient -->
+    <linearGradient id="afSymbolGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F0FF"/>
+      <stop offset="50%" stop-color="#00C8FF"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="afWordCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F0FF"/>
+      <stop offset="100%" stop-color="#00C8FF"/>
+    </linearGradient>
+  </defs>
+
+  <!-- AIFlowix Symbol Mark -->
+  <g transform="translate(4, 3) scale(0.65)">
+    <!-- Main A-Frame Flow Ribbon -->
+    <path d="M 14 52 L 30.5 11.5 C 31.2 9.8 32.8 9.8 33.5 11.5 L 50 52" 
+          stroke="url(#afSymbolGrad)" 
+          stroke-width="7" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+
+    <!-- Automation Crossbar & Forward Chevron Arrow -->
+    <path d="M 21.5 35 L 36.5 35 M 32.5 29.5 L 38.5 35 L 32.5 40.5" 
+          stroke="url(#afSymbolGrad)" 
+          stroke-width="6" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+  </g>
+
+  <!-- Wordmark: AIFlowix -->
+  <text x="52" y="32.5" 
+        font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Outfit', 'Inter', 'Segoe UI', Roboto, sans-serif" 
+        font-size="25" 
+        letter-spacing="-0.5px">
+    <tspan fill="url(#afWordCyan)" font-weight="800">AI</tspan><tspan fill="#FFFFFF" font-weight="700">Flow</tspan><tspan fill="url(#afWordCyan)" font-weight="800">ix</tspan>
+  </text>
+</svg>
