@@ -53,6 +53,7 @@ const ReadinessAssessment = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (isSubmitting) return;
         setIsSubmitting(true);
         try {
             // Calculate a basic score: 0 to 100 based on answers
@@ -67,13 +68,14 @@ const ReadinessAssessment = () => {
                 name: formData.name,
                 email: formData.email,
                 score,
-                recommendation: 'Based on your answers, your business has significant operational bottlenecks that AI can fix immediately.'
+                recommendation: 'Based on your answers, your business has significant operational bottlenecks that AI can fix immediately.',
+                answers: Object.entries(answers).map(([idx, ans]) => `Q${Number(idx) + 1}: ${ans}`).join(' | ')
             });
             toast.success("Assessment submitted! We'll review and get back to you.");
             setSubmitted(true);
         } catch (error) {
             console.error('Error submitting assessment:', error);
-            toast.error('Something went wrong. Please try again.');
+            toast.error(error?.message || 'Something went wrong. Please try again.');
         } finally {
             setIsSubmitting(false);
         }

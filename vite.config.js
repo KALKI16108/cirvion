@@ -80,53 +80,12 @@ export default defineConfig({
     chunkSizeWarningLimit: 500,
   },
   server: {
-    // Security headers for development server
-    middlewares: [],
-    headers: {
-      // ========== CLICKJACKING PROTECTION ==========
-      'X-Frame-Options': 'DENY',
-      
-      // ========== MIME-TYPE SNIFFING PREVENTION ==========
-      'X-Content-Type-Options': 'nosniff',
-      
-      // ========== XSS PROTECTION (Legacy browser support) ==========
-      'X-XSS-Protection': '1; mode=block',
-      
-      // ========== HTTPS ENFORCEMENT ==========
-      'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload',
-      
-      // ========== REFERRER POLICY ==========
-      'Referrer-Policy': 'strict-origin-when-cross-origin',
-      
-      // ========== PERMISSIONS POLICY - Disable unused browser features ==========
-      'Permissions-Policy': 'geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), vr=(), xr-spatial-tracking=(), fullscreen=(self)',
-      
-      // ========== CONTENT SECURITY POLICY ==========
-      'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://api.web3forms.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.web3forms.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests",
-      
-      // ========== DNS SECURITY ==========
-      'X-DNS-Prefetch-Control': 'off',
-      
-      // ========== CROSS-ORIGIN PROTECTION ==========
-      'Cross-Origin-Embedder-Policy': 'require-corp',
-      'Cross-Origin-Opener-Policy': 'same-origin',
-      'Cross-Origin-Resource-Policy': 'cross-origin',
-    }
+    host: '0.0.0.0',
+    port: 3000,
+    allowedHosts: true,
   },
   preview: {
-    // Security headers for preview server
-    headers: {
-      'X-Frame-Options': 'DENY',
-      'X-Content-Type-Options': 'nosniff',
-      'X-XSS-Protection': '1; mode=block',
-      'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload',
-      'Referrer-Policy': 'strict-origin-when-cross-origin',
-      'Permissions-Policy': 'geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), vr=(), xr-spatial-tracking=(), fullscreen=(self)',
-      'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://api.web3forms.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.web3forms.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests",
-      'X-DNS-Prefetch-Control': 'off',
-      'Cross-Origin-Embedder-Policy': 'require-corp',
-      'Cross-Origin-Opener-Policy': 'same-origin',
-      'Cross-Origin-Resource-Policy': 'cross-origin',
-    }
+    host: '0.0.0.0',
+    port: 3000,
   }
 })

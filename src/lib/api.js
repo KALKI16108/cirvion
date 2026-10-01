@@ -1,62 +1,135 @@
 import { supabase } from './supabase';
+import staticBlogs from '../data/blogs.json';
+import { submitToWeb3Forms } from './web3forms';
 
 // --- FORM SUBMISSIONS ---
 
 export async function submitContactForm(data) {
-    const { error, data: responseData } = await supabase.functions.invoke('submit-contact', {
-        body: data
-    });
+    const payload = {
+        subject: data.subject || 'New Contact Form Submission - AIFlowix',
+        source: data.source || 'AIFlowix Website',
+        form_type: 'Contact Form',
+        name: data.name,
+        email: data.email,
+        phone: data.phone || 'N/A',
+        company: data.company || 'N/A',
+        service: data.service || 'General Inquiry',
+        message: data.message || '',
+        ...data
+    };
 
-    if (error) throw error;
-    if (responseData?.error) throw new Error(responseData.error);
-    return true;
+    const result = await submitToWeb3Forms(payload);
+
+    // Optional backup to Supabase
+    try {
+        await supabase.functions.invoke('submit-contact', { body: data });
+    } catch {
+        // Safe to ignore if Supabase is offline
+    }
+
+    return result;
 }
 
 export async function submitAuditRequest(data) {
-    const { error, data: responseData } = await supabase
-        .from('audit_requests')
-        .insert([data]);
+    const payload = {
+        subject: 'New AIFlowix Free Audit Request',
+        source: data.source || 'AIFlowix Website',
+        form_type: 'Free Audit',
+        name: data.name,
+        email: data.email,
+        company: data.company,
+        website: data.website || 'Not provided',
+        team_size: data.teamSize || data.team_size || 'N/A',
+        monthly_revenue: data.monthlyRevenue || data.monthly_revenue || 'N/A',
+        biggest_bottleneck: data.painPoints || data.biggest_bottleneck || data.bottleneck || 'N/A',
+        ...data
+    };
 
-    if (error) throw error;
-    return responseData;
+    const result = await submitToWeb3Forms(payload);
+
+    // Optional backup to Supabase
+    try {
+        await supabase.from('audit_requests').insert([data]);
+    } catch {
+        // Safe to ignore if Supabase is offline
+    }
+
+    return result;
 }
 
 export async function submitRoiCalculation(data) {
-    const { error, data: responseData } = await supabase.functions.invoke('submit-roi-calculation', {
-        body: data
-    });
+    const payload = {
+        subject: 'New AIFlowix ROI Report Request',
+        source: 'AIFlowix Website',
+        form_type: 'ROI Calculator',
+        name: data.name,
+        email: data.email,
+        employees: data.employees,
+        hours_per_week: data.hoursPerWeek,
+        hourly_cost: data.hourlyCost,
+        monthly_cost: data.monthlyCost,
+        estimated_savings: data.estimatedSavings,
+        estimated_roi: data.estimatedRoi ? `${Math.round(data.estimatedRoi)}%` : 'N/A',
+        ...data
+    };
 
-    if (error) throw error;
-    if (responseData?.error) throw new Error(responseData.error);
-    return true;
+    const result = await submitToWeb3Forms(payload);
+
+    // Optional backup to Supabase
+    try {
+        await supabase.functions.invoke('submit-roi-calculation', { body: data });
+    } catch {
+        // Safe to ignore if Supabase is offline
+    }
+
+    return result;
 }
 
 export async function submitReadinessAssessment(data) {
-    const { error, data: responseData } = await supabase.functions.invoke('submit-readiness-assessment', {
-        body: data
-    });
+    const payload = {
+        subject: 'New AIFlowix Readiness Assessment Submission',
+        source: 'AIFlowix Website',
+        form_type: 'AI Readiness Assessment',
+        name: data.name,
+        email: data.email,
+        score: data.score !== undefined ? `${data.score}/100` : 'N/A',
+        recommendation: data.recommendation || '',
+        answers: data.answers || '',
+        ...data
+    };
 
-    if (error) throw error;
-    if (responseData?.error) throw new Error(responseData.error);
-    return true;
+    const result = await submitToWeb3Forms(payload);
+
+    // Optional backup to Supabase
+    try {
+        await supabase.functions.invoke('submit-readiness-assessment', { body: data });
+    } catch {
+        // Safe to ignore if Supabase is offline
+    }
+
+    return result;
 }
 
 // --- ADMIN API FUNCTIONS ---
 
 export async function getLeads() {
-    const { data, error } = await supabase
-        .from('leads')
-        .select(`
-            *,
-            contact_messages (count),
-            audit_requests (count),
-            roi_calculations (count),
-            readiness_assessments (count)
-        `)
-        .order('created_at', { ascending: false });
-        
-    if (error) throw error;
-    return data;
+    try {
+        const { data, error } = await supabase
+            .from('leads')
+            .select(`
+                *,
+                contact_messages (count),
+                audit_requests (count),
+                roi_calculations (count),
+                readiness_assessments (count)
+            `)
+            .order('created_at', { ascending: false });
+            
+        if (error) return [];
+        return data || [];
+    } catch {
+        return [];
+    }
 }
 
 export async function updateLeadStatus(id, status) {
@@ -78,21 +151,25 @@ export async function updateLeadNotes(id, notes) {
 }
 
 export async function getDashboardStats() {
-    // A simple aggregated stat fetch
-    const { count: leadsCount, error: leadsError } = await supabase
-        .from('leads')
-        .select('*', { count: 'exact', head: true });
-        
-    const { count: auditCount } = await supabase
-        .from('audit_requests')
-        .select('*', { count: 'exact', head: true });
+    try {
+        const { count: leadsCount } = await supabase
+            .from('leads')
+            .select('*', { count: 'exact', head: true });
+            
+        const { count: auditCount } = await supabase
+            .from('audit_requests')
+            .select('*', { count: 'exact', head: true });
 
-    if (leadsError) throw leadsError;
-
-    return {
-        totalLeads: leadsCount || 0,
-        totalAudits: auditCount || 0
-    };
+        return {
+            totalLeads: leadsCount || 0,
+            totalAudits: auditCount || 0
+        };
+    } catch {
+        return {
+            totalLeads: 0,
+            totalAudits: 0
+        };
+    }
 }
 
 // --- AUTH FUNCTIONS ---
@@ -104,37 +181,55 @@ export async function loginAdmin(email, password) {
 }
 
 export async function logoutAdmin() {
-    const { error } = await supabase.auth.signOut();
-    if (error) throw error;
+    try {
+        const { error } = await supabase.auth.signOut();
+        if (error) throw error;
+    } catch (err) {
+        console.warn('Sign out warning:', err);
+    }
 }
 
 export async function getSession() {
-    const { data, error } = await supabase.auth.getSession();
-    if (error) throw error;
-    return data.session;
+    try {
+        const { data, error } = await supabase.auth.getSession();
+        if (error) return null;
+        return data?.session || null;
+    } catch {
+        return null;
+    }
 }
 
 // --- BLOG CMS FUNCTIONS ---
 
 export async function getBlogs() {
-    const { data, error } = await supabase
-        .from('blog_posts')
-        .select('*')
-        .order('created_at', { ascending: false });
-        
-    if (error) throw error;
-    return data;
+    try {
+        const { data, error } = await supabase
+            .from('blog_posts')
+            .select('*')
+            .order('created_at', { ascending: false });
+            
+        if (error || !data || data.length === 0) return staticBlogs;
+        return data;
+    } catch {
+        return staticBlogs;
+    }
 }
 
 export async function getBlogBySlug(slug) {
-    const { data, error } = await supabase
-        .from('blog_posts')
-        .select('*')
-        .eq('slug', slug)
-        .single();
-        
-    if (error) throw error;
-    return data;
+    try {
+        const { data, error } = await supabase
+            .from('blog_posts')
+            .select('*')
+            .eq('slug', slug)
+            .single();
+            
+        if (error || !data) {
+            return staticBlogs.find(b => b.slug === slug) || null;
+        }
+        return data;
+    } catch {
+        return staticBlogs.find(b => b.slug === slug) || null;
+    }
 }
 
 export async function createBlog(blogData) {

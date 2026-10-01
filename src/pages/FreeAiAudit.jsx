@@ -39,14 +39,19 @@ const FreeAiAudit = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (isSubmitting) return;
         setIsSubmitting(true);
         try {
-            await submitAuditRequest(formData);
+            await submitAuditRequest({
+                ...formData,
+                source: 'AIFlowix Website (Free Audit Page)',
+                form_type: 'Free Audit'
+            });
             toast.success("Audit request sent! We'll be in touch shortly.");
             setSubmitted(true);
         } catch (error) {
             console.error('Error submitting audit:', error);
-            toast.error('Something went wrong. Please try again.');
+            toast.error(error?.message || 'Something went wrong. Please try again.');
         } finally {
             setIsSubmitting(false);
         }

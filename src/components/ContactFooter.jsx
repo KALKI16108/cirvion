@@ -1,7 +1,7 @@
 import React, { useState, lazy, Suspense } from 'react';
-import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Send, CheckCircle2 } from 'lucide-react';
 import toast from 'react-hot-toast';
-import { submitContactForm } from '../lib/api';
+import { submitAuditRequest } from '../lib/api';
 
 // Lazy-load modal components to reduce initial bundle size (performance optimization)
 const PrivacyPolicy = lazy(() => import('./PrivacyPolicy'));
@@ -48,6 +48,7 @@ const ContactFooter = () => {
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -61,6 +62,8 @@ const ContactFooter = () => {
 
     const handleNext = (e) => {
         e.preventDefault();
+        setSubmitStatus('');
+        setErrorMessage('');
         if (!sanitizeInput(formData.name) || formData.name.length < 2) {
             toast.error('Please enter a valid name.');
             return;
@@ -76,24 +79,70 @@ const ContactFooter = () => {
         setStep(2);
     };
 
-    const handleBack = () => setStep(1);
+    const handleBack = () => {
+        setSubmitStatus('');
+        setErrorMessage('');
+        setStep(1);
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setIsSubmitting(true);
-        setSubmitStatus('');
+        if (isSubmitting) return; // Prevent double submit
 
-        if (!sanitizeInput(formData.painPoints) || formData.painPoints.length < 5) {
-            setSubmitStatus('error');
-            toast.error('Please describe your bottlenecks.');
-            setIsSubmitting(false);
+        // Verify Step 1 fields are retained
+        if (!sanitizeInput(formData.name) || formData.name.length < 2) {
+            toast.error('Please provide your name.');
+            setStep(1);
+            return;
+        }
+        if (!validateEmail(formData.email)) {
+            toast.error('Please provide a valid work email.');
+            setStep(1);
+            return;
+        }
+        if (!sanitizeInput(formData.company) || formData.company.length < 2) {
+            toast.error('Please provide your company name.');
+            setStep(1);
             return;
         }
 
+        // Verify Step 2 fields
+        if (!formData.teamSize) {
+            toast.error('Please select your team size.');
+            return;
+        }
+        if (!formData.monthlyRevenue) {
+            toast.error('Please select your monthly revenue range.');
+            return;
+        }
+        if (!sanitizeInput(formData.painPoints) || formData.painPoints.length < 5) {
+            setSubmitStatus('error');
+            const msg = 'Please describe your biggest bottlenecks (at least 5 characters).';
+            setErrorMessage(msg);
+            toast.error(msg);
+            return;
+        }
+
+        setIsSubmitting(true);
+        setSubmitStatus('');
+        setErrorMessage('');
+
         try {
-            // Import dynamically to avoid top-level import errors if we change api.js
-            const { submitAuditRequest } = await import('../lib/api');
-            await submitAuditRequest(formData);
+            // Combine all fields from Step 1 and Step 2 into Web3Forms payload
+            await submitAuditRequest({
+                name: formData.name,
+                email: formData.email,
+                company: formData.company,
+                website: formData.website || 'Not provided',
+                team_size: formData.teamSize,
+                teamSize: formData.teamSize,
+                monthly_revenue: formData.monthlyRevenue,
+                monthlyRevenue: formData.monthlyRevenue,
+                biggest_bottleneck: formData.painPoints,
+                painPoints: formData.painPoints,
+                source: 'AIFlowix Website (Contact Section)',
+                form_type: 'Free Audit'
+            });
 
             setSubmitStatus('success');
             setFormData({ name: '', email: '', company: '', website: '', teamSize: '', monthlyRevenue: '', painPoints: '' });
@@ -102,7 +151,9 @@ const ContactFooter = () => {
         } catch (error) {
             console.error('Form submission error:', error);
             setSubmitStatus('error');
-            toast.error('Oops! Something went wrong. Please try again.');
+            const friendlyErr = error?.message || 'Unable to submit your request. Please try again.';
+            setErrorMessage(friendlyErr);
+            toast.error(friendlyErr);
         } finally {
             setIsSubmitting(false);
         }
@@ -220,84 +271,109 @@ const ContactFooter = () => {
                             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1 sm:mb-2">Request Free Audit</h2>
                             <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base mb-6">Find out exactly where your business is bleeding time and money.</p>
 
-                            <div className="mb-6">
-                                <div className="flex justify-between items-center mb-2">
-                                    <span className="text-[10px] sm:text-xs font-medium text-[#94A3B8] uppercase">Step {step} of 2</span>
-                                    <span className="text-[10px] sm:text-xs font-medium text-[#00C8FF] uppercase">{step === 1 ? 'Contact Info' : 'Business Details'}</span>
+                            {submitStatus === 'success' ? (
+                                <div className="text-center py-8 sm:py-12 animate-in fade-in duration-300">
+                                    <div className="w-16 h-16 rounded-full bg-[#10B981]/10 border border-[#10B981]/20 flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                                        <CheckCircle2 className="w-8 h-8 text-[#10B981]" />
+                                    </div>
+                                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Audit Request Received!</h3>
+                                    <p className="text-[#94A3B8] text-sm max-w-sm mx-auto mb-6">We'll review your details and reach out within 24 hours to schedule your free audit.</p>
+                                    <button
+                                        type="button"
+                                        onClick={() => setSubmitStatus('')}
+                                        className="text-xs sm:text-sm text-[#00C8FF] hover:underline transition-colors"
+                                    >
+                                        Submit another request
+                                    </button>
                                 </div>
-                                <div className="w-full bg-[#0F172A] rounded-full h-1.5">
-                                    <div className={`bg-[#00C8FF] h-1.5 rounded-full transition-all duration-500 ${step === 1 ? 'w-1/2' : 'w-full'}`}></div>
-                                </div>
-                            </div>
+                            ) : (
+                                <>
+                                    <div className="mb-6">
+                                        <div className="flex justify-between items-center mb-2">
+                                            <span className="text-[10px] sm:text-xs font-medium text-[#94A3B8] uppercase">Step {step} of 2</span>
+                                            <span className="text-[10px] sm:text-xs font-medium text-[#00C8FF] uppercase">{step === 1 ? 'Contact Info' : 'Business Details'}</span>
+                                        </div>
+                                        <div className="w-full bg-[#0F172A] rounded-full h-1.5">
+                                            <div className={`bg-[#00C8FF] h-1.5 rounded-full transition-all duration-500 ${step === 1 ? 'w-1/2' : 'w-full'}`}></div>
+                                        </div>
+                                    </div>
 
-                            <form className="space-y-4 sm:space-y-6" onSubmit={step === 1 ? handleNext : handleSubmit}>
-                                {step === 1 ? (
-                                    <div className="space-y-4 sm:space-y-6 animate-in fade-in slide-in-from-left-4 duration-300">
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                            <div className="group">
-                                                <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Name <span className="text-red-400">*</span></label>
-                                                <input type="text" name="name" value={formData.name} onChange={handleChange} required placeholder="John Doe" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all" />
-                                            </div>
-                                            <div className="group">
-                                                <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Work Email <span className="text-red-400">*</span></label>
-                                                <input type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="john@company.com" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all" />
-                                            </div>
+                                    {submitStatus === 'error' && errorMessage && (
+                                        <div className="p-3 mb-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-xs sm:text-sm">
+                                            {errorMessage}
                                         </div>
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                            <div className="group">
-                                                <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Company Name <span className="text-red-400">*</span></label>
-                                                <input type="text" name="company" value={formData.company} onChange={handleChange} required placeholder="Acme Corp" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all" />
+                                    )}
+
+                                    <form className="space-y-4 sm:space-y-6" onSubmit={step === 1 ? handleNext : handleSubmit}>
+                                        {step === 1 ? (
+                                            <div className="space-y-4 sm:space-y-6 animate-in fade-in slide-in-from-left-4 duration-300">
+                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                                    <div className="group">
+                                                        <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Name <span className="text-red-400">*</span></label>
+                                                        <input type="text" name="name" value={formData.name} onChange={handleChange} required placeholder="John Doe" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all" />
+                                                    </div>
+                                                    <div className="group">
+                                                        <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Work Email <span className="text-red-400">*</span></label>
+                                                        <input type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="john@company.com" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all" />
+                                                    </div>
+                                                </div>
+                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                                    <div className="group">
+                                                        <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Company Name <span className="text-red-400">*</span></label>
+                                                        <input type="text" name="company" value={formData.company} onChange={handleChange} required placeholder="Acme Corp" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all" />
+                                                    </div>
+                                                    <div className="group">
+                                                        <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Website</label>
+                                                        <input type="url" name="website" value={formData.website} onChange={handleChange} placeholder="https://company.com" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all" />
+                                                    </div>
+                                                </div>
+                                                <button type="submit" className="w-full bg-gradient-to-r from-[#00C8FF] to-[#3B82F6] text-white font-bold py-3 sm:py-4 rounded-xl hover:shadow-[0_0_30px_rgba(0,200,255,0.4)] transition-all flex items-center justify-center gap-2 group">
+                                                    Next Step
+                                                    <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                                </button>
                                             </div>
-                                            <div className="group">
-                                                <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Website</label>
-                                                <input type="url" name="website" value={formData.website} onChange={handleChange} placeholder="https://company.com" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all" />
+                                        ) : (
+                                            <div className="space-y-4 sm:space-y-6 animate-in fade-in slide-in-from-right-4 duration-300">
+                                                <div className="grid grid-cols-2 gap-4">
+                                                    <div className="group">
+                                                        <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Team Size <span className="text-red-400">*</span></label>
+                                                        <select required name="teamSize" value={formData.teamSize} onChange={handleChange} className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all appearance-none">
+                                                            <option value="" disabled>Select...</option>
+                                                            <option value="1-10">1-10</option>
+                                                            <option value="11-50">11-50</option>
+                                                            <option value="51-200">51-200</option>
+                                                            <option value="200+">200+</option>
+                                                        </select>
+                                                    </div>
+                                                    <div className="group">
+                                                        <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Monthly Revenue <span className="text-red-400">*</span></label>
+                                                        <select required name="monthlyRevenue" value={formData.monthlyRevenue} onChange={handleChange} className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all appearance-none">
+                                                            <option value="" disabled>Select...</option>
+                                                            <option value="<$10k">&lt;$10k</option>
+                                                            <option value="$10k-$50k">$10k - $50k</option>
+                                                            <option value="$50k-$200k">$50k - $200k</option>
+                                                            <option value="$200k+">$200k+</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div className="group">
+                                                    <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Biggest Bottleneck <span className="text-red-400">*</span></label>
+                                                    <textarea required name="painPoints" value={formData.painPoints} onChange={handleChange} placeholder="E.g., We spend 20 hours a week on manual data entry..." rows="3" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all resize-none"></textarea>
+                                                </div>
+                                                <div className="flex gap-3">
+                                                    <button type="button" onClick={handleBack} className="w-1/3 bg-transparent border border-white/20 text-white font-medium py-3 sm:py-4 rounded-xl hover:bg-white/5 transition-colors">
+                                                        Back
+                                                    </button>
+                                                    <button type="submit" disabled={isSubmitting} className="w-2/3 bg-gradient-to-r from-[#00C8FF] to-[#3B82F6] text-white font-bold py-3 sm:py-4 rounded-xl hover:shadow-[0_0_30px_rgba(0,200,255,0.4)] transition-all flex items-center justify-center gap-2 disabled:opacity-50">
+                                                        {isSubmitting ? 'Sending...' : 'Get Free Audit'}
+                                                        <Send className="w-4 h-4" />
+                                                    </button>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <button type="submit" className="w-full bg-gradient-to-r from-[#00C8FF] to-[#3B82F6] text-white font-bold py-3 sm:py-4 rounded-xl hover:shadow-[0_0_30px_rgba(0,200,255,0.4)] transition-all flex items-center justify-center gap-2 group">
-                                            Next Step
-                                            <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                        </button>
-                                    </div>
-                                ) : (
-                                    <div className="space-y-4 sm:space-y-6 animate-in fade-in slide-in-from-right-4 duration-300">
-                                        <div className="grid grid-cols-2 gap-4">
-                                            <div className="group">
-                                                <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Team Size <span className="text-red-400">*</span></label>
-                                                <select required name="teamSize" value={formData.teamSize} onChange={handleChange} className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all appearance-none">
-                                                    <option value="" disabled>Select...</option>
-                                                    <option value="1-10">1-10</option>
-                                                    <option value="11-50">11-50</option>
-                                                    <option value="51-200">51-200</option>
-                                                    <option value="200+">200+</option>
-                                                </select>
-                                            </div>
-                                            <div className="group">
-                                                <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Monthly Revenue <span className="text-red-400">*</span></label>
-                                                <select required name="monthlyRevenue" value={formData.monthlyRevenue} onChange={handleChange} className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all appearance-none">
-                                                    <option value="" disabled>Select...</option>
-                                                    <option value="<$10k">&lt;$10k</option>
-                                                    <option value="$10k-$50k">$10k - $50k</option>
-                                                    <option value="$50k-$200k">$50k - $200k</option>
-                                                    <option value="$200k+">$200k+</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div className="group">
-                                            <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Biggest Bottleneck <span className="text-red-400">*</span></label>
-                                            <textarea required name="painPoints" value={formData.painPoints} onChange={handleChange} placeholder="E.g., We spend 20 hours a week on manual data entry..." rows="3" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all resize-none"></textarea>
-                                        </div>
-                                        <div className="flex gap-3">
-                                            <button type="button" onClick={handleBack} className="w-1/3 bg-transparent border border-white/20 text-white font-medium py-3 sm:py-4 rounded-xl hover:bg-white/5 transition-colors">
-                                                Back
-                                            </button>
-                                            <button type="submit" disabled={isSubmitting} className="w-2/3 bg-gradient-to-r from-[#00C8FF] to-[#3B82F6] text-white font-bold py-3 sm:py-4 rounded-xl hover:shadow-[0_0_30px_rgba(0,200,255,0.4)] transition-all flex items-center justify-center gap-2 disabled:opacity-50">
-                                                {isSubmitting ? 'Sending...' : 'Get Free Audit'}
-                                                <Send className="w-4 h-4" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                )}
-                            </form>
+                                        )}
+                                    </form>
+                                </>
+                            )}
                         </div>
                     </div>
 

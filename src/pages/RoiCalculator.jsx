@@ -22,6 +22,7 @@ const RoiCalculator = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (isSubmitting) return;
         setIsSubmitting(true);
         try {
             await submitRoiCalculation({
@@ -38,7 +39,7 @@ const RoiCalculator = () => {
             setSubmitted(true);
         } catch (error) {
             console.error('Error submitting ROI:', error);
-            toast.error('Something went wrong. Please try again.');
+            toast.error(error?.message || 'Something went wrong. Please try again.');
         } finally {
             setIsSubmitting(false);
         }

@@ -4,14 +4,17 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build && node -e \"require('fs').copyFileSync('dist/index.html', 'dist/404.html')\"",
+    "dev": "vite --host 0.0.0.0 --port 3000",
+    "build": "vite build && node -e \"import('node:fs').then(fs => fs.copyFileSync('dist/index.html', 'dist/404.html'))\"",
     "lint": "eslint .",
     "preview": "vite preview",
     "lighthouse": "npx --yes lighthouse http://localhost:5173 --output html --output-path ./lighthouse-report.html --chrome-flags='--headless --no-sandbox --disable-dev-shm-usage'",
     "generate:favicons": "node scripts/generate-favicons.js",
     "prebuild": "node generate-llms-full.js",
     "postbuild": "node generate-sitemap.js"
+  },
+  "overrides": {
+    "baseline-browser-mapping": "2.11.26"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.108.1",

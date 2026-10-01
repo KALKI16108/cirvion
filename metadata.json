@@ -1,0 +1,8 @@
+{
+  "name": "AIFlowix",
+  "description": "AI Workflow Automation, Web Development & Custom Software",
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ],
+  "permissions": []
+}
