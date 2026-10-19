@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { FileText, CheckCircle2, ArrowRight, ArrowLeft } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
 import { submitAuditRequest } from '../lib/api';
+import { validateEmail } from '../security';
 import toast from 'react-hot-toast';
 
 const FreeAiAudit = () => {
@@ -12,11 +13,11 @@ const FreeAiAudit = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        company: '',
+        company_name: '',
         website: '',
-        teamSize: '',
-        monthlyRevenue: '',
-        painPoints: ''
+        team_size: '',
+        monthly_revenue: '',
+        biggest_bottleneck: ''
     });
 
     const handleChange = (e) => {
@@ -24,10 +25,21 @@ const FreeAiAudit = () => {
     };
 
     const handleNext = (e) => {
-        e.preventDefault();
-        // Basic validation for step 1
-        if (!formData.name || !formData.email || !formData.company) {
-            toast.error('Please fill in your name, email, and company.');
+        if (e && e.preventDefault) e.preventDefault();
+        const name = (formData.name || '').trim();
+        const email = (formData.email || '').trim();
+        const companyName = (formData.company_name || '').trim();
+
+        if (!name) {
+            toast.error('Please enter your name.');
+            return;
+        }
+        if (!email || !validateEmail(email)) {
+            toast.error('Please enter a valid work email address.');
+            return;
+        }
+        if (!companyName) {
+            toast.error('Please enter your company name.');
             return;
         }
         setStep(2);
@@ -40,15 +52,71 @@ const FreeAiAudit = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (isSubmitting) return;
+
+        const name = (formData.name || '').trim();
+        const email = (formData.email || '').trim();
+        const companyName = (formData.company_name || '').trim();
+        const website = (formData.website || '').trim();
+        const teamSize = (formData.team_size || '').trim();
+        const monthlyRevenue = (formData.monthly_revenue || '').trim();
+        const biggestBottleneck = (formData.biggest_bottleneck || '').trim();
+
+        // Validate Step 1 fields
+        if (!name) {
+            toast.error('Please enter your name.');
+            setStep(1);
+            return;
+        }
+        if (!email || !validateEmail(email)) {
+            toast.error('Please enter a valid work email address.');
+            setStep(1);
+            return;
+        }
+        if (!companyName) {
+            toast.error('Please enter your company name.');
+            setStep(1);
+            return;
+        }
+
+        // Validate Step 2 dropdowns and textarea
+        if (!teamSize || teamSize === 'Select...') {
+            toast.error('Please select your team size.');
+            return;
+        }
+        if (!monthlyRevenue || monthlyRevenue === 'Select...') {
+            toast.error('Please select your monthly revenue.');
+            return;
+        }
+        if (!biggestBottleneck) {
+            toast.error('Please describe your biggest bottleneck.');
+            return;
+        }
+
         setIsSubmitting(true);
         try {
             await submitAuditRequest({
-                ...formData,
-                source: 'AIFlowix Website (Free Audit Page)',
+                name,
+                email,
+                company_name: companyName,
+                website,
+                team_size: teamSize,
+                monthly_revenue: monthlyRevenue,
+                biggest_bottleneck: biggestBottleneck,
+                source: 'AIFlowix Website',
                 form_type: 'Free Audit'
             });
             toast.success("Audit request sent! We'll be in touch shortly.");
             setSubmitted(true);
+            setFormData({
+                name: '',
+                email: '',
+                company_name: '',
+                website: '',
+                team_size: '',
+                monthly_revenue: '',
+                biggest_bottleneck: ''
+            });
+            setStep(1);
         } catch (error) {
             console.error('Error submitting audit:', error);
             toast.error(error?.message || 'Something went wrong. Please try again.');
@@ -151,6 +219,8 @@ const FreeAiAudit = () => {
                         </div>
 
                         <form onSubmit={step === 1 ? handleNext : handleSubmit} className="space-y-6">
+                            {/* Web3Forms Honeypot for spam prevention */}
+                            <input type="checkbox" name="botcheck" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
                             {step === 1 && (
                                 <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="space-y-6">
                                     <div className="space-y-2">
@@ -163,7 +233,7 @@ const FreeAiAudit = () => {
                                     </div>
                                     <div className="space-y-2">
                                         <label className="text-sm font-medium text-[#E2E8F0]">Company Name <span className="text-red-400">*</span></label>
-                                        <input required type="text" name="company" value={formData.company} onChange={handleChange} className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00C8FF] transition-colors" placeholder="Acme Corp" />
+                                        <input required type="text" name="company_name" value={formData.company_name} onChange={handleChange} className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00C8FF] transition-colors" placeholder="Acme Corp" />
                                     </div>
                                     <div className="space-y-2">
                                         <label className="text-sm font-medium text-[#E2E8F0]">Company Website</label>
@@ -180,7 +250,7 @@ const FreeAiAudit = () => {
                                     <div className="grid grid-cols-2 gap-4">
                                         <div className="space-y-2">
                                             <label className="text-sm font-medium text-[#E2E8F0]">Team Size <span className="text-red-400">*</span></label>
-                                            <select required name="teamSize" value={formData.teamSize} onChange={handleChange} className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00C8FF] transition-colors">
+                                            <select required name="team_size" value={formData.team_size} onChange={handleChange} className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00C8FF] transition-colors">
                                                 <option value="" disabled>Select...</option>
                                                 <option value="1-10">1-10</option>
                                                 <option value="11-50">11-50</option>
@@ -190,7 +260,7 @@ const FreeAiAudit = () => {
                                         </div>
                                         <div className="space-y-2">
                                             <label className="text-sm font-medium text-[#E2E8F0]">Monthly Revenue <span className="text-red-400">*</span></label>
-                                            <select required name="monthlyRevenue" value={formData.monthlyRevenue} onChange={handleChange} className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00C8FF] transition-colors">
+                                            <select required name="monthly_revenue" value={formData.monthly_revenue} onChange={handleChange} className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00C8FF] transition-colors">
                                                 <option value="" disabled>Select...</option>
                                                 <option value="<$10k">&lt;$10k</option>
                                                 <option value="$10k-$50k">$10k - $50k</option>
@@ -201,7 +271,7 @@ const FreeAiAudit = () => {
                                     </div>
                                     <div className="space-y-2">
                                         <label className="text-sm font-medium text-[#E2E8F0]">Biggest Bottleneck <span className="text-red-400">*</span></label>
-                                        <textarea required name="painPoints" value={formData.painPoints} onChange={handleChange} className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00C8FF] transition-colors h-32 resize-none" placeholder="E.g., We spend 20 hours a week on manual data entry..."></textarea>
+                                        <textarea required name="biggest_bottleneck" value={formData.biggest_bottleneck} onChange={handleChange} className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00C8FF] transition-colors h-32 resize-none" placeholder="E.g., We spend 20 hours a week on manual data entry..."></textarea>
                                     </div>
                                     
                                     <div className="flex gap-4">

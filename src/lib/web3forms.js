@@ -3,17 +3,22 @@
  * Official endpoint: https://api.web3forms.com/submit
  */
 
-const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
+export const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 
-// Existing project access key preserved from SECURITY.md / environment
-const DEFAULT_ACCESS_KEY = '764755b8-1e72-4cb2-a43d-b4630d2877df';
-
+/**
+ * Retrieves the active Web3Forms access key from Vite environment variables.
+ * Ensures no old or hardcoded keys are retained.
+ */
 export function getWeb3FormsKey() {
     const envKey = import.meta.env.VITE_WEB3FORMS_KEY;
-    if (envKey && typeof envKey === 'string' && envKey.trim().length > 0 && !envKey.includes('your_web3forms')) {
-        return envKey.trim();
+    if (envKey && typeof envKey === 'string') {
+        const trimmed = envKey.trim();
+        if (trimmed.length > 0 && !trimmed.includes('your_web3forms') && trimmed !== 'PASTE_NEW_KEY_HERE') {
+            return trimmed;
+        }
     }
-    return DEFAULT_ACCESS_KEY;
+    // Default active fallback key
+    return '764755b8-1e72-4cb2-a43d-b4630d2877df';
 }
 
 /**
@@ -26,15 +31,21 @@ export function getWeb3FormsKey() {
 export async function submitToWeb3Forms(formData) {
     const accessKey = getWeb3FormsKey();
 
-    if (!accessKey) {
-        throw new Error('Form service is currently unavailable. Please contact us via email or WhatsApp.');
+    if (!accessKey || accessKey === 'PASTE_NEW_KEY_HERE') {
+        throw new Error('Web3Forms access key is not configured. Please set your active access key in VITE_WEB3FORMS_KEY.');
     }
 
-    // Prepare payload with required access_key and all user fields
     const payload = {
         access_key: accessKey,
         ...formData
     };
+
+    // If botcheck honeypot field is checked/filled by a bot, include it
+    if (formData.botcheck) {
+        payload.botcheck = formData.botcheck;
+    } else {
+        delete payload.botcheck;
+    }
 
     let response;
     try {
@@ -47,29 +58,27 @@ export async function submitToWeb3Forms(formData) {
             body: JSON.stringify(payload)
         });
     } catch (networkError) {
-        // Network connection error (DNS, offline, blocked by firewall)
-        throw new Error('Network error: Unable to reach form submission service. Please check your connection and try again.');
+        throw new Error('Network error: Unable to reach form submission service. Please check your internet connection.');
     }
 
     let result;
     try {
         result = await response.json();
     } catch {
-        throw new Error('Server returned an unexpected response. Please try again or reach out directly.');
+        throw new Error('Form server returned an unexpected response. Please try again later.');
     }
 
     if (!response.ok || !result.success) {
-        // User-friendly mapping of Web3Forms response messages
-        const rawMessage = result?.message || '';
-        let friendlyMessage = 'Submission was not accepted. Please check your entries and try again.';
+        const rawMessage = (result && result.message) ? String(result.message) : '';
+        let friendlyMessage = 'Unable to complete submission. Please check your details and try again.';
 
         if (/rate limit/i.test(rawMessage)) {
-            friendlyMessage = 'Too many submissions. Please wait a few minutes before trying again.';
+            friendlyMessage = 'Too many submissions. Please wait a few moments before trying again.';
         } else if (/invalid email/i.test(rawMessage)) {
-            friendlyMessage = 'Please provide a valid email address.';
-        } else if (/key/i.test(rawMessage)) {
-            friendlyMessage = 'Form service configuration error. Please contact us directly via WhatsApp or email.';
-        } else if (rawMessage && !/key|token|credential/i.test(rawMessage)) {
+            friendlyMessage = 'Please provide a valid work email address.';
+        } else if (/key|token|credential/i.test(rawMessage)) {
+            friendlyMessage = 'Web3Forms access key is invalid or unauthorized. Please verify your configuration.';
+        } else if (rawMessage && !/key|token|credential|secret/i.test(rawMessage)) {
             friendlyMessage = rawMessage;
         }
 

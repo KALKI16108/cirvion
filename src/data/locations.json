@@ -203,5 +203,132 @@
         "result": "Resolved 85% of L1 tickets instantly worldwide."
       }
     ]
+  },
+  {
+    "slug": "usa",
+    "city": "United States",
+    "region": "North America",
+    "country": "United States",
+    "h1": "AI Automation & Custom Software Agency for US Businesses",
+    "description": "Enterprise-grade AI workflow automation, custom AI software development, and AI agent engineering for high-growth US companies. Seamless PST/EST time-zone overlap with senior engineering talent.",
+    "metaDescription": "Leading AI Automation Agency for US Businesses. Custom software development, autonomous AI agents, Zapier/n8n/Make workflows, and enterprise CRM automation.",
+    "keywords": "ai automation agency usa, ai automation company us, custom software development usa, ai agent development united states, business workflow automation usa, b2b ai integration us",
+    "challenges": [
+      "High domestic US engineering and operational payroll demanding high-ROI automated systems.",
+      "Fragmented enterprise SaaS tool stacks leading to manual data entry between Salesforce, HubSpot, and ERPs.",
+      "Need for 24/7 customer engagement without adding third-shift support headcount."
+    ],
+    "solutions": [
+      "Bespoke autonomous AI agents deployed with strict security guardrails (SOC2 & HIPAA conscious).",
+      "End-to-end CRM and business process automation delivering 60%+ reduction in manual operational tasks.",
+      "Dedicated senior full-stack AI engineers providing 4-6 hours of daily synchronous US time-zone overlap."
+    ],
+    "statistics": [
+      { "metric": "65%", "impact": "Labor Cost Reduction", "time": "Enterprise Automation", "revenue": "High ROI" },
+      { "metric": "4-6 hrs", "impact": "US Timezone Overlap", "time": "EST/PST Synchronous", "revenue": "Seamless Comms" },
+      { "metric": "3x", "impact": "Pipeline Velocity", "time": "Instant Qualification", "revenue": "More Deals Won" }
+    ],
+    "useCases": [
+      {
+        "problem": "US healthcare software provider spending 30+ hours weekly manually syncing patient intake forms into their EHR.",
+        "solution": "Engineered an intelligent HIPAA-compliant document processing pipeline using Claude 3.5 Sonnet and webhook automations.",
+        "result": "Cut intake processing time from 48 hours to under 30 seconds with 99.8% extraction accuracy."
+      }
+    ]
+  },
+  {
+    "slug": "uk",
+    "city": "United Kingdom",
+    "region": "Europe",
+    "country": "United Kingdom",
+    "h1": "AI Automation Agency for UK & London Businesses",
+    "description": "Premier AI automation and custom software engineering partner for UK businesses. Full GDPR-compliant conversational AI agents, workflow automation, and custom web applications.",
+    "metaDescription": "Top AI Automation Agency for UK Businesses. Specializing in GDPR-compliant AI workflows, WhatsApp customer support bots, and custom web development across London and the UK.",
+    "keywords": "ai automation agency uk, ai automation company london, custom software development uk, workflow automation services united kingdom, ai business consultancy uk",
+    "challenges": [
+      "Strict UK GDPR data privacy requirements requiring zero public LLM model data leakage.",
+      "Rising operational costs in London and major UK financial hubs.",
+      "High customer expectations for rapid digital self-service."
+    ],
+    "solutions": [
+      "Strict zero-data-retention RAG architectures adhering strictly to UK GDPR frameworks.",
+      "Automated client intake, quoting, and appointment scheduling pipelines for professional services.",
+      "Overlapping UK working hours (GMT/BST) ensuring prompt daily communication and delivery cycles."
+    ],
+    "statistics": [
+      { "metric": "GDPR", "impact": "Data Compliance", "time": "Zero Retention", "revenue": "Enterprise Safe" },
+      { "metric": "50%", "impact": "Faster Response Time", "time": "Conversational AI", "revenue": "Higher CSAT" },
+      { "metric": "£80k+", "impact": "Average Annual Savings", "time": "Process Mining", "revenue": "Operational Margin" }
+    ],
+    "useCases": [
+      {
+        "problem": "London-based commercial real estate firm losing prospective tenants over weekends due to delayed Monday morning responses.",
+        "solution": "Built an intelligent AI booking assistant on WhatsApp and web chat that validates tenant budgets and schedules viewings directly into Calendly.",
+        "result": "Captured 42% more qualified viewings without increasing office hours."
+      }
+    ]
+  },
+  {
+    "slug": "canada",
+    "city": "Canada",
+    "region": "North America",
+    "country": "Canada",
+    "h1": "AI Automation & Custom Software Development in Canada",
+    "description": "Scalable AI automation and web software engineering for Canadian enterprises in Toronto, Vancouver, Montreal, and Calgary. Automating manual back-office tasks and scaling customer interactions.",
+    "metaDescription": "Leading AI Automation Company for Canadian Businesses. Custom AI agents, business workflow automation, WhatsApp integration, and SaaS development across Canada.",
+    "keywords": "ai automation agency canada, ai automation toronto, custom software development canada, workflow automation vancouver, business process automation canada",
+    "challenges": [
+      "Talent shortages in specialized AI engineering and workflow integration across Canadian tech hubs.",
+      "PIPEDA compliance and cross-border data residency considerations.",
+      "Disparate legacy databases and accounting systems that do not communicate natively."
+    ],
+    "solutions": [
+      "Enterprise middleware integrations (n8n, Make.com, custom APIs) uniting legacy ERPs with modern AI models.",
+      "Autonomous lead qualification and support agents operating in English and French.",
+      "Favorable currency exchange rate efficiency delivering world-class engineering at competitive investment levels."
+    ],
+    "statistics": [
+      { "metric": "PIPEDA", "impact": "Privacy Compliant", "time": "Secure Encrypted", "revenue": "Canadian Standard" },
+      { "metric": "70%", "impact": "Faster Data Entry", "time": "Automated Pipelines", "revenue": "Zero Errors" }
+    ],
+    "useCases": [
+      {
+        "problem": "Vancouver logistics brokerage struggling with tracking freight documentation and dispatch confirmations.",
+        "solution": "Integrated an automated document OCR and status notification bot connecting their TMS directly to client WhatsApp channels.",
+        "result": "Eliminated 25 manual check-in calls per dispatcher per day."
+      }
+    ]
+  },
+  {
+    "slug": "uae",
+    "city": "United Arab Emirates",
+    "region": "Middle East",
+    "country": "United Arab Emirates",
+    "h1": "AI Automation Agency in Dubai & UAE",
+    "description": "Transforming UAE enterprises through intelligent workflow automation, WhatsApp Business API solutions, and bilingual AI customer service agents. Optimized for Dubai and Abu Dhabi businesses.",
+    "metaDescription": "Top AI Automation Agency in Dubai & UAE. We build intelligent WhatsApp chatbots, bilingual AI customer service agents, and custom enterprise software for Middle East businesses.",
+    "keywords": "ai automation agency dubai, ai automation uae, whatsapp chatbot dubai, custom software development abu dhabi, business automation uae",
+    "challenges": [
+      "High smartphone and WhatsApp penetration requiring instant, mobile-first commercial interactions.",
+      "Need for seamless bilingual (Arabic and English) conversational support.",
+      "Rapidly scaling business landscape in Dubai demanding instantaneous service response."
+    ],
+    "solutions": [
+      "Official WhatsApp Cloud API integrations with native bilingual (Arabic/English) conversational intelligence.",
+      "Real estate and luxury service lead qualification bots that route VIP inquiries directly to relationship managers.",
+      "Same-timezone collaboration (GST) ensuring rapid deployment and live technical support."
+    ],
+    "statistics": [
+      { "metric": "Arabic + EN", "impact": "Bilingual AI", "time": "Native Fluency", "revenue": "100% Market Reach" },
+      { "metric": "Under 2s", "impact": "WhatsApp Response", "time": "Instant Engagement", "revenue": "High Conversion" },
+      { "metric": "GST", "impact": "Timezone Alignment", "time": "Live Support", "revenue": "Seamless Delivery" }
+    ],
+    "useCases": [
+      {
+        "problem": "Dubai luxury automotive rental agency losing international tourist leads due to manual WhatsApp reservation confirmation.",
+        "solution": "Deployed a 24/7 bilingual WhatsApp reservation assistant that verifies IDs, collects rental preferences, and initiates payment links.",
+        "result": "Boosted direct booking conversions by 48% within the first 60 days."
+      }
+    ]
   }
 ]

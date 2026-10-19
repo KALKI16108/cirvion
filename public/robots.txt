@@ -36,5 +36,7 @@ LLMS: https://aiflowix.in/llms.txt
 # Disallow sensitive or administrative paths
 User-agent: *
 Disallow: /api/
+Disallow: /admin/
+Disallow: /admin
 Disallow: /private/
 Disallow: /drafts/

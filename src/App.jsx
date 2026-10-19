@@ -8,6 +8,7 @@ import CaseStudies from './components/CaseStudies';
 import Testimonials from './components/Testimonials';
 import CTA from './components/CTA';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
+import StickyQuickBar from './components/StickyQuickBar';
 import SEOHead from './components/SEOHead';
 import CookieBanner from './components/CookieBanner';
 
@@ -65,6 +66,7 @@ const PublicLayout = () => (
     <CTA />
     <ContactFooter />
     <FloatingWhatsApp />
+    <StickyQuickBar />
   </>
 );
 

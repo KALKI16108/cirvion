@@ -40,11 +40,11 @@ const ContactFooter = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        company: '',
+        company_name: '',
         website: '',
-        teamSize: '',
-        monthlyRevenue: '',
-        painPoints: ''
+        team_size: '',
+        monthly_revenue: '',
+        biggest_bottleneck: ''
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState('');
@@ -52,28 +52,31 @@ const ContactFooter = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        // Security: Sanitize input to prevent XSS attacks
-        const sanitizedValue = sanitizeInput(value);
-        setFormData({
-            ...formData,
-            [name]: sanitizedValue
-        });
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
     };
 
     const handleNext = (e) => {
-        e.preventDefault();
+        if (e && e.preventDefault) e.preventDefault();
         setSubmitStatus('');
         setErrorMessage('');
-        if (!sanitizeInput(formData.name) || formData.name.length < 2) {
-            toast.error('Please enter a valid name.');
+
+        const name = (formData.name || '').trim();
+        const email = (formData.email || '').trim();
+        const companyName = (formData.company_name || '').trim();
+
+        if (!name) {
+            toast.error('Please enter your name.');
             return;
         }
-        if (!validateEmail(formData.email)) {
-            toast.error('Please enter a valid email address.');
+        if (!email || !validateEmail(email)) {
+            toast.error('Please enter a valid work email address.');
             return;
         }
-        if (!sanitizeInput(formData.company) || formData.company.length < 2) {
-            toast.error('Please enter a valid company name.');
+        if (!companyName) {
+            toast.error('Please enter your company name.');
             return;
         }
         setStep(2);
@@ -87,39 +90,44 @@ const ContactFooter = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (isSubmitting) return; // Prevent double submit
+        if (isSubmitting) return; // Prevent duplicate clicks
 
-        // Verify Step 1 fields are retained
-        if (!sanitizeInput(formData.name) || formData.name.length < 2) {
-            toast.error('Please provide your name.');
+        const name = (formData.name || '').trim();
+        const email = (formData.email || '').trim();
+        const companyName = (formData.company_name || '').trim();
+        const website = (formData.website || '').trim();
+        const teamSize = (formData.team_size || '').trim();
+        const monthlyRevenue = (formData.monthly_revenue || '').trim();
+        const biggestBottleneck = (formData.biggest_bottleneck || '').trim();
+
+        // Verify Step 1 fields
+        if (!name) {
+            toast.error('Please enter your name.');
             setStep(1);
             return;
         }
-        if (!validateEmail(formData.email)) {
-            toast.error('Please provide a valid work email.');
+        if (!email || !validateEmail(email)) {
+            toast.error('Please enter a valid work email address.');
             setStep(1);
             return;
         }
-        if (!sanitizeInput(formData.company) || formData.company.length < 2) {
-            toast.error('Please provide your company name.');
+        if (!companyName) {
+            toast.error('Please enter your company name.');
             setStep(1);
             return;
         }
 
         // Verify Step 2 fields
-        if (!formData.teamSize) {
+        if (!teamSize || teamSize === 'Select...') {
             toast.error('Please select your team size.');
             return;
         }
-        if (!formData.monthlyRevenue) {
-            toast.error('Please select your monthly revenue range.');
+        if (!monthlyRevenue || monthlyRevenue === 'Select...') {
+            toast.error('Please select your monthly revenue.');
             return;
         }
-        if (!sanitizeInput(formData.painPoints) || formData.painPoints.length < 5) {
-            setSubmitStatus('error');
-            const msg = 'Please describe your biggest bottlenecks (at least 5 characters).';
-            setErrorMessage(msg);
-            toast.error(msg);
+        if (!biggestBottleneck) {
+            toast.error('Please describe your biggest bottleneck.');
             return;
         }
 
@@ -128,24 +136,29 @@ const ContactFooter = () => {
         setErrorMessage('');
 
         try {
-            // Combine all fields from Step 1 and Step 2 into Web3Forms payload
+            // Combine all seven fields from Step 1 and Step 2 into one Web3Forms payload
             await submitAuditRequest({
-                name: formData.name,
-                email: formData.email,
-                company: formData.company,
-                website: formData.website || 'Not provided',
-                team_size: formData.teamSize,
-                teamSize: formData.teamSize,
-                monthly_revenue: formData.monthlyRevenue,
-                monthlyRevenue: formData.monthlyRevenue,
-                biggest_bottleneck: formData.painPoints,
-                painPoints: formData.painPoints,
-                source: 'AIFlowix Website (Contact Section)',
+                name,
+                email,
+                company_name: companyName,
+                website,
+                team_size: teamSize,
+                monthly_revenue: monthlyRevenue,
+                biggest_bottleneck: biggestBottleneck,
+                source: 'AIFlowix Website',
                 form_type: 'Free Audit'
             });
 
             setSubmitStatus('success');
-            setFormData({ name: '', email: '', company: '', website: '', teamSize: '', monthlyRevenue: '', painPoints: '' });
+            setFormData({
+                name: '',
+                email: '',
+                company_name: '',
+                website: '',
+                team_size: '',
+                monthly_revenue: '',
+                biggest_bottleneck: ''
+            });
             setStep(1);
             toast.success('Audit Request Sent! We will contact you within 24 hours.');
         } catch (error) {
@@ -305,6 +318,8 @@ const ContactFooter = () => {
                                     )}
 
                                     <form className="space-y-4 sm:space-y-6" onSubmit={step === 1 ? handleNext : handleSubmit}>
+                                        {/* Web3Forms Honeypot for spam prevention */}
+                                        <input type="checkbox" name="botcheck" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
                                         {step === 1 ? (
                                             <div className="space-y-4 sm:space-y-6 animate-in fade-in slide-in-from-left-4 duration-300">
                                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -320,7 +335,7 @@ const ContactFooter = () => {
                                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                                     <div className="group">
                                                         <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Company Name <span className="text-red-400">*</span></label>
-                                                        <input type="text" name="company" value={formData.company} onChange={handleChange} required placeholder="Acme Corp" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all" />
+                                                        <input type="text" name="company_name" value={formData.company_name} onChange={handleChange} required placeholder="Acme Corp" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all" />
                                                     </div>
                                                     <div className="group">
                                                         <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Website</label>
@@ -337,7 +352,7 @@ const ContactFooter = () => {
                                                 <div className="grid grid-cols-2 gap-4">
                                                     <div className="group">
                                                         <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Team Size <span className="text-red-400">*</span></label>
-                                                        <select required name="teamSize" value={formData.teamSize} onChange={handleChange} className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all appearance-none">
+                                                        <select required name="team_size" value={formData.team_size} onChange={handleChange} className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all appearance-none">
                                                             <option value="" disabled>Select...</option>
                                                             <option value="1-10">1-10</option>
                                                             <option value="11-50">11-50</option>
@@ -347,7 +362,7 @@ const ContactFooter = () => {
                                                     </div>
                                                     <div className="group">
                                                         <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Monthly Revenue <span className="text-red-400">*</span></label>
-                                                        <select required name="monthlyRevenue" value={formData.monthlyRevenue} onChange={handleChange} className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all appearance-none">
+                                                        <select required name="monthly_revenue" value={formData.monthly_revenue} onChange={handleChange} className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all appearance-none">
                                                             <option value="" disabled>Select...</option>
                                                             <option value="<$10k">&lt;$10k</option>
                                                             <option value="$10k-$50k">$10k - $50k</option>
@@ -358,7 +373,7 @@ const ContactFooter = () => {
                                                 </div>
                                                 <div className="group">
                                                     <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Biggest Bottleneck <span className="text-red-400">*</span></label>
-                                                    <textarea required name="painPoints" value={formData.painPoints} onChange={handleChange} placeholder="E.g., We spend 20 hours a week on manual data entry..." rows="3" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all resize-none"></textarea>
+                                                    <textarea required name="biggest_bottleneck" value={formData.biggest_bottleneck} onChange={handleChange} placeholder="E.g., We spend 20 hours a week on manual data entry..." rows="3" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all resize-none"></textarea>
                                                 </div>
                                                 <div className="flex gap-3">
                                                     <button type="button" onClick={handleBack} className="w-1/3 bg-transparent border border-white/20 text-white font-medium py-3 sm:py-4 rounded-xl hover:bg-white/5 transition-colors">

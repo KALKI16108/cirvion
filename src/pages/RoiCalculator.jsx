@@ -178,6 +178,8 @@ const RoiCalculator = () => {
                     </div>
                 ) : (
                     <form onSubmit={handleSubmit} className="glass-card p-6 rounded-2xl border border-white/5 max-w-md mx-auto space-y-4">
+                        {/* Web3Forms Honeypot for spam prevention */}
+                        <input type="checkbox" name="botcheck" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
                         <h3 className="text-white font-bold text-lg mb-4">Where should we send your full ROI breakdown?</h3>
                         <input 
                             required 

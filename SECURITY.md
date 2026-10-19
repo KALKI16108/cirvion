@@ -85,7 +85,7 @@ const sanitizeInput = (input) => {
 
 ### For All Platforms:
 - [ ] Use environment variables for API keys
-- [ ] Never expose `764755b8-1e72-4cb2-a43d-b4630d2877df` in production (Web3Forms key)
+- [ ] Store Web3Forms access key in VITE_WEB3FORMS_KEY environment variable
 - [ ] Monitor form submissions for abuse
 - [ ] Implement rate limiting on contact form
 

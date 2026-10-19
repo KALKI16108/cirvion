@@ -125,6 +125,8 @@ const ReadinessAssessment = () => {
                         
                         {!submitted ? (
                             <form onSubmit={handleSubmit} className="bg-[#0F172A] p-6 rounded-2xl border border-white/5 max-w-md mx-auto space-y-4 text-left">
+                                {/* Web3Forms Honeypot for spam prevention */}
+                                <input type="checkbox" name="botcheck" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
                                 <h3 className="text-white font-bold text-lg mb-2 text-center">Get Your Full Readiness Report</h3>
                                 <input 
                                     required 

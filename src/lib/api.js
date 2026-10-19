@@ -1,12 +1,29 @@
 import { supabase } from './supabase';
 import staticBlogs from '../data/blogs.json';
 import { submitToWeb3Forms } from './web3forms';
+import { trackLeadSubmission } from './analytics';
 
 // --- FORM SUBMISSIONS ---
 
+function saveLeadToLocalStorage(type, leadData) {
+    try {
+        const existing = JSON.parse(localStorage.getItem('aiflowix_saved_leads') || '[]');
+        const newRecord = {
+            id: Date.now(),
+            type,
+            created_at: new Date().toISOString(),
+            ...leadData
+        };
+        existing.unshift(newRecord);
+        localStorage.setItem('aiflowix_saved_leads', JSON.stringify(existing.slice(0, 100)));
+    } catch {
+        // Safe fallback
+    }
+}
+
 export async function submitContactForm(data) {
     const payload = {
-        subject: data.subject || 'New Contact Form Submission - AIFlowix',
+        subject: data.subject || 'New AIFlowix Website Enquiry',
         source: data.source || 'AIFlowix Website',
         form_type: 'Contact Form',
         name: data.name,
@@ -17,6 +34,9 @@ export async function submitContactForm(data) {
         message: data.message || '',
         ...data
     };
+
+    saveLeadToLocalStorage('Contact Form', payload);
+    trackLeadSubmission('Contact Form', payload);
 
     const result = await submitToWeb3Forms(payload);
 
@@ -31,25 +51,40 @@ export async function submitContactForm(data) {
 }
 
 export async function submitAuditRequest(data) {
+    const companyName = data.company_name || data.company || '';
+    const teamSize = data.team_size || data.teamSize || '';
+    const monthlyRevenue = data.monthly_revenue || data.monthlyRevenue || '';
+    const biggestBottleneck = data.biggest_bottleneck || data.painPoints || data.bottleneck || '';
+
     const payload = {
-        subject: 'New AIFlowix Free Audit Request',
+        subject: data.subject || 'New AIFlowix Free Audit Request',
         source: data.source || 'AIFlowix Website',
         form_type: 'Free Audit',
         name: data.name,
         email: data.email,
-        company: data.company,
-        website: data.website || 'Not provided',
-        team_size: data.teamSize || data.team_size || 'N/A',
-        monthly_revenue: data.monthlyRevenue || data.monthly_revenue || 'N/A',
-        biggest_bottleneck: data.painPoints || data.biggest_bottleneck || data.bottleneck || 'N/A',
-        ...data
+        company_name: companyName,
+        website: data.website || '',
+        team_size: teamSize,
+        monthly_revenue: monthlyRevenue,
+        biggest_bottleneck: biggestBottleneck
     };
+
+    saveLeadToLocalStorage('Free Audit', payload);
+    trackLeadSubmission('Free Audit', payload);
 
     const result = await submitToWeb3Forms(payload);
 
     // Optional backup to Supabase
     try {
-        await supabase.from('audit_requests').insert([data]);
+        await supabase.from('audit_requests').insert([{
+            name: data.name,
+            email: data.email,
+            company: companyName,
+            website: data.website || '',
+            teamSize: teamSize,
+            monthlyRevenue: monthlyRevenue,
+            painPoints: biggestBottleneck
+        }]);
     } catch {
         // Safe to ignore if Supabase is offline
     }
@@ -72,6 +107,9 @@ export async function submitRoiCalculation(data) {
         estimated_roi: data.estimatedRoi ? `${Math.round(data.estimatedRoi)}%` : 'N/A',
         ...data
     };
+
+    saveLeadToLocalStorage('ROI Calculator', payload);
+    trackLeadSubmission('ROI Calculator', payload);
 
     const result = await submitToWeb3Forms(payload);
 
@@ -97,6 +135,9 @@ export async function submitReadinessAssessment(data) {
         answers: data.answers || '',
         ...data
     };
+
+    saveLeadToLocalStorage('Readiness Quiz', payload);
+    trackLeadSubmission('Readiness Quiz', payload);
 
     const result = await submitToWeb3Forms(payload);
 
