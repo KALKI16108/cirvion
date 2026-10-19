@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { trackBookCallClick } from '../lib/analytics';
 
 const FloatingWhatsApp = () => {
     const phoneNumber = "+919930744723"; 
@@ -11,6 +12,7 @@ const FloatingWhatsApp = () => {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackBookCallClick('whatsapp', 'Floating Button')}
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ delay: 1, type: 'spring', stiffness: 200, damping: 20 }}

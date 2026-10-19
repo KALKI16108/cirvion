@@ -50,12 +50,30 @@ const IndustryTemplate = ({ forcedSlug }) => {
         }
     };
 
+    const rootIndustryMap = {
+        'real-estate': '/real-estate-automation',
+        'dental-clinics': '/dental-clinic-automation',
+        'recruitment-agencies': '/recruitment-agency-automation',
+        'law-firms': '/law-firm-automation',
+        'healthcare': '/healthcare-automation',
+        'e-commerce': '/e-commerce-automation',
+        'finance': '/finance-automation',
+        'agencies': '/marketing-agency-automation',
+        'interior-designers': '/interior-design-automation',
+        'logistics': '/logistics-automation',
+        'manufacturing': '/manufacturing-automation'
+    };
+
+    const canonicalPath = forcedSlug && rootIndustryMap[forcedSlug] 
+        ? rootIndustryMap[forcedSlug] 
+        : `/industries/${industry.slug}`;
+
     return (
         <main className="pt-32 pb-16 min-h-screen">
             <SEOHead 
                 title={`${industry.h1} | AIFlowix`}
                 description={industry.metaDescription}
-                canonical={`/industries/${industry.slug}`}
+                canonical={canonicalPath}
                 schema={[industrySchema, faqSchema]}
             />
 

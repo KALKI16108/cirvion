@@ -1,7 +1,8 @@
-import React, { useState, lazy, Suspense } from 'react';
+import React, { useState, useRef, lazy, Suspense } from 'react';
 import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Send, CheckCircle2 } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { submitAuditRequest } from '../lib/api';
+import { trackFormStart, trackFormSubmit } from '../lib/analytics';
 
 // Lazy-load modal components to reduce initial bundle size (performance optimization)
 const PrivacyPolicy = lazy(() => import('./PrivacyPolicy'));
@@ -49,9 +50,14 @@ const ContactFooter = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const formStartedRef = useRef(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
+        if (!formStartedRef.current) {
+            formStartedRef.current = true;
+            trackFormStart('Free Audit Form (Footer)');
+        }
         setFormData(prev => ({
             ...prev,
             [name]: value
@@ -131,6 +137,9 @@ const ContactFooter = () => {
             return;
         }
 
+        // Track submission initiation in GA4
+        trackFormSubmit('Free Audit Form (Footer)');
+
         setIsSubmitting(true);
         setSubmitStatus('');
         setErrorMessage('');
@@ -149,6 +158,7 @@ const ContactFooter = () => {
                 form_type: 'Free Audit'
             });
 
+            formStartedRef.current = false;
             setSubmitStatus('success');
             setFormData({
                 name: '',
@@ -324,22 +334,22 @@ const ContactFooter = () => {
                                             <div className="space-y-4 sm:space-y-6 animate-in fade-in slide-in-from-left-4 duration-300">
                                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                                     <div className="group">
-                                                        <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Name <span className="text-red-400">*</span></label>
-                                                        <input type="text" name="name" value={formData.name} onChange={handleChange} required placeholder="John Doe" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all" />
+                                                        <label htmlFor="footer-name" className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Name <span className="text-red-400">*</span></label>
+                                                        <input id="footer-name" type="text" name="name" value={formData.name} onChange={handleChange} required placeholder="John Doe" aria-label="Full Name" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all" />
                                                     </div>
                                                     <div className="group">
-                                                        <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Work Email <span className="text-red-400">*</span></label>
-                                                        <input type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="john@company.com" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all" />
+                                                        <label htmlFor="footer-email" className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Work Email <span className="text-red-400">*</span></label>
+                                                        <input id="footer-email" type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="john@company.com" aria-label="Work Email" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all" />
                                                     </div>
                                                 </div>
                                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                                     <div className="group">
-                                                        <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Company Name <span className="text-red-400">*</span></label>
-                                                        <input type="text" name="company_name" value={formData.company_name} onChange={handleChange} required placeholder="Acme Corp" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all" />
+                                                        <label htmlFor="footer-company" className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Company Name <span className="text-red-400">*</span></label>
+                                                        <input id="footer-company" type="text" name="company_name" value={formData.company_name} onChange={handleChange} required placeholder="Acme Corp" aria-label="Company Name" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all" />
                                                     </div>
                                                     <div className="group">
-                                                        <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Website</label>
-                                                        <input type="url" name="website" value={formData.website} onChange={handleChange} placeholder="https://company.com" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all" />
+                                                        <label htmlFor="footer-website" className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Website</label>
+                                                        <input id="footer-website" type="url" name="website" value={formData.website} onChange={handleChange} placeholder="https://company.com" aria-label="Company Website" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all" />
                                                     </div>
                                                 </div>
                                                 <button type="submit" className="w-full bg-gradient-to-r from-[#00C8FF] to-[#3B82F6] text-white font-bold py-3 sm:py-4 rounded-xl hover:shadow-[0_0_30px_rgba(0,200,255,0.4)] transition-all flex items-center justify-center gap-2 group">
@@ -351,8 +361,8 @@ const ContactFooter = () => {
                                             <div className="space-y-4 sm:space-y-6 animate-in fade-in slide-in-from-right-4 duration-300">
                                                 <div className="grid grid-cols-2 gap-4">
                                                     <div className="group">
-                                                        <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Team Size <span className="text-red-400">*</span></label>
-                                                        <select required name="team_size" value={formData.team_size} onChange={handleChange} className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all appearance-none">
+                                                        <label htmlFor="footer-team-size" className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Team Size <span className="text-red-400">*</span></label>
+                                                        <select id="footer-team-size" required name="team_size" value={formData.team_size} onChange={handleChange} aria-label="Team Size" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all appearance-none">
                                                             <option value="" disabled>Select...</option>
                                                             <option value="1-10">1-10</option>
                                                             <option value="11-50">11-50</option>
@@ -361,8 +371,8 @@ const ContactFooter = () => {
                                                         </select>
                                                     </div>
                                                     <div className="group">
-                                                        <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Monthly Revenue <span className="text-red-400">*</span></label>
-                                                        <select required name="monthly_revenue" value={formData.monthly_revenue} onChange={handleChange} className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all appearance-none">
+                                                        <label htmlFor="footer-monthly-revenue" className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Monthly Revenue <span className="text-red-400">*</span></label>
+                                                        <select id="footer-monthly-revenue" required name="monthly_revenue" value={formData.monthly_revenue} onChange={handleChange} aria-label="Monthly Revenue" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all appearance-none">
                                                             <option value="" disabled>Select...</option>
                                                             <option value="<$10k">&lt;$10k</option>
                                                             <option value="$10k-$50k">$10k - $50k</option>
@@ -372,8 +382,8 @@ const ContactFooter = () => {
                                                     </div>
                                                 </div>
                                                 <div className="group">
-                                                    <label className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Biggest Bottleneck <span className="text-red-400">*</span></label>
-                                                    <textarea required name="biggest_bottleneck" value={formData.biggest_bottleneck} onChange={handleChange} placeholder="E.g., We spend 20 hours a week on manual data entry..." rows="3" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all resize-none"></textarea>
+                                                    <label htmlFor="footer-bottleneck" className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Biggest Bottleneck <span className="text-red-400">*</span></label>
+                                                    <textarea id="footer-bottleneck" required name="biggest_bottleneck" value={formData.biggest_bottleneck} onChange={handleChange} placeholder="E.g., We spend 20 hours a week on manual data entry..." aria-label="Biggest Bottleneck" rows="3" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all resize-none"></textarea>
                                                 </div>
                                                 <div className="flex gap-3">
                                                     <button type="button" onClick={handleBack} className="w-1/3 bg-transparent border border-white/20 text-white font-medium py-3 sm:py-4 rounded-xl hover:bg-white/5 transition-colors">

@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { FileText, CheckCircle2, ArrowRight, ArrowLeft } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
 import { submitAuditRequest } from '../lib/api';
 import { validateEmail } from '../security';
+import { trackFormStart, trackFormSubmit } from '../lib/analytics';
 import toast from 'react-hot-toast';
 
 const FreeAiAudit = () => {
     const [step, setStep] = useState(1);
     const [submitted, setSubmitted] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const formStartedRef = useRef(false);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -21,6 +23,10 @@ const FreeAiAudit = () => {
     });
 
     const handleChange = (e) => {
+        if (!formStartedRef.current) {
+            formStartedRef.current = true;
+            trackFormStart('Free AI Audit Page');
+        }
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
@@ -92,6 +98,8 @@ const FreeAiAudit = () => {
             return;
         }
 
+        trackFormSubmit('Free AI Audit Page');
+
         setIsSubmitting(true);
         try {
             await submitAuditRequest({
@@ -105,6 +113,7 @@ const FreeAiAudit = () => {
                 source: 'AIFlowix Website',
                 form_type: 'Free Audit'
             });
+            formStartedRef.current = false;
             toast.success("Audit request sent! We'll be in touch shortly.");
             setSubmitted(true);
             setFormData({

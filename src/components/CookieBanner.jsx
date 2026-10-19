@@ -13,8 +13,9 @@ const CookieBanner = () => {
       // Show the banner if no choice was made
       setIsVisible(true);
     } else if (consent === 'granted') {
-      // If already granted, immediately tell Google Analytics it's allowed
       grantConsent();
+    } else if (consent === 'denied') {
+      denyConsent();
     }
   }, []);
 
@@ -29,6 +30,17 @@ const CookieBanner = () => {
     }
   };
 
+  const denyConsent = () => {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('consent', 'update', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied'
+      });
+    }
+  };
+
   const handleAccept = () => {
     localStorage.setItem('cookie_consent', 'granted');
     grantConsent();
@@ -36,8 +48,8 @@ const CookieBanner = () => {
   };
 
   const handleDecline = () => {
-    // Leave the default 'denied' state alone, just hide the banner
     localStorage.setItem('cookie_consent', 'denied');
+    denyConsent();
     setIsVisible(false);
   };
 

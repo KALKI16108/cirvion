@@ -8,20 +8,20 @@ const ContentManager = () => {
     const [blogs, setBlogs] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        fetchBlogs();
-    }, []);
-
     const fetchBlogs = async () => {
         try {
             const data = await getBlogs();
             setBlogs(data);
-        } catch (error) {
+        } catch (_err) {
             toast.error('Failed to load blogs');
         } finally {
             setLoading(false);
         }
     };
+
+    useEffect(() => {
+        fetchBlogs();
+    }, []);
 
     const handleDelete = async (id) => {
         if (!window.confirm('Are you sure you want to delete this blog?')) return;
@@ -29,7 +29,7 @@ const ContentManager = () => {
             await deleteBlog(id);
             toast.success('Blog deleted successfully');
             fetchBlogs();
-        } catch (error) {
+        } catch (_err) {
             toast.error('Failed to delete blog');
         }
     };

@@ -7,10 +7,6 @@ const Pipeline = () => {
     const [leads, setLeads] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        fetchLeads();
-    }, []);
-
     const fetchLeads = async () => {
         setLoading(true);
         try {
@@ -22,6 +18,10 @@ const Pipeline = () => {
             setLoading(false);
         }
     };
+
+    useEffect(() => {
+        fetchLeads();
+    }, []);
 
     const handleStatusChange = async (id, newStatus) => {
         // Optimistic update

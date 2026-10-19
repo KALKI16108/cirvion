@@ -3,6 +3,7 @@ import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
+import { trackContactCtaClick } from '../lib/analytics';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -58,7 +59,11 @@ const Navbar = () => {
                 </Link>
               ))}
 
-              <Link to="/free-ai-audit" className="bg-white/10 hover:bg-[#00C8FF] hover:text-black text-white px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 border border-white/10 hover:border-[#00C8FF] shadow-[0_0_15px_rgba(0,200,255,0.1)] hover:shadow-[0_0_25px_rgba(0,200,255,0.4)]">
+              <Link
+                to="/free-ai-audit"
+                onClick={() => trackContactCtaClick('Book Audit Nav', 'Navbar')}
+                className="bg-white/10 hover:bg-[#00C8FF] hover:text-black text-white px-6 py-2.5 rounded-full font-semibold text-sm transition-all duration-300 border border-white/10 hover:border-[#00C8FF] shadow-[0_0_15px_rgba(0,200,255,0.1)] hover:shadow-[0_0_25px_rgba(0,200,255,0.4)]"
+              >
                 Book Audit
               </Link>
             </div>
@@ -102,7 +107,14 @@ const Navbar = () => {
                   {item.label}
                 </Link>
               ))}
-              <Link to="/free-ai-audit" className="btn-primary w-full mt-8 block text-center py-3" onClick={() => setIsMobileMenuOpen(false)}>
+              <Link
+                to="/free-ai-audit"
+                className="btn-primary w-full mt-8 block text-center py-3"
+                onClick={() => {
+                  trackContactCtaClick('Book Audit Mobile Nav', 'Navbar Mobile');
+                  setIsMobileMenuOpen(false);
+                }}
+              >
                 Book Audit
               </Link>
             </div>

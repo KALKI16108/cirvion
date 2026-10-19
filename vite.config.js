@@ -67,10 +67,24 @@ export default defineConfig({
     rollupOptions: {
       output: {
         // Split chunks for better caching and parallel loading
-        manualChunks: {
-          'vendor-react': ['react', 'react-dom'],
-          'vendor-motion': ['framer-motion'],
-          'vendor-lucide': ['lucide-react'],
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('@uiw') || id.includes('codemirror') || id.includes('w3c-keyname') || id.includes('react-markdown') || id.includes('rehype') || id.includes('remark')) {
+              return 'vendor-editor';
+            }
+            if (id.includes('@supabase')) {
+              return 'vendor-supabase';
+            }
+            if (id.includes('framer-motion')) {
+              return 'vendor-motion';
+            }
+            if (id.includes('lucide-react')) {
+              return 'vendor-lucide';
+            }
+            if (id.includes('react-dom') || id.includes('react-router') || id.includes('react-helmet')) {
+              return 'vendor-react';
+            }
+          }
         },
       },
     },

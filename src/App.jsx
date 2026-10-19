@@ -7,10 +7,12 @@ import ContactFooter from './components/ContactFooter';
 import CaseStudies from './components/CaseStudies';
 import Testimonials from './components/Testimonials';
 import CTA from './components/CTA';
-import FloatingWhatsApp from './components/FloatingWhatsApp';
-import StickyQuickBar from './components/StickyQuickBar';
 import SEOHead from './components/SEOHead';
-import CookieBanner from './components/CookieBanner';
+
+// Non-critical global widgets loaded lazily
+const FloatingWhatsApp = lazy(() => import('./components/FloatingWhatsApp'));
+const StickyQuickBar = lazy(() => import('./components/StickyQuickBar'));
+const CookieBanner = lazy(() => import('./components/CookieBanner'));
 
 // Lazy Load Pages for Performance (Code Splitting)
 const Home = lazy(() => import('./pages/Home'));
@@ -38,9 +40,14 @@ const Pipeline = lazy(() => import('./pages/admin/Pipeline'));
 const ContentManager = lazy(() => import('./pages/admin/ContentManager'));
 const BlogEditor = lazy(() => import('./pages/admin/BlogEditor'));
 
+import { trackPageView } from './lib/analytics';
+
 const ScrollToAnchor = () => {
   const { pathname, hash } = useLocation();
   useEffect(() => {
+    // Track SPA Pageview in GA4 on route change
+    trackPageView(pathname, document.title);
+
     if (hash) {
       setTimeout(() => {
         const element = document.getElementById(hash.replace('#', ''));
@@ -61,12 +68,11 @@ const PublicLayout = () => (
     <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-[#0F172A]"><div className="w-10 h-10 border-4 border-[#00C8FF] border-t-transparent rounded-full animate-spin"></div></div>}>
       <Outlet />
     </Suspense>
-    <CaseStudies />
-    <Testimonials />
-    <CTA />
     <ContactFooter />
-    <FloatingWhatsApp />
-    <StickyQuickBar />
+    <Suspense fallback={null}>
+      <FloatingWhatsApp />
+      <StickyQuickBar />
+    </Suspense>
   </>
 );
 
@@ -191,7 +197,9 @@ function App() {
               <Route path="/ai-readiness" element={<ReadinessAssessment />} />
             </Route>
           </Routes>
-          <CookieBanner />
+          <Suspense fallback={null}>
+            <CookieBanner />
+          </Suspense>
         </div>
       </Router>
     </HelmetProvider>

@@ -6,7 +6,7 @@ const SEOHead = ({
     description, 
     canonical, 
     keywords, 
-    ogImage = "https://aiflowix.in/og-image.jpg", // We'll assume an og-image exists or user adds it later
+    ogImage = "https://aiflowix.in/logo.png",
     schema,
     type = "website"
 }) => {

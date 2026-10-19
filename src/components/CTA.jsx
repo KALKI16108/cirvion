@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { trackContactCtaClick } from '../lib/analytics';
 
 const CTA = () => {
     return (
@@ -26,22 +27,23 @@ const CTA = () => {
                     <div className="relative z-10">
                         <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/5 border border-white/10 mb-4 sm:mb-6 md:mb-8 backdrop-blur-md">
                             <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-[#00C8FF]" />
-                            <span className="text-[#CBD5E1] text-xs sm:text-sm font-medium">Limited Availability for New Clients</span>
+                            <span className="text-[#CBD5E1] text-xs sm:text-sm font-medium">Direct Engineering Consultation • Global Delivery</span>
                         </div>
 
                         <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 sm:mb-6 md:mb-8 tracking-tight leading-tight">
                             Ready to Automate <br className="hidden sm:block" />
-                            <span className="text-gradient-primary">Your Business?</span>
+                            <span className="text-gradient-primary">Your Business Operations?</span>
                         </h2>
 
                         <p className="text-sm sm:text-base md:text-lg lg:text-xl text-[#94A3B8] mb-6 sm:mb-8 md:mb-12 max-w-2xl mx-auto font-light leading-relaxed px-2">
-                            Book a free business automation audit today. We'll analyze your operations, identify bottlenecks,
-                            and show you exactly how much time and money you can save.
+                            Request a free workflow automation audit. We will review your current systems, map operational bottlenecks,
+                            and provide a clear technical roadmap with fixed milestones and deliverables.
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
                             <motion.a
                                 href="#contact"
+                                onClick={() => trackContactCtaClick('Free AI Audit CTA', 'Bottom Banner')}
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 className="bg-[#00C8FF] text-[#0F172A] font-bold text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-12 py-3 sm:py-4 md:py-5 rounded-full shadow-2xl shadow-[#00C8FF]/20 flex items-center gap-2 sm:gap-3 w-full sm:w-auto justify-center hover:bg-white transition-colors"
@@ -53,6 +55,7 @@ const CTA = () => {
                                 href="#contact"
                                 onClick={(e) => {
                                     e.preventDefault();
+                                    trackContactCtaClick('Book Consultation CTA', 'Bottom Banner');
                                     document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
                                 }}
                                 whileHover={{ scale: 1.05 }}

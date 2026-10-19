@@ -4,20 +4,28 @@ import { ChevronDown } from 'lucide-react';
 
 const faqs = [
     {
-        question: "How long does it take to build an AI automation system?",
-        answer: "Most of our custom AI workflows and chatbots are deployed within 2 to 4 weeks. Complex enterprise integrations (like full CRM + ERP syncs) may take 6 to 8 weeks. We always start with a clear timeline during our initial audit."
+        question: "How long does it take to build and deploy an automation system?",
+        answer: "Standard workflow automations, WhatsApp agents, and CRM syncs are deployed within 1 to 3 weeks. Custom web applications and complex multi-system integrations typically require 3 to 6 weeks. Every engagement begins with a 100% free discovery audit where we outline exact milestone dates before you commit."
     },
     {
-        question: "Do I need to hire an IT team to manage it?",
-        answer: "No! We handle the entire setup, hosting, and maintenance. Our systems are built to be completely hands-off for you. We also provide a simple dashboard if you ever need to view the AI's performance or leads."
+        question: "What is your pricing model, and are there recurring costs?",
+        answer: "We primarily work on milestone-based fixed-scope project agreements so you know exact costs upfront with zero surprise billing. For ongoing maintenance, model updates, and monitoring, we offer optional monthly support retainers. You also retain 100% ownership of all created code and workflow logic."
     },
     {
-        question: "Will the AI sound like a robot to my customers?",
-        answer: "Not at all. We train our Large Language Models (LLMs) on your specific brand voice, past emails, and company knowledge base. The AI responses are highly empathetic, context-aware, and indistinguishable from a human."
+        question: "Which CRMs, platforms, and APIs do you integrate with?",
+        answer: "We build integrations across HubSpot, Salesforce, Zoho, Follow Up Boss, Pipedrive, Slack, Stripe, Airtable, PostgreSQL, Supabase, and custom REST/GraphQL APIs. For AI layers, we utilize OpenAI, Anthropic Claude, custom fine-tuned models, and serverless webhook pipelines (n8n, Python, Node.js)."
     },
     {
-        question: "Is my business data secure?",
-        answer: "Security is our top priority. We use enterprise-grade encryption and never use your private business data to train public AI models like ChatGPT. Your data remains strictly siloed and confidential."
+        question: "How do you handle data privacy and security?",
+        answer: "Your business data and customer conversations remain strictly confidential. We never feed client data into public model training sets. All systems are architected with isolated environment variables, encrypted API transit, and human-in-the-loop review capabilities for sensitive operations."
+    },
+    {
+        question: "How does an India-based agency support international clients?",
+        answer: "We serve clients across the US, UK, Canada, Australia, and UAE with structured timezone overlap. Our engineers communicate directly through dedicated Slack or Microsoft Teams channels, accompanied by regular Loom video walkthroughs and scheduled sync meetings to ensure seamless alignment."
+    },
+    {
+        question: "Do I need technical skills or an in-house developer to maintain this?",
+        answer: "No. We handle end-to-end architecture, API configuration, stress-testing, and hosting setup. Upon completion, we provide clear documentation, staff training sessions, and 30 days of complimentary post-launch warranty support."
     }
 ];
 

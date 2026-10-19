@@ -42,8 +42,8 @@ const Hero = () => {
             </div>
 
             {/* Ambient Glows */}
-            <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#00C8FF]/10 rounded-full blur-[120px] animate-pulse"></div>
-            <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-[#6366F1]/10 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '2s' }}></div>
+            <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#00C8FF]/10 rounded-full blur-[120px] pointer-events-none opacity-40"></div>
+            <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-[#6366F1]/10 rounded-full blur-[120px] pointer-events-none opacity-40"></div>
 
             <div className="container mx-auto px-6 relative z-10 text-center">
                 <motion.div
@@ -60,76 +60,71 @@ const Hero = () => {
                         className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-white/5 border border-white/10 backdrop-blur-md hover:border-[#00C8FF]/50 transition-colors cursor-default"
                     >
                         <Zap className="w-4 h-4 text-[#00C8FF] fill-current" />
-                        <ShinyText text="Next-Gen AI Automation Agency" disabled={false} speed={3} className="text-sm font-medium tracking-wide" color="#CBD5E1" shineColor="#00C8FF" />
+                        <ShinyText text="India-Based Engineering • Global AI & Automation Partner" disabled={false} speed={3} className="text-sm font-medium tracking-wide" color="#CBD5E1" shineColor="#00C8FF" />
                     </motion.div>
 
                     {/* Headline */}
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 tracking-tight leading-[1.1]">
                         <BlurText 
-                           text="AI-Powered Business Automation"
+                           text="Automate Your Business."
                            delay={150}
                            animateBy="words"
                            direction="top"
                            className="flex justify-center text-white"
                         />
                         <BlurText 
-                           text="Web Dev & Custom Software"
+                           text="Spend Less Time on Repetitive Work."
                            delay={150}
                            animateBy="words"
                            direction="bottom"
                            className="flex justify-center text-gradient-primary"
                         />
-                        <span className="block text-2xl sm:text-3xl md:text-4xl text-white/80 mt-4">for Every Business</span>
-                        <span className="sr-only">AI-Powered Business Automation, Web Development &amp; Custom Software for Every Business</span>
+                        <span className="sr-only">Automate Your Business. Spend Less Time on Repetitive Work. Custom AI software, workflow automation, and web applications by AIFlowix.</span>
                     </h1>
 
                     {/* Subheadline */}
                     <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-[#94A3B8] max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed font-light px-4">
-                        As a leading <strong className="font-medium text-white/90">workflow automation</strong> and <strong className="font-medium text-white/90">web development agency</strong>, we provide premier <strong className="font-medium text-white/90">custom AI software</strong> solutions for everyone.
-                        We build intelligent systems and digital experiences that scale, specializing in <strong className="font-medium text-white/90">AI integration for businesses of all sizes</strong>.
+                        AI automation, customer support workflows, lead follow-ups, and custom software built around your business operations.
+                        Based in India, delivering reliable, production-grade systems for clients across the US, UK, Canada, Australia, UAE, and worldwide.
                     </p>
 
                     {/* CTAs */}
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 px-4 mb-10">
                         <motion.a
                             href="#contact"
-                            onClick={() => trackCtaClick('Book Free Audit', 'Hero')}
+                            onClick={() => trackCtaClick('Book a Free Discovery Call', 'Hero')}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             className="btn-primary flex items-center gap-3 group px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto justify-center"
                         >
-                            Book Free Audit
+                            Book a Free Discovery Call
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </motion.a>
 
-                        <motion.button
-                            onClick={() => {
-                                trackCtaClick('See How It Works', 'Hero');
-                                setIsVideoOpen(true);
-                            }}
+                        <motion.a
+                            href="#services"
+                            onClick={() => trackCtaClick('Explore Our Solutions', 'Hero')}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             className="btn-secondary flex items-center gap-3 group px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto justify-center"
                         >
-                            <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
-                                <Play className="w-4 h-4 fill-white" />
-                            </div>
-                            See How It Works
-                        </motion.button>
+                            Explore Our Solutions
+                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        </motion.a>
                     </div>
 
-                    {/* Trust Indicators */}
+                    {/* Trust & Proof Indicators */}
                     <div className="pt-2 pb-6 flex flex-wrap items-center justify-center gap-6 text-[#94A3B8] text-xs sm:text-sm font-medium border-t border-white/5 max-w-3xl mx-auto">
                         <span className="flex items-center gap-2">
-                            <span className="text-yellow-400 font-bold">5.0 ★</span> Rated AI Agency on Clutch
+                            <span className="text-[#00C8FF] font-bold">India-Based</span> Direct Engineering Team
                         </span>
                         <span className="hidden sm:inline text-white/20">•</span>
                         <span className="flex items-center gap-2">
-                            <span className="text-[#00C8FF] font-bold">100%</span> Free Initial Audit
+                            <span className="text-emerald-400 font-bold">Fixed Scope</span> Clear Milestones & Deliverables
                         </span>
                         <span className="hidden sm:inline text-white/20">•</span>
                         <span className="flex items-center gap-2">
-                            <span className="text-emerald-400 font-bold">24-Hour</span> Response Guarantee
+                            <span className="text-indigo-400 font-bold">Zero Lock-In</span> You Own 100% of the Code
                         </span>
                     </div>
                 </motion.div>
@@ -165,34 +160,38 @@ const Hero = () => {
                             <div className="md:col-span-7 space-y-5">
                                 <div>
                                     <div className="flex justify-between items-center text-sm font-medium text-[#CBD5E1] mb-2">
-                                        <span className="flex items-center gap-2">
+                                        <label htmlFor="hero-team-size" className="flex items-center gap-2 cursor-pointer">
                                             <Users className="w-4 h-4 text-[#00C8FF]" /> Team Size:
-                                        </span>
+                                        </label>
                                         <span className="text-white font-bold text-base">{teamSize} employees</span>
                                     </div>
                                     <input
+                                        id="hero-team-size"
                                         type="range"
                                         min="2"
                                         max="100"
                                         value={teamSize}
                                         onChange={(e) => handleSliderChange('team', parseInt(e.target.value))}
+                                        aria-label="Team Size"
                                         className="w-full accent-[#00C8FF] bg-[#1E293B] h-2 rounded-lg cursor-pointer"
                                     />
                                 </div>
 
                                 <div>
                                     <div className="flex justify-between items-center text-sm font-medium text-[#CBD5E1] mb-2">
-                                        <span className="flex items-center gap-2">
+                                        <label htmlFor="hero-manual-hours" className="flex items-center gap-2 cursor-pointer">
                                             <Clock className="w-4 h-4 text-[#6366F1]" /> Manual Hours / Person / Week:
-                                        </span>
+                                        </label>
                                         <span className="text-white font-bold text-base">{hoursPerWeek} hrs/week</span>
                                     </div>
                                     <input
+                                        id="hero-manual-hours"
                                         type="range"
                                         min="5"
                                         max="30"
                                         value={hoursPerWeek}
                                         onChange={(e) => handleSliderChange('hours', parseInt(e.target.value))}
+                                        aria-label="Manual Hours Per Person Per Week"
                                         className="w-full accent-[#6366F1] bg-[#1E293B] h-2 rounded-lg cursor-pointer"
                                     />
                                 </div>

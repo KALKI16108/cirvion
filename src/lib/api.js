@@ -36,9 +36,13 @@ export async function submitContactForm(data) {
     };
 
     saveLeadToLocalStorage('Contact Form', payload);
-    trackLeadSubmission('Contact Form', payload);
 
     const result = await submitToWeb3Forms(payload);
+
+    // Fire confirmed conversion event ONLY after successful API submission
+    if (result && result.success) {
+        trackLeadSubmission('Contact Form', { service: data.service || 'General' });
+    }
 
     // Optional backup to Supabase
     try {
@@ -70,9 +74,16 @@ export async function submitAuditRequest(data) {
     };
 
     saveLeadToLocalStorage('Free Audit', payload);
-    trackLeadSubmission('Free Audit', payload);
 
     const result = await submitToWeb3Forms(payload);
+
+    // Fire confirmed conversion event ONLY after successful API submission
+    if (result && result.success) {
+        trackLeadSubmission('Free Audit', {
+            team_size: teamSize,
+            revenue_tier: monthlyRevenue
+        });
+    }
 
     // Optional backup to Supabase
     try {
@@ -109,9 +120,16 @@ export async function submitRoiCalculation(data) {
     };
 
     saveLeadToLocalStorage('ROI Calculator', payload);
-    trackLeadSubmission('ROI Calculator', payload);
 
     const result = await submitToWeb3Forms(payload);
+
+    // Fire confirmed conversion event ONLY after successful API submission
+    if (result && result.success) {
+        trackLeadSubmission('ROI Calculator', {
+            estimated_savings: data.estimatedSavings,
+            employees: data.employees
+        });
+    }
 
     // Optional backup to Supabase
     try {

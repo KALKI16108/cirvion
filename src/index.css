@@ -142,3 +142,84 @@
   background-color: #0F172A !important;
   border-color: rgba(255, 255, 255, 0.1) !important;
 }
+
+/* Hardware-Accelerated Composited Animations */
+@keyframes shiny-slide {
+  0% {
+    background-position: 150% center;
+  }
+  100% {
+    background-position: -50% center;
+  }
+}
+
+@keyframes aurora-wave-1 {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translate3d(30px, -20px, 0) scale(1.1) rotate(5deg);
+    opacity: 0.55;
+  }
+  100% {
+    transform: translate3d(-20px, 25px, 0) scale(0.95) rotate(-3deg);
+    opacity: 0.35;
+  }
+}
+
+@keyframes aurora-wave-2 {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate3d(-35px, 25px, 0) scale(1.15) rotate(-6deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate3d(25px, -15px, 0) scale(0.9) rotate(4deg);
+    opacity: 0.3;
+  }
+}
+
+.aurora-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.aurora-layer-1 {
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 120%;
+  height: 100%;
+  background: radial-gradient(ellipse at 40% 30%, rgba(0, 200, 255, 0.35) 0%, rgba(99, 102, 241, 0.2) 40%, transparent 70%);
+  filter: blur(60px);
+  will-change: transform, opacity;
+  animation: aurora-wave-1 12s ease-in-out infinite alternate;
+}
+
+.aurora-layer-2 {
+  position: absolute;
+  top: -10%;
+  right: -10%;
+  width: 120%;
+  height: 100%;
+  background: radial-gradient(ellipse at 70% 40%, rgba(99, 102, 241, 0.3) 0%, rgba(0, 200, 255, 0.25) 45%, transparent 70%);
+  filter: blur(60px);
+  will-change: transform, opacity;
+  animation: aurora-wave-2 15s ease-in-out infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-layer-1,
+  .aurora-layer-2 {
+    animation: none !important;
+  }
+  .shiny-text {
+    animation: none !important;
+  }
+}

@@ -55,7 +55,7 @@ const ServiceTemplate = ({ forcedSlug }) => {
             <SEOHead 
                 title={`${service.title} | AIFlowix`}
                 description={service.metaDescription}
-                canonical={`/services/${service.slug}`}
+                canonical={forcedSlug ? `/${forcedSlug}` : `/services/${service.slug}`}
                 schema={pageSchema}
             />
 

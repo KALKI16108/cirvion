@@ -1,11 +1,15 @@
 # ******************************************
 # AIFlowix.in - Robots.txt Configuration
-# Geared for AI Search, LLMs, and SEO
+# Geared for Search Engines, AI Crawlers, and SEO
 # ******************************************
 
-# Allow all standard search engines and AI crawlers
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /admin
+Disallow: /private/
+Disallow: /drafts/
 
 # Explicitly invite major AI and Generative Search bots
 User-agent: GPTBot              
@@ -29,14 +33,5 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-# Define Sitemaps and llms.txt (Crucial for AI discovery)
+# Canonical XML Sitemap
 Sitemap: https://aiflowix.in/sitemap.xml
-LLMS: https://aiflowix.in/llms.txt
-
-# Disallow sensitive or administrative paths
-User-agent: *
-Disallow: /api/
-Disallow: /admin/
-Disallow: /admin
-Disallow: /private/
-Disallow: /drafts/

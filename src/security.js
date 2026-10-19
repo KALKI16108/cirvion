@@ -127,8 +127,8 @@ export const secureClear = (variable, timeout = 60000) => {
   setTimeout(() => {
     variable = null;
     // Force garbage collection hint
-    if (global.gc) {
-      global.gc();
+    if (typeof globalThis !== 'undefined' && globalThis.gc) {
+      globalThis.gc();
     }
   }, timeout);
 };
@@ -221,7 +221,7 @@ export const validateFormInput = (input, maxLength = 1000) => {
   // Remove potentially dangerous characters
   let sanitized = input
     .substring(0, maxLength)
-    .replace(/[<>\"'`]/g, '') // Remove special chars that could start tags
+    .replace(/[<>"'`]/g, '') // Remove special chars that could start tags
     .trim();
   
   return sanitized;

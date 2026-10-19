@@ -25,16 +25,8 @@ const BlogEditor = () => {
         related_links: { previous: null, next: null }
     });
 
-    useEffect(() => {
-        if (!isNew) {
-            fetchBlog();
-        }
-    }, [id]);
-
     const fetchBlog = async () => {
         try {
-            // We just fetch all and find, or use an API function if we have getBlogById. 
-            // In api.js we only have getBlogs() and getBlogBySlug(). Let's use getBlogs and find.
             const allBlogs = await getBlogs();
             const blog = allBlogs.find(b => b.id === Number(id) || b.id === id);
             if (blog) {
@@ -43,12 +35,18 @@ const BlogEditor = () => {
                 toast.error("Blog not found");
                 navigate('/admin/content');
             }
-        } catch (error) {
+        } catch (_err) {
             toast.error("Error fetching blog");
         } finally {
             setLoading(false);
         }
     };
+
+    useEffect(() => {
+        if (!isNew) {
+            fetchBlog();
+        }
+    }, [id, isNew]);
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -56,18 +54,6 @@ const BlogEditor = () => {
             ...prev,
             [name]: type === 'checkbox' ? checked : value
         }));
-    };
-
-    const handleJsonChange = (e, field) => {
-        try {
-            const val = JSON.parse(e.target.value);
-            setFormData(prev => ({ ...prev, [field]: val }));
-        } catch (err) {
-            // Invalid JSON, don't update state yet or handle differently
-            // A more complex editor would have separate fields for JSON array items
-            // For now we just keep the string value if it fails to parse
-            setFormData(prev => ({ ...prev, [field]: e.target.value }));
-        }
     };
 
     const handleSubmit = async (e) => {
