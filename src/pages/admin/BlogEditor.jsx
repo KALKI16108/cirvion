@@ -35,18 +35,19 @@ const BlogEditor = () => {
                 toast.error("Blog not found");
                 navigate('/admin/content');
             }
-        } catch (_err) {
+        } catch {
             toast.error("Error fetching blog");
         } finally {
             setLoading(false);
         }
     };
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect, react-hooks/exhaustive-deps
     useEffect(() => {
         if (!isNew) {
             fetchBlog();
         }
-    }, [id, isNew]);
+    }, [id]);
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;

@@ -10,8 +10,7 @@ const BlurText = ({
   text = '',
   delay = 100,
   className = '',
-  animateBy = 'words',
-  direction = 'top'
+  animateBy = 'words'
 }) => {
   const elements = animateBy === 'words' ? text.split(' ') : text.split('');
 
@@ -21,7 +20,7 @@ const BlurText = ({
         <motion.span
           className="inline-block will-change-[transform,opacity]"
           key={index}
-          initial={{ opacity: 0, y: direction === 'top' ? -12 : 12 }}
+          initial={{ opacity: 1, y: 0 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
             duration: 0.4,

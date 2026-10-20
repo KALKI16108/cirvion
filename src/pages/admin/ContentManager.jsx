@@ -12,13 +12,14 @@ const ContentManager = () => {
         try {
             const data = await getBlogs();
             setBlogs(data);
-        } catch (_err) {
+        } catch {
             toast.error('Failed to load blogs');
         } finally {
             setLoading(false);
         }
     };
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     useEffect(() => {
         fetchBlogs();
     }, []);
@@ -29,7 +30,7 @@ const ContentManager = () => {
             await deleteBlog(id);
             toast.success('Blog deleted successfully');
             fetchBlogs();
-        } catch (_err) {
+        } catch {
             toast.error('Failed to delete blog');
         }
     };

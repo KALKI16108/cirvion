@@ -72,6 +72,42 @@
   ],
   "rewrites": [
     {
+      "source": "/ai-catalog.json",
+      "destination": "/ai-catalog.json"
+    },
+    {
+      "source": "/ard.json",
+      "destination": "/ard.json"
+    },
+    {
+      "source": "/\\.well-known/(.*)",
+      "destination": "/.well-known/$1"
+    },
+    {
+      "source": "/robots.txt",
+      "destination": "/robots.txt"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap.xml"
+    },
+    {
+      "source": "/ai-index.txt",
+      "destination": "/ai-index.txt"
+    },
+    {
+      "source": "/llms.txt",
+      "destination": "/llms.txt"
+    },
+    {
+      "source": "/llms-full.txt",
+      "destination": "/llms-full.txt"
+    },
+    {
+      "source": "/manifest.webmanifest",
+      "destination": "/manifest.webmanifest"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

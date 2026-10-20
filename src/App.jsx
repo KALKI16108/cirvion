@@ -15,7 +15,7 @@ const StickyQuickBar = lazy(() => import('./components/StickyQuickBar'));
 const CookieBanner = lazy(() => import('./components/CookieBanner'));
 
 // Lazy Load Pages for Performance (Code Splitting)
-const Home = lazy(() => import('./pages/Home'));
+import Home from './pages/Home';
 const Blog = lazy(() => import('./pages/Blog'));
 const CustomAiSoftware = lazy(() => import('./pages/CustomAiSoftware'));
 const AiForSmallBusiness = lazy(() => import('./pages/AiForSmallBusiness'));
