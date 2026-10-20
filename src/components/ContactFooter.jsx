@@ -226,7 +226,7 @@ const ContactFooter = () => {
                                     </div>
                                     <div>
                                         <h3 className="text-white font-bold text-sm sm:text-base md:text-lg mb-0.5 sm:mb-1">Email Us</h3>
-                                        <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base break-all">siddhantpitale125@gmail.com</p>
+                                        <a href="mailto:solutions@aiflowix.in" className="text-[#94A3B8] hover:text-[#00C8FF] transition-colors text-xs sm:text-sm md:text-base break-all">solutions@aiflowix.in</a>
                                     </div>
                                 </div>
 
