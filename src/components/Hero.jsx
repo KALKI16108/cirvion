@@ -46,12 +46,7 @@ const Hero = () => {
             <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-[#6366F1]/10 rounded-full blur-[120px] pointer-events-none opacity-40"></div>
 
             <div className="container mx-auto px-6 relative z-10 text-center">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="max-w-5xl mx-auto"
-                >
+                <div className="max-w-5xl mx-auto">
                     {/* Badge */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
@@ -127,7 +122,7 @@ const Hero = () => {
                             <span className="text-indigo-400 font-bold">Zero Lock-In</span> You Own 100% of the Code
                         </span>
                     </div>
-                </motion.div>
+                </div>
 
                 {/* Interactive Hero Widget: Instant AI ROI Estimator */}
                 <motion.div
@@ -144,7 +139,7 @@ const Hero = () => {
                                 <div className="inline-flex items-center gap-2 text-xs font-semibold text-[#00C8FF] uppercase tracking-wider mb-1">
                                     <Sparkles className="w-3.5 h-3.5" /> Instant AI Savings Calculator
                                 </div>
-                                <h3 className="text-xl sm:text-2xl font-bold text-white">How much can AI automation save your business?</h3>
+                                <h2 className="text-xl sm:text-2xl font-bold text-white">How much can AI automation save your business?</h2>
                             </div>
                             <a
                                 href="/roi-calculator"
