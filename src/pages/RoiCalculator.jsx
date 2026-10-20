@@ -92,7 +92,7 @@ const RoiCalculator = () => {
                     className="glass-card p-8 rounded-3xl border border-white/5 space-y-8"
                 >
                     <div>
-                        <label className="flex justify-between text-[#E2E8F0] mb-4">
+                        <label className="flex justify-between items-center text-[#E2E8F0] mb-3">
                             <span>Hours wasted per week, per employee</span>
                             <span className="font-bold text-[#00C8FF]">{hours} hrs</span>
                         </label>
@@ -106,7 +106,7 @@ const RoiCalculator = () => {
                         />
                     </div>
                     <div>
-                        <label className="flex justify-between text-[#E2E8F0] mb-4">
+                        <label className="flex justify-between items-center text-[#E2E8F0] mb-3">
                             <span>Average hourly pay rate</span>
                             <span className="font-bold text-[#00C8FF]">${hourlyRate}</span>
                         </label>
@@ -121,7 +121,7 @@ const RoiCalculator = () => {
                         />
                     </div>
                     <div>
-                        <label className="flex justify-between text-[#E2E8F0] mb-4">
+                        <label className="flex justify-between items-center text-[#E2E8F0] mb-3">
                             <span>Number of employees doing manual tasks</span>
                             <span className="font-bold text-[#00C8FF]">{employees}</span>
                         </label>
