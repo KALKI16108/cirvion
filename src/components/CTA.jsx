@@ -5,7 +5,7 @@ import { trackContactCtaClick } from '../lib/analytics';
 
 const CTA = () => {
     return (
-        <section className="section relative overflow-hidden py-12 sm:py-16 md:py-20 lg:py-24">
+        <section className="section relative overflow-hidden py-10 sm:py-12 md:py-16">
             {/* Background Gradient & Particles */}
             <div className="absolute inset-0 bg-[#030712]">
                 <div className="absolute inset-0 bg-gradient-to-r from-[#00C8FF]/10 to-[#6366F1]/10 opacity-30 blur-3xl"></div>
@@ -18,7 +18,7 @@ const CTA = () => {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="max-w-6xl mx-auto bg-[#1E293B]/40 backdrop-blur-2xl border border-white/10 rounded-2xl sm:rounded-[2rem] md:rounded-[3rem] p-6 sm:p-8 md:p-16 lg:p-24 relative overflow-hidden group hover:border-[#00C8FF]/30 transition-colors duration-500"
+                    className="max-w-6xl mx-auto bg-[#1E293B]/40 backdrop-blur-2xl border border-white/10 rounded-2xl sm:rounded-[2rem] md:rounded-[3rem] p-6 sm:p-8 md:p-12 relative overflow-hidden group hover:border-[#00C8FF]/30 transition-colors duration-500"
                 >
                     {/* Decorative circles */}
                     <div className="absolute top-0 left-0 w-48 sm:w-64 md:w-96 h-48 sm:h-64 md:h-96 bg-[#00C8FF]/10 rounded-full blur-[80px] -translate-x-1/2 -translate-y-1/2 group-hover:bg-[#00C8FF]/20 transition-colors duration-500"></div>

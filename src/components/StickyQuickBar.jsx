@@ -24,9 +24,9 @@ const StickyQuickBar = () => {
     return (
         <aside
             aria-label="Quick action navigation bar"
-            className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 w-[92%] max-w-lg bg-[#0F172A]/90 backdrop-blur-xl border border-[#00C8FF]/30 p-2.5 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.8)] flex items-center justify-between gap-2 transition-all animate-in fade-in slide-in-from-bottom-5 duration-300"
+            className="fixed bottom-[calc(1rem+env(safe-area-inset-bottom))] sm:bottom-6 left-1/2 -translate-x-1/2 z-40 w-[92%] max-w-lg bg-[#0F172A]/90 backdrop-blur-xl border border-[#00C8FF]/30 p-2 sm:p-2.5 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.8)] flex items-center justify-between gap-2 transition-all animate-in fade-in slide-in-from-bottom-5 duration-300"
         >
-            <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar py-0.5">
+            <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto scrollbar-hide no-scrollbar py-0.5">
                 <a
                     href="#contact"
                     onClick={() => trackCtaClick('Sticky Free Audit', 'Floating Quick Bar')}

@@ -192,15 +192,15 @@ const ContactFooter = () => {
                 {showCookie && <CookiePolicy onClose={() => setShowCookie(false)} />}
             </Suspense>
 
-            <footer id="contact" className="bg-[#030712] border-t border-white/5 pt-16 sm:pt-20 md:pt-24 lg:pt-32 pb-6 sm:pb-8 md:pb-12 relative overflow-hidden">
+            <footer id="contact" className="bg-[#030712] border-t border-white/5 pt-16 sm:pt-20 md:pt-24 lg:pt-32 pb-[calc(7.5rem+env(safe-area-inset-bottom))] lg:pb-32 relative overflow-hidden">
                 {/* Footer Glow */}
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] sm:w-[800px] md:w-[1000px] h-[300px] sm:h-[400px] md:h-[500px] bg-[#00C8FF]/5 rounded-full blur-[120px] pointer-events-none"></div>
 
                 <div className="container mx-auto px-4 sm:px-6 relative z-10">
-                    <div className="grid lg:grid-cols-2 gap-10 sm:gap-12 md:gap-16 lg:gap-24 mb-10 sm:mb-12 md:mb-16 lg:mb-24">
+                    <div className="flex flex-col lg:grid lg:grid-cols-2 gap-10 sm:gap-12 md:gap-16 lg:gap-24 mb-10 sm:mb-12 md:mb-16 lg:mb-24">
 
-                        {/* Left Column: Contact Info */}
-                        <div>
+                        {/* Left Column: Contact Info & Navigation (Order 2 on Mobile, Order 1 on Desktop) */}
+                        <div className="order-2 lg:order-1">
                             <div className="mb-8 sm:mb-10 md:mb-12">
                                 <p className="text-[#94A3B8] text-sm sm:text-base md:text-lg max-w-md leading-relaxed">
                                     Empowering businesses with intelligent automation. If you're looking for an <strong>automation agency near me</strong>, AIFLOWIX serves clients locally and globally.
@@ -290,8 +290,8 @@ const ContactFooter = () => {
                             </div>
                         </div>
 
-                        {/* Right Column: 2-Step Form */}
-                        <div className="bg-[#1E293B]/30 backdrop-blur-xl border border-white/10 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-2xl relative">
+                        {/* Right Column: 2-Step Form (Order 1 on Mobile, Order 2 on Desktop) */}
+                        <div className="order-1 lg:order-2 bg-[#1E293B]/30 backdrop-blur-xl border border-white/10 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-2xl relative">
                             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1 sm:mb-2">Request Free Audit</h2>
                             <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base mb-6">Find out exactly where your business is bleeding time and money.</p>
 

@@ -1,68 +1,60 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Search, Compass, Cpu, ShieldCheck, Rocket, Headphones, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Search, Compass, Rocket, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 const steps = [
     {
         num: "01",
-        title: "Discovery & Process Audit",
+        title: "Audit Operations",
         duration: "3–5 Days",
         icon: Search,
-        description: "We analyze your existing workflows, shadow your team's repetitive tasks, and identify high-friction bottlenecks.",
-        deliverable: "Fixed-scope technical blueprint and ROI forecast."
+        description: "We analyze your existing workflows, shadow your team's repetitive manual tasks, and pinpoint operational bottlenecks.",
+        deliverable: "Detailed workflow assessment & ROI map."
     },
     {
         num: "02",
-        title: "Architecture & Integration",
-        duration: "1–2 Weeks",
-        icon: Cpu,
-        description: "We design and build custom AI pipelines, connecting your CRMs, databases, and messaging channels with robust error-handling.",
-        deliverable: "Working sandbox build with end-to-end data flow."
+        title: "Identify Inefficiencies & Discuss Solutions",
+        duration: "1 Week",
+        icon: Compass,
+        description: "We analyze friction points, review root causes with your team, and present a fixed-scope technical blueprint and architecture.",
+        deliverable: "Transparent roadmap & system architecture."
     },
     {
         num: "03",
-        title: "Guardrails & Stress Testing",
-        duration: "3–5 Days",
-        icon: ShieldCheck,
-        description: "We test model edge cases, establish strict prompt guardrails, and enforce data privacy standards to prevent hallucinations.",
-        deliverable: "Passed validation report & zero data leakage."
-    },
-    {
-        num: "04",
-        title: "Live Deployment & Handover",
-        duration: "Immediate",
+        title: "Implement Agreed Solution",
+        duration: "2–4 Weeks",
         icon: Rocket,
-        description: "We deploy systems to your production environment, provide full documentation, and train your team on day-to-day operations.",
-        deliverable: "100% code ownership + 30-day warranty support."
+        description: "We engineer, integrate, stress-test, and deploy production-grade AI pipelines and custom software with full handover.",
+        deliverable: "Production deployment + 100% code ownership."
     }
 ];
 
 const DeliveryProcess = () => {
     return (
-        <section id="process" className="section bg-[#0F172A] relative overflow-hidden py-20 sm:py-24">
+        <section id="process" className="section bg-[#0F172A] relative overflow-hidden py-12 sm:py-16">
             {/* Ambient Background */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-[#00C8FF]/5 rounded-full blur-[100px] pointer-events-none"></div>
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#6366F1]/5 rounded-full blur-[100px] pointer-events-none"></div>
 
             <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-6xl">
-                <div className="text-center mb-16">
+                <div className="text-center mb-10 sm:mb-12">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="inline-block px-3 sm:px-4 py-1 mb-4 border border-[#00C8FF]/30 rounded-full bg-[#00C8FF]/10"
+                        className="inline-block px-3 sm:px-4 py-1 mb-3 border border-[#00C8FF]/30 rounded-full bg-[#00C8FF]/10"
                     >
-                        <span className="text-[#00C8FF] text-xs sm:text-sm font-bold tracking-wider uppercase">How We Deliver</span>
+                        <span className="text-[#00C8FF] text-xs sm:text-sm font-bold tracking-wider uppercase">How We Work</span>
                     </motion.div>
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white">
-                        Transparent Delivery Process & <span className="text-gradient-primary">Client Expectations</span>
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-white">
+                        Three Steps to <span className="text-gradient-primary">Automating Your Workflows</span>
                     </h2>
                     <p className="text-sm sm:text-base md:text-lg text-[#94A3B8] max-w-2xl mx-auto leading-relaxed">
-                        No ambiguous scopes or endless hourly billing. We operate with milestone-driven sprint delivery, direct engineer access, and complete code ownership.
+                        A clear, milestone-driven process with direct engineer access, zero hidden fees, and complete code ownership.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {steps.map((step, idx) => {
                         const Icon = step.icon;
                         return (
@@ -99,7 +91,7 @@ const DeliveryProcess = () => {
                 </div>
 
                 {/* Practical engagement standards */}
-                <div className="mt-12 p-6 rounded-2xl bg-[#030712]/60 border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div className="mt-8 sm:mt-10 p-5 sm:p-6 rounded-2xl bg-[#030712]/60 border border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
                     <div>
                         <h3 className="text-white font-bold text-base mb-1">What You Can Expect As An International Client</h3>
                         <p className="text-xs sm:text-sm text-[#94A3B8]">
