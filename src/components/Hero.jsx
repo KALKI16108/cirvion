@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { ArrowRight, Play, Zap, Activity, Calculator, TrendingUp, Sparkles, DollarSign, Users, Clock } from 'lucide-react';
 import VideoModal from './VideoModal';
 import BlurText from './animations/BlurText';
@@ -48,15 +47,10 @@ const Hero = () => {
             <div className="container mx-auto px-6 relative z-10 text-center">
                 <div className="max-w-5xl mx-auto">
                     {/* Badge */}
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.2 }}
-                        className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-white/5 border border-white/10 backdrop-blur-md hover:border-[#00C8FF]/50 transition-colors cursor-default"
-                    >
+                    <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-white/5 border border-white/10 backdrop-blur-md hover:border-[#00C8FF]/50 transition-colors cursor-default">
                         <Zap className="w-4 h-4 text-[#00C8FF] fill-current" />
                         <ShinyText text="India-Based Engineering • Global AI & Automation Partner" disabled={false} speed={3} className="text-sm font-medium tracking-wide" color="#CBD5E1" shineColor="#00C8FF" />
-                    </motion.div>
+                    </div>
 
                     {/* Headline */}
                     <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 tracking-tight leading-[1.1]">
@@ -85,27 +79,23 @@ const Hero = () => {
 
                     {/* CTAs */}
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 px-4 mb-10">
-                        <motion.a
+                        <a
                             href="#contact"
                             onClick={() => trackCtaClick('Book a Free Discovery Call', 'Hero')}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="btn-primary flex items-center gap-3 group px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto justify-center"
+                            className="btn-primary flex items-center gap-3 group px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto justify-center hover:scale-105 active:scale-95 transition-transform"
                         >
                             Book a Free Discovery Call
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </motion.a>
+                        </a>
 
-                        <motion.a
+                        <a
                             href="#services"
                             onClick={() => trackCtaClick('Explore Our Solutions', 'Hero')}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="btn-secondary flex items-center gap-3 group px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto justify-center"
+                            className="btn-secondary flex items-center gap-3 group px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto justify-center hover:scale-105 active:scale-95 transition-transform"
                         >
                             Explore Our Solutions
                             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </motion.a>
+                        </a>
                     </div>
 
                     {/* Trust & Proof Indicators */}
@@ -125,12 +115,7 @@ const Hero = () => {
                 </div>
 
                 {/* Interactive Hero Widget: Instant AI ROI Estimator */}
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3, duration: 0.8 }}
-                    className="mt-6 sm:mt-10 relative mx-auto max-w-4xl text-left"
-                >
+                <div className="mt-6 sm:mt-10 relative mx-auto max-w-4xl text-left">
                     <div className="relative rounded-2xl bg-[#0F172A]/90 border border-white/10 p-6 sm:p-8 backdrop-blur-xl shadow-2xl overflow-hidden group hover:border-[#00C8FF]/30 transition-all">
                         <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-[#00C8FF]/10 to-transparent rounded-full blur-3xl pointer-events-none"></div>
 
@@ -213,7 +198,7 @@ const Hero = () => {
                             </div>
                         </div>
                     </div>
-                </motion.div>
+                </div>
             </div>
         </section>
     );

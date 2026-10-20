@@ -78,19 +78,19 @@ const CaseStudies = () => {
 
                                 <div className="space-y-4 mb-6">
                                     <div>
-                                        <h5 className="text-xs font-semibold uppercase text-red-400 tracking-wider mb-1">Operational Bottleneck</h5>
+                                        <h4 className="text-xs font-semibold uppercase text-red-400 tracking-wider mb-1">Operational Bottleneck</h4>
                                         <p className="text-xs sm:text-sm text-[#94A3B8] leading-relaxed">{bp.problem}</p>
                                     </div>
 
                                     <div>
-                                        <h5 className="text-xs font-semibold uppercase text-[#00C8FF] tracking-wider mb-1">Automation Architecture</h5>
+                                        <h4 className="text-xs font-semibold uppercase text-[#00C8FF] tracking-wider mb-1">Automation Architecture</h4>
                                         <p className="text-xs text-white/90 bg-[#0F172A] p-2.5 rounded-lg border border-white/10 font-mono leading-relaxed">
                                             {bp.architecture}
                                         </p>
                                     </div>
 
                                     <div>
-                                        <h5 className="text-xs font-semibold uppercase text-emerald-400 tracking-wider mb-2">Key System Deliverables</h5>
+                                        <h4 className="text-xs font-semibold uppercase text-emerald-400 tracking-wider mb-2">Key System Deliverables</h4>
                                         <ul className="space-y-1.5">
                                             {bp.deliverables.map((item, i) => (
                                                 <li key={i} className="flex items-start gap-2 text-xs text-[#CBD5E1]">

@@ -101,7 +101,7 @@ const DeliveryProcess = () => {
                 {/* Practical engagement standards */}
                 <div className="mt-12 p-6 rounded-2xl bg-[#030712]/60 border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
                     <div>
-                        <h4 className="text-white font-bold text-base mb-1">What You Can Expect As An International Client</h4>
+                        <h3 className="text-white font-bold text-base mb-1">What You Can Expect As An International Client</h3>
                         <p className="text-xs sm:text-sm text-[#94A3B8]">
                             Direct collaboration over dedicated Slack/Teams, asynchronous video walkthroughs, and timezone overlap covering US, UK, Europe, UAE, and APAC.
                         </p>
