@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "specVersion": "1.0.0",
   "name": "AIFlowix AI & Automation Catalog",
   "version": "1.0.0",
   "provider": {
@@ -10,10 +11,11 @@
       "phone": "+919930744723"
     }
   },
-  "services": [
+  "entries": [
     {
       "id": "ai-automation-services",
       "name": "AI Automation Services",
+      "type": "service",
       "url": "https://aiflowix.in/ai-automation-services",
       "description": "Enterprise-grade AI workflow automation and business process engineering.",
       "category": "Workflow Automation"
@@ -21,6 +23,7 @@
     {
       "id": "ai-agent-development",
       "name": "AI Agent Development",
+      "type": "service",
       "url": "https://aiflowix.in/ai-agent-development",
       "description": "Custom autonomous AI agents for 24/7 customer support and inbound lead qualification.",
       "category": "Intelligent Agents"
@@ -28,6 +31,7 @@
     {
       "id": "workflow-automation-services",
       "name": "Workflow Automation Services",
+      "type": "service",
       "url": "https://aiflowix.in/workflow-automation-services",
       "description": "Multi-system workflow automation connecting CRMs, databases, and webhook pipelines.",
       "category": "Process Automation"
@@ -35,6 +39,7 @@
     {
       "id": "voice-ai-agents",
       "name": "Voice AI Agents",
+      "type": "service",
       "url": "https://aiflowix.in/voice-ai-agents",
       "description": "Autonomous inbound voice receptionists and call answering systems.",
       "category": "Voice AI"
@@ -42,6 +47,7 @@
     {
       "id": "whatsapp-automation",
       "name": "WhatsApp Automation",
+      "type": "service",
       "url": "https://aiflowix.in/whatsapp-automation",
       "description": "Official WhatsApp Business API bots for qualification and customer messaging.",
       "category": "Messaging Automation"
@@ -49,6 +55,57 @@
     {
       "id": "custom-software-development",
       "name": "Custom Software Development",
+      "type": "service",
+      "url": "https://aiflowix.in/custom-software-development",
+      "description": "Bespoke full-stack web applications, internal tools, and client portals.",
+      "category": "Software Engineering"
+    }
+  ],
+  "services": [
+    {
+      "id": "ai-automation-services",
+      "name": "AI Automation Services",
+      "type": "service",
+      "url": "https://aiflowix.in/ai-automation-services",
+      "description": "Enterprise-grade AI workflow automation and business process engineering.",
+      "category": "Workflow Automation"
+    },
+    {
+      "id": "ai-agent-development",
+      "name": "AI Agent Development",
+      "type": "service",
+      "url": "https://aiflowix.in/ai-agent-development",
+      "description": "Custom autonomous AI agents for 24/7 customer support and inbound lead qualification.",
+      "category": "Intelligent Agents"
+    },
+    {
+      "id": "workflow-automation-services",
+      "name": "Workflow Automation Services",
+      "type": "service",
+      "url": "https://aiflowix.in/workflow-automation-services",
+      "description": "Multi-system workflow automation connecting CRMs, databases, and webhook pipelines.",
+      "category": "Process Automation"
+    },
+    {
+      "id": "voice-ai-agents",
+      "name": "Voice AI Agents",
+      "type": "service",
+      "url": "https://aiflowix.in/voice-ai-agents",
+      "description": "Autonomous inbound voice receptionists and call answering systems.",
+      "category": "Voice AI"
+    },
+    {
+      "id": "whatsapp-automation",
+      "name": "WhatsApp Automation",
+      "type": "service",
+      "url": "https://aiflowix.in/whatsapp-automation",
+      "description": "Official WhatsApp Business API bots for qualification and customer messaging.",
+      "category": "Messaging Automation"
+    },
+    {
+      "id": "custom-software-development",
+      "name": "Custom Software Development",
+      "type": "service",
       "url": "https://aiflowix.in/custom-software-development",
       "description": "Bespoke full-stack web applications, internal tools, and client portals.",
       "category": "Software Engineering"

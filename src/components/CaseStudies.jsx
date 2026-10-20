@@ -71,26 +71,26 @@ const CaseStudies = () => {
                         >
                             <div>
                                 <div className="flex items-center justify-between mb-4">
-                                    <span className="px-3 py-1 rounded-full bg-[#00C8FF]/10 border border-[#00C8FF]/20 text-[#00C8FF] text-xs font-bold uppercase tracking-wider">
+                                    <h3 className="px-3 py-1 rounded-full bg-[#00C8FF]/10 border border-[#00C8FF]/20 text-[#00C8FF] text-xs font-bold uppercase tracking-wider inline-block">
                                         {bp.industry}
-                                    </span>
+                                    </h3>
                                 </div>
 
                                 <div className="space-y-4 mb-6">
                                     <div>
-                                        <h4 className="text-xs font-semibold uppercase text-red-400 tracking-wider mb-1">Operational Bottleneck</h4>
+                                        <h5 className="text-xs font-semibold uppercase text-red-400 tracking-wider mb-1">Operational Bottleneck</h5>
                                         <p className="text-xs sm:text-sm text-[#94A3B8] leading-relaxed">{bp.problem}</p>
                                     </div>
 
                                     <div>
-                                        <h4 className="text-xs font-semibold uppercase text-[#00C8FF] tracking-wider mb-1">Automation Architecture</h4>
+                                        <h5 className="text-xs font-semibold uppercase text-[#00C8FF] tracking-wider mb-1">Automation Architecture</h5>
                                         <p className="text-xs text-white/90 bg-[#0F172A] p-2.5 rounded-lg border border-white/10 font-mono leading-relaxed">
                                             {bp.architecture}
                                         </p>
                                     </div>
 
                                     <div>
-                                        <h4 className="text-xs font-semibold uppercase text-emerald-400 tracking-wider mb-2">Key System Deliverables</h4>
+                                        <h5 className="text-xs font-semibold uppercase text-emerald-400 tracking-wider mb-2">Key System Deliverables</h5>
                                         <ul className="space-y-1.5">
                                             {bp.deliverables.map((item, i) => (
                                                 <li key={i} className="flex items-start gap-2 text-xs text-[#CBD5E1]">
@@ -105,6 +105,7 @@ const CaseStudies = () => {
 
                             <Link
                                 to={bp.slug}
+                                aria-label={`Explore industry solution for ${bp.industry}`}
                                 className="pt-4 border-t border-white/5 flex items-center justify-between text-xs sm:text-sm font-semibold text-[#00C8FF] group-hover:text-white transition-colors"
                             >
                                 <span>Explore Industry Solution</span>

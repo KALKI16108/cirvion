@@ -34,7 +34,11 @@ const ServiceGroup = ({ title, icon: Icon, items, href, delay }) => (
             </ul>
         </div>
 
-        <Link to={href} className="mt-6 sm:mt-8 md:mt-10 pt-4 sm:pt-6 md:pt-8 border-t border-white/5 flex items-center text-[#00C8FF] font-semibold cursor-pointer group/link text-sm sm:text-base">
+        <Link 
+            to={href} 
+            aria-label={`Explore details for ${title}`}
+            className="mt-6 sm:mt-8 md:mt-10 pt-4 sm:pt-6 md:pt-8 border-t border-white/5 flex items-center text-[#00C8FF] font-semibold cursor-pointer group/link text-sm sm:text-base"
+        >
             <span className="group-hover/link:mr-2 transition-all">Explore Service Details</span>
             <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-2 opacity-0 group-hover/link:opacity-100 transition-opacity" />
         </Link>

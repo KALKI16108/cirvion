@@ -1,5 +1,10 @@
 import React from 'react';
 
+/**
+ * GPU-Composited Shiny Text
+ * Uses hardware-accelerated transform rather than non-composited background-position-x,
+ * eliminating the "Avoid non-composited animations" warning in Lighthouse.
+ */
 const ShinyText = ({
   text,
   disabled = false,
@@ -7,22 +12,26 @@ const ShinyText = ({
   className = '',
   color = '#CBD5E1',
   shineColor = '#00C8FF',
-  spread = 120
 }) => {
   return (
     <span
-      className={`inline-block shiny-text ${className}`}
-      style={{
-        backgroundImage: `linear-gradient(${spread}deg, ${color} 0%, ${color} 35%, ${shineColor} 50%, ${color} 65%, ${color} 100%)`,
-        backgroundSize: '200% auto',
-        WebkitBackgroundClip: 'text',
-        backgroundClip: 'text',
-        WebkitTextFillColor: 'transparent',
-        animation: disabled ? 'none' : `shiny-slide ${speed}s linear infinite`,
-        willChange: 'background-position'
-      }}
+      className={`relative inline-block overflow-hidden shiny-text ${className}`}
+      style={{ color }}
     >
-      {text}
+      <span className="relative z-10">{text}</span>
+      {!disabled && (
+        <span
+          className="absolute inset-0 pointer-events-none z-20"
+          style={{
+            background: `linear-gradient(90deg, transparent 0%, ${shineColor} 50%, transparent 100%)`,
+            mixBlendMode: 'screen',
+            opacity: 0.75,
+            animation: `shiny-transform ${speed}s ease-in-out infinite`,
+            willChange: 'transform',
+          }}
+          aria-hidden="true"
+        />
+      )}
     </span>
   );
 };

@@ -1,7 +1,6 @@
 import React, { useState, useRef, lazy, Suspense } from 'react';
 import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Send, CheckCircle2 } from 'lucide-react';
 import toast from 'react-hot-toast';
-import { submitAuditRequest } from '../lib/api';
 import { trackFormStart, trackFormSubmit } from '../lib/analytics';
 
 // Lazy-load modal components to reduce initial bundle size (performance optimization)
@@ -145,6 +144,8 @@ const ContactFooter = () => {
         setErrorMessage('');
 
         try {
+            // Dynamically import submitAuditRequest on demand to avoid bundling Supabase on initial page load
+            const { submitAuditRequest } = await import('../lib/api');
             // Combine all seven fields from Step 1 and Step 2 into one Web3Forms payload
             await submitAuditRequest({
                 name,

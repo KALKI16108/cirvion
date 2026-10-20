@@ -2,7 +2,7 @@
 <html lang="en-IN">
 
 <head>
-<!-- Google Consent Mode v2 Defaults -->
+<!-- Google Consent Mode v2 Defaults & DataLayer Buffer -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -13,16 +13,33 @@
     'ad_personalization': 'granted',
     'analytics_storage': 'granted'
   });
-</script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZESG1V8LVL"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-ZESG1V8LVL', {
     send_page_view: false
+  });
+
+  // Defer non-critical GA4 script injection until after critical rendering
+  function loadAnalytics() {
+    if (window._gaLoaded) return;
+    window._gaLoaded = true;
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZESG1V8LVL';
+    document.head.appendChild(script);
+  }
+  if ('requestIdleCallback' in window) {
+    window.addEventListener('load', function() {
+      requestIdleCallback(function() {
+        setTimeout(loadAnalytics, 1500);
+      }, { timeout: 3000 });
+    });
+  } else {
+    window.addEventListener('load', function() {
+      setTimeout(loadAnalytics, 2000);
+    });
+  }
+  ['scroll', 'touchstart', 'click'].forEach(function(e) {
+    window.addEventListener(e, loadAnalytics, { once: true, passive: true });
   });
 </script>
   <meta charset="UTF-8" />
@@ -99,6 +116,8 @@
   <!-- Performance: Enable resource hints for faster loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2" as="font" type="font/woff2" crossorigin>
   
   <!-- Alternative language links for international SEO -->
   <link rel="alternate" hreflang="en" href="https://aiflowix.in/" />
