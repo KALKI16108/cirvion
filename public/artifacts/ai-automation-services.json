@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "AI Automation Services Skill",
+  "description": "Enterprise-grade AI workflow automation and business process engineering skill descriptor.",
+  "version": "1.0.0",
+  "documentationUrl": "https://aiflowix.in/ai-automation-services",
+  "provider": {
+    "name": "AIFlowix",
+    "url": "https://aiflowix.in"
+  },
+  "skills": [
+    {
+      "name": "workflow-automation",
+      "description": "Automate business workflows and multi-step tasks across CRMs and APIs."
+    },
+    {
+      "name": "process-engineering",
+      "description": "Design and deploy automated business logic and data routing."
+    }
+  ]
+}

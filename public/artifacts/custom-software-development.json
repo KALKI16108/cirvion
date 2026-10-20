@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "Custom Software Development Skill",
+  "description": "Bespoke full-stack web applications, internal tools, and client portals.",
+  "version": "1.0.0",
+  "documentationUrl": "https://aiflowix.in/custom-software-development",
+  "provider": {
+    "name": "AIFlowix",
+    "url": "https://aiflowix.in"
+  },
+  "skills": [
+    {
+      "name": "full-stack-web-engineering",
+      "description": "Custom React, Next.js, and Node.js enterprise applications."
+    },
+    {
+      "name": "internal-tools-and-portals",
+      "description": "Secure internal operational dashboards and client portals."
+    }
+  ]
+}

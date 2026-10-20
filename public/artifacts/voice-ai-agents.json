@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "Voice AI Agents Card",
+  "description": "Autonomous inbound voice receptionists and call answering systems.",
+  "version": "1.0.0",
+  "documentationUrl": "https://aiflowix.in/voice-ai-agents",
+  "provider": {
+    "name": "AIFlowix",
+    "url": "https://aiflowix.in"
+  },
+  "capabilities": [
+    "inbound-call-handling",
+    "voice-appointment-scheduling",
+    "speech-recognition-triage"
+  ]
+}

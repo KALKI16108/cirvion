@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "Workflow Automation MCP Server Card",
+  "description": "Multi-system workflow automation connecting CRMs, databases, and webhook pipelines.",
+  "version": "1.0.0",
+  "documentationUrl": "https://aiflowix.in/workflow-automation-services",
+  "provider": {
+    "name": "AIFlowix",
+    "url": "https://aiflowix.in"
+  },
+  "protocol": "mcp",
+  "tools": [
+    {
+      "name": "crm_sync",
+      "description": "Bi-directional synchronization across HubSpot, Zoho, and SQL databases."
+    },
+    {
+      "name": "webhook_pipeline",
+      "description": "Automated data transformation and webhook event routing."
+    }
+  ]
+}

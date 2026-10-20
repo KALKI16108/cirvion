@@ -33,5 +33,6 @@ Allow: /
 User-agent: Bytespider
 Allow: /
 
-# Canonical XML Sitemap
+# Canonical XML Sitemap Index
+Sitemap: https://aiflowix.in/sitemap-index.xml
 Sitemap: https://aiflowix.in/sitemap.xml

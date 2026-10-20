@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "AI Agent Development Card",
+  "description": "Custom autonomous AI agents for 24/7 customer support and inbound lead qualification.",
+  "version": "1.0.0",
+  "documentationUrl": "https://aiflowix.in/ai-agent-development",
+  "provider": {
+    "name": "AIFlowix",
+    "url": "https://aiflowix.in"
+  },
+  "capabilities": [
+    "autonomous-reasoning",
+    "lead-qualification",
+    "customer-support-triage"
+  ]
+}

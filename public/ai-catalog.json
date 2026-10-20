@@ -2,10 +2,10 @@
   "specVersion": "1.0",
   "entries": [
     {
-      "identifier": "urn:ai:aiflowix.in:ai-automation-services",
+      "identifier": "urn:air:aiflowix.in:services:ai-automation-services",
       "displayName": "AI Automation Services",
-      "type": "text/html",
-      "url": "https://aiflowix.in/ai-automation-services",
+      "type": "application/agent-skills+json",
+      "url": "https://aiflowix.in/artifacts/ai-automation-services.json",
       "description": "Enterprise-grade AI workflow automation and business process engineering.",
       "representativeQueries": [
         "automate repetitive business tasks",
@@ -14,10 +14,10 @@
       ]
     },
     {
-      "identifier": "urn:ai:aiflowix.in:ai-agent-development",
+      "identifier": "urn:air:aiflowix.in:services:ai-agent-development",
       "displayName": "AI Agent Development",
-      "type": "text/html",
-      "url": "https://aiflowix.in/ai-agent-development",
+      "type": "application/a2a-agent-card+json",
+      "url": "https://aiflowix.in/artifacts/ai-agent-development.json",
       "description": "Custom autonomous AI agents for 24/7 customer support and inbound lead qualification.",
       "representativeQueries": [
         "build custom autonomous AI agents",
@@ -26,10 +26,10 @@
       ]
     },
     {
-      "identifier": "urn:ai:aiflowix.in:workflow-automation-services",
+      "identifier": "urn:air:aiflowix.in:services:workflow-automation-services",
       "displayName": "Workflow Automation Services",
-      "type": "text/html",
-      "url": "https://aiflowix.in/workflow-automation-services",
+      "type": "application/mcp-server-card+json",
+      "url": "https://aiflowix.in/artifacts/workflow-automation-services.json",
       "description": "Multi-system workflow automation connecting CRMs, databases, and webhook pipelines.",
       "representativeQueries": [
         "multi-system workflow automation",
@@ -38,10 +38,10 @@
       ]
     },
     {
-      "identifier": "urn:ai:aiflowix.in:voice-ai-agents",
+      "identifier": "urn:air:aiflowix.in:services:voice-ai-agents",
       "displayName": "Voice AI Agents",
-      "type": "text/html",
-      "url": "https://aiflowix.in/voice-ai-agents",
+      "type": "application/agent-card+json",
+      "url": "https://aiflowix.in/artifacts/voice-ai-agents.json",
       "description": "Autonomous inbound voice receptionists and call answering systems.",
       "representativeQueries": [
         "AI voice receptionist for business calls",
@@ -50,10 +50,10 @@
       ]
     },
     {
-      "identifier": "urn:ai:aiflowix.in:whatsapp-automation",
+      "identifier": "urn:air:aiflowix.in:services:whatsapp-automation",
       "displayName": "WhatsApp Automation",
-      "type": "text/html",
-      "url": "https://aiflowix.in/whatsapp-automation",
+      "type": "application/agent-card+json",
+      "url": "https://aiflowix.in/artifacts/whatsapp-automation.json",
       "description": "Official WhatsApp Business API bots for qualification and customer messaging.",
       "representativeQueries": [
         "WhatsApp Business API automation bot",
@@ -62,10 +62,10 @@
       ]
     },
     {
-      "identifier": "urn:ai:aiflowix.in:custom-software-development",
+      "identifier": "urn:air:aiflowix.in:services:custom-software-development",
       "displayName": "Custom Software Development",
-      "type": "text/html",
-      "url": "https://aiflowix.in/custom-software-development",
+      "type": "application/agent-skills+json",
+      "url": "https://aiflowix.in/artifacts/custom-software-development.json",
       "description": "Bespoke full-stack web applications, internal tools, and client portals.",
       "representativeQueries": [
         "hire custom full stack software development team",

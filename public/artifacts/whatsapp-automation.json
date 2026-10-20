@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "WhatsApp Automation Card",
+  "description": "Official WhatsApp Business API bots for qualification and customer messaging.",
+  "version": "1.0.0",
+  "documentationUrl": "https://aiflowix.in/whatsapp-automation",
+  "provider": {
+    "name": "AIFlowix",
+    "url": "https://aiflowix.in"
+  },
+  "capabilities": [
+    "whatsapp-business-api",
+    "lead-qualification-bot",
+    "automated-messaging-triggers"
+  ]
+}

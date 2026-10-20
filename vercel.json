@@ -84,12 +84,36 @@
       "destination": "/.well-known/$1"
     },
     {
+      "source": "/artifacts/(.*)",
+      "destination": "/artifacts/$1"
+    },
+    {
       "source": "/robots.txt",
       "destination": "/robots.txt"
     },
     {
       "source": "/sitemap.xml",
       "destination": "/sitemap.xml"
+    },
+    {
+      "source": "/sitemap-index.xml",
+      "destination": "/sitemap-index.xml"
+    },
+    {
+      "source": "/sitemap-core.xml",
+      "destination": "/sitemap-core.xml"
+    },
+    {
+      "source": "/sitemap-services.xml",
+      "destination": "/sitemap-services.xml"
+    },
+    {
+      "source": "/sitemap-case-studies.xml",
+      "destination": "/sitemap-case-studies.xml"
+    },
+    {
+      "source": "/sitemap-blogs.xml",
+      "destination": "/sitemap-blogs.xml"
     },
     {
       "source": "/ai-index.txt",
