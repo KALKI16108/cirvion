@@ -139,11 +139,11 @@ const Hero = () => {
                             {/* Controls Column */}
                             <div className="md:col-span-7 space-y-5">
                                 <div>
-                                    <div className="flex justify-between items-center text-sm font-medium text-[#CBD5E1] mb-2">
-                                        <label htmlFor="hero-team-size" className="flex items-center gap-2 cursor-pointer">
-                                            <Users className="w-4 h-4 text-[#00C8FF]" /> Team Size:
+                                    <div className="flex justify-between items-center gap-4 text-sm font-medium text-[#CBD5E1] mb-2">
+                                        <label htmlFor="hero-team-size" className="flex items-center gap-2 cursor-pointer flex-1 min-w-0">
+                                            <Users className="w-4 h-4 text-[#00C8FF] shrink-0" /> Team Size:
                                         </label>
-                                        <span className="text-white font-bold text-base">{teamSize} employees</span>
+                                        <span className="text-white font-bold text-base shrink-0 whitespace-nowrap">{teamSize} employees</span>
                                     </div>
                                     <input
                                         id="hero-team-size"
@@ -158,11 +158,11 @@ const Hero = () => {
                                 </div>
 
                                 <div>
-                                    <div className="flex justify-between items-center text-sm font-medium text-[#CBD5E1] mb-2">
-                                        <label htmlFor="hero-manual-hours" className="flex items-center gap-2 cursor-pointer">
-                                            <Clock className="w-4 h-4 text-[#6366F1]" /> Manual Hours / Person / Week:
+                                    <div className="flex justify-between items-center gap-4 text-sm font-medium text-[#CBD5E1] mb-2">
+                                        <label htmlFor="hero-manual-hours" className="flex items-center gap-2 cursor-pointer flex-1 min-w-0">
+                                            <Clock className="w-4 h-4 text-[#6366F1] shrink-0" /> Manual Hours / Person / Week:
                                         </label>
-                                        <span className="text-white font-bold text-base">{hoursPerWeek} hrs/week</span>
+                                        <span className="text-white font-bold text-base shrink-0 whitespace-nowrap">{hoursPerWeek} hrs/week</span>
                                     </div>
                                     <input
                                         id="hero-manual-hours"

@@ -92,10 +92,10 @@ const RoiCalculator = () => {
                     className="glass-card p-8 rounded-3xl border border-white/5 space-y-8"
                 >
                     <div>
-                        <label className="flex justify-between items-center text-[#E2E8F0] mb-3">
-                            <span>Hours wasted per week, per employee</span>
-                            <span className="font-bold text-[#00C8FF]">{hours} hrs</span>
-                        </label>
+                        <div className="flex justify-between items-center gap-4 text-[#E2E8F0] mb-3">
+                            <span className="flex-1 min-w-0">Hours wasted per week, per employee</span>
+                            <span className="font-bold text-[#00C8FF] shrink-0 whitespace-nowrap">{hours} hrs</span>
+                        </div>
                         <input 
                             type="range" 
                             min="1" 
@@ -106,10 +106,10 @@ const RoiCalculator = () => {
                         />
                     </div>
                     <div>
-                        <label className="flex justify-between items-center text-[#E2E8F0] mb-3">
-                            <span>Average hourly pay rate</span>
-                            <span className="font-bold text-[#00C8FF]">${hourlyRate}</span>
-                        </label>
+                        <div className="flex justify-between items-center gap-4 text-[#E2E8F0] mb-3">
+                            <span className="flex-1 min-w-0">Average hourly pay rate</span>
+                            <span className="font-bold text-[#00C8FF] shrink-0 whitespace-nowrap">${hourlyRate}</span>
+                        </div>
                         <input 
                             type="range" 
                             min="10" 
@@ -121,10 +121,10 @@ const RoiCalculator = () => {
                         />
                     </div>
                     <div>
-                        <label className="flex justify-between items-center text-[#E2E8F0] mb-3">
-                            <span>Number of employees doing manual tasks</span>
-                            <span className="font-bold text-[#00C8FF]">{employees}</span>
-                        </label>
+                        <div className="flex justify-between items-center gap-4 text-[#E2E8F0] mb-3">
+                            <span className="flex-1 min-w-0">Number of employees doing manual tasks</span>
+                            <span className="font-bold text-[#00C8FF] shrink-0 whitespace-nowrap">{employees}</span>
+                        </div>
                         <input 
                             type="range" 
                             min="1" 
