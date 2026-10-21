@@ -1,12 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { Play, Upload, Copy, Check } from 'lucide-react';
+import SEOHead from './SEOHead';
 
 const Lab = () => {
   const [activeTab, setActiveTab] = useState('showcase');
   const [copied, setCopied] = useState(false);
 
+  const labSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "AIFlowix Automation Lab",
+    "url": "https://aiflowix.in/lab",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "All",
+    "description": "Interactive AI automation demonstrations and tools showcasing intelligent document parsing, lead qualification, and process automation."
+  };
+
   return (
-    <section id="lab" className="relative py-20 sm:py-24 md:py-32 lg:py-40 overflow-hidden" aria-label="Automation Lab with live demos and interactive playground">
+    <>
+      <SEOHead 
+        title="AI Automation Lab & Interactive Tools | AIFlowix"
+        description="Explore live AI automation demos and interactive playgrounds for document parsing, lead qualification, and workflow intelligence."
+        canonical="/lab"
+        schema={labSchema}
+      />
+      <section id="lab" className="relative py-20 sm:py-24 md:py-32 lg:py-40 overflow-hidden" aria-label="Automation Lab with live demos and interactive playground">
       {/* Matte black background */}
       <div className="absolute inset-0 bg-[#0B0B0B]"></div>
 
@@ -22,9 +40,6 @@ const Lab = () => {
             </h1>
             <p className="text-[#94A3B8] text-base sm:text-lg md:text-xl max-w-3xl leading-relaxed font-light">
               Watch real-time automation in action. Next-generation solutions that save time, maximize accuracy, and multiply ROI.
-            </p>
-            <p className="sr-only">
-              Explore live automation demos and an interactive playground featuring Lead Qualifier, Invoice Reader, and Hinglish Parser tools. See real-time processing, efficiency metrics, and business outcomes powered by AI.
             </p>
           </div>
 
@@ -113,6 +128,7 @@ const Lab = () => {
         }
       `}</style>
     </section>
+    </>
   );
 };
 

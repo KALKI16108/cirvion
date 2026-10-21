@@ -12,7 +12,8 @@ const corePages = [
   { loc: '/ai-for-small-business', priority: '0.8', changefreq: 'weekly' },
   { loc: '/free-ai-audit', priority: '0.8', changefreq: 'weekly' },
   { loc: '/roi-calculator', priority: '0.8', changefreq: 'weekly' },
-  { loc: '/ai-readiness', priority: '0.8', changefreq: 'weekly' }
+  { loc: '/ai-readiness', priority: '0.8', changefreq: 'weekly' },
+  { loc: '/lab', priority: '0.8', changefreq: 'weekly' }
 ];
 
 const servicePages = [
@@ -31,10 +32,9 @@ const caseStudyPages = [
   '/healthcare-automation',
   '/real-estate-automation',
   '/logistics-automation',
-  '/fintech-automation',
-  '/legal-ai-automation',
-  '/ecommerce-automation',
-  '/saas-automation'
+  '/finance-automation',
+  '/law-firm-automation',
+  '/e-commerce-automation'
 ];
 
 // Read blogs

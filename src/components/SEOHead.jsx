@@ -11,7 +11,9 @@ const SEOHead = ({
     type = "website"
 }) => {
     const siteUrl = "https://aiflowix.in";
-    const fullCanonical = canonical ? `${siteUrl}${canonical}` : siteUrl;
+    const fullCanonical = canonical 
+        ? (canonical.startsWith('http') ? canonical : `${siteUrl}${canonical.startsWith('/') ? canonical : `/${canonical}`}`) 
+        : siteUrl;
 
     const organizationSchema = {
         "@context": "https://schema.org",

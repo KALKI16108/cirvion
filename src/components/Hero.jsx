@@ -27,7 +27,7 @@ const Hero = () => {
     };
 
     return (
-        <section className="relative min-h-screen flex flex-col justify-center pt-32 sm:pt-40 pb-16 overflow-hidden bg-[#030712]">
+        <section className="relative flex flex-col justify-center pt-24 sm:pt-28 pb-8 sm:pb-10 overflow-hidden bg-[#030712]">
             <VideoModal
                 isOpen={isVideoOpen}
                 onClose={() => setIsVideoOpen(false)}
@@ -44,16 +44,16 @@ const Hero = () => {
             <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#00C8FF]/10 rounded-full blur-[120px] pointer-events-none opacity-40"></div>
             <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-[#6366F1]/10 rounded-full blur-[120px] pointer-events-none opacity-40"></div>
 
-            <div className="container mx-auto px-6 relative z-10 text-center">
-                <div className="max-w-5xl mx-auto">
+            <div className="container mx-auto px-4 sm:px-6 relative z-10 text-center">
+                <div className="max-w-4xl mx-auto">
                     {/* Badge */}
-                    <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-white/5 border border-white/10 backdrop-blur-md hover:border-[#00C8FF]/50 transition-colors cursor-default">
-                        <Zap className="w-4 h-4 text-[#00C8FF] fill-current" />
-                        <ShinyText text="India-Based Engineering • Global AI & Automation Partner" disabled={false} speed={3} className="text-sm font-medium tracking-wide" color="#CBD5E1" shineColor="#00C8FF" />
+                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-4 rounded-full bg-white/5 border border-white/10 backdrop-blur-md hover:border-[#00C8FF]/50 transition-colors cursor-default">
+                        <Zap className="w-3.5 h-3.5 text-[#00C8FF] fill-current" />
+                        <ShinyText text="India-Based Engineering • Global AI & Automation Partner" disabled={false} speed={3} className="text-xs sm:text-sm font-medium tracking-wide" color="#CBD5E1" shineColor="#00C8FF" />
                     </div>
 
                     {/* Headline */}
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 md:mb-8 tracking-tight leading-[1.1]">
+                    <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-3 md:mb-4 tracking-tight leading-[1.1]">
                         <BlurText 
                            text="Automate Your Business."
                            delay={150}
@@ -72,66 +72,65 @@ const Hero = () => {
                     </h1>
 
                     {/* Subheadline */}
-                    <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-[#94A3B8] max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed font-light px-4">
-                        AI automation, customer support workflows, lead follow-ups, and custom software built around your business operations.
-                        Based in India, delivering reliable, production-grade systems for clients across the US, UK, Canada, Australia, UAE, and worldwide.
+                    <p className="text-sm sm:text-base md:text-lg text-[#94A3B8] max-w-2xl mx-auto mb-5 leading-relaxed font-normal px-2">
+                        Eliminate manual data entry, automate lead response in under 60 seconds, and connect your CRMs with custom AI workflows.
                     </p>
 
                     {/* CTAs */}
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 px-4 mb-10">
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-2 mb-5">
                         <a
                             href="#contact"
                             onClick={() => trackCtaClick('Book a Free Discovery Call', 'Hero')}
-                            className="btn-primary flex items-center gap-3 group px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto justify-center hover:scale-105 active:scale-95 transition-transform"
+                            className="btn-primary flex items-center gap-2.5 group px-6 sm:px-8 py-3 text-sm sm:text-base w-full sm:w-auto justify-center shadow-lg shadow-[#00C8FF]/20 hover:scale-105 active:scale-95 transition-all"
                         >
                             Book a Free Discovery Call
-                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </a>
 
                         <a
                             href="#services"
                             onClick={() => trackCtaClick('Explore Our Solutions', 'Hero')}
-                            className="btn-secondary flex items-center gap-3 group px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto justify-center hover:scale-105 active:scale-95 transition-transform"
+                            className="btn-secondary flex items-center gap-2 group px-5 py-3 text-xs sm:text-sm w-full sm:w-auto justify-center hover:bg-white/10 transition-colors"
                         >
-                            Explore Our Solutions
-                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            Explore Solutions
+                            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                         </a>
                     </div>
 
                     {/* Trust & Proof Indicators */}
-                    <div className="pt-2 pb-6 flex flex-wrap items-center justify-center gap-6 text-[#94A3B8] text-xs sm:text-sm font-medium border-t border-white/5 max-w-3xl mx-auto">
-                        <span className="flex items-center gap-2">
-                            <span className="text-[#00C8FF] font-bold">India-Based</span> Direct Engineering Team
+                    <div className="py-2 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-[#94A3B8] text-xs font-medium border-t border-white/5 max-w-2xl mx-auto">
+                        <span className="flex items-center gap-1.5">
+                            <span className="text-[#00C8FF] font-bold">India-Based</span> Direct Engineering
                         </span>
                         <span className="hidden sm:inline text-white/20">•</span>
-                        <span className="flex items-center gap-2">
-                            <span className="text-emerald-400 font-bold">Fixed Scope</span> Clear Milestones & Deliverables
+                        <span className="flex items-center gap-1.5">
+                            <span className="text-emerald-400 font-bold">Fixed Scope</span> Clear Milestones
                         </span>
                         <span className="hidden sm:inline text-white/20">•</span>
-                        <span className="flex items-center gap-2">
-                            <span className="text-indigo-400 font-bold">Zero Lock-In</span> You Own 100% of the Code
+                        <span className="flex items-center gap-1.5">
+                            <span className="text-indigo-400 font-bold">Zero Lock-In</span> 100% Code Ownership
                         </span>
                     </div>
                 </div>
 
                 {/* Interactive Hero Widget: Instant AI ROI Estimator */}
-                <div className="mt-6 sm:mt-10 relative mx-auto max-w-4xl text-left">
-                    <div className="relative rounded-2xl bg-[#0F172A]/90 border border-white/10 p-6 sm:p-8 backdrop-blur-xl shadow-2xl overflow-hidden group hover:border-[#00C8FF]/30 transition-all">
+                <div className="mt-4 sm:mt-6 relative mx-auto max-w-3xl text-left">
+                    <div className="relative rounded-2xl bg-[#0F172A]/90 border border-white/10 p-4 sm:p-6 backdrop-blur-xl shadow-xl overflow-hidden group hover:border-[#00C8FF]/30 transition-all">
                         <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-[#00C8FF]/10 to-transparent rounded-full blur-3xl pointer-events-none"></div>
 
-                        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6 border-b border-white/10 pb-4">
+                        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4 border-b border-white/10 pb-3">
                             <div>
-                                <div className="inline-flex items-center gap-2 text-xs font-semibold text-[#00C8FF] uppercase tracking-wider mb-1">
-                                    <Sparkles className="w-3.5 h-3.5" /> Instant AI Savings Calculator
+                                <div className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#00C8FF] uppercase tracking-wider mb-0.5">
+                                    <Sparkles className="w-3 h-3" /> Instant AI Savings Calculator
                                 </div>
-                                <h2 className="text-xl sm:text-2xl font-bold text-white">How much can AI automation save your business?</h2>
+                                <h2 className="text-base sm:text-lg font-bold text-white">How much can AI automation save your business?</h2>
                             </div>
                             <a
                                 href="/roi-calculator"
                                 onClick={() => trackCtaClick('Full ROI Breakdown', 'Hero Calculator Widget')}
                                 className="text-xs font-semibold text-[#00C8FF] hover:underline flex items-center gap-1 shrink-0"
                             >
-                                Full ROI Breakdown <ArrowRight className="w-3.5 h-3.5" />
+                                Full ROI Breakdown <ArrowRight className="w-3 h-3" />
                             </a>
                         </div>
 

@@ -59,7 +59,8 @@ const staticPages = [
     '/ai-for-small-business',
     '/free-ai-audit',
     '/roi-calculator',
-    '/ai-readiness'
+    '/ai-readiness',
+    '/lab'
 ];
 
 const generateSitemap = () => {

@@ -8,6 +8,7 @@ import UseCasesGrid from '../components/UseCasesGrid';
 import CaseStudy from '../components/CaseStudy';
 import InternalLinks from '../components/InternalLinks';
 import servicesData from '../data/services.json';
+import { trackContactCtaClick } from '../lib/analytics';
 
 const ServiceTemplate = ({ forcedSlug }) => {
     const params = useParams();
@@ -82,10 +83,34 @@ const ServiceTemplate = ({ forcedSlug }) => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="text-xl text-[#94A3B8] leading-relaxed"
+                        className="text-xl text-[#94A3B8] leading-relaxed mb-8"
                     >
                         {service.description}
                     </motion.p>
+
+                    {/* Above-the-Fold Service Consultation CTAs */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3 }}
+                        className="flex flex-col sm:flex-row items-center justify-center gap-4"
+                    >
+                        <a
+                            href="#contact"
+                            onClick={() => trackContactCtaClick('Book Service Consultation', service.title)}
+                            className="btn-primary flex items-center gap-3 px-8 py-3.5 text-base sm:text-lg font-bold w-full sm:w-auto justify-center shadow-xl shadow-[#00C8FF]/20"
+                        >
+                            Book a Free Consultation
+                            <ArrowRight className="w-5 h-5" />
+                        </a>
+                        <a
+                            href="#contact"
+                            onClick={() => trackContactCtaClick('Request Service Audit', service.title)}
+                            className="btn-secondary flex items-center gap-2 px-6 py-3.5 text-base font-semibold w-full sm:w-auto justify-center"
+                        >
+                            Request Free Audit
+                        </a>
+                    </motion.div>
                 </div>
             </section>
 

@@ -1,4 +1,5 @@
 import React, { useState, useRef, lazy, Suspense } from 'react';
+import { Link } from 'react-router-dom';
 import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Send, CheckCircle2 } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { trackFormStart, trackFormSubmit } from '../lib/analytics';
@@ -192,20 +193,19 @@ const ContactFooter = () => {
                 {showCookie && <CookiePolicy onClose={() => setShowCookie(false)} />}
             </Suspense>
 
-            <footer id="contact" className="bg-[#030712] border-t border-white/5 pt-16 sm:pt-20 md:pt-24 lg:pt-32 pb-[calc(7.5rem+env(safe-area-inset-bottom))] lg:pb-32 relative overflow-hidden">
+            <footer id="contact" className="bg-[#030712] border-t border-white/5 pt-10 sm:pt-12 lg:pt-16 pb-[calc(6rem+env(safe-area-inset-bottom))] lg:pb-16 relative overflow-hidden">
                 {/* Footer Glow */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] sm:w-[800px] md:w-[1000px] h-[300px] sm:h-[400px] md:h-[500px] bg-[#00C8FF]/5 rounded-full blur-[120px] pointer-events-none"></div>
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] sm:w-[800px] h-[300px] sm:h-[400px] bg-[#00C8FF]/5 rounded-full blur-[120px] pointer-events-none"></div>
 
                 <div className="container mx-auto px-4 sm:px-6 relative z-10">
-                    <div className="flex flex-col lg:grid lg:grid-cols-2 gap-10 sm:gap-12 md:gap-16 lg:gap-24 mb-10 sm:mb-12 md:mb-16 lg:mb-24">
+                    <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 mb-8 sm:mb-10 lg:mb-12">
 
                         {/* Left Column: Contact Info & Navigation (Order 2 on Mobile, Order 1 on Desktop) */}
                         <div className="order-2 lg:order-1">
-                            <div className="mb-8 sm:mb-10 md:mb-12">
-                                <p className="text-[#94A3B8] text-sm sm:text-base md:text-lg max-w-md leading-relaxed">
-                                    Empowering businesses with intelligent automation. If you're looking for an <strong>automation agency near me</strong>, AIFLOWIX serves clients locally and globally.
+                            <div className="mb-6 sm:mb-8">
+                                <p className="text-[#94A3B8] text-xs sm:text-sm max-w-md leading-relaxed">
+                                    Empowering scaling businesses worldwide with intelligent custom AI & workflow automation.
                                 </p>
-                                {/* Screen-reader-only: short contact intent line for SEO and a11y */}
                                 <p className="sr-only">Contact AIFLOWIX for a free automation audit and practical roadmap to reduce manual work.</p>
                             </div>
 
@@ -263,27 +263,27 @@ const ContactFooter = () => {
                                     <div>
                                         <h3 className="text-white font-semibold mb-4 text-sm sm:text-base">Services</h3>
                                         <ul className="space-y-3 text-sm text-[#94A3B8]">
-                                            <li><a href="/services/whatsapp-automation" className="hover:text-[#00C8FF] transition-colors">WhatsApp Automation</a></li>
-                                            <li><a href="/services/ai-lead-generation" className="hover:text-[#00C8FF] transition-colors">AI Lead Generation</a></li>
-                                            <li><a href="/services/crm-automation" className="hover:text-[#00C8FF] transition-colors">CRM Automation</a></li>
-                                            <li><a href="/services/voice-ai-agents" className="hover:text-[#00C8FF] transition-colors">Voice AI Agents</a></li>
+                                            <li><Link to="/whatsapp-automation" className="hover:text-[#00C8FF] transition-colors">WhatsApp Automation</Link></li>
+                                            <li><Link to="/workflow-automation-services" className="hover:text-[#00C8FF] transition-colors">Workflow Automation</Link></li>
+                                            <li><Link to="/crm-development" className="hover:text-[#00C8FF] transition-colors">CRM Automation</Link></li>
+                                            <li><Link to="/voice-ai-agents" className="hover:text-[#00C8FF] transition-colors">Voice AI Agents</Link></li>
                                         </ul>
                                     </div>
                                     <div>
                                         <h3 className="text-white font-semibold mb-4 text-sm sm:text-base">Industries</h3>
                                         <ul className="space-y-3 text-sm text-[#94A3B8]">
-                                            <li><a href="/industries/real-estate" className="hover:text-[#00C8FF] transition-colors">Real Estate</a></li>
-                                            <li><a href="/industries/healthcare" className="hover:text-[#00C8FF] transition-colors">Healthcare</a></li>
-                                            <li><a href="/industries/ecommerce" className="hover:text-[#00C8FF] transition-colors">E-Commerce</a></li>
-                                            <li><a href="/industries/logistics" className="hover:text-[#00C8FF] transition-colors">Logistics</a></li>
+                                            <li><Link to="/real-estate-automation" className="hover:text-[#00C8FF] transition-colors">Real Estate</Link></li>
+                                            <li><Link to="/healthcare-automation" className="hover:text-[#00C8FF] transition-colors">Healthcare</Link></li>
+                                            <li><Link to="/e-commerce-automation" className="hover:text-[#00C8FF] transition-colors">E-Commerce</Link></li>
+                                            <li><Link to="/logistics-automation" className="hover:text-[#00C8FF] transition-colors">Logistics</Link></li>
                                         </ul>
                                     </div>
                                     <div className="col-span-2 sm:col-span-1">
                                         <h3 className="text-white font-semibold mb-4 text-sm sm:text-base">Company</h3>
                                         <ul className="space-y-3 text-sm text-[#94A3B8]">
-                                            <li><a href="/blog" className="hover:text-[#00C8FF] transition-colors">Blog</a></li>
-                                            <li><a href="/free-ai-audit" className="hover:text-[#00C8FF] transition-colors">Free AI Audit</a></li>
-                                            <li><a href="/roi-calculator" className="hover:text-[#00C8FF] transition-colors">ROI Calculator</a></li>
+                                            <li><Link to="/blog" className="hover:text-[#00C8FF] transition-colors">Blog</Link></li>
+                                            <li><Link to="/free-ai-audit" className="hover:text-[#00C8FF] transition-colors">Free AI Audit</Link></li>
+                                            <li><Link to="/roi-calculator" className="hover:text-[#00C8FF] transition-colors">ROI Calculator</Link></li>
                                         </ul>
                                     </div>
                                 </div>
