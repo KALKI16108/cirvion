@@ -1,13 +1,25 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, Workflow } from 'lucide-react';
 
 const CaseStudy = ({ caseStudy }) => {
     if (!caseStudy) return null;
 
     return (
         <div className="my-16">
-            <h2 className="text-2xl font-bold text-white mb-8">Implementation Case Study</h2>
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-8">
+                <div>
+                    <h2 className="text-2xl font-bold text-white">Representative Implementation Scenario</h2>
+                    <p className="text-xs text-[#94A3B8] mt-1">
+                        Illustrative workflow scenario demonstrating typical system integration and operational turnaround.
+                    </p>
+                </div>
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-[#00C8FF]/10 border border-[#00C8FF]/20 text-[11px] font-semibold text-[#00C8FF] uppercase tracking-wider w-fit">
+                    <Workflow className="w-3.5 h-3.5" />
+                    <span>Illustrative Architecture</span>
+                </div>
+            </div>
+
             <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -16,8 +28,8 @@ const CaseStudy = ({ caseStudy }) => {
             >
                 {/* Before */}
                 <div className="bg-[#1E293B]/80 border border-white/10 rounded-t-2xl p-6 md:p-8">
-                    <div className="text-xs font-bold tracking-wider text-red-400 uppercase mb-2">Before</div>
-                    <p className="text-white text-lg">{caseStudy.before}</p>
+                    <div className="text-xs font-bold tracking-wider text-red-400 uppercase mb-2">Initial Operational State</div>
+                    <p className="text-white text-base md:text-lg leading-relaxed">{caseStudy.before}</p>
                 </div>
                 
                 {/* Arrow */}
@@ -29,8 +41,8 @@ const CaseStudy = ({ caseStudy }) => {
 
                 {/* Implementation */}
                 <div className="bg-gradient-to-b from-[#1E293B]/80 to-[#1E293B]/40 border-x border-white/10 p-6 md:p-8">
-                    <div className="text-xs font-bold tracking-wider text-[#00C8FF] uppercase mb-2">Implementation</div>
-                    <p className="text-[#E2E8F0]">{caseStudy.implementation}</p>
+                    <div className="text-xs font-bold tracking-wider text-[#00C8FF] uppercase mb-2">Engineered Solution Architecture</div>
+                    <p className="text-[#E2E8F0] text-sm md:text-base leading-relaxed">{caseStudy.implementation}</p>
                 </div>
 
                 {/* Arrow */}
@@ -42,8 +54,8 @@ const CaseStudy = ({ caseStudy }) => {
 
                 {/* After */}
                 <div className="bg-[#00C8FF]/10 border border-[#00C8FF]/30 rounded-b-2xl p-6 md:p-8">
-                    <div className="text-xs font-bold tracking-wider text-[#10B981] uppercase mb-2">After</div>
-                    <p className="text-white text-lg font-medium">{caseStudy.after}</p>
+                    <div className="text-xs font-bold tracking-wider text-[#10B981] uppercase mb-2">Expected Operational Outcome</div>
+                    <p className="text-white text-base md:text-lg font-medium leading-relaxed">{caseStudy.after}</p>
                 </div>
             </motion.div>
         </div>

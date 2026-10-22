@@ -37,10 +37,19 @@ const SEOHead = ({
         "priceRange": "$$",
         "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Navi Mumbai",
+            "addressLocality": "Mumbai",
             "addressRegion": "Maharashtra",
             "addressCountry": "IN"
-        }
+        },
+        "areaServed": [
+            "Global",
+            "United States",
+            "United Kingdom",
+            "Canada",
+            "Australia",
+            "United Arab Emirates",
+            "India"
+        ]
     };
 
     const websiteSchema = {

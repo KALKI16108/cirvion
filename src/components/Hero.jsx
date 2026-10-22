@@ -1,41 +1,19 @@
-import React, { useState } from 'react';
-import { ArrowRight, Play, Zap, Activity, Calculator, TrendingUp, Sparkles, DollarSign, Users, Clock } from 'lucide-react';
-import VideoModal from './VideoModal';
+import React from 'react';
+import { ArrowRight, Zap, Calculator, Sparkles, Shield, Code, Cpu } from 'lucide-react';
 import BlurText from './animations/BlurText';
 import ShinyText from './animations/ShinyText';
 import Aurora from './animations/Aurora';
-import { trackCtaClick, trackToolEngagement } from '../lib/analytics';
+import { trackCtaClick, trackBookCallClick } from '../lib/analytics';
+import { getCalendarBookingUrl } from '../lib/booking';
 
 const Hero = () => {
-    const [isVideoOpen, setIsVideoOpen] = useState(false);
-    const [teamSize, setTeamSize] = useState(10);
-    const [hoursPerWeek, setHoursPerWeek] = useState(12);
-
-    // Instant ROI Calculation for Interactive Hero Widget
-    const hourlyCost = 35; // average hourly cost $35/hr
-    const weeklyHoursSaved = Math.round(teamSize * hoursPerWeek * 0.7); // 70% automated
-    const annualSavings = Math.round(weeklyHoursSaved * 52 * hourlyCost);
-
-    const handleSliderChange = (type, val) => {
-        if (type === 'team') {
-            setTeamSize(val);
-            trackToolEngagement('Hero Quick Calculator', 'change_team_size', { value: val });
-        } else {
-            setHoursPerWeek(val);
-            trackToolEngagement('Hero Quick Calculator', 'change_hours', { value: val });
-        }
-    };
+    const calendarUrl = getCalendarBookingUrl();
+    const primaryCtaLabel = calendarUrl ? "Book a Discovery Call" : "Request a Free AI Automation Audit";
 
     return (
-        <section className="relative flex flex-col justify-center pt-24 sm:pt-28 pb-8 sm:pb-10 overflow-hidden bg-[#030712]">
-            <VideoModal
-                isOpen={isVideoOpen}
-                onClose={() => setIsVideoOpen(false)}
-                videoUrl="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
-            />
-
+        <section className="relative flex flex-col justify-center pt-24 sm:pt-28 pb-12 sm:pb-16 overflow-hidden bg-[#030712]">
             {/* Dynamic Background */}
-            <div className="absolute inset-0 z-0 bg-grid opacity-20"></div>
+            <div className="absolute inset-0 z-0 bg-grid opacity-20 pointer-events-none"></div>
             <div className="absolute inset-0 z-0 opacity-40 mix-blend-screen pointer-events-none">
                  <Aurora colorStops={['#00C8FF', '#6366F1', '#00C8FF']} amplitude={1.2} />
             </div>
@@ -49,152 +27,121 @@ const Hero = () => {
                     {/* Badge */}
                     <div className="inline-flex items-center gap-2 px-3.5 py-1.5 mb-4 rounded-full bg-white/5 border border-white/10 backdrop-blur-md hover:border-[#00C8FF]/50 transition-colors cursor-default">
                         <Zap className="w-3.5 h-3.5 text-[#00C8FF] fill-current" />
-                        <ShinyText text="India-Based Engineering • Global AI & Automation Partner" disabled={false} speed={3} className="text-xs sm:text-sm font-medium tracking-wide" color="#CBD5E1" shineColor="#00C8FF" />
+                        <ShinyText text="Mumbai Engineering HQ • Serving US, UK, Canada, Australia, UAE & India" disabled={false} speed={3} className="text-xs sm:text-sm font-medium tracking-wide" color="#CBD5E1" shineColor="#00C8FF" />
                     </div>
 
                     {/* Headline */}
                     <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-3 md:mb-4 tracking-tight leading-[1.1]">
                         <BlurText 
-                           text="Automate Your Business."
+                           text="Automate Your Workflows."
                            delay={150}
                            animateBy="words"
                            direction="top"
                            className="flex justify-center text-white"
                         />
                         <BlurText 
-                           text="Spend Less Time on Repetitive Work."
+                           text="Reclaim Hundreds of Hours."
                            delay={150}
                            animateBy="words"
                            direction="bottom"
                            className="flex justify-center text-gradient-primary"
                         />
-                        <span className="sr-only">Automate Your Business. Spend Less Time on Repetitive Work. Custom AI software, workflow automation, and web applications by AIFlowix.</span>
+                        <span className="sr-only">Automate Your Workflows. Reclaim Hundreds of Hours. Practical AI automation, AI agents, WhatsApp workflows, and custom software by AIFlowix.</span>
                     </h1>
 
-                    {/* Subheadline */}
-                    <p className="text-sm sm:text-base md:text-lg text-[#94A3B8] max-w-2xl mx-auto mb-5 leading-relaxed font-normal px-2">
-                        Eliminate manual data entry, automate lead response in under 60 seconds, and connect your CRMs with custom AI workflows.
+                    {/* Supporting Explanation */}
+                    <p className="text-sm sm:text-base md:text-lg text-[#94A3B8] max-w-2xl mx-auto mb-6 leading-relaxed font-normal px-2">
+                        We engineer custom AI agents, automated workflow pipelines, WhatsApp bots, and CRM integrations for scaling companies across the US, UK, Canada, Australia, UAE, and India.
                     </p>
 
-                    {/* CTAs */}
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-2 mb-5">
+                    {/* Dominant Primary Action & Distinct Secondary Action */}
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-2 mb-6">
                         <a
-                            href="#contact"
-                            onClick={() => trackCtaClick('Book a Free Discovery Call', 'Hero')}
+                            href={calendarUrl || "#contact"}
+                            {...(calendarUrl ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                            onClick={() => {
+                                if (calendarUrl) {
+                                    trackBookCallClick('calendar', 'Hero');
+                                } else {
+                                    trackCtaClick('Book a Free Discovery Call', 'Hero');
+                                }
+                            }}
                             className="btn-primary flex items-center gap-2.5 group px-6 sm:px-8 py-3 text-sm sm:text-base w-full sm:w-auto justify-center shadow-lg shadow-[#00C8FF]/20 hover:scale-105 active:scale-95 transition-all"
                         >
-                            Book a Free Discovery Call
+                            <span>{primaryCtaLabel}</span>
+                            <span className="sr-only">Request Free Audit</span>
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </a>
 
                         <a
-                            href="#services"
-                            onClick={() => trackCtaClick('Explore Our Solutions', 'Hero')}
+                            href="#calculator"
+                            onClick={() => trackCtaClick('Calculate Automation ROI', 'Hero')}
                             className="btn-secondary flex items-center gap-2 group px-5 py-3 text-xs sm:text-sm w-full sm:w-auto justify-center hover:bg-white/10 transition-colors"
                         >
-                            Explore Solutions
-                            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                            <Calculator className="w-4 h-4 text-[#00C8FF]" />
+                            <span>Calculate Automation ROI</span>
+                        </a>
+                    </div>
+
+                    {/* Quick Secondary Links & Detailed Tool Link */}
+                    <div className="flex items-center justify-center gap-4 text-xs text-[#94A3B8] mb-6">
+                        <a
+                            href="#services"
+                            onClick={() => trackCtaClick('Explore Services', 'Hero Quick Link')}
+                            className="hover:text-[#00C8FF] transition-colors flex items-center gap-1"
+                        >
+                            Explore Solutions <ArrowRight className="w-3 h-3" />
+                        </a>
+                        <span className="text-white/20">•</span>
+                        <a
+                            href="/roi-calculator"
+                            onClick={() => trackCtaClick('Interactive ROI Calculator', 'Hero')}
+                            className="text-[#00C8FF] hover:underline flex items-center gap-1 font-medium"
+                        >
+                            <Sparkles className="w-3 h-3" /> Dedicated ROI Calculator
                         </a>
                     </div>
 
                     {/* Trust & Proof Indicators */}
-                    <div className="py-2 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-[#94A3B8] text-xs font-medium border-t border-white/5 max-w-2xl mx-auto">
+                    <div className="py-3 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-[#94A3B8] text-xs font-medium border-t border-white/5 max-w-3xl mx-auto">
                         <span className="flex items-center gap-1.5">
-                            <span className="text-[#00C8FF] font-bold">India-Based</span> Direct Engineering
+                            <span className="text-[#00C8FF] font-bold">Direct Senior Engineering</span> Global Delivery
                         </span>
                         <span className="hidden sm:inline text-white/20">•</span>
                         <span className="flex items-center gap-1.5">
-                            <span className="text-emerald-400 font-bold">Fixed Scope</span> Clear Milestones
+                            <span className="text-emerald-400 font-bold">Fixed-Scope Milestones</span> Clear Timelines
                         </span>
                         <span className="hidden sm:inline text-white/20">•</span>
                         <span className="flex items-center gap-1.5">
-                            <span className="text-indigo-400 font-bold">Zero Lock-In</span> 100% Code Ownership
+                            <span className="text-indigo-400 font-bold">100% Code Ownership</span> Zero Vendor Lock-in
                         </span>
                     </div>
-                </div>
 
-                {/* Interactive Hero Widget: Instant AI ROI Estimator */}
-                <div className="mt-4 sm:mt-6 relative mx-auto max-w-3xl text-left">
-                    <div className="relative rounded-2xl bg-[#0F172A]/90 border border-white/10 p-4 sm:p-6 backdrop-blur-xl shadow-xl overflow-hidden group hover:border-[#00C8FF]/30 transition-all">
-                        <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-[#00C8FF]/10 to-transparent rounded-full blur-3xl pointer-events-none"></div>
-
-                        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4 border-b border-white/10 pb-3">
-                            <div>
-                                <div className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#00C8FF] uppercase tracking-wider mb-0.5">
-                                    <Sparkles className="w-3 h-3" /> Instant AI Savings Calculator
-                                </div>
-                                <h2 className="text-base sm:text-lg font-bold text-white">How much can AI automation save your business?</h2>
+                    {/* Executive Overview Card (Answers What, Problems, Who) */}
+                    <div className="mt-6 rounded-xl bg-[#0F172A]/70 border border-white/5 p-4 sm:p-5 text-left grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                        <div className="border-b md:border-b-0 md:border-r border-white/5 pb-3 md:pb-0 md:pr-4">
+                            <div className="text-[#00C8FF] font-bold uppercase tracking-wider text-[10px] mb-1 flex items-center gap-1">
+                                <Cpu className="w-3 h-3" /> What We Build
                             </div>
-                            <a
-                                href="/roi-calculator"
-                                onClick={() => trackCtaClick('Full ROI Breakdown', 'Hero Calculator Widget')}
-                                className="text-xs font-semibold text-[#00C8FF] hover:underline flex items-center gap-1 shrink-0"
-                            >
-                                Full ROI Breakdown <ArrowRight className="w-3 h-3" />
-                            </a>
+                            <p className="text-[#CBD5E1] leading-relaxed">
+                                Custom AI agents, WhatsApp bots, automated workflow pipelines, and tailored full-stack software.
+                            </p>
                         </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-                            {/* Controls Column */}
-                            <div className="md:col-span-7 space-y-5">
-                                <div>
-                                    <div className="flex justify-between items-center gap-4 text-sm font-medium text-[#CBD5E1] mb-2">
-                                        <label htmlFor="hero-team-size" className="flex items-center gap-2 cursor-pointer flex-1 min-w-0">
-                                            <Users className="w-4 h-4 text-[#00C8FF] shrink-0" /> Team Size:
-                                        </label>
-                                        <span className="text-white font-bold text-base shrink-0 whitespace-nowrap">{teamSize} employees</span>
-                                    </div>
-                                    <input
-                                        id="hero-team-size"
-                                        type="range"
-                                        min="2"
-                                        max="100"
-                                        value={teamSize}
-                                        onChange={(e) => handleSliderChange('team', parseInt(e.target.value))}
-                                        aria-label="Team Size"
-                                        className="w-full accent-[#00C8FF] bg-[#1E293B] h-2 rounded-lg cursor-pointer"
-                                    />
-                                </div>
-
-                                <div>
-                                    <div className="flex justify-between items-center gap-4 text-sm font-medium text-[#CBD5E1] mb-2">
-                                        <label htmlFor="hero-manual-hours" className="flex items-center gap-2 cursor-pointer flex-1 min-w-0">
-                                            <Clock className="w-4 h-4 text-[#6366F1] shrink-0" /> Manual Hours / Person / Week:
-                                        </label>
-                                        <span className="text-white font-bold text-base shrink-0 whitespace-nowrap">{hoursPerWeek} hrs/week</span>
-                                    </div>
-                                    <input
-                                        id="hero-manual-hours"
-                                        type="range"
-                                        min="5"
-                                        max="30"
-                                        value={hoursPerWeek}
-                                        onChange={(e) => handleSliderChange('hours', parseInt(e.target.value))}
-                                        aria-label="Manual Hours Per Person Per Week"
-                                        className="w-full accent-[#6366F1] bg-[#1E293B] h-2 rounded-lg cursor-pointer"
-                                    />
-                                </div>
+                        <div className="border-b md:border-b-0 md:border-r border-white/5 pb-3 md:pb-0 md:pr-4">
+                            <div className="text-emerald-400 font-bold uppercase tracking-wider text-[10px] mb-1 flex items-center gap-1">
+                                <Code className="w-3 h-3" /> Problems We Eliminate
                             </div>
-
-                            {/* Result Display Box */}
-                            <div className="md:col-span-5 bg-[#030712]/80 border border-white/10 rounded-xl p-5 text-center flex flex-col justify-center">
-                                <span className="text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1">
-                                    Estimated Annual AI Savings
-                                </span>
-                                <div className="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#00C8FF] to-[#10B981] my-1">
-                                    ${annualSavings.toLocaleString()}
-                                </div>
-                                <p className="text-xs text-[#94A3B8] mt-1">
-                                    ~<strong className="text-white">{(weeklyHoursSaved * 52).toLocaleString()} hours</strong> freed up per year
-                                </p>
-                                <a
-                                    href="#contact"
-                                    onClick={() => trackCtaClick('Claim These Savings', 'Hero Calculator Widget')}
-                                    className="mt-4 py-2.5 px-4 bg-gradient-to-r from-[#00C8FF] to-[#3B82F6] hover:opacity-90 text-white text-xs font-bold rounded-lg transition-all text-center flex items-center justify-center gap-1.5 shadow-lg shadow-[#00C8FF]/20"
-                                >
-                                    Claim These Savings Now <ArrowRight className="w-3.5 h-3.5" />
-                                </a>
+                            <p className="text-[#CBD5E1] leading-relaxed">
+                                Slow lead follow-ups, manual data entry across disconnected CRMs, and repetitive operational backlogs.
+                            </p>
+                        </div>
+                        <div>
+                            <div className="text-purple-400 font-bold uppercase tracking-wider text-[10px] mb-1 flex items-center gap-1">
+                                <Shield className="w-3 h-3" /> Who We Partner With
                             </div>
+                            <p className="text-[#CBD5E1] leading-relaxed">
+                                Scaling B2B firms, service operators, real estate, clinics, and founders in US, UK, Canada, UAE & APAC.
+                            </p>
                         </div>
                     </div>
                 </div>

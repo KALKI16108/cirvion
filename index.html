@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en-IN">
+<html lang="en">
 
 <head>
 <!-- Google Consent Mode v2 Defaults & DataLayer Buffer -->
@@ -73,7 +73,7 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:site_name" content="AIFLOWIX" />
-  <meta property="og:locale" content="en_IN" />
+  <meta property="og:locale" content="en_US" />
   
   <!-- Twitter Card: Global professional visibility -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -157,16 +157,42 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": ["LocalBusiness", "ProfessionalService"],
-    "name": "AIFLOWIX",
-    "url": "https://aiflowix.in",
-    "description": "AI agency — workflow automation, web development, custom AI software development, and AI consulting for businesses of all sizes.",
-    "address": { "@type": "PostalAddress", "streetAddress": "Walbhatt Road, Goregaon East", "addressLocality": "Mumbai", "addressRegion": "Maharashtra", "postalCode": "400063", "addressCountry": "IN" },
-    "geo": { "@type": "GeoCoordinates", "latitude": 19.0176, "longitude": 72.8479 },
-    "areaServed": ["India", "Global"],
-    "telephone": "+91 9930744723",
-    "priceRange": "$$",
-    "image": "https://www.aiflowix.in/assets/og-image.png"
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "AIFLOWIX",
+        "url": "https://aiflowix.in",
+        "logo": "https://aiflowix.in/logo.png",
+        "description": "AI agency — workflow automation, web development, custom AI software development, and AI consulting for businesses of all sizes.",
+        "sameAs": [
+          "https://www.linkedin.com/company/aiflowix",
+          "https://twitter.com/aiflowix"
+        ]
+      },
+      {
+        "@type": ["LocalBusiness", "ProfessionalService"],
+        "name": "AIFLOWIX",
+        "url": "https://aiflowix.in",
+        "description": "AI agency — workflow automation, web development, custom AI software development, and AI consulting for businesses of all sizes.",
+        "address": { 
+          "@type": "PostalAddress", 
+          "streetAddress": "Walbhatt Road, Goregaon East", 
+          "addressLocality": "Mumbai", 
+          "addressRegion": "Maharashtra", 
+          "postalCode": "400063", 
+          "addressCountry": "IN" 
+        },
+        "geo": { 
+          "@type": "GeoCoordinates", 
+          "latitude": 19.0176, 
+          "longitude": 72.8479 
+        },
+        "areaServed": ["Global", "United States", "United Kingdom", "Canada", "Australia", "United Arab Emirates", "India"],
+        "telephone": "+91 9930744723",
+        "priceRange": "$$",
+        "image": "https://aiflowix.in/logo.png"
+      }
+    ]
   }
   </script>
 </head>

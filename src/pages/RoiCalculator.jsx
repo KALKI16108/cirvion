@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Calculator, DollarSign, Clock } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
-import { submitRoiCalculation } from '../lib/api';
+import { submitRoiCalculation } from '../lib/leads';
 import toast from 'react-hot-toast';
 
 const RoiCalculator = () => {

@@ -111,6 +111,9 @@ const generateSitemap = () => {
     xml += `</urlset>`;
 
     fs.writeFileSync(path.join(__dirname, 'public/sitemap.xml'), xml);
+    if (fs.existsSync(path.join(__dirname, 'dist'))) {
+        fs.writeFileSync(path.join(__dirname, 'dist/sitemap.xml'), xml);
+    }
     console.log('✅ sitemap.xml generated successfully with correct canonical URLs!');
 };
 

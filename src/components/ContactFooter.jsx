@@ -1,8 +1,10 @@
 import React, { useState, useRef, lazy, Suspense } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Send, CheckCircle2 } from 'lucide-react';
 import toast from 'react-hot-toast';
-import { trackFormStart, trackFormSubmit } from '../lib/analytics';
+import { trackFormStart, trackFormSubmit, trackBookCallClick } from '../lib/analytics';
+import { getCalendarBookingUrl } from '../lib/booking';
+import { submitAuditRequest } from '../lib/leads';
 
 // Lazy-load modal components to reduce initial bundle size (performance optimization)
 const PrivacyPolicy = lazy(() => import('./PrivacyPolicy'));
@@ -26,12 +28,18 @@ const validateEmail = (email) => {
 };
 
 const validatePhone = (phone) => {
-    // Allow digits, spaces, hyphens, parentheses, and + symbol
-    const phoneRegex = /^[0-9\s\-+()]+$/;
-    return phone === '' || phoneRegex.test(phone);
+    if (!phone || typeof phone !== 'string' || phone.trim() === '') return true; // Optional field
+    const cleaned = phone.trim();
+    // Allow international format: optional +, then 6-25 characters of digits, spaces, hyphens, dots, parentheses
+    const phoneRegex = /^(\+?[0-9\s\-().]{6,25})$/;
+    return phoneRegex.test(cleaned);
 };
 
 const ContactFooter = () => {
+    const location = useLocation();
+    const isAuditPage = location.pathname === '/free-ai-audit';
+    const calendarUrl = getCalendarBookingUrl();
+
     const [showPrivacy, setShowPrivacy] = useState(false);
     const [showTerms, setShowTerms] = useState(false);
     const [showCookie, setShowCookie] = useState(false);
@@ -42,6 +50,8 @@ const ContactFooter = () => {
         name: '',
         email: '',
         company_name: '',
+        phone: '',
+        country_code: '+1',
         website: '',
         team_size: '',
         monthly_revenue: '',
@@ -72,6 +82,7 @@ const ContactFooter = () => {
         const name = (formData.name || '').trim();
         const email = (formData.email || '').trim();
         const companyName = (formData.company_name || '').trim();
+        const rawPhone = (formData.phone || '').trim();
 
         if (!name) {
             toast.error('Please enter your name.');
@@ -83,6 +94,10 @@ const ContactFooter = () => {
         }
         if (!companyName) {
             toast.error('Please enter your company name.');
+            return;
+        }
+        if (rawPhone && !validatePhone(rawPhone)) {
+            toast.error('Please enter a valid phone number or leave it blank.');
             return;
         }
         setStep(2);
@@ -102,6 +117,7 @@ const ContactFooter = () => {
         const email = (formData.email || '').trim();
         const companyName = (formData.company_name || '').trim();
         const website = (formData.website || '').trim();
+        const rawPhone = (formData.phone || '').trim();
         const teamSize = (formData.team_size || '').trim();
         const monthlyRevenue = (formData.monthly_revenue || '').trim();
         const biggestBottleneck = (formData.biggest_bottleneck || '').trim();
@@ -122,6 +138,15 @@ const ContactFooter = () => {
             setStep(1);
             return;
         }
+        if (rawPhone && !validatePhone(rawPhone)) {
+            toast.error('Please enter a valid phone number or leave it blank.');
+            setStep(1);
+            return;
+        }
+
+        const finalPhone = rawPhone 
+            ? (rawPhone.startsWith('+') ? rawPhone : `${formData.country_code || ''} ${rawPhone}`.trim())
+            : '';
 
         // Verify Step 2 fields
         if (!teamSize || teamSize === 'Select...') {
@@ -145,12 +170,11 @@ const ContactFooter = () => {
         setErrorMessage('');
 
         try {
-            // Dynamically import submitAuditRequest on demand to avoid bundling Supabase on initial page load
-            const { submitAuditRequest } = await import('../lib/api');
-            // Combine all seven fields from Step 1 and Step 2 into one Web3Forms payload
+            // Direct call to statically imported submitAuditRequest (zero runtime dynamic import failure)
             await submitAuditRequest({
                 name,
                 email,
+                phone: finalPhone,
                 company_name: companyName,
                 website,
                 team_size: teamSize,
@@ -166,6 +190,8 @@ const ContactFooter = () => {
                 name: '',
                 email: '',
                 company_name: '',
+                phone: '',
+                country_code: '+1',
                 website: '',
                 team_size: '',
                 monthly_revenue: '',
@@ -176,7 +202,10 @@ const ContactFooter = () => {
         } catch (error) {
             console.error('Form submission error:', error);
             setSubmitStatus('error');
-            const friendlyErr = error?.message || 'Unable to submit your request. Please try again.';
+            let friendlyErr = error?.message || 'Unable to submit your request. Please try again.';
+            if (/dynamically imported module|failed to fetch/i.test(friendlyErr)) {
+                friendlyErr = 'A temporary network error occurred. Your details are preserved—please click Submit again.';
+            }
             setErrorMessage(friendlyErr);
             toast.error(friendlyErr);
         } finally {
@@ -198,10 +227,10 @@ const ContactFooter = () => {
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] sm:w-[800px] h-[300px] sm:h-[400px] bg-[#00C8FF]/5 rounded-full blur-[120px] pointer-events-none"></div>
 
                 <div className="container mx-auto px-4 sm:px-6 relative z-10">
-                    <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 mb-8 sm:mb-10 lg:mb-12">
+                    <div className={isAuditPage ? "max-w-4xl mx-auto mb-8 sm:mb-10" : "flex flex-col lg:grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 mb-8 sm:mb-10 lg:mb-12"}>
 
                         {/* Left Column: Contact Info & Navigation (Order 2 on Mobile, Order 1 on Desktop) */}
-                        <div className="order-2 lg:order-1">
+                        <div className={isAuditPage ? "w-full" : "order-2 lg:order-1"}>
                             <div className="mb-6 sm:mb-8">
                                 <p className="text-[#94A3B8] text-xs sm:text-sm max-w-md leading-relaxed">
                                     Empowering scaling businesses worldwide with intelligent custom AI & workflow automation.
@@ -215,8 +244,8 @@ const ContactFooter = () => {
                                         <MapPin className="text-[#00C8FF] w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 group-hover:text-white transition-colors" />
                                     </div>
                                     <div>
-                                        <h3 className="text-white font-bold text-sm sm:text-base md:text-lg mb-0.5 sm:mb-1">Headquarters</h3>
-                                        <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base">Mumbai, India</p>
+                                        <h3 className="text-white font-bold text-sm sm:text-base md:text-lg mb-0.5 sm:mb-1">Global Delivery & HQ</h3>
+                                        <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base">Mumbai, India • Serving US, UK, Canada, UAE & Worldwide</p>
                                     </div>
                                 </div>
 
@@ -235,7 +264,7 @@ const ContactFooter = () => {
                                         <Phone className="text-[#00C8FF] w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 group-hover:text-white transition-colors" />
                                     </div>
                                     <div>
-                                        <h3 className="text-white font-bold text-sm sm:text-base md:text-lg mb-0.5 sm:mb-1">WhatsApp</h3>
+                                        <h3 className="text-white font-bold text-sm sm:text-base md:text-lg mb-0.5 sm:mb-1">WhatsApp & Direct Line</h3>
                                         <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base">+91 99307 44723</p>
                                     </div>
                                 </div>
@@ -291,116 +320,166 @@ const ContactFooter = () => {
                         </div>
 
                         {/* Right Column: 2-Step Form (Order 1 on Mobile, Order 2 on Desktop) */}
-                        <div className="order-1 lg:order-2 bg-[#1E293B]/30 backdrop-blur-xl border border-white/10 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-2xl relative">
-                            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1 sm:mb-2">Request Free Audit</h2>
-                            <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base mb-6">Find out exactly where your business is bleeding time and money.</p>
+                        {!isAuditPage && (
+                            <div className="order-1 lg:order-2 bg-[#1E293B]/30 backdrop-blur-xl border border-white/10 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-2xl relative">
+                                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1 sm:mb-2">Request a Free AI Automation Audit</h2>
+                                <p className="text-[#94A3B8] text-xs sm:text-sm md:text-base mb-4">Get a written technical review of your bottlenecks, integration scope, and automation roadmap from our senior engineers.</p>
 
-                            {submitStatus === 'success' ? (
-                                <div className="text-center py-8 sm:py-12 animate-in fade-in duration-300">
-                                    <div className="w-16 h-16 rounded-full bg-[#10B981]/10 border border-[#10B981]/20 flex items-center justify-center mx-auto mb-4 sm:mb-6">
-                                        <CheckCircle2 className="w-8 h-8 text-[#10B981]" />
+                                {calendarUrl && (
+                                    <div className="mb-6 p-3 rounded-xl bg-[#00C8FF]/10 border border-[#00C8FF]/20 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 text-xs">
+                                        <span className="text-[#E2E8F0]">Prefer direct 1-on-1 scheduling?</span>
+                                        <a
+                                            href={calendarUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            onClick={() => trackBookCallClick('calendar', 'Footer Form Header')}
+                                            className="inline-flex items-center gap-1 font-bold text-[#00C8FF] hover:underline whitespace-nowrap"
+                                        >
+                                            Book on Calendar &rarr;
+                                        </a>
                                     </div>
-                                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Audit Request Received!</h3>
-                                    <p className="text-[#94A3B8] text-sm max-w-sm mx-auto mb-6">We'll review your details and reach out within 24 hours to schedule your free audit.</p>
-                                    <button
-                                        type="button"
-                                        onClick={() => setSubmitStatus('')}
-                                        className="text-xs sm:text-sm text-[#00C8FF] hover:underline transition-colors"
-                                    >
-                                        Submit another request
-                                    </button>
-                                </div>
-                            ) : (
-                                <>
-                                    <div className="mb-6">
-                                        <div className="flex justify-between items-center mb-2">
-                                            <span className="text-[10px] sm:text-xs font-medium text-[#94A3B8] uppercase">Step {step} of 2</span>
-                                            <span className="text-[10px] sm:text-xs font-medium text-[#00C8FF] uppercase">{step === 1 ? 'Contact Info' : 'Business Details'}</span>
+                                )}
+
+                                {submitStatus === 'success' ? (
+                                    <div className="text-center py-8 sm:py-12 animate-in fade-in duration-300">
+                                        <div className="w-16 h-16 rounded-full bg-[#10B981]/10 border border-[#10B981]/20 flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                                            <CheckCircle2 className="w-8 h-8 text-[#10B981]" />
                                         </div>
-                                        <div className="w-full bg-[#0F172A] rounded-full h-1.5">
-                                            <div className={`bg-[#00C8FF] h-1.5 rounded-full transition-all duration-500 ${step === 1 ? 'w-1/2' : 'w-full'}`}></div>
-                                        </div>
+                                        <h3 className="text-xl sm:text-2xl font-bold text-white mb-2">Audit Request Received!</h3>
+                                        <p className="text-[#94A3B8] text-sm max-w-sm mx-auto mb-6">We'll review your details and reach out within 24 hours to schedule your free audit.</p>
+                                        <button
+                                            type="button"
+                                            onClick={() => setSubmitStatus('')}
+                                            className="text-xs sm:text-sm text-[#00C8FF] hover:underline transition-colors"
+                                        >
+                                            Submit another request
+                                        </button>
                                     </div>
-
-                                    {submitStatus === 'error' && errorMessage && (
-                                        <div className="p-3 mb-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-xs sm:text-sm">
-                                            {errorMessage}
+                                ) : (
+                                    <>
+                                        <div className="mb-6">
+                                            <div className="flex justify-between items-center mb-2">
+                                                <span className="text-[10px] sm:text-xs font-medium text-[#94A3B8] uppercase">Step {step} of 2</span>
+                                                <span className="text-[10px] sm:text-xs font-medium text-[#00C8FF] uppercase">{step === 1 ? 'Contact Info' : 'Business Details'}</span>
+                                            </div>
+                                            <div className="w-full bg-[#0F172A] rounded-full h-1.5">
+                                                <div className={`bg-[#00C8FF] h-1.5 rounded-full transition-all duration-500 ${step === 1 ? 'w-1/2' : 'w-full'}`}></div>
+                                            </div>
                                         </div>
-                                    )}
 
-                                    <form className="space-y-4 sm:space-y-6" onSubmit={step === 1 ? handleNext : handleSubmit}>
-                                        {/* Web3Forms Honeypot for spam prevention */}
-                                        <input type="checkbox" name="botcheck" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
-                                        {step === 1 ? (
-                                            <div className="space-y-4 sm:space-y-6 animate-in fade-in slide-in-from-left-4 duration-300">
-                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                                    <div className="group">
-                                                        <label htmlFor="footer-name" className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Name <span className="text-red-400">*</span></label>
-                                                        <input id="footer-name" type="text" name="name" value={formData.name} onChange={handleChange} required placeholder="John Doe" aria-label="Full Name" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all" />
+                                        {submitStatus === 'error' && errorMessage && (
+                                            <div className="p-3 mb-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-xs sm:text-sm">
+                                                {errorMessage}
+                                            </div>
+                                        )}
+
+                                        <form className="space-y-4 sm:space-y-6" onSubmit={step === 1 ? handleNext : handleSubmit}>
+                                            {/* Web3Forms Honeypot for spam prevention */}
+                                            <input type="checkbox" name="botcheck" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
+                                            {step === 1 ? (
+                                                <div className="space-y-4 sm:space-y-6 animate-in fade-in slide-in-from-left-4 duration-300">
+                                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                                        <div className="group">
+                                                            <label htmlFor="footer-name" className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Name <span className="text-red-400">*</span></label>
+                                                            <input id="footer-name" type="text" name="name" value={formData.name} onChange={handleChange} required placeholder="John Doe" aria-label="Full Name" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all" />
+                                                        </div>
+                                                        <div className="group">
+                                                            <label htmlFor="footer-email" className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Work Email <span className="text-red-400">*</span></label>
+                                                            <input id="footer-email" type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="john@company.com" aria-label="Work Email" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all" />
+                                                        </div>
                                                     </div>
-                                                    <div className="group">
-                                                        <label htmlFor="footer-email" className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Work Email <span className="text-red-400">*</span></label>
-                                                        <input id="footer-email" type="email" name="email" value={formData.email} onChange={handleChange} required placeholder="john@company.com" aria-label="Work Email" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all" />
-                                                    </div>
-                                                </div>
-                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                                     <div className="group">
                                                         <label htmlFor="footer-company" className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Company Name <span className="text-red-400">*</span></label>
                                                         <input id="footer-company" type="text" name="company_name" value={formData.company_name} onChange={handleChange} required placeholder="Acme Corp" aria-label="Company Name" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all" />
                                                     </div>
-                                                    <div className="group">
-                                                        <label htmlFor="footer-website" className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Website</label>
-                                                        <input id="footer-website" type="url" name="website" value={formData.website} onChange={handleChange} placeholder="https://company.com" aria-label="Company Website" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all" />
+                                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                                        <div className="group">
+                                                            <label htmlFor="footer-phone" className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Phone Number (Optional)</label>
+                                                            <div className="flex rounded-xl border border-white/10 bg-[#0F172A] focus-within:border-[#00C8FF] focus-within:ring-1 focus-within:ring-[#00C8FF] transition-all overflow-hidden">
+                                                                <select
+                                                                    name="country_code"
+                                                                    value={formData.country_code || '+1'}
+                                                                    onChange={handleChange}
+                                                                    aria-label="Country Code"
+                                                                    className="bg-[#1E293B] text-[11px] sm:text-xs text-[#94A3B8] px-2 py-3 border-r border-white/10 focus:outline-none cursor-pointer shrink-0"
+                                                                >
+                                                                    <option value="+1">🇺🇸 +1</option>
+                                                                    <option value="+44">🇬🇧 +44</option>
+                                                                    <option value="+91">🇮🇳 +91</option>
+                                                                    <option value="+971">🇦🇪 +971</option>
+                                                                    <option value="+61">🇦🇺 +61</option>
+                                                                    <option value="+65">🇸🇬 +65</option>
+                                                                    <option value="+49">🇩🇪 +49</option>
+                                                                    <option value="+33">🇫🇷 +33</option>
+                                                                    <option value="+81">🇯🇵 +81</option>
+                                                                    <option value="">Other</option>
+                                                                </select>
+                                                                <input
+                                                                    id="footer-phone"
+                                                                    type="tel"
+                                                                    name="phone"
+                                                                    value={formData.phone}
+                                                                    onChange={handleChange}
+                                                                    placeholder="+1 415 555 0132"
+                                                                    aria-label="Phone Number (Optional)"
+                                                                    className="w-full bg-transparent px-3 py-3 text-sm text-white placeholder-[#64748B] focus:outline-none"
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                        <div className="group">
+                                                            <label htmlFor="footer-website" className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Website (Optional)</label>
+                                                            <input id="footer-website" type="url" name="website" value={formData.website} onChange={handleChange} placeholder="https://company.com" aria-label="Website (Optional)" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all" />
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <button type="submit" className="w-full bg-gradient-to-r from-[#00C8FF] to-[#3B82F6] text-white font-bold py-3 sm:py-4 rounded-xl hover:shadow-[0_0_30px_rgba(0,200,255,0.4)] transition-all flex items-center justify-center gap-2 group">
-                                                    Next Step
-                                                    <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                                                </button>
-                                            </div>
-                                        ) : (
-                                            <div className="space-y-4 sm:space-y-6 animate-in fade-in slide-in-from-right-4 duration-300">
-                                                <div className="grid grid-cols-2 gap-4">
-                                                    <div className="group">
-                                                        <label htmlFor="footer-team-size" className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Team Size <span className="text-red-400">*</span></label>
-                                                        <select id="footer-team-size" required name="team_size" value={formData.team_size} onChange={handleChange} aria-label="Team Size" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all appearance-none">
-                                                            <option value="" disabled>Select...</option>
-                                                            <option value="1-10">1-10</option>
-                                                            <option value="11-50">11-50</option>
-                                                            <option value="51-200">51-200</option>
-                                                            <option value="200+">200+</option>
-                                                        </select>
-                                                    </div>
-                                                    <div className="group">
-                                                        <label htmlFor="footer-monthly-revenue" className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Monthly Revenue <span className="text-red-400">*</span></label>
-                                                        <select id="footer-monthly-revenue" required name="monthly_revenue" value={formData.monthly_revenue} onChange={handleChange} aria-label="Monthly Revenue" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all appearance-none">
-                                                            <option value="" disabled>Select...</option>
-                                                            <option value="<$10k">&lt;$10k</option>
-                                                            <option value="$10k-$50k">$10k - $50k</option>
-                                                            <option value="$50k-$200k">$50k - $200k</option>
-                                                            <option value="$200k+">$200k+</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div className="group">
-                                                    <label htmlFor="footer-bottleneck" className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Biggest Bottleneck <span className="text-red-400">*</span></label>
-                                                    <textarea id="footer-bottleneck" required name="biggest_bottleneck" value={formData.biggest_bottleneck} onChange={handleChange} placeholder="E.g., We spend 20 hours a week on manual data entry..." aria-label="Biggest Bottleneck" rows="3" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all resize-none"></textarea>
-                                                </div>
-                                                <div className="flex gap-3">
-                                                    <button type="button" onClick={handleBack} className="w-1/3 bg-transparent border border-white/20 text-white font-medium py-3 sm:py-4 rounded-xl hover:bg-white/5 transition-colors">
-                                                        Back
-                                                    </button>
-                                                    <button type="submit" disabled={isSubmitting} className="w-2/3 bg-gradient-to-r from-[#00C8FF] to-[#3B82F6] text-white font-bold py-3 sm:py-4 rounded-xl hover:shadow-[0_0_30px_rgba(0,200,255,0.4)] transition-all flex items-center justify-center gap-2 disabled:opacity-50">
-                                                        {isSubmitting ? 'Sending...' : 'Get Free Audit'}
-                                                        <Send className="w-4 h-4" />
+                                                    <button type="submit" className="w-full bg-gradient-to-r from-[#00C8FF] to-[#3B82F6] text-white font-bold py-3 sm:py-4 rounded-xl hover:shadow-[0_0_30px_rgba(0,200,255,0.4)] transition-all flex items-center justify-center gap-2 group">
+                                                        Next Step
+                                                        <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                                     </button>
                                                 </div>
-                                            </div>
-                                        )}
-                                    </form>
-                                </>
-                            )}
-                        </div>
+                                            ) : (
+                                                <div className="space-y-4 sm:space-y-6 animate-in fade-in slide-in-from-right-4 duration-300">
+                                                    <div className="grid grid-cols-2 gap-4">
+                                                        <div className="group">
+                                                            <label htmlFor="footer-team-size" className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Team Size <span className="text-red-400">*</span></label>
+                                                            <select id="footer-team-size" required name="team_size" value={formData.team_size} onChange={handleChange} aria-label="Team Size" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all appearance-none">
+                                                                <option value="" disabled>Select...</option>
+                                                                <option value="1-10">1-10</option>
+                                                                <option value="11-50">11-50</option>
+                                                                <option value="51-200">51-200</option>
+                                                                <option value="200+">200+</option>
+                                                            </select>
+                                                        </div>
+                                                        <div className="group">
+                                                            <label htmlFor="footer-monthly-revenue" className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Monthly Revenue <span className="text-red-400">*</span></label>
+                                                            <select id="footer-monthly-revenue" required name="monthly_revenue" value={formData.monthly_revenue} onChange={handleChange} aria-label="Monthly Revenue" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all appearance-none">
+                                                                <option value="" disabled>Select...</option>
+                                                                <option value="<$10k">&lt;$10k</option>
+                                                                <option value="$10k-$50k">$10k - $50k</option>
+                                                                <option value="$50k-$200k">$50k - $200k</option>
+                                                                <option value="$200k+">$200k+</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div className="group">
+                                                        <label htmlFor="footer-bottleneck" className="block text-[10px] sm:text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-1 ml-1">Biggest Bottleneck <span className="text-red-400">*</span></label>
+                                                        <textarea id="footer-bottleneck" required name="biggest_bottleneck" value={formData.biggest_bottleneck} onChange={handleChange} placeholder="E.g., We spend 20 hours a week on manual data entry..." aria-label="Biggest Bottleneck" rows="3" className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:border-[#00C8FF] focus:ring-1 focus:ring-[#00C8FF] transition-all resize-none"></textarea>
+                                                    </div>
+                                                    <div className="flex gap-3">
+                                                        <button type="button" onClick={handleBack} className="w-1/3 bg-transparent border border-white/20 text-white font-medium py-3 sm:py-4 rounded-xl hover:bg-white/5 transition-colors">
+                                                            Back
+                                                        </button>
+                                                        <button type="submit" disabled={isSubmitting} className="w-2/3 bg-gradient-to-r from-[#00C8FF] to-[#3B82F6] text-white font-bold py-3 sm:py-4 rounded-xl hover:shadow-[0_0_30px_rgba(0,200,255,0.4)] transition-all flex items-center justify-center gap-2 disabled:opacity-50">
+                                                            {isSubmitting ? 'Sending...' : 'Get Free Audit'}
+                                                            <Send className="w-4 h-4" />
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            )}
+                                        </form>
+                                    </>
+                                )}
+                            </div>
+                        )}
                     </div>
 
                     <div className="border-t border-white/5 pt-4 sm:pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4 text-[#94A3B8] text-xs sm:text-sm">

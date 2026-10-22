@@ -1,172 +1,42 @@
-import { supabase } from './supabase';
+import { supabase } from './supabase.js';
 import staticBlogs from '../data/blogs.json';
-import { submitToWeb3Forms } from './web3forms';
-import { trackLeadSubmission } from './analytics';
+import { submitToWeb3Forms } from './web3forms.js';
+import { trackLeadSubmission } from './analytics.js';
 
-// --- FORM SUBMISSIONS ---
-
-function saveLeadToLocalStorage(type, leadData) {
-    try {
-        const existing = JSON.parse(localStorage.getItem('aiflowix_saved_leads') || '[]');
-        const newRecord = {
-            id: Date.now(),
-            type,
-            created_at: new Date().toISOString(),
-            ...leadData
-        };
-        existing.unshift(newRecord);
-        localStorage.setItem('aiflowix_saved_leads', JSON.stringify(existing.slice(0, 100)));
-    } catch {
-        // Safe fallback
-    }
-}
+// Form submission functions powered by resilient leads.js module
+import {
+    submitContactForm as leadsSubmitContactForm,
+    submitAuditRequest as leadsSubmitAuditRequest,
+    submitRoiCalculation as leadsSubmitRoiCalculation,
+    submitReadinessAssessment as leadsSubmitReadinessAssessment
+} from './leads.js';
 
 export async function submitContactForm(data) {
-    const payload = {
-        subject: data.subject || 'New AIFlowix Website Enquiry',
-        source: data.source || 'AIFlowix Website',
-        form_type: 'Contact Form',
-        name: data.name,
-        email: data.email,
-        phone: data.phone || 'N/A',
-        company: data.company || 'N/A',
-        service: data.service || 'General Inquiry',
-        message: data.message || '',
-        ...data
-    };
-
-    saveLeadToLocalStorage('Contact Form', payload);
-
-    const result = await submitToWeb3Forms(payload);
-
-    // Fire confirmed conversion event ONLY after successful API submission
+    const result = await leadsSubmitContactForm(data);
     if (result && result.success) {
-        trackLeadSubmission('Contact Form', { service: data.service || 'General' });
+        // Verified conversion tracked in leads.js
     }
-
-    // Optional backup to Supabase
-    try {
-        await supabase.functions.invoke('submit-contact', { body: data });
-    } catch {
-        // Safe to ignore if Supabase is offline
-    }
-
     return result;
 }
 
 export async function submitAuditRequest(data) {
-    const companyName = data.company_name || data.company || '';
-    const teamSize = data.team_size || data.teamSize || '';
-    const monthlyRevenue = data.monthly_revenue || data.monthlyRevenue || '';
-    const biggestBottleneck = data.biggest_bottleneck || data.painPoints || data.bottleneck || '';
-
-    const payload = {
-        subject: data.subject || 'New AIFlowix Free Audit Request',
-        source: data.source || 'AIFlowix Website',
-        form_type: 'Free Audit',
-        name: data.name,
-        email: data.email,
-        company_name: companyName,
-        website: data.website || '',
-        team_size: teamSize,
-        monthly_revenue: monthlyRevenue,
-        biggest_bottleneck: biggestBottleneck
-    };
-
-    saveLeadToLocalStorage('Free Audit', payload);
-
-    const result = await submitToWeb3Forms(payload);
-
-    // Fire confirmed conversion event ONLY after successful API submission
+    const result = await leadsSubmitAuditRequest(data);
     if (result && result.success) {
-        trackLeadSubmission('Free Audit', {
-            team_size: teamSize,
-            revenue_tier: monthlyRevenue
-        });
+        // Verified conversion tracked in leads.js
     }
-
-    // Optional backup to Supabase
-    try {
-        await supabase.from('audit_requests').insert([{
-            name: data.name,
-            email: data.email,
-            company: companyName,
-            website: data.website || '',
-            teamSize: teamSize,
-            monthlyRevenue: monthlyRevenue,
-            painPoints: biggestBottleneck
-        }]);
-    } catch {
-        // Safe to ignore if Supabase is offline
-    }
-
     return result;
 }
 
 export async function submitRoiCalculation(data) {
-    const payload = {
-        subject: 'New AIFlowix ROI Report Request',
-        source: 'AIFlowix Website',
-        form_type: 'ROI Calculator',
-        name: data.name,
-        email: data.email,
-        employees: data.employees,
-        hours_per_week: data.hoursPerWeek,
-        hourly_cost: data.hourlyCost,
-        monthly_cost: data.monthlyCost,
-        estimated_savings: data.estimatedSavings,
-        estimated_roi: data.estimatedRoi ? `${Math.round(data.estimatedRoi)}%` : 'N/A',
-        ...data
-    };
-
-    saveLeadToLocalStorage('ROI Calculator', payload);
-
-    const result = await submitToWeb3Forms(payload);
-
-    // Fire confirmed conversion event ONLY after successful API submission
+    const result = await leadsSubmitRoiCalculation(data);
     if (result && result.success) {
-        trackLeadSubmission('ROI Calculator', {
-            estimated_savings: data.estimatedSavings,
-            employees: data.employees
-        });
+        // Verified conversion tracked in leads.js
     }
-
-    // Optional backup to Supabase
-    try {
-        await supabase.functions.invoke('submit-roi-calculation', { body: data });
-    } catch {
-        // Safe to ignore if Supabase is offline
-    }
-
     return result;
 }
 
 export async function submitReadinessAssessment(data) {
-    const payload = {
-        subject: 'New AIFlowix Readiness Assessment Submission',
-        source: 'AIFlowix Website',
-        form_type: 'AI Readiness Assessment',
-        name: data.name,
-        email: data.email,
-        score: data.score !== undefined ? `${data.score}/100` : 'N/A',
-        recommendation: data.recommendation || '',
-        answers: data.answers || '',
-        ...data
-    };
-
-    saveLeadToLocalStorage('Readiness Quiz', payload);
-    trackLeadSubmission('Readiness Quiz', payload);
-
-    const result = await submitToWeb3Forms(payload);
-
-    // Optional backup to Supabase
-    try {
-        await supabase.functions.invoke('submit-readiness-assessment', { body: data });
-    } catch {
-        // Safe to ignore if Supabase is offline
-    }
-
-    return result;
+    return leadsSubmitReadinessAssessment(data);
 }
 
 // --- ADMIN API FUNCTIONS ---

@@ -61,9 +61,9 @@
       }
     ],
     "caseStudy": {
-      "before": "A luxury brokerage in Miami was generating 500 leads a month but only converting 2% because agents were too busy showing houses to reply to new inquiries quickly.",
+      "before": "A luxury real estate brokerage was generating high inbound lead volume but struggled with conversion because agents were frequently busy showing properties during peak inquiry hours.",
       "implementation": "We deployed an omnichannel AI agent connected to their MLS feed and Follow Up Boss CRM. The agent engaged leads via SMS within 30 seconds, answering specific questions about HOA fees, square footage, and school districts based on live MLS data.",
-      "after": "Lead conversion increased to 5.5%. The brokerage closed an additional ₹996M in volume in Q3 solely attributed to the AI handling initial qualification."
+      "after": "Lead engagement and appointment bookings improved substantially. The brokerage accelerated deal velocity across their pipeline, allowing agents to focus exclusively on qualified, high-intent buyers."
     },
     "eeat": [
       "Deep integrations with industry-standard tools: Follow Up Boss, kvCORE, Lofty, and direct MLS API feeds.",
@@ -160,7 +160,7 @@
     ],
     "useCases": [
       {
-        "problem": "Dental clinic losing ₹4,15,000/week due to last-minute patient cancellations.",
+        "problem": "Multi-chair dental clinic losing significant weekly revenue due to last-minute patient cancellations.",
         "solution": "When a cancellation text is received, the AI automatically texts patients on the waitlist offering the open slot.",
         "result": "Recaptured 85% of cancelled appointments within 10 minutes.",
         "stack": "Twilio SMS + Custom API + Open Dental"
@@ -175,7 +175,7 @@
     "caseStudy": {
       "before": "A network of physical therapy clinics was overwhelmed by 400+ daily phone calls. Wait times averaged 12 minutes, leading to abandoned calls and lost new patients.",
       "implementation": "We deployed a HIPAA-compliant AI Voice Agent using Twilio and a secure, private LLM. The agent answered instantly, triaged the reason for the call, and booked new evaluations directly into their EMR via API.",
-      "after": "Hold times dropped to zero. The clinic captured 40 additional new patient evaluations per month that were previously abandoning the call, adding roughly ₹49,80,000 in monthly top-line revenue."
+      "after": "Hold times dropped to zero. The clinic captured 40 additional new patient evaluations per month that were previously abandoning calls, significantly expanding clinical capacity and monthly revenue."
     },
     "eeat": [
       "We utilize strictly HIPAA-compliant infrastructure (e.g., Google Cloud Healthcare API, AWS HealthLake, Enterprise OpenAI with zero-retention).",

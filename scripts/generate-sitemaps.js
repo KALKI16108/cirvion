@@ -71,12 +71,27 @@ fs.writeFileSync(path.join(process.cwd(), 'public/sitemap-services.xml'), servic
 const caseStudiesXml = generateUrlSet(caseStudyPages.map(p => ({ loc: p, priority: '0.9', changefreq: 'weekly' })));
 fs.writeFileSync(path.join(process.cwd(), 'public/sitemap-case-studies.xml'), caseStudiesXml);
 
+// Read locations
+const locationsPath = path.join(process.cwd(), 'src/data/locations.json');
+let locations = [];
+try {
+  const content = fs.readFileSync(locationsPath, 'utf8');
+  locations = JSON.parse(content);
+} catch (e) {
+  console.error('Error reading locations.json:', e);
+}
+
 // 4. Blogs sitemap
 const blogUrls = blogs.map(b => ({ loc: `/blog/${b.slug}`, priority: '0.8', changefreq: 'monthly' }));
 const blogsXml = generateUrlSet(blogUrls);
 fs.writeFileSync(path.join(process.cwd(), 'public/sitemap-blogs.xml'), blogsXml);
 
-// 5. Sitemap Index
+// 5. Locations sitemap
+const locationUrls = locations.map(l => ({ loc: `/locations/${l.slug}`, priority: '0.8', changefreq: 'monthly' }));
+const locationsXml = generateUrlSet(locationUrls);
+fs.writeFileSync(path.join(process.cwd(), 'public/sitemap-locations.xml'), locationsXml);
+
+// 6. Sitemap Index
 const sitemapIndexXml = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
@@ -89,6 +104,10 @@ const sitemapIndexXml = `<?xml version="1.0" encoding="UTF-8"?>
   </sitemap>
   <sitemap>
     <loc>${domain}/sitemap-case-studies.xml</loc>
+    <lastmod>${today}</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>${domain}/sitemap-locations.xml</loc>
     <lastmod>${today}</lastmod>
   </sitemap>
   <sitemap>

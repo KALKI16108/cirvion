@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ClipboardCheck, ArrowRight, CheckCircle2 } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
-import { submitReadinessAssessment } from '../lib/api';
+import { submitReadinessAssessment } from '../lib/leads';
 import toast from 'react-hot-toast';
 
 const questions = [

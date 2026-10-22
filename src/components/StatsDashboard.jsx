@@ -1,13 +1,22 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Timer, IndianRupee } from 'lucide-react';
+import { Timer, TrendingUp } from 'lucide-react';
 
 const StatsDashboard = ({ statistics }) => {
     if (!statistics || statistics.length === 0) return null;
 
     return (
         <div className="my-16">
-            <h2 className="text-2xl font-bold text-white mb-8">Measurable Business Impact</h2>
+            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-8">
+                <div>
+                    <h2 className="text-2xl font-bold text-white">Target Operational Benchmarks</h2>
+                    <p className="text-xs text-[#94A3B8] mt-1">Illustrative benchmark targets achieved through automated workflow engineering.</p>
+                </div>
+                <span className="text-[11px] uppercase tracking-wider font-semibold px-2.5 py-1 rounded bg-white/5 border border-white/10 text-[#00C8FF] w-fit">
+                    Engineering Targets
+                </span>
+            </div>
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {statistics.map((stat, index) => (
                     <motion.div 
@@ -22,7 +31,7 @@ const StatsDashboard = ({ statistics }) => {
                         <div className="text-sm font-bold text-white mb-2">{stat.impact}</div>
                         <div className="text-xs text-[#94A3B8] border-t border-white/10 pt-3 w-full mt-3 flex flex-col items-center gap-1.5">
                             <span className="flex items-center justify-center gap-1.5"><Timer className="w-3.5 h-3.5 text-[#00C8FF]" /> {stat.time}</span>
-                            <span className="flex items-center justify-center gap-1.5"><IndianRupee className="w-3.5 h-3.5 text-[#10B981]" /> {stat.revenue}</span>
+                            <span className="flex items-center justify-center gap-1.5"><TrendingUp className="w-3.5 h-3.5 text-[#10B981]" /> {stat.revenue}</span>
                         </div>
                     </motion.div>
                 ))}

@@ -2,10 +2,17 @@ import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { FileText, CheckCircle2, ArrowRight, ArrowLeft } from 'lucide-react';
 import SEOHead from '../components/SEOHead';
-import { submitAuditRequest } from '../lib/api';
+import { submitAuditRequest } from '../lib/leads';
 import { validateEmail } from '../security';
 import { trackFormStart, trackFormSubmit } from '../lib/analytics';
 import toast from 'react-hot-toast';
+
+const validatePhone = (phone) => {
+    if (!phone || typeof phone !== 'string' || phone.trim() === '') return true; // Optional field
+    const cleaned = phone.trim();
+    const phoneRegex = /^(\+?[0-9\s\-().]{6,25})$/;
+    return phoneRegex.test(cleaned);
+};
 
 const FreeAiAudit = () => {
     const [step, setStep] = useState(1);
@@ -16,6 +23,8 @@ const FreeAiAudit = () => {
         name: '',
         email: '',
         company_name: '',
+        phone: '',
+        country_code: '+1',
         website: '',
         team_size: '',
         monthly_revenue: '',
@@ -35,6 +44,7 @@ const FreeAiAudit = () => {
         const name = (formData.name || '').trim();
         const email = (formData.email || '').trim();
         const companyName = (formData.company_name || '').trim();
+        const rawPhone = (formData.phone || '').trim();
 
         if (!name) {
             toast.error('Please enter your name.');
@@ -46,6 +56,10 @@ const FreeAiAudit = () => {
         }
         if (!companyName) {
             toast.error('Please enter your company name.');
+            return;
+        }
+        if (rawPhone && !validatePhone(rawPhone)) {
+            toast.error('Please enter a valid phone number or leave it blank.');
             return;
         }
         setStep(2);
@@ -63,6 +77,7 @@ const FreeAiAudit = () => {
         const email = (formData.email || '').trim();
         const companyName = (formData.company_name || '').trim();
         const website = (formData.website || '').trim();
+        const rawPhone = (formData.phone || '').trim();
         const teamSize = (formData.team_size || '').trim();
         const monthlyRevenue = (formData.monthly_revenue || '').trim();
         const biggestBottleneck = (formData.biggest_bottleneck || '').trim();
@@ -83,6 +98,15 @@ const FreeAiAudit = () => {
             setStep(1);
             return;
         }
+        if (rawPhone && !validatePhone(rawPhone)) {
+            toast.error('Please enter a valid phone number or leave it blank.');
+            setStep(1);
+            return;
+        }
+
+        const finalPhone = rawPhone 
+            ? (rawPhone.startsWith('+') ? rawPhone : `${formData.country_code || ''} ${rawPhone}`.trim())
+            : '';
 
         // Validate Step 2 dropdowns and textarea
         if (!teamSize || teamSize === 'Select...') {
@@ -105,6 +129,7 @@ const FreeAiAudit = () => {
             await submitAuditRequest({
                 name,
                 email,
+                phone: finalPhone,
                 company_name: companyName,
                 website,
                 team_size: teamSize,
@@ -120,6 +145,8 @@ const FreeAiAudit = () => {
                 name: '',
                 email: '',
                 company_name: '',
+                phone: '',
+                country_code: '+1',
                 website: '',
                 team_size: '',
                 monthly_revenue: '',
@@ -128,7 +155,11 @@ const FreeAiAudit = () => {
             setStep(1);
         } catch (error) {
             console.error('Error submitting audit:', error);
-            toast.error(error?.message || 'Something went wrong. Please try again.');
+            let friendlyErr = error?.message || 'Something went wrong. Please try again.';
+            if (/dynamically imported module|failed to fetch/i.test(friendlyErr)) {
+                friendlyErr = 'A temporary network error occurred. Your details are saved—please click Submit again.';
+            }
+            toast.error(friendlyErr);
         } finally {
             setIsSubmitting(false);
         }
@@ -241,12 +272,45 @@ const FreeAiAudit = () => {
                                         <input required type="email" name="email" value={formData.email} onChange={handleChange} className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00C8FF] transition-colors" placeholder="john@company.com" />
                                     </div>
                                     <div className="space-y-2">
-                                        <label className="text-sm font-medium text-[#E2E8F0]">Company Name <span className="text-red-400">*</span></label>
-                                        <input required type="text" name="company_name" value={formData.company_name} onChange={handleChange} className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00C8FF] transition-colors" placeholder="Acme Corp" />
+                                        <label htmlFor="audit-company" className="text-sm font-medium text-[#E2E8F0]">Company Name <span className="text-red-400">*</span></label>
+                                        <input id="audit-company" required type="text" name="company_name" value={formData.company_name} onChange={handleChange} className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00C8FF] transition-colors" placeholder="Acme Corp" aria-label="Company Name" />
                                     </div>
                                     <div className="space-y-2">
-                                        <label className="text-sm font-medium text-[#E2E8F0]">Company Website</label>
-                                        <input type="url" name="website" value={formData.website} onChange={handleChange} className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00C8FF] transition-colors" placeholder="https://company.com" />
+                                        <label htmlFor="audit-phone" className="text-sm font-medium text-[#E2E8F0]">Phone Number (Optional)</label>
+                                        <div className="flex rounded-xl border border-white/10 bg-[#0F172A] focus-within:border-[#00C8FF] focus-within:ring-1 focus-within:ring-[#00C8FF] transition-all overflow-hidden">
+                                            <select
+                                                name="country_code"
+                                                value={formData.country_code || '+1'}
+                                                onChange={handleChange}
+                                                aria-label="Country Code"
+                                                className="bg-[#1E293B] text-xs text-[#94A3B8] px-3 py-3 border-r border-white/10 focus:outline-none cursor-pointer shrink-0"
+                                            >
+                                                <option value="+1">🇺🇸 +1</option>
+                                                <option value="+44">🇬🇧 +44</option>
+                                                <option value="+91">🇮🇳 +91</option>
+                                                <option value="+971">🇦🇪 +971</option>
+                                                <option value="+61">🇦🇺 +61</option>
+                                                <option value="+65">🇸🇬 +65</option>
+                                                <option value="+49">🇩🇪 +49</option>
+                                                <option value="+33">🇫🇷 +33</option>
+                                                <option value="+81">🇯🇵 +81</option>
+                                                <option value="">Other</option>
+                                            </select>
+                                            <input
+                                                id="audit-phone"
+                                                type="tel"
+                                                name="phone"
+                                                value={formData.phone}
+                                                onChange={handleChange}
+                                                placeholder="+1 415 555 0132"
+                                                aria-label="Phone Number (Optional)"
+                                                className="w-full bg-transparent px-4 py-3 text-white placeholder-[#64748B] focus:outline-none"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label htmlFor="audit-website" className="text-sm font-medium text-[#E2E8F0]">Website (Optional)</label>
+                                        <input id="audit-website" type="url" name="website" value={formData.website} onChange={handleChange} className="w-full bg-[#0F172A] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00C8FF] transition-colors" placeholder="https://company.com" aria-label="Website (Optional)" />
                                     </div>
                                     <button type="submit" className="w-full bg-gradient-primary hover:opacity-90 text-[#0F172A] font-bold py-4 rounded-xl transition-opacity flex items-center justify-center gap-2">
                                         Next <ArrowRight className="w-5 h-5" />
