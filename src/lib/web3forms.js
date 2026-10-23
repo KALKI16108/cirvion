@@ -57,7 +57,7 @@ export async function submitToWeb3Forms(formData) {
             },
             body: JSON.stringify(payload)
         });
-    } catch (networkError) {
+    } catch {
         throw new Error('Network error: Unable to reach form submission service. Please check your internet connection.');
     }
 

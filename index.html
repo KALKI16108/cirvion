@@ -27,6 +27,7 @@
     script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZESG1V8LVL';
     document.head.appendChild(script);
   }
+  window.loadAnalytics = loadAnalytics;
   if ('requestIdleCallback' in window) {
     window.addEventListener('load', function() {
       requestIdleCallback(function() {
@@ -38,7 +39,7 @@
       setTimeout(loadAnalytics, 2000);
     });
   }
-  ['scroll', 'touchstart', 'click'].forEach(function(e) {
+  ['scroll', 'touchstart', 'click', 'focusin', 'keydown'].forEach(function(e) {
     window.addEventListener(e, loadAnalytics, { once: true, passive: true });
   });
 </script>

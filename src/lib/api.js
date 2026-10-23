@@ -1,7 +1,5 @@
 import { supabase } from './supabase.js';
 import staticBlogs from '../data/blogs.json';
-import { submitToWeb3Forms } from './web3forms.js';
-import { trackLeadSubmission } from './analytics.js';
 
 // Form submission functions powered by resilient leads.js module
 import {

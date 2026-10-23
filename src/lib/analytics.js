@@ -52,6 +52,14 @@ const isDebugMode = () => {
 export const trackGAEvent = (eventName, params = {}) => {
   if (typeof window === 'undefined') return;
 
+  if (typeof window.loadAnalytics === 'function') {
+    try {
+      window.loadAnalytics();
+    } catch {
+      // safe fallback
+    }
+  }
+
   const sanitized = sanitizeParams(params);
   if (isDebugMode()) {
     sanitized.debug_mode = true;
